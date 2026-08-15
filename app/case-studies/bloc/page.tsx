@@ -12,6 +12,7 @@ export const metadata: Metadata = siteMeta({
 
 const data: CaseStudyData = {
   crumb: "Bloc",
+  path: "/case-studies/bloc/",
   title: (
     <>
       <span className="name">Bloc</span> — one of the <span className="caps">UK</span>’s newest social events platforms.

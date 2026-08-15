@@ -12,6 +12,7 @@ export const metadata: Metadata = siteMeta({
 
 const data: CaseStudyData = {
   crumb: "Yippee Malta",
+  path: "/case-studies/yippee-malta/",
   title: (
     <>
       the mobile-first rebuild that won <span className="name">Yippee Malta</span> their own checkout.

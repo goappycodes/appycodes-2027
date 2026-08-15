@@ -12,6 +12,7 @@ export const metadata: Metadata = siteMeta({
 
 const data: CaseStudyData = {
   crumb: "Ontick",
+  path: "/case-studies/ontick/",
   title: (
     <>
       <span className="name">Ontick</span> moved off Eventbrite onto ticketing they own.

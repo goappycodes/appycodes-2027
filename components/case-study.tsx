@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Rail } from "@/components/rail";
 import { CASE_STUDIES, LogoWall, Testimonials } from "@/components/sections";
+import { JsonLd } from "@/components/jsonld";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export type CaseBlock =
   | { t: "section"; title: string; lead?: string }
@@ -10,7 +12,10 @@ export type CaseBlock =
   | { t: "gallery"; title: string; shots: { src: string; alt: string }[] };
 
 export type CaseStudyData = {
+  /** Client name, used for the breadcrumb label and to filter the "more work" rail. */
   crumb: string;
+  /** Path of this study, e.g. "/case-studies/bloc/" — used for breadcrumb schema. */
+  path?: string;
   title: ReactNode;
   lede: string;
   facts: { label: string; value: string }[];
@@ -85,6 +90,16 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
 
   return (
     <>
+      {data.path ? (
+        <JsonLd
+          data={breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Case studies", path: "/case-studies/" },
+            { name: data.crumb, path: data.path },
+          ])}
+        />
+      ) : null}
+
       {/* HERO — same classes as the homepage hero */}
       <section className="wrap hero hero--dark">
         <p className="cs-crumb">

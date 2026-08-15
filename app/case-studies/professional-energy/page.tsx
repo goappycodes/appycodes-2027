@@ -12,6 +12,7 @@ export const metadata: Metadata = siteMeta({
 
 const data: CaseStudyData = {
   crumb: "Professional Energy",
+  path: "/case-studies/professional-energy/",
   title: (
     <>
       one platform for <span className="name">Professional Energy</span>’s tenders, contracts and accounts.
