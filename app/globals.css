@@ -229,6 +229,8 @@ a { color: inherit; text-decoration: none; }
 .mega {
   position: absolute; top: 100%; left: -.4rem;
   padding-top: 12px; /* invisible bridge — no hover dead-zone */
+  /* the menu is anchored under the "services" trigger, so its width has to
+     leave room to its right — the promo panel only appears once it fits */
   width: min(700px, calc(100vw - 2rem));
   opacity: 0; visibility: hidden; transform: translateY(7px);
   pointer-events: none; z-index: 60;
@@ -251,7 +253,34 @@ a { color: inherit; text-decoration: none; }
 .mega__all { display: inline-flex; align-items: center; gap: .35rem; font-weight: 600; font-size: 12.5px; color: rgba(255,255,255,.72); text-transform: lowercase; transition: color .16s var(--ease); }
 .mega__all:hover { color: #fff; }
 .mega__all svg { width: 13px; height: 13px; }
-.mega__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+.mega__cols { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.mega__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; align-content: start; }
+.mega__promo { display: none; }
+@media (min-width: 1240px) {
+  .mega { width: 920px; }
+  .mega__cols { grid-template-columns: 1.85fr 1fr; gap: 1.25rem; }
+  .mega__promo { display: grid; }
+}
+
+/* featured case study inside the menu (display is set above, by width) */
+.mega__promo {
+  gap: .3rem; align-content: start;
+  padding: 0 0 1rem; overflow: hidden;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+  transition: background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.mega__promo:hover { background: rgba(255,255,255,.08); border-color: color-mix(in srgb, var(--solid-hi) 40%, rgba(255,255,255,.1)); }
+.mega__promo-shot { display: block; overflow: hidden; margin-bottom: .75rem; }
+.mega__promo-shot img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; display: block; transition: transform .6s var(--ease); }
+.mega__promo:hover .mega__promo-shot img { transform: scale(1.05); }
+.mega__promo-k { font-weight: 700; font-size: 9.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--tint); padding: 0 .9rem; }
+.mega__promo-t { font-weight: 700; font-size: 15px; letter-spacing: -.025em; color: #fff; padding: 0 .9rem; }
+.mega__promo-d { font-size: 11.5px; line-height: 1.45; color: rgba(255,255,255,.55); padding: 0 .9rem; }
+.mega__promo-m { font-size: 11px; color: rgba(255,255,255,.5); padding: .5rem .9rem 0; margin-top: .35rem; border-top: 1px solid rgba(255,255,255,.1); }
+.mega__promo-m b {
+  font-size: 15px; letter-spacing: -.035em; margin-right: .3rem;
+  background-image: var(--grad-text-dark); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
 .mega__item { display: flex; gap: .7rem; padding: .78rem .7rem; align-items: baseline; position: relative; transition: background-color .16s var(--ease); }
 .mega__item:hover { background: rgba(255,255,255,.05); }
 .mega__n { font-weight: 700; font-size: 11px; letter-spacing: .06em; font-variant-numeric: tabular-nums; color: rgba(255,255,255,.34); flex: none; transition: color .16s var(--ease); }

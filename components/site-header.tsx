@@ -10,6 +10,16 @@ import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Mail } from "@/compon
 
 const SERVICES_HREF = "/services/";
 
+/* The case study promoted inside the desktop services menu. */
+const MEGA_FEATURE = {
+  href: "/case-studies/ontick/",
+  img: "/images/ontick-6.png",
+  name: "Ontick",
+  body: "Off Eventbrite onto a ticketing platform they own — multi-organizer, Stripe instalments, two native apps.",
+  fig: "£2M+",
+  figlabel: "processed since launch",
+};
+
 /* Selected work, shown in the mobile drawer — the menu doubles as the fastest
    route to the proof, which on a phone is the thing people came for. */
 const DRAWER_WORK = [
@@ -161,26 +171,42 @@ export function SiteHeader() {
                           all services <ArrowUpRight aria-hidden />
                         </Link>
                       </div>
-                      <div className="mega__grid">
-                        {SERVICES_DATA.map((s, i) => (
-                          <Link
-                            key={s.slug}
-                            href={`/services/${s.slug}/`}
-                            className="mega__item"
-                            role="menuitem"
-                          >
-                            <span className="mega__n">
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                            <span className="mega__body">
-                              <span className="mega__title">
-                                <ServiceTitle label={s.title} />
-                                <ArrowUpRight className="mega__arrow" aria-hidden />
+                      <div className="mega__cols">
+                        <div className="mega__grid">
+                          {SERVICES_DATA.map((s, i) => (
+                            <Link
+                              key={s.slug}
+                              href={`/services/${s.slug}/`}
+                              className="mega__item"
+                              role="menuitem"
+                            >
+                              <span className="mega__n">
+                                {String(i + 1).padStart(2, "0")}
                               </span>
-                              <span className="mega__desc">{s.summary}</span>
-                            </span>
-                          </Link>
-                        ))}
+                              <span className="mega__body">
+                                <span className="mega__title">
+                                  <ServiceTitle label={s.title} />
+                                  <ArrowUpRight className="mega__arrow" aria-hidden />
+                                </span>
+                                <span className="mega__desc">{s.summary}</span>
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+
+                        {/* the menu doubles as a shortcut to the proof */}
+                        <Link href={MEGA_FEATURE.href} className="mega__promo" role="menuitem">
+                          <span className="mega__promo-shot">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={MEGA_FEATURE.img} alt="" loading="lazy" />
+                          </span>
+                          <span className="mega__promo-k">featured work</span>
+                          <span className="mega__promo-t">{MEGA_FEATURE.name}</span>
+                          <span className="mega__promo-d">{MEGA_FEATURE.body}</span>
+                          <span className="mega__promo-m">
+                            <b className="tnum">{MEGA_FEATURE.fig}</b> {MEGA_FEATURE.figlabel}
+                          </span>
+                        </Link>
                       </div>
                     </div>
                   </div>
