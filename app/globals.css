@@ -1151,9 +1151,11 @@ a { color: inherit; text-decoration: none; }
 }
 .phero__t {
   font-weight: 700; text-transform: lowercase; letter-spacing: -.042em; line-height: .99;
-  font-size: clamp(2.1rem, 5.2vw, 3.9rem); margin: 0; color: #fff; text-wrap: balance;
+  font-size: clamp(2.05rem, 4.8vw, 3.5rem); margin: 0; color: #fff; text-wrap: balance;
   max-width: 19ch;
 }
+/* long specialism names would otherwise run to three heavy lines */
+.phero__t--md { font-size: clamp(1.85rem, 4vw, 2.85rem); max-width: 22ch; }
 .phero__t .g-disp {
   background-image: linear-gradient(var(--angle), var(--solid-hi) 0%, color-mix(in srgb, var(--solid-hi) 42%, #fff) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -1518,6 +1520,10 @@ a { color: inherit; text-decoration: none; }
 .next-card li > span:first-child { font-weight: 700; font-size: 11px; letter-spacing: .08em; color: var(--solid-hi); padding-top: .25rem; }
 .next-card b { display: block; font-weight: 700; font-size: 14.5px; letter-spacing: -.015em; color: #fff; text-transform: lowercase; }
 .next-card em { display: block; margin-top: .3rem; font-style: normal; font-size: 12.8px; line-height: 1.5; color: rgba(255,255,255,.62); }
+.next-card b a { display: inline-flex; align-items: center; gap: .4rem; transition: color .16s var(--ease); }
+.next-card b a:hover { color: var(--solid-hi); }
+.next-card b a::after { content: "→"; font-weight: 400; opacity: 0; transform: translateX(-3px); transition: opacity .16s var(--ease), transform .16s var(--ease); }
+.next-card b a:hover::after { opacity: 1; transform: translateX(0); }
 .next-card__mail { margin: 1.5rem 0 0; padding-top: 1.1rem; border-top: 1px solid rgba(255,255,255,.12); font-size: 13px; color: rgba(255,255,255,.6); }
 .next-card__mail a { color: var(--solid-hi); font-weight: 600; }
 

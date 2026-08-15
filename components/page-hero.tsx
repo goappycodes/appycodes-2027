@@ -21,10 +21,13 @@ export function PageHero({
   stats,
   media,
   aside,
+  titleSize,
 }: {
   crumbs?: Crumb[];
   eyebrow?: string;
   title: ReactNode;
+  /** "md" steps the display size down for long titles that would run to three lines. */
+  titleSize?: "lg" | "md";
   lede?: ReactNode;
   actions?: HeroAction[];
   stats?: HeroStat[];
@@ -49,7 +52,7 @@ export function PageHero({
           ) : null}
 
           {eyebrow ? <p className="phero__eyebrow">{eyebrow}</p> : null}
-          <h1 className="phero__t">{title}</h1>
+          <h1 className={`phero__t${titleSize === "md" ? " phero__t--md" : ""}`}>{title}</h1>
           {lede ? <p className="phero__lede">{lede}</p> : null}
 
           {actions && actions.length > 0 ? (

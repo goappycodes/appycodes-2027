@@ -56,6 +56,7 @@ export function SubServicePage({ s }: { s: SubServiceData }) {
             <ServiceTitle label={s.title} />.
           </>
         }
+        titleSize={s.title.length > 26 ? "md" : "lg"}
         lede={<ServiceTitle label={s.headline} />}
         actions={[
           { label: "start a project", href: "/contact/" },
