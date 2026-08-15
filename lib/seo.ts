@@ -15,6 +15,41 @@ type PageMetaInput = {
   [key: string]: unknown;
 };
 
+/**
+ * Metadata for the site's own pages (everything that is not a ported article):
+ * canonical, Open Graph and Twitter card, with the layout's "| Appycodes"
+ * title template left in place.
+ */
+export function siteMeta(o: {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  noindex?: boolean;
+}): Metadata {
+  const url = `${SEO_BASE}${o.path}`;
+  const images = o.image ? [{ url: o.image }] : undefined;
+  return {
+    title: o.title,
+    description: o.description,
+    alternates: { canonical: url },
+    ...(o.noindex ? { robots: { index: false, follow: true } } : {}),
+    openGraph: {
+      title: `${o.title} | Appycodes`,
+      description: o.description,
+      url,
+      type: "website",
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${o.title} | Appycodes`,
+      description: o.description,
+      images: o.image ? [o.image] : undefined,
+    },
+  };
+}
+
 export function pageMeta(o: PageMetaInput): Metadata {
   const url = `${SEO_BASE}${o.path}`;
   const article =

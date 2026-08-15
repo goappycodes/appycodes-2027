@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import Link from "next/link";
 import { BLOG_POSTS } from "@/lib/blog";
 import { PageHero } from "@/components/page-hero";
 import { FeaturedWork, LogoWall } from "@/components/sections";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Writing — the numbers, not the opinions",
   description:
     "Cost studies, research and benchmarks from real engagements: MVP costs, indexing decay, token economics, replatform maths and more.",
-};
+  path: "/blog/",
+  image: "/images/blog-mvp-cost-funded-startups-2026.jpg",
+});
 
 /* eslint-disable @next/next/no-img-element */
 

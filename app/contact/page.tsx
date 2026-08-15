@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { PageHero } from "@/components/page-hero";
 import { AwardsStrip, FeaturedWork, LogoWall, Testimonials, Faq } from "@/components/sections";
 import { Mail, ArrowUpRight, Check } from "@/components/icons";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Contact — book a discovery call",
   description:
     "Book a thirty-minute discovery call with the engineer who would run your project. Founder-led, senior-only, building since 2015.",
-};
+  path: "/contact/",
+  image: "/images/ritesh.jpg",
+});
 
 /* eslint-disable @next/next/no-img-element */
 

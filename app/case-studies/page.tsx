@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { AwardsStrip, CASE_STUDIES, LogoWall, Testimonials, Faq } from "@/components/sections";
 import { ChevronRight } from "@/components/icons";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Case studies — companies we've helped ship",
   description:
     "Selected engagements: Ontick's custom ticketing platform, Bloc's four-year build, Yippee Malta's booking engine and Professional Energy's brokerage ERP.",
-};
+  path: "/case-studies/",
+  image: "/images/ontick-6.png",
+});
 
 /* eslint-disable @next/next/no-img-element */
 

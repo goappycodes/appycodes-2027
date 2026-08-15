@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { SERVICES_DATA, LEGACY_SERVICE_REDIRECTS } from "@/lib/services-data";
-import { SUB_SERVICES_DATA, subServiceBySlug } from "@/lib/sub-services-data";
+import { SUB_SERVICES_DATA, subServiceBySlug, pillarFor } from "@/lib/sub-services-data";
+import { siteMeta } from "@/lib/seo";
+import { serviceMedia, subServiceMedia } from "@/lib/media";
 import { ServicePage } from "@/components/service-page";
 import { SubServicePage } from "@/components/sub-service-page";
 
@@ -19,9 +21,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const s = SERVICES_DATA.find((x) => x.slug === slug);
-  if (s) return { title: s.title, description: s.description };
+  if (s) {
+    return siteMeta({
+      title: s.title,
+      description: s.description,
+      path: `/services/${s.slug}/`,
+      image: serviceMedia(s.slug).img,
+    });
+  }
   const sub = subServiceBySlug(slug);
-  if (sub) return { title: sub.metaTitle, description: sub.metaDescription };
+  if (sub) {
+    return siteMeta({
+      title: sub.metaTitle,
+      description: sub.metaDescription,
+      path: `/services/${sub.slug}/`,
+      image: subServiceMedia(sub.slug, pillarFor(sub.slug)?.slug),
+    });
+  }
   return {};
 }
 

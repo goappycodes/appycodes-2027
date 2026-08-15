@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import { LegalPage } from "@/components/legal-page";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Privacy policy",
   description: "What Appycodes collects, why, and how to have it removed.",
-};
+  path: "/privacy/",
+});
 
 export default function PrivacyPage() {
   return (

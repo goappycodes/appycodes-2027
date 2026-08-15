@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import {
@@ -12,11 +13,13 @@ import {
 } from "@/components/sections";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "About — the engineering studio behind the work",
   description:
     "Founder-led since 2015. What began with one engineer and a laptop is now a senior team shipping web platforms, mobile apps and AI systems across the UK, EU and US.",
-};
+  path: "/about/",
+  image: "/images/team-discussion.jpg",
+});
 
 /* eslint-disable @next/next/no-img-element */
 

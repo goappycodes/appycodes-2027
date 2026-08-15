@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import Link from "next/link";
 import { SERVICES_DATA, LEGACY_SERVICE_LABELS, LEGACY_SERVICE_REDIRECTS } from "@/lib/services-data";
 import { ServiceTitle } from "@/components/service-title";
@@ -7,11 +8,13 @@ import { PageHero } from "@/components/page-hero";
 import { AwardsStrip, FeaturedWork, LogoWall, Testimonials, WritingCards, Faq } from "@/components/sections";
 import { serviceMedia } from "@/lib/media";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Services — what we do well",
   description:
     "Six practices we ship repeatedly: product platforms, native mobile, AI systems, rescue and hardening, commerce and content, and performance and search.",
-};
+  path: "/services/",
+  image: "/images/service-saas-web.jpg",
+});
 
 /* eslint-disable @next/next/no-img-element */
 

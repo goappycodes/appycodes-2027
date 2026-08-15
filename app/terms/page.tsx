@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import { LegalPage } from "@/components/legal-page";
 import { SITE } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Terms",
   description: "Terms of use for the Appycodes website, and how engagement terms are agreed.",
-};
+  path: "/terms/",
+});
 
 export default function TermsPage() {
   return (

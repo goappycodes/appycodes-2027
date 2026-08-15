@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import Link from "next/link";
 import { REVIEWS, AWARDS } from "@/lib/site";
 import { PageHero } from "@/components/page-hero";
 import { FeaturedWork, LogoWall, Faq } from "@/components/sections";
 import { Star } from "@/components/icons";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Reviews — what clients say",
   description:
     "Real reviews from founders, product teams and business owners across the UK, US and beyond — and the engagements they came from.",
-};
+  path: "/reviews/",
+  image: "/images/team-discussion.jpg",
+});
 
 /* eslint-disable @next/next/no-img-element */
 
