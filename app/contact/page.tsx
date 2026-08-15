@@ -197,9 +197,7 @@ export default function ContactPage() {
 
       <Faq items={FAQS} title="before you write in" />
 
-      <div className="wrap">
-        <AwardsStrip />
-      </div>
+      <AwardsStrip />
 
       <section className="cta">
         <svg className="art cta-art" viewBox="0 0 400 400" fill="none" aria-hidden="true">

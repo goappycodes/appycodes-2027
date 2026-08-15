@@ -119,7 +119,7 @@ export function FeaturedWork({
   const items = only ? CASE_STUDIES.filter((c) => only.includes(c.name)) : CASE_STUDIES;
   if (items.length === 0) return null;
   return (
-    <section className="wrap sec">
+    <section className="wrap sec reveal">
       <div className="sec__head">
         <p className="eyebrow">selected work</p>
         <h2 className="h-l">{title}</h2>
@@ -151,7 +151,7 @@ export function LogoWall({
 }) {
   return (
     <section className="logos">
-      <div className="wrap logos__in">
+      <div className="wrap logos__in reveal">
         <span className="logos__lbl">{label}</span>
         <div className="logos__row">
           {CLIENT_LOGOS.map((l) => (
@@ -182,7 +182,7 @@ export function LogoWall({
 /** Recognition badges — the same set the homepage hero carries. */
 export function AwardsStrip({ label = "Recognised by" }: { label?: string }) {
   return (
-    <section className="wrap awards-band">
+    <section className="wrap awards-band reveal">
       <span className="awards-band__lbl">{label}</span>
       <ul className="awards">
         {AWARDS.map((a) => (
@@ -209,7 +209,7 @@ export function Testimonials({
 }) {
   const items = limit ? REVIEWS.slice(0, limit) : REVIEWS;
   return (
-    <section className="wrap sec">
+    <section className="wrap sec reveal">
       <div className="sec__head">
         <p className="eyebrow">reviews</p>
         <h2 className="h-l">{title}</h2>
@@ -256,7 +256,7 @@ export function WritingCards({
   ) as typeof BLOG_POSTS;
   if (posts.length === 0) return null;
   return (
-    <section className="wrap sec">
+    <section className="wrap sec reveal">
       <div className="sec__head">
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="h-l">{title}</h2>
@@ -304,7 +304,7 @@ export function Faq({
 }) {
   if (!items || items.length === 0) return null;
   return (
-    <section className="wrap sec">
+    <section className="wrap sec reveal">
       <div className="sec__head">
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="h-l">{title}</h2>
@@ -338,7 +338,7 @@ export function FoundersBand({
 }) {
   return (
     <section className="std">
-      <div className="wrap founders-band">
+      <div className="wrap founders-band reveal">
         <div className="founder-cta notch notch-lg">
           <div className="founder-cta__pics">
             <img src="/images/ritesh.jpg" alt="Ritesh, founder and lead architect" loading="lazy" />

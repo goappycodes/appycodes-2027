@@ -104,9 +104,7 @@ export default function AboutPage() {
         ]}
       />
 
-      <div className="wrap">
-        <AwardsStrip />
-      </div>
+      <AwardsStrip />
 
       {/* STORY */}
       <section className="wrap sec">

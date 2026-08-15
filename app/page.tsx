@@ -2,7 +2,6 @@ import Link from "next/link";
 import { HeroParticles } from "@/components/hero-particles";
 import { ServiceTitle } from "@/components/service-title";
 import { ChevronRight } from "@/components/icons";
-import { LuxReveal } from "@/components/lux-reveal";
 import { Rail } from "@/components/rail";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { BLOG_POSTS } from "@/lib/blog";
@@ -79,11 +78,6 @@ function Chevron() {
 export default function HomePage() {
   return (
     <div className="lux home">
-      {/* content stays visible if JS never runs */}
-      <noscript>
-        <style dangerouslySetInnerHTML={{ __html: ".lux .reveal{opacity:1;transform:none}" }} />
-      </noscript>
-
       {/* HERO */}
       <section className="wrap hero hero--dark">
         <HeroParticles />
@@ -311,8 +305,6 @@ export default function HomePage() {
           <Link className="cta__btn notch" href="/contact/">book a call</Link>
         </div>
       </section>
-
-      <LuxReveal />
     </div>
   );
 }

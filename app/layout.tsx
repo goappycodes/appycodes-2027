@@ -3,6 +3,7 @@ import { Archivo } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { LuxReveal } from "@/components/lux-reveal";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -30,9 +31,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB" className={archivo.variable}>
       <body className="lux">
+        {/* content stays visible if JS never runs */}
+        <noscript>
+          <style dangerouslySetInnerHTML={{ __html: ".lux .reveal{opacity:1;transform:none}" }} />
+        </noscript>
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
+        <LuxReveal />
       </body>
     </html>
   );

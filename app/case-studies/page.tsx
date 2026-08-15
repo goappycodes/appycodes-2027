@@ -138,9 +138,7 @@ export default function CaseStudiesIndex() {
         lede="Founders and operators who lived with the result long after launch."
       />
 
-      <div className="wrap">
-        <AwardsStrip />
-      </div>
+      <AwardsStrip />
 
       <Faq items={FAQS} title="about this page" />
 

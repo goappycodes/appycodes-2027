@@ -60,9 +60,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
         ]}
       />
 
-      <div className="wrap">
-        <AwardsStrip />
-      </div>
+      <AwardsStrip />
 
       {/* WHY — copy on the left, the concrete list on the right */}
       <section className="wrap sec">

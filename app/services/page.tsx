@@ -99,9 +99,7 @@ export default function ServicesIndex() {
         ]}
       />
 
-      <div className="wrap">
-        <AwardsStrip label="Recognised by" />
-      </div>
+      <AwardsStrip label="Recognised by" />
 
       {/* THE SIX PILLARS — image-led cards */}
       <section className="wrap sec">
