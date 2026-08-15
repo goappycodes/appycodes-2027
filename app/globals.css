@@ -75,7 +75,7 @@
 
   /* brand texture: faint graph-paper grid — the light echo of the dark hero's
      checkered grid (neutral ink, kept very light) + illustration ink */
-  --grid:      color-mix(in srgb, var(--ink) 4.5%, transparent);
+  --grid:      color-mix(in srgb, var(--ink) 3.2%, transparent);
   --grid-slab: rgba(255,255,255,.05);
 
   --f: var(--font-archivo), system-ui, -apple-system, sans-serif;

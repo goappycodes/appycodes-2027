@@ -1,0 +1,842 @@
+[
+  {
+    "slug": "saas-web-app-development",
+    "title": "SaaS web app development",
+    "metaTitle": "production-grade SaaS web app development for startups",
+    "metaDescription": "A senior team building production-grade SaaS apps for funded and self-funded startups on React, Next.js, Node and PostgreSQL, from first customer to Series A.",
+    "headline": "production-grade SaaS web apps taken from first paying customer to Series A, built to scale rather than to demo.",
+    "intro": [
+      "We are a senior engineering team that builds SaaS products for funded and self-funded founders, the version that survives real users rather than the one that looks good in a demo. React, Next.js, Node and PostgreSQL by default, chosen for what holds up at month nine rather than what is trending.",
+      "We take products from a working prototype to a live, paying platform, then stay on to run the maintenance and feature work after launch. Multi-tenancy, Stripe billing, auth and the operator tooling are treated as first-class parts of the build, not afterthoughts."
+    ],
+    "points": [
+      { "title": "Next.js App Router front-end", "body": "Server rendering, routing and image handling on the App Router, picked for a deeper hiring pool than the alternatives." },
+      { "title": "Node or Laravel backend", "body": "Fastify when the product is API-heavy and needs websockets or AI streaming; Laravel when it is large CRUD and admin." },
+      { "title": "PostgreSQL by default", "body": "ACID transactions, JSON columns and full-text search, with a clear path to read replicas as you scale." },
+      { "title": "Stripe billing that reconciles", "body": "Plans, trials, proration, usage metering and dunning, wired from a pattern that handles the edge cases." },
+      { "title": "Multi-tenancy decided early", "body": "Shared schema with row-level isolation by default, moving to schema- or database-per-tenant only when compliance needs it." },
+      { "title": "You own the code", "body": "Source, infrastructure accounts and integrations delivered into your repositories and cloud, with no retained rights." }
+    ],
+    "faqs": [
+      { "question": "Can you take over a SaaS project from another team?", "answer": "Yes, and a meaningful share of our work starts this way. We audit the code and architecture first, document what we find, then either stabilise and continue or rewrite the one or two modules that need it." },
+      { "question": "How do you handle multi-tenancy?", "answer": "Shared schema with row-level isolation enforced in the data layer and at the API boundary by default. We move to schema-per-tenant or database-per-tenant when the product genuinely requires it, usually for compliance, and document the call early." },
+      { "question": "Who owns the code and the IP?", "answer": "You do. All source, design assets, infrastructure accounts and third-party integrations are owned by your company and delivered into your repositories and cloud. We retain no reusable rights to your product code." }
+    ]
+  },
+  {
+    "slug": "api-and-integration",
+    "title": "API & integration",
+    "metaTitle": "custom REST and GraphQL APIs and third-party integration",
+    "metaDescription": "We design and build the REST and GraphQL APIs and integrations that connect your CRM, payments, analytics and SaaS tools, so data flows in real time.",
+    "headline": "the REST and GraphQL APIs and integrations that make your CRM, payments and analytics actually talk to each other.",
+    "intro": [
+      "Most businesses run on a stack of separate tools, and the cost shows up where they fail to talk to each other: manual re-keying, data that disagrees between systems, and workarounds that break silently. We design and build the APIs and integrations that connect that stack so data moves in real time.",
+      "That covers custom REST and GraphQL APIs for your own product and integrations into the payment gateways, CRMs, analytics and SaaS platforms you already depend on. Each one ships with authentication, rate limiting, error handling and monitoring, so a downstream outage is handled rather than discovered by a customer."
+    ],
+    "points": [
+      { "title": "Custom REST and GraphQL APIs", "body": "APIs built for your product's specific needs, documented and versioned so integrations do not become emergencies." },
+      { "title": "Third-party API integrations", "body": "Connections into payment gateways, CRMs, analytics and SaaS platforms, mapped to your data before a line is written." },
+      { "title": "Authentication and access control", "body": "Industry-standard auth and scoped access on every endpoint, so the API is secure by default." },
+      { "title": "Automation through integration", "body": "Automatic data sync, trigger-based workflows and cross-system updates that remove manual re-keying." },
+      { "title": "Reliability built in", "body": "Error handling, retries, rate limiting and monitoring, so a downstream failure degrades gracefully." },
+      { "title": "Documentation and versioning", "body": "Clear docs and versioned endpoints your team can maintain without reverse-engineering the last integration." }
+    ],
+    "faqs": [
+      { "question": "What types of APIs do you build?", "answer": "Custom REST and GraphQL APIs built for your product, plus the integration layers that connect them to third-party services. We choose the style that fits your consumers rather than defaulting to one." },
+      { "question": "Do you handle API security?", "answer": "Yes. Authentication, scoped access control, rate limiting and input validation are part of every build, not a later hardening pass. We treat any endpoint that touches customer data as exposed by default." },
+      { "question": "Can you integrate with our existing tools?", "answer": "Yes. We map your current tools and data flow first, then build integrations into your CRM, payments, analytics and SaaS platforms so the systems stay in sync." }
+    ]
+  },
+  {
+    "slug": "supabase-development",
+    "title": "Supabase development",
+    "metaTitle": "Supabase development: Postgres, Auth, RLS and Realtime",
+    "metaDescription": "Production apps on Supabase: Postgres with Row Level Security, Auth, Realtime, Storage and Edge Functions, designed so your database stays yours and portable.",
+    "headline": "production apps on Supabase, with Row Level Security and the database designed properly from the first migration.",
+    "intro": [
+      "Supabase gives you Postgres, auth, storage, realtime and edge functions without standing up a backend from scratch, which makes it fast to start and easy to get wrong. Most of the risk sits where it always does: the data model and the Row Level Security policies that decide who can read and write what.",
+      "We build on Supabase the way we would build on any Postgres system, with the schema and RLS designed first, migrations version-controlled, and no logic buried in the dashboard where the next engineer cannot find it. Because it is Postgres underneath, nothing we build locks you in."
+    ],
+    "points": [
+      { "title": "Row Level Security done right", "body": "Access policies designed at the database level and tested, so tenant isolation does not depend on remembering a filter in the client." },
+      { "title": "Schema and migrations", "body": "A modelled schema with version-controlled migrations, not tables clicked together in the dashboard." },
+      { "title": "Auth and social login", "body": "Supabase Auth wired for email, magic links, OAuth and SSO, with roles that map to your RLS policies." },
+      { "title": "Realtime and storage", "body": "Live subscriptions, presence and file storage integrated where the product needs them, not everywhere by default." },
+      { "title": "Server-side Edge Functions", "body": "Server-side logic in Edge Functions for webhooks, payments and anything that must not run in the browser." },
+      { "title": "Portable by design", "body": "It is Postgres underneath, so your data and schema stay exportable and you are never locked into the platform." }
+    ],
+    "faqs": [
+      { "question": "Is Supabase production-ready, or just for prototypes?", "answer": "It is production-ready; it is managed Postgres with auth and APIs on top. The parts that decide whether it holds up are the schema and the RLS policies, which is exactly where we spend the design time." },
+      { "question": "How do you handle Row Level Security?", "answer": "We design access policies at the database level and test them against each role, so isolation is enforced by Postgres rather than by client-side filters that are easy to forget." },
+      { "question": "Can we move off Supabase later?", "answer": "Yes. Because it is standard Postgres underneath, your schema and data are exportable and the app can be migrated to your own Postgres instance without a rewrite." }
+    ]
+  },
+  {
+    "slug": "laravel-development",
+    "title": "Laravel development",
+    "metaTitle": "Laravel development for SaaS, admin and billing apps",
+    "metaDescription": "Senior Laravel engineering for SaaS, admin panels and billing-heavy apps: Eloquent, queues, Filament, Cashier and Postgres, built to stay maintainable.",
+    "headline": "Laravel for the CRUD-heavy, admin-heavy, billing-heavy products where batteries-included pays off.",
+    "intro": [
+      "Laravel is our default when a product is large on CRUD, admin and back-office surface, the kind of application where a batteries-included framework saves months over wiring the same pieces together by hand. Eloquent, queues, scheduling, auth and billing come as one coherent stack rather than a pile of packages.",
+      "We build Laravel applications that stay maintainable as the surface grows: clear domain boundaries, queued jobs for anything slow, and Filament or Livewire for admin tooling your team actually uses. PostgreSQL or MySQL underneath, deployed on infrastructure you own."
+    ],
+    "points": [
+      { "title": "Eloquent and a clean data model", "body": "A modelled schema and Eloquent relationships that keep queries readable instead of an N+1 problem waiting to happen." },
+      { "title": "Queues and scheduling", "body": "Anything slower than a request pushed to queued jobs with Horizon, so the app stays responsive under load." },
+      { "title": "Filament and Livewire admin", "body": "Back-office and operator tooling built as a first-class product, not a bolted-on afterthought." },
+      { "title": "Stripe billing via Cashier", "body": "Stripe subscriptions, proration, trials and usage metering via Cashier, reconciled against your records." },
+      { "title": "Sanctum and Passport auth", "body": "Token and session auth, roles and permissions for both first-party apps and third-party API access." },
+      { "title": "Deployed on your infrastructure", "body": "CI/CD, migrations and monitoring on servers you own, with no lock-in to a single PaaS." }
+    ],
+    "faqs": [
+      { "question": "When is Laravel the right choice over Node?", "answer": "When the product is large on CRUD, admin and back-office logic and benefits from a batteries-included framework. We reach for Node and Fastify instead when it is API-heavy and needs websockets or AI streaming." },
+      { "question": "Can you take over an existing Laravel codebase?", "answer": "Yes. We audit the code, database and dependencies first, document what we find, then stabilise and continue or refactor the modules holding you back." },
+      { "question": "Do you build the admin panel too?", "answer": "Yes. We build operator and admin tooling with Filament or Livewire as part of the product, so your team can run the business without a developer in the loop." }
+    ]
+  },
+  {
+    "slug": "internal-tools-admin-dashboards",
+    "title": "Internal tools & admin dashboards",
+    "metaTitle": "internal tools and admin dashboards for operations teams",
+    "metaDescription": "We build the internal tools and admin dashboards your team runs on, with role-based access, audit trails and real data, replacing the spreadsheets you outgrew.",
+    "headline": "the admin dashboards and internal tools your team actually runs the business on, treated as a real product.",
+    "intro": [
+      "The software your team uses all day, the admin panel, the operations dashboard, the internal tool that moves work along, is usually the least loved part of the stack, and it shows. We build it as a first-class product: fast, role-aware, and shaped around how your team actually works.",
+      "That means replacing the spreadsheets, Airtable bases and brittle no-code tools you have outgrown with something that has real permissions, an audit trail and a data model that will not fall apart at volume. Built on your own infrastructure, wired to the systems you already run."
+    ],
+    "points": [
+      { "title": "Role-based access and audit", "body": "Granular permissions and an audit trail you can hand to a security review, not a shared admin login." },
+      { "title": "Built around your workflow", "body": "The screens and actions your team uses daily, designed to cut clicks rather than mirror a database table." },
+      { "title": "Real data at volume", "body": "Dashboards backed by proper queries, indexing and caching, so they stay fast as the tables grow." },
+      { "title": "Wired to your systems", "body": "Connected to the databases, APIs and third-party tools your operations already depend on." },
+      { "title": "Bulk actions and exports", "body": "The unglamorous operator features, bulk edits, CSV import and export, filters and search, that make a tool usable." },
+      { "title": "Replaces spreadsheets and no-code", "body": "A maintainable codebase to graduate to when Airtable, Retool or a no-code tool stops keeping up." }
+    ],
+    "faqs": [
+      { "question": "Can you replace our spreadsheets or Airtable?", "answer": "Yes, and that is one of the most common reasons teams come to us. We model the data properly, then rebuild the workflow as a tool with real permissions, validation and an audit trail." },
+      { "question": "Do you build on top of our existing database?", "answer": "Yes. We connect the dashboard to the databases and APIs you already run, and only add new storage where the tool genuinely needs it." },
+      { "question": "Can different roles see different things?", "answer": "Yes. Role-based access is designed in from the start, so each user sees and can act on only what their role allows, enforced at the API and data layer." }
+    ]
+  },
+  {
+    "slug": "startup-launch-support",
+    "title": "Startup launch support",
+    "metaTitle": "startup launch support: idea to live product to growth",
+    "metaDescription": "We take founders from idea to a live, revenue-ready product: scoping, design, full-stack build, launch infrastructure and analytics, without juggling vendors.",
+    "headline": "from idea to a live, revenue-ready product, without stitching together five different vendors.",
+    "intro": [
+      "Building a startup is more than writing code; it is deciding what to build first, shipping it quickly, and launching on infrastructure that will not embarrass you when the first users arrive. We bring structure to that so you move from idea to a working product without losing months to indecision.",
+      "One team handles scoping, design, the full-stack build, launch infrastructure and the analytics setup, so you are not co-ordinating separate vendors at the point you can least afford it. Speed matters at this stage, and so does building it in a way you will not have to throw away at the first sign of traction."
+    ],
+    "points": [
+      { "title": "Product scoping first", "body": "Clear product planning and a feature definition before development starts, so the first build is the right one." },
+      { "title": "Design and architecture", "body": "User-focused UI and UX alongside a system architecture that will not need a rebuild after launch." },
+      { "title": "Full-stack product build", "body": "Frontend and backend engineering on a modern, maintainable stack, shipped fast without cutting the corners that matter." },
+      { "title": "AI features where they earn it", "body": "AI assistants, automation and data-driven features integrated where they add real value, not for the pitch deck." },
+      { "title": "Launch-ready cloud infrastructure", "body": "Cloud hosting, security, monitoring, performance work and backups in place before the first users arrive." },
+      { "title": "Growth and tracking setup", "body": "Analytics, event and funnel tracking wired in, so you can see what is working from day one." }
+    ],
+    "faqs": [
+      { "question": "Do you help with product planning?", "answer": "Yes. We start with scoping and feature definition, so the first version is planned around what earns users and revenue rather than trying to ship everything at once." },
+      { "question": "Can you build both web and mobile?", "answer": "Yes. We build web platforms and native mobile apps, and can share a backend across both so you are not paying to build the same thing twice." },
+      { "question": "Do you support the product after launch?", "answer": "Yes. Most founders continue with us after launch on a maintenance and feature retainer, so the team that built it keeps improving it." }
+    ]
+  },
+  {
+    "slug": "white-label-development",
+    "title": "White-label development",
+    "metaTitle": "white-label development partner for agencies and studios",
+    "metaDescription": "A white-label engineering partner for agencies: web, mobile and AI work delivered under your brand, into your repositories, with confidentiality, no outreach.",
+    "headline": "senior engineering delivered under your brand, into your repositories, with your clients none the wiser.",
+    "intro": [
+      "Agencies routinely win more work than the internal team can deliver, and the usual options, turning projects down or over-stretching the team, both cost you. We work as your white-label development partner, delivering the engineering under your brand while you keep the client relationship.",
+      "We integrate into your workflow and tools, deliver into your repositories with documentation and handover, and never contact your clients directly. Whether it is overflow during a busy period or a standing extension of your team, the work ships as yours."
+    ],
+    "points": [
+      { "title": "Delivered under your brand", "body": "Everything ships under your name; your clients never see us, and we never reach out to them." },
+      { "title": "Flexible engagement models", "body": "Project-based, dedicated capacity, long-term partnership or overflow handling, depending on what you need." },
+      { "title": "Fits your workflow", "body": "We align with your project management tools, communication and review process rather than imposing ours." },
+      { "title": "Web, mobile and AI", "body": "Web apps, iOS and Android, ecommerce, AI features, APIs and internal tools across your client base." },
+      { "title": "Code in your repositories", "body": "All work delivered into your systems with documentation and a clean handover, not held hostage." },
+      { "title": "Confidential by default", "body": "Full confidentiality, no direct client outreach and secure data handling as standard." }
+    ],
+    "faqs": [
+      { "question": "Will my clients know about you?", "answer": "No. Everything is delivered under your brand and into your systems, and we never contact your clients directly. The partnership stays confidential." },
+      { "question": "Can you work with our project management tools?", "answer": "Yes. We align with your existing tools, communication channels and review process, and work as an extension of your team rather than a separate vendor." },
+      { "question": "What types of projects can you handle?", "answer": "Web applications, native mobile apps, ecommerce, AI features, API integrations and internal tools, the same range we build directly, delivered under your brand." }
+    ]
+  },
+  {
+    "slug": "lms-development",
+    "title": "LMS development",
+    "metaTitle": "custom LMS development for courses, cohorts and quizzes",
+    "metaDescription": "We build learning management systems: courses, cohorts, assessments, progress tracking, certificates and payments, for teams outgrowing off-the-shelf tools.",
+    "headline": "a custom LMS built around how you actually teach, not how an off-the-shelf platform assumes you do.",
+    "intro": [
+      "Off-the-shelf course platforms are fine until your teaching model does not fit their template: cohort-based intakes, blended assessment, drip schedules, certification rules or a pricing model the platform will not allow. We build custom learning management systems shaped around how your programme actually runs.",
+      "That covers the full path a learner takes: enrolment and payment, structured courses and lessons, quizzes and assignments, progress tracking, and the certificate at the end. Instructors and admins get the dashboards to run it, and you own the platform and the learner data outright."
+    ],
+    "points": [
+      { "title": "Courses, lessons and drip", "body": "Structured content with modules, prerequisites and scheduled drip release, so learners get material at the right time." },
+      { "title": "Assessments and quizzes", "body": "Graded quizzes, assignments and question banks, with the marking and feedback rules your programme needs." },
+      { "title": "Progress and completion", "body": "Per-learner progress tracking, completion rules and certificates issued automatically when criteria are met." },
+      { "title": "Cohorts and self-paced", "body": "Cohort-based intakes with start dates, self-paced enrolment, or both in the same platform." },
+      { "title": "Payments and memberships", "body": "Stripe checkout for one-off course sales, subscriptions or membership access, reconciled against enrolments." },
+      { "title": "Instructor and admin dashboards", "body": "The operator tooling to author content, manage learners and see how a cohort is performing." }
+    ],
+    "faqs": [
+      { "question": "Why build a custom LMS instead of using Teachable or Thinkific?", "answer": "When your teaching model does not fit their template: cohorts, blended assessment, custom certification or a pricing model they block. If an off-the-shelf platform fits, we will tell you to use it." },
+      { "question": "Can you support SCORM or xAPI content?", "answer": "Yes. We can integrate SCORM and xAPI packages where you need to reuse existing course content or report to another system, alongside natively built lessons." },
+      { "question": "Do learners and instructors get separate dashboards?", "answer": "Yes. Learners get their course and progress view, instructors get authoring and cohort tools, and admins get platform-wide controls, each scoped by role." }
+    ]
+  },
+  {
+    "slug": "b2b-marketplace-development",
+    "title": "B2B marketplace development",
+    "metaTitle": "B2B marketplace development for two-sided platforms",
+    "metaDescription": "We build two-sided B2B marketplaces: supplier onboarding, catalogues, orders, payouts and trust, engineered to stay fast as buyers, SKUs and orders grow.",
+    "headline": "two-sided B2B marketplaces that stay fast while buyers, suppliers and SKUs all grow at once.",
+    "intro": [
+      "A B2B marketplace is really two products sharing a database, buyers searching a catalogue and suppliers managing inventory, orders and payouts, and it has to keep both sides fast while all of it grows at the same time. That balancing act is where most marketplace builds quietly fall over.",
+      "We build the parts that make a marketplace work rather than just look like one: supplier onboarding and verification, a catalogue that stays searchable at scale, order and payout flows that reconcile, and the trust layer that lets two businesses that have never met transact. Engineered so the day volume arrives is not the day it slows down."
+    ],
+    "points": [
+      { "title": "Two-sided by design", "body": "Buyer and supplier journeys built as first-class products, so neither side feels like an afterthought." },
+      { "title": "Supplier onboarding and trust", "body": "Verification, catalogue upload and the trust signals that let buyers transact with suppliers they do not yet know." },
+      { "title": "Catalogue and search at scale", "body": "Search, filtering and a data model that stay responsive as SKUs and suppliers grow into the hundreds of thousands." },
+      { "title": "Orders and fulfilment", "body": "Order management across both sides, with the states, notifications and edge cases real B2B ordering needs." },
+      { "title": "Payments and payouts", "body": "Split payments, escrow and supplier payouts wired through Stripe or your provider, reconciled to the ledger." },
+      { "title": "B2B pricing rules", "body": "Tiered and negotiated pricing, minimum orders, RFQ and net terms, the logic a consumer marketplace never has to handle." }
+    ],
+    "faqs": [
+      { "question": "How do you keep the marketplace fast as it grows?", "answer": "The architecture is set for it early: indexed and, where needed, pre-aggregated catalogue queries, queue-backed background jobs for anything slow, and a data model chosen so buyer and supplier volume can grow in parallel without degrading." },
+      { "question": "Can you handle B2B-specific pricing and terms?", "answer": "Yes. Tiered pricing, negotiated rates, minimum order quantities, RFQ flows and net payment terms are core B2B requirements we build in, not add-ons." },
+      { "question": "Do you build supplier payouts and split payments?", "answer": "Yes. We implement split payments, escrow where it is needed and scheduled supplier payouts through Stripe or your payment provider, reconciled against orders." }
+    ]
+  },
+  {
+    "slug": "vue-nuxt-development",
+    "title": "Vue & Nuxt development",
+    "metaTitle": "Vue and Nuxt development for SaaS and content sites",
+    "metaDescription": "Vue 3 and Nuxt engineering: Composition API, Pinia and server-side rendering, for SaaS dashboards, content sites and apps that must be fast and indexable.",
+    "headline": "Vue 3 and Nuxt for apps that need real server rendering, not a single-page app that Google cannot read.",
+    "intro": [
+      "Vue is a pragmatic front-end choice, and Nuxt is what makes it production-grade: server-side rendering, file-based routing, a Nitro server layer and the rendering control that decides whether your pages are fast and indexable. We build both, in TypeScript, with the Composition API and Pinia for state.",
+      "That suits two kinds of product especially well: SaaS dashboards and apps that need a responsive, maintainable front-end, and content or commerce sites where server rendering is the difference between ranking and being invisible. We pick the render mode per route rather than shipping everything as a client-side bundle."
+    ],
+    "points": [
+      { "title": "Vue 3 and Composition API", "body": "Modern, typed Vue with the Composition API and Pinia, structured to stay maintainable as the app grows." },
+      { "title": "Nuxt server rendering", "body": "SSR, SSG or hybrid rendering chosen per route, so pages load fast and search engines see real content." },
+      { "title": "TypeScript across the boundary", "body": "Strong typing between the API and the UI, so contract changes fail at compile time rather than in front of a user." },
+      { "title": "Nitro server layer", "body": "Server routes, API handlers and middleware in Nuxt's Nitro engine, deployable to the edge or your own infrastructure." },
+      { "title": "Performance and Core Web Vitals", "body": "Hydration, image and bundle work tied to real field-data metrics, not a lab-only score." },
+      { "title": "Migrations to Nuxt", "body": "Existing Vue SPAs moved onto Nuxt for the SSR and SEO they were missing, without a rewrite." }
+    ],
+    "faqs": [
+      { "question": "Vue or React for our project?", "answer": "Both are solid, and we help you choose on the facts. Vue and Nuxt are an excellent fit for content-heavy and SSR-first products and for teams already invested in Vue; we will say so plainly either way." },
+      { "question": "Why Nuxt rather than plain Vue?", "answer": "Plain Vue ships a client-side app that search engines often see as an empty shell. Nuxt adds server rendering, routing and a server layer, so pages are fast and indexable by default." },
+      { "question": "Can you migrate our Vue SPA to Nuxt?", "answer": "Yes. We move existing Vue single-page apps onto Nuxt for server rendering and SEO incrementally, keeping the components you already have rather than rewriting from scratch." }
+    ]
+  },
+  {
+    "slug": "event-ticketing-platform-development",
+    "title": "Event ticketing platform development",
+    "metaTitle": "event ticketing platform development, built for on-sales",
+    "metaDescription": "We build custom event ticketing platforms: seat maps, inventory holds, high-concurrency on-sales, QR check-in and promoter payouts, built to hold up on launch.",
+    "headline": "a ticketing platform that holds up the moment tickets go live and the whole audience arrives at once.",
+    "intro": [
+      "A ticketing platform spends most of its life quiet and then has to survive a few minutes where every customer arrives at the same second. The hard engineering is all in that window: holding inventory correctly under contention, not double-selling a seat, and staying up while the on-sale traffic spikes.",
+      "We build ticketing and booking engines that treat the on-sale as the design constraint, not an edge case: inventory holds, queueing, idempotent payments and honest availability. Around that sit the parts an operator needs day to day, from seat maps and QR check-in to refunds and the promoter dashboards that show what is selling."
+    ],
+    "points": [
+      { "title": "Built for the on-sale spike", "body": "Inventory holds, queueing and concurrency control so a popular on-sale does not double-sell or fall over." },
+      { "title": "Seat maps and general admission", "body": "Reserved seating with interactive maps, general-admission capacity and tiered ticket types in the same engine." },
+      { "title": "Idempotent payment flows", "body": "Checkout and payment flows that never charge twice or sell a seat that was not paid for, even under retry storms." },
+      { "title": "QR tickets and check-in", "body": "Issued QR or barcode tickets and a fast door-scanning flow that works offline and syncs when it reconnects." },
+      { "title": "Refunds and transfers", "body": "Refunds, exchanges and ticket transfers handled cleanly, with the ledger kept straight throughout." },
+      { "title": "Promoter dashboards and payouts", "body": "Real-time sales, allocations and reporting for organisers, with payouts reconciled to what actually sold." }
+    ],
+    "faqs": [
+      { "question": "Can it handle a high-demand on-sale?", "answer": "That is the case we design for. Inventory holds, a queue in front of checkout and concurrency control stop double-selling and keep the platform up when everyone arrives at once." },
+      { "question": "Do you support reserved seating and general admission?", "answer": "Yes. Interactive seat maps for reserved seating and capacity-based general admission run in the same engine, with tiered ticket types across both." },
+      { "question": "How does check-in work at the door?", "answer": "Tickets are issued as scannable QR or barcodes, and the door app validates them quickly, works offline if the venue connection drops, and syncs once it is back." }
+    ]
+  },
+  {
+    "slug": "react-native-app-development",
+    "title": "React Native app development",
+    "metaTitle": "Production React Native app development, iOS & Android",
+    "metaDescription": "Production React Native apps for iOS and Android, built to clear App Store review first time. Offline-first, push, real-time sync and over-the-air updates.",
+    "headline": "react native apps for iOS and android that clear store review and keep working offline.",
+    "intro": [
+      "React Native lets one team ship iOS and Android from a single codebase, but only if it is built like a real app rather than a website in a wrapper. We write clean React Native on Expo's bare workflow, drop to native modules where the experience genuinely needs them, and wire your backend in properly rather than faking it.",
+      "The difference shows up after launch: offline paths that reconcile when the network returns, push that actually arrives, real-time sync that stays consistent, and over-the-air updates so most fixes ship in hours. We build for the entry-level device your bottom-quartile users carry, not the flagship on your desk."
+    ],
+    "points": [
+      { "title": "iOS and Android from one codebase", "body": "React Native on Expo with EAS builds, and native modules added only where they earn their place." },
+      { "title": "Offline-first by design", "body": "An explicit SQLite read cache written through on every response, so the app keeps working on a train, in a lift or on hotel wifi." },
+      { "title": "Push that arrives", "body": "FCM on Android and APNs on iOS wired end to end, past the token races and expired sandbox certificates that silently drop delivery." },
+      { "title": "Real-time sync", "body": "Live data, presence and messaging that stay consistent across devices without draining the battery." },
+      { "title": "Over-the-air updates", "body": "EAS Update channels for staging and production, so most JavaScript-only changes ship the same day without a store review." },
+      { "title": "Built to a performance budget", "body": "Cold start under 2.5 seconds and crash-free sessions above 99.5%, measured on a real entry-level device before we submit." }
+    ],
+    "faqs": [
+      { "question": "React Native or fully native?", "answer": "React Native for most products, one codebase with native modules where it matters. When deep hardware access, AR or on-device ML is the core of the product, we will tell you a fully native build is the better call." },
+      { "question": "Do you connect to our existing backend?", "answer": "Yes. We hit the same API and database your web app already uses rather than standing up a second, mobile-only surface that drifts out of sync within a quarter." },
+      { "question": "How long does a build take?", "answer": "Typically 6 to 14 weeks depending on offline, real-time and integration complexity. We scope the risky parts up front so the estimate holds." }
+    ]
+  },
+  {
+    "slug": "app-store-launch",
+    "title": "App Store launch",
+    "metaTitle": "App Store & Google Play launch, past review first time",
+    "metaDescription": "We handle App Store and Google Play submission end to end, signing, entitlements, privacy labels and the review process, so your app clears review first time.",
+    "headline": "app store and google play submission handled end to end, so your app clears review the first time.",
+    "intro": [
+      "Getting built is not the same as getting approved. More than half of first submissions come back, most for reasons that have nothing to do with your product: vague permission strings, a missing privacy label, a login wall with no demo path, or a crash on a device the reviewer happened to use.",
+      "We run the pre-submission discipline that turns a gamble into a routine. Signing, entitlements, App Tracking Transparency, the privacy nutrition label and Google Play's Data Safety form are all prepared before upload, then the submission and any Resolution Center back-and-forth is managed for you."
+    ],
+    "points": [
+      { "title": "Pre-submission audit", "body": "Permission strings, privacy labels, the SDK list and a login-free demo path checked against the reasons apps actually get rejected." },
+      { "title": "Signing and entitlements", "body": "Certificates, provisioning, capabilities and bundle identifiers set up correctly, so the build is not rejected on a technicality." },
+      { "title": "Store listings", "body": "Screenshots, metadata and descriptions written to clear review and to convert once the app is live." },
+      { "title": "Both stores, their own rules", "body": "App Store review and Google Play's warn-and-publish model each handled on their own terms, iOS first because it is slower and stricter." },
+      { "title": "Rejections managed", "body": "If a rejection comes, we diagnose the guideline, fix the underlying cause and resubmit, including Resolution Center appeals where the call was wrong." },
+      { "title": "Regional compliance", "body": "Data residency and consent flows tuned to each market when you launch beyond the UK." }
+    ],
+    "faqs": [
+      { "question": "Why do so many apps get rejected the first time?", "answer": "Usually a checklist gap, not a product flaw. Vague permission strings, a missing privacy policy, a login wall with no demo path and crashes on an untested device account for most of it, and all are cheaper to fix before submission than after." },
+      { "question": "Can you rescue an app already stuck in rejection?", "answer": "Yes. We read the guideline cited, find the real cause, fix it and manage resubmission or an appeal through the Resolution Center." },
+      { "question": "How long does approval take?", "answer": "Google Play is often same-day; App Store review is typically 1 to 2 days. Plan for the slower case in a launch week, since a Friday rejection on iOS can cost the weekend." }
+    ]
+  },
+  {
+    "slug": "web-app-to-native-mobile-app",
+    "title": "Web app to native mobile app",
+    "metaTitle": "Convert your web app to native iOS & Android mobile apps",
+    "metaDescription": "Turn your React web app into native iOS and Android apps in 8 to 18 weeks. We reuse your existing backend and rebuild the frontend in React Native.",
+    "headline": "your web app rebuilt as native iOS and android apps, on the backend you already run.",
+    "intro": [
+      "A wrapped website gets rejected by reviewers more than half the time and noticed by users within a week. Native means React Native rendering real platform components, with push, biometrics, deep links and offline that a web view cannot give you. That is the version worth building.",
+      "The saving is in the backend. If your web app has a real database, auth and API, the mobile app hits the same endpoints rather than a second, diverging surface. We audit and harden what you have, lift your types and validation into a shared package, and rebuild only the layers that must change for mobile."
+    ],
+    "points": [
+      { "title": "Reuse the backend", "body": "Your database, auth, billing and API carried across unchanged, saving the 6 to 8 weeks a from-scratch rebuild would cost." },
+      { "title": "Shared type-safe core", "body": "TypeScript types, Zod schemas and the API client lifted into a package both web and native import, so a server change flows to both clients in one PR." },
+      { "title": "Frontend rebuilt for mobile", "body": "UI, navigation and gestures rebuilt against React Native primitives, because a real app is not a resized web page." },
+      { "title": "Mobile-only surfaces added", "body": "Push, deep links, biometric auth and offline reads, the features a web app structurally cannot have." },
+      { "title": "One backend, not two", "body": "Where the payload must differ we add endpoints to your existing API rather than a parallel one that quietly becomes technical debt." },
+      { "title": "Both stores live", "body": "iOS and Android submitted, reviewed and released, with a phased rollout and monitoring on the way out." }
+    ],
+    "faqs": [
+      { "question": "Do we have to rebuild the backend?", "answer": "Not if it is healthy. We reuse your existing Supabase, Firebase or Node API and audit it first, tightening the security and data-integrity gaps a second client will expose." },
+      { "question": "React Native or Flutter?", "answer": "React Native is the default when your web app is already in React, which almost all AI-built and modern web apps are, because the types, schemas and business logic carry across. Flutter only when there is existing Dart expertise or a hard pixel-parity requirement." },
+      { "question": "How long, and how much of the code carries over?", "answer": "Typically 8 to 18 weeks depending on whether the backend is reused or built. Backend, types and validation share fully; UI and navigation are rebuilt, so the shared total lands around two-thirds on a React app." }
+    ]
+  },
+  {
+    "slug": "ai-prototype-to-native-app",
+    "title": "AI prototype to native app",
+    "metaTitle": "AI prototype to native app, audited then shipped",
+    "metaDescription": "Your AI-built prototype from Lovable, Bolt or v0, taken to native iOS and Android apps. We audit the codebase, close security gaps, then ship to both stores.",
+    "headline": "your AI prototype, audited first and finished into native iOS and android apps.",
+    "intro": [
+      "AI builders like Lovable, Bolt and v0 get you a working prototype fast, but the last twenty percent is what decides whether it ships. Across dozens of audited AI-generated codebases the same gaps recur: permissive or missing row-level security, unrated public endpoints, no error boundaries, and a dependency list nobody has reviewed.",
+      "We start with an honest audit, so you know what is safe and what it would take to fix before committing anything. Then we stabilise the security and data-integrity risks, rebuild the frontend as a real React Native app, and take it through App Store and Google Play review, reusing the backend wherever it is sound."
+    ],
+    "points": [
+      { "title": "Audit first", "body": "A clear-eyed read of the codebase and data model against a fixed rubric. You get the findings and a plan whether or not you continue with us." },
+      { "title": "Security and data integrity", "body": "Row-level security, unsigned webhooks and unrated endpoints, the gaps AI generators routinely leave, closed before a reviewer or an attacker finds them." },
+      { "title": "Reuse what is sound", "body": "A healthy backend is kept and hardened, not thrown away. We rebuild only the layers that genuinely hold you back." },
+      { "title": "Rebuilt as a real native app", "body": "React Native rendering real platform components, with push, offline and deep links, not a web view in a shell." },
+      { "title": "Review-ready", "body": "Permission strings, privacy labels and entitlements prepared to the standard that clears App Store and Google Play review." },
+      { "title": "Production foundation", "body": "Tests, monitoring, crash reporting and a phased rollout, so the app holds up once real users and real money go through it." }
+    ],
+    "faqs": [
+      { "question": "Which AI tools do you work with?", "answer": "Lovable, Bolt, v0, Replit, Base44, Cursor-generated projects and hand-rolled prototypes alike. The tool matters less than the state of the backend and data model underneath." },
+      { "question": "Do I have to commit before the audit?", "answer": "No. The audit stands on its own, you get the findings and a costed plan, and you are free to take them elsewhere." },
+      { "question": "Can the prototype become a mobile app, not just a web app?", "answer": "Yes. Where the backend is sound we reuse it and build native iOS and Android on top; where it is not, we harden or rebuild it first. Either way you end up with a real app, not a wrapped prototype." }
+    ]
+  },
+  {
+    "slug": "ai-saas-product-development",
+    "title": "AI SaaS product development",
+    "metaTitle": "AI SaaS product development that survives real traffic",
+    "metaDescription": "We build AI-native SaaS products — retrieval, evals and guardrails wired in, with the cost per request costed up front so the unit economics hold at scale.",
+    "headline": "AI-native SaaS products, costed per request before a line is written, so the unit economics hold at scale.",
+    "intro": [
+      "An AI SaaS product is two hard problems at once: the multi-tenant platform underneath — accounts, roles, billing, isolation — and the model layer on top that has to stay accurate and affordable on every request. Get either wrong and the product either falls over or quietly loses money as it grows.",
+      "We build both together. The retrieval, prompts and model routing are designed for accuracy and cost at the same time, and we put a number on the cost per request before you commit engineering to it — so the feature is viable by design, not discovered on the bill after launch."
+    ],
+    "points": [
+      { "title": "Costed per token up front", "body": "We estimate cost per request, latency and accuracy targets before we build, then route between frontier and smaller models so the margins survive at volume." },
+      { "title": "Retrieval grounding", "body": "Your data chunked, embedded and retrieved so answers are grounded in your own content and traceable, rather than confidently wrong." },
+      { "title": "Evals before ship", "body": "An evaluation set that measures quality against real examples, so regressions are caught before your users hit them instead of after." },
+      { "title": "Guardrails and fallbacks", "body": "Input and output guardrails, rate limits and graceful fallbacks, so a bad prompt or a model outage degrades cleanly instead of breaking the product." },
+      { "title": "Multi-tenant SaaS foundations", "body": "Real tenant isolation, role-based access and usage-based billing wired to your ledger — the platform an AI feature actually lives inside." },
+      { "title": "Production monitoring", "body": "Cost, latency, drift and quality tracked in production, with a routing layer to tune spend as usage climbs." }
+    ],
+    "faqs": [
+      { "question": "Can you put a real number on the running cost before we build?", "answer": "Yes. Estimating cost per request is the first thing we do — token usage, model mix and expected volume, priced up front so you decide with the economics in front of you, not after launch." },
+      { "question": "How do you stop the model making things up?", "answer": "Retrieval grounding over your own data, citations on answers, output guardrails, and an eval set that flags regressions before release." },
+      { "question": "Do you build the whole SaaS or just the AI layer?", "answer": "Both. We build the multi-tenant platform — auth, roles, billing, tenant isolation — as well as the retrieval, evals and model routing on top, or extend an existing product you already run." }
+    ]
+  },
+  {
+    "slug": "workflow-automation-development",
+    "title": "Workflow automation development",
+    "metaTitle": "Workflow automation development that survives edge cases",
+    "metaDescription": "We build custom workflow automation — orchestration, retries and observability — for processes that outgrew Zapier and cannot afford to fail silently.",
+    "headline": "workflow automation with retries, idempotency and observability built in, for processes too important to fail silently.",
+    "intro": [
+      "No-code tools like Zapier and Make are fine until the process matters. The moment money, data integrity or a customer-facing outcome depends on a workflow, the questions change: what happens when a step fails halfway, when the same event fires twice, when an upstream API is down for an hour? Silent failure is the expensive kind.",
+      "We build custom automation for exactly those workflows — orchestration with proper retries, idempotency so a replay does not double-charge or double-send, and observability so a failure surfaces as an alert rather than a mystery three days later. Where an LLM genuinely earns its place in the loop, we add it with the same cost and guardrail discipline as any other AI work."
+    ],
+    "points": [
+      { "title": "Orchestration, not glue", "body": "Multi-step workflows modelled as real state machines, so a run that stops halfway can resume, roll back or escalate rather than leaving data stranded." },
+      { "title": "Idempotency and retries", "body": "Steps designed so a retry or a duplicate event is safe — no double charges, double emails or double writes when something replays." },
+      { "title": "Fails loudly", "body": "Errors surface as alerts with context, not silent drops. You find out from a notification, not from a customer." },
+      { "title": "Wired to your real systems", "body": "Integrations against your CRM, billing, database and internal APIs — including the proprietary ones a no-code connector never supports." },
+      { "title": "Human-in-the-loop where it belongs", "body": "Approval gates and manual review steps for the decisions that should not be fully automated, with a clear audit trail of who approved what." },
+      { "title": "AI in the loop, when it earns it", "body": "Classification, extraction or drafting handled by a model where it beats rules — costed per run and guarded, not bolted on for its own sake." }
+    ],
+    "faqs": [
+      { "question": "We already use Zapier — why build custom?", "answer": "No-code is right until failure gets expensive. When a broken run can lose data, double-charge a customer or stall an order, you need retries, idempotency and alerting that those tools do not give you. That is the line where custom pays for itself." },
+      { "question": "What happens when a step fails midway through?", "answer": "We design workflows to resume, roll back or escalate rather than silently drop. Failed runs are logged, alerted and safe to retry without side effects." },
+      { "question": "Do you connect to systems that do not have a ready-made integration?", "answer": "Yes. We build directly against your APIs — including proprietary or internal systems — rather than being limited to whatever connectors a platform happens to offer." }
+    ]
+  },
+  {
+    "slug": "ai-chatbot-rag-development",
+    "title": "AI chatbot & RAG development",
+    "metaTitle": "AI chatbot & RAG development, grounded and evaluated",
+    "metaDescription": "We build AI chatbots and RAG pipelines grounded in your own data — with citations, evals and guardrails, and the cost per conversation costed up front.",
+    "headline": "AI chatbots grounded in your own data with RAG, citations and evals, so answers are traceable rather than confidently wrong.",
+    "intro": [
+      "A chatbot is only as good as what it is allowed to say. Point a model at a chat box with no grounding and it will answer confidently whether or not it knows — which is fine in a demo and a liability in production. The hard part is retrieval: getting the right passage of your own content in front of the model, every time, and proving where the answer came from.",
+      "We build RAG pipelines that ground answers in your documents, cite their sources, and fall back cleanly when the answer is not there. We measure quality with an eval set rather than a gut feeling, and we cost the model calls per conversation up front so the bot is still affordable when it is handling real volume, not just a handful of test questions."
+    ],
+    "points": [
+      { "title": "Retrieval grounding", "body": "Your content chunked, embedded and retrieved so the model answers from your data — not from whatever it half-remembers from training." },
+      { "title": "Citations and traceability", "body": "Answers link back to the source passage, so users can verify and your team can see exactly why the bot said what it said." },
+      { "title": "Evals, not vibes", "body": "A test set of real questions and expected answers, run on every change, so quality is a number you can defend rather than a feeling." },
+      { "title": "Guardrails and fallbacks", "body": "When retrieval finds nothing relevant, the bot says so and escalates — instead of inventing an answer to fill the silence." },
+      { "title": "Costed per conversation", "body": "Token cost per conversation estimated before build, with model routing so a busy support week does not produce a surprise invoice." },
+      { "title": "Escalation and handoff", "body": "Clean handoff to a human for anything the bot should not resolve, wired into the support or messaging tools your team already uses." }
+    ],
+    "faqs": [
+      { "question": "How do you stop the chatbot from hallucinating?", "answer": "Retrieval grounding keeps answers tied to your own content, citations make every answer checkable, and guardrails make the bot say it does not know and escalate rather than invent an answer when retrieval comes back empty." },
+      { "question": "What is RAG and why does it matter here?", "answer": "Retrieval-augmented generation fetches the relevant passages from your data and gives them to the model as it answers. It is what turns a generic chatbot into one that reliably answers from your documentation, policies or knowledge base." },
+      { "question": "Can you tell us what it will cost to run at volume?", "answer": "Yes. We estimate token cost per conversation up front and route between models so cost stays predictable as traffic grows, rather than scaling into a bill nobody forecast." }
+    ]
+  },
+  {
+    "slug": "maintenance-support",
+    "title": "Maintenance & support",
+    "metaTitle": "Web & mobile app maintenance and support retainers",
+    "metaDescription": "Ongoing maintenance and support for web and mobile apps — security patches, dependency updates, uptime monitoring, backups and fast bug fixes on a retainer.",
+    "headline": "the retainer that keeps your app patched, monitored and shipping — not quietly rotting between releases.",
+    "intro": [
+      "Software does not stand still. Dependencies ship security fixes, browsers change, APIs deprecate and traffic patterns shift — and an app that was solid at launch drifts towards fragile if nobody is watching it. Maintenance and support is the standing arrangement that keeps yours current, secure and quick to fix.",
+      "We run it as a retainer with a defined response time, not an ad-hoc scramble when something breaks. You get a team that already knows your codebase, a monitored production environment, and a predictable monthly cost instead of emergency day rates."
+    ],
+    "points": [
+      { "title": "Security patches", "body": "Framework, library and dependency updates applied and tested before a known CVE becomes your incident." },
+      { "title": "Uptime and monitoring", "body": "Uptime, error-rate and performance monitoring with alerts wired to us, so we often see the problem before you do." },
+      { "title": "Backups and recovery", "body": "Automated, tested backups and a restore path that has actually been run, not just configured." },
+      { "title": "Bug triage and fixes", "body": "A single place to report issues, triaged by severity, with fixes shipped against an agreed response time." },
+      { "title": "Small changes and improvements", "body": "The steady stream of copy tweaks, config changes and minor features that keep the product moving between bigger builds." },
+      { "title": "Version currency", "body": "Runtimes, packages and services kept on supported versions, so upgrades stay routine instead of turning into a rescue." }
+    ],
+    "faqs": [
+      { "question": "What response times do you offer?", "answer": "Tiered by severity — critical production issues within hours, routine requests within the agreed window. We set the SLA in writing before the retainer starts." },
+      { "question": "Do you maintain apps you did not build?", "answer": "Yes. We start with a short audit to map the codebase, dependencies and risks, then take over maintenance from there." },
+      { "question": "Is there a minimum commitment?", "answer": "Retainers run month to month on a rolling term. You can scale the hours up or down as the product's needs change." }
+    ]
+  },
+  {
+    "slug": "tech-stack-migration",
+    "title": "Tech-stack migration",
+    "metaTitle": "Tech-stack migration without data loss or downtime",
+    "metaDescription": "Move to a modern framework, database or cloud without losing data or downtime — planned migrations, run in parallel, verified against the old system first.",
+    "headline": "move to a modern stack without losing your data, your uptime or your search rankings.",
+    "intro": [
+      "A migration is rarely about the new technology — it is about moving years of data, business logic and live traffic onto it without breaking anything. Whether you are leaving an ageing framework, an unsupported PHP or Node version, a no-code tool you have outgrown, or a database that no longer fits, the risk is the same: the switch itself.",
+      "We plan the move as a sequence of reversible steps, run the old and new systems side by side where we can, and verify the new one against the old before anything is cut over. The goal is a migration your users never notice."
+    ],
+    "points": [
+      { "title": "Framework and version upgrades", "body": "Laravel, Next.js, React, Node and PHP moved onto supported, current versions, with breaking changes handled deliberately rather than discovered in production." },
+      { "title": "Database migrations", "body": "Schema and data moved between engines — MySQL, PostgreSQL and managed cloud databases — with row-by-row verification, not a hopeful export and import." },
+      { "title": "No-code and legacy escapes", "body": "Airtable, Bubble or a bespoke legacy system re-platformed onto owned, maintainable code once you have outgrown the tool." },
+      { "title": "Cloud and hosting moves", "body": "Lift-and-shift or re-architecture across AWS, Cloudflare and managed platforms, with DNS and cutover sequenced for zero downtime." },
+      { "title": "Parallel-run verification", "body": "The new stack run alongside the old and checked against it, so cutover is a decision you make on evidence, not a leap." },
+      { "title": "Redirects and SEO preservation", "body": "URL mapping, permanent redirects and structured data carried across, so a migration does not quietly cost you rankings." }
+    ],
+    "faqs": [
+      { "question": "Can you migrate without downtime?", "answer": "For most systems, yes — we run the target stack in parallel and cut over behind a short, planned window. Where true zero-downtime is not possible, we schedule the switch for your lowest-traffic period." },
+      { "question": "How do you make sure no data is lost?", "answer": "Every migration includes a verification pass that reconciles the new database against the old, record by record, plus a tested rollback path before we commit to the cutover." },
+      { "question": "Will the migration hurt our search rankings?", "answer": "Not if it is planned properly. We map every URL, put permanent redirects in place and preserve structured data, so crawlers follow the move cleanly." }
+    ]
+  },
+  {
+    "slug": "ai-app-completion",
+    "title": "AI app completion",
+    "metaTitle": "AI app completion — finish your AI-built prototype",
+    "metaDescription": "Take an AI-generated app from Lovable, Cursor, v0, Replit or Bolt to a finished, production-ready product — the auth, edge cases and features it skipped.",
+    "headline": "the AI got you eighty percent of an app — we build the twenty percent that decides whether it ships.",
+    "intro": [
+      "AI builders like Lovable, Cursor, v0, Replit and Bolt are genuinely fast at producing something that looks finished. What they skip is the part that makes an app real: the authentication edge cases, the data that has to stay consistent, the error states, and the flows that only pretended to work in the demo.",
+      "AI app completion is taking that prototype the rest of the way. We keep the generated work that is sound, replace what will not survive real users, and build in the missing features, validation and hardening — so you ship the product the generator promised, not the demo it delivered."
+    ],
+    "points": [
+      { "title": "Honest completion audit", "body": "A read of what the generator actually built, what is safe to keep, and the specific gap between the prototype and a product you can launch." },
+      { "title": "The missing features", "body": "The flows, roles and screens the demo faked or left half-built, finished properly against your real requirements." },
+      { "title": "Auth and data integrity", "body": "Authentication edge cases closed and the silent data-consistency bugs AI tools routinely ship, fixed before they reach a customer." },
+      { "title": "Real error handling", "body": "The empty states, failure paths and validation the prototype skipped, so the app fails safely instead of confusingly." },
+      { "title": "Production readiness", "body": "Tests, monitoring, backups and a deployment pipeline, so the finished app can carry real users and real money." },
+      { "title": "A maintainable foundation", "body": "Generated logic refactored into an architecture a team can actually extend, handed over documented or maintained by us." }
+    ],
+    "faqs": [
+      { "question": "How is this different from a full rebuild?", "answer": "We keep whatever the generator got right and only replace what will not hold up. A full rebuild is rare — most AI-built apps have a usable core buried under the gaps." },
+      { "question": "Which AI tools do you work with?", "answer": "Lovable, Cursor, v0, Replit, Bolt, Base44 and hand-assembled prototypes alike. The tool matters less than the state of the code it produced." },
+      { "question": "How long does completion take?", "answer": "After a short audit we can scope it accurately. Most AI-built apps reach production in four to twelve weeks, depending on how much of the missing twenty percent is load-bearing." }
+    ]
+  },
+  {
+    "slug": "wordpress-security-malware-removal",
+    "title": "WordPress security & malware removal",
+    "metaTitle": "WordPress hack cleanup, malware removal & hardening",
+    "metaDescription": "Clean an infected WordPress site, remove the malware and backdoors, clear blacklist warnings, then harden it so it does not simply get reinfected.",
+    "headline": "get the malware out, get off Google's blacklist, and harden WordPress so it does not happen again.",
+    "intro": [
+      "A hacked WordPress site rarely announces itself politely. You find out from a Google warning, a host suspension, spam pages in the search results, or customers telling you their browser is blocking the site. By then the malware has usually been there a while, and there is often more than one way back in.",
+      "We remove the infection completely — not just the file you can see — find how the attacker got in, and close it. Then we harden the site so the same class of attack does not simply work again a week later."
+    ],
+    "points": [
+      { "title": "Complete malware removal", "body": "Injected files, obfuscated code and database infections found and removed against a clean-core comparison, not a single-plugin guess." },
+      { "title": "Backdoor and entry-point hunt", "body": "The uploaders, rogue admin users and hidden backdoors that let attackers back in, tracked down and closed — the part most quick fixes miss." },
+      { "title": "Blacklist and warning removal", "body": "Google Safe Browsing flags, host suspensions and 'this site may be hacked' labels resolved once the site is verifiably clean." },
+      { "title": "Root-cause fix", "body": "The outdated plugin, weak credential or exposed endpoint that caused the breach, identified and patched so the cleanup holds." },
+      { "title": "Hardening", "body": "File permissions, admin access, login protection and a WAF configured to WordPress's real attack surface rather than a plugin's defaults." },
+      { "title": "Ongoing monitoring", "body": "File-integrity monitoring, controlled updates and tested backups, so a future compromise is caught early and reversible." }
+    ],
+    "faqs": [
+      { "question": "My site is showing a Google warning — can you get it removed?", "answer": "Yes. We clean the site fully, then submit it for review through Google Search Console and your host. The warning clears once the site passes as clean." },
+      { "question": "How do you make sure it does not get reinfected?", "answer": "Removal alone is not enough — we find and close the entry point, then harden the site and add monitoring. Reinfection almost always means the original hole was never found." },
+      { "question": "Can you clean the site without taking it offline?", "answer": "In most cases, yes. Where an active infection is spreading or serving malware to visitors, we may put up a brief maintenance page while we work, and tell you before we do." }
+    ]
+  },
+  {
+    "slug": "custom-wordpress-development-for-business",
+    "title": "Custom WordPress development",
+    "metaTitle": "Custom WordPress development for business platforms",
+    "metaDescription": "Custom WordPress development for serious business: B2B marketplaces, membership sites, generators, and internal tools engineered as real applications.",
+    "headline": "we treat WordPress as an application platform, not a CMS.",
+    "intro": [
+      "We build WordPress for businesses that have outgrown page builders: B2B marketplaces, membership sites, learning platforms, generators, and internal tools engineered as real applications rather than themes. Business logic lives in versioned custom plugins, the data model in ACF or custom post types, and every change ships through CI, not the admin upload screen.",
+      "It is the same discipline we have applied for over a decade, including TEFL Institute of Ireland's learning and ecommerce platform, which has processed more than 100,000 orders on WordPress and WooCommerce. WordPress stays fast, secure, and easy to change years after launch when it is treated like software from the start."
+    ],
+    "points": [
+      { "title": "Custom plugins over heavy themes", "body": "Business logic belongs in versioned, testable plugins with clean namespacing, not in functions.php or a child theme, so it survives theme switches." },
+      { "title": "Structured data with ACF or Carbon Fields", "body": "Custom post types and meta boxes model the data so WordPress behaves like an application, with the editor staying simple and queries staying fast." },
+      { "title": "Composer, version control, and CI", "body": "Core, plugins, themes, and custom code sit in one git repo and deploy through CI, so the admin is for content, not code changes." },
+      { "title": "WooCommerce when it fits, custom when it doesn't", "body": "We use WooCommerce for standard product and checkout flows and build a bespoke data model with direct Stripe integration when the commerce is genuinely custom." },
+      { "title": "Headless when it earns it", "body": "We pair WordPress with a Next.js or React front end for performance-critical products and stay monolithic when the editor team needs live preview and unified admin." },
+      { "title": "Hardened and properly hosted", "body": "Object and page caching, tuned databases, hardened wp-config, least-privilege database users, and managed or self-hosted infrastructure with staging and automated backups." }
+    ],
+    "faqs": [
+      { "question": "Why WordPress for a serious business application?", "answer": "WordPress is the most common platform on the internet, with a huge plugin ecosystem, a deep talent pool, and an admin that non-technical users already know. For a B2B marketplace, membership site, or operations tool, that is a head start over building from scratch. The mistake is treating WordPress as just a CMS; it has been an application platform for over a decade, and we use it that way." },
+      { "question": "Won't WordPress be slow or hard to scale?", "answer": "WordPress is slow when it is configured badly: too many plugins, no caching, an untuned database, page-builder bloat. Engineered properly it handles serious traffic and complex data models. We profile real performance, cut plugin sprawl, add object and page caching where it makes sense, and tune the schema and queries. Most performance problems are configuration issues, not platform limits." },
+      { "question": "Can WordPress handle a B2B marketplace?", "answer": "Yes, and we have built them. The pattern usually pairs WordPress for content, user accounts, and the admin layer with custom plugins for the marketplace logic, payments, and vendor flows, sometimes on WooCommerce and sometimes on a fully custom data model. We choose based on the product, not on a default." }
+    ]
+  },
+  {
+    "slug": "stripe-billing-integration",
+    "title": "Stripe billing integration",
+    "metaTitle": "Stripe billing integration for SaaS and subscriptions",
+    "metaDescription": "Stripe billing and subscriptions done properly: metered usage, proration, dunning, tax, and webhooks wired into your product with reliable reconciliation.",
+    "headline": "we integrate Stripe as the billing engine behind your product, not a bolt-on checkout.",
+    "intro": [
+      "Stripe is simple to take a single payment with and deceptively hard to run a business on. Subscriptions with mid-cycle upgrades, metered and usage-based pricing, proration, trials, coupons, dunning, and tax turn billing into stateful logic that has to stay correct as customers change plans. We build that logic against the Stripe Billing and Subscriptions APIs and keep your database and Stripe in agreement.",
+      "We treat webhooks as the source of truth, make every handler idempotent, and reconcile Stripe events against your own records so a dropped or duplicated event never silently corrupts an account. Whether you are launching a first paid tier or replacing a tangle of manual invoicing, we wire billing into the product so finance, support, and customers all see the same numbers."
+    ],
+    "points": [
+      { "title": "Subscriptions and plan changes", "body": "Tiered plans, mid-cycle upgrades and downgrades, proration, trials, and cancellations handled through the Subscriptions API without drift between Stripe and your app." },
+      { "title": "Usage-based and metered billing", "body": "Meter events, tiered and graduated pricing, and usage reporting for products that charge on consumption rather than a flat seat price." },
+      { "title": "Webhooks as source of truth", "body": "Idempotent, signature-verified webhook handlers with retry-safe processing, so account state stays correct even when events arrive late, twice, or out of order." },
+      { "title": "Dunning and churn recovery", "body": "Smart retries, failed-payment flows, customer-facing card-update prompts, and Stripe's recovery tooling to reduce involuntary churn." },
+      { "title": "Tax, invoicing, and compliance", "body": "Stripe Tax for automatic VAT and sales tax, hosted invoices, the customer portal, and SCA or 3D Secure handled so checkout clears European authentication." },
+      { "title": "Reconciliation and reporting", "body": "Scheduled reconciliation between Stripe and your database, plus clean reporting so revenue, MRR, and refunds line up across product and finance." }
+    ],
+    "faqs": [
+      { "question": "Do you use Stripe Billing or build the subscription logic yourselves?", "answer": "Both, depending on the product. Stripe Billing handles standard subscriptions, proration, and invoicing well, and we lean on it where it fits. When pricing is genuinely bespoke, such as hybrid usage plus seats, custom entitlements, or multi-party payouts, we model the subscription state in your own database and drive Stripe through its APIs, keeping the two reconciled." },
+      { "question": "How do you stop webhook events from corrupting billing state?", "answer": "Every handler is idempotent and verifies the Stripe signature, so a retried or duplicated event is safe to process twice. We record processed event IDs, treat webhooks as the source of truth for state changes, and run scheduled reconciliation against the Stripe API to catch anything a webhook missed." },
+      { "question": "Can you migrate our existing billing to Stripe or fix a broken integration?", "answer": "Yes. We audit the current setup, its data model, webhook handling, and where Stripe and your records disagree, then propose a focused fix or a migration plan covering customer, subscription, and payment-method transfer. We rehearse the cut-over so live billing is not interrupted." }
+    ]
+  },
+  {
+    "slug": "shopify-development",
+    "title": "Shopify development",
+    "metaTitle": "Shopify development: custom themes, apps, and migration",
+    "metaDescription": "Shopify development for serious e-commerce: custom themes, migrations, apps, complex catalogues, and supplier-feed automation for large SKU counts.",
+    "headline": "custom Shopify storefronts built mobile-first, from a first launch to a 70,000-SKU catalogue with live supplier sync.",
+    "intro": [
+      "We build Shopify for merchants doing serious revenue: custom Online Store 2.0 themes, migrations from WooCommerce, Magento, OpenCart, and custom platforms, private and public apps, and supplier-feed automation for catalogues in the tens of thousands of SKUs. Every storefront is designed mobile-first, because 60 to 80 percent of Shopify traffic is on a phone, with Core Web Vitals budgeted rather than hoped for.",
+      "The hard part is rarely the theme. Our largest build runs a 70,000+ SKU live catalogue fed by scheduled ingestion services that reconcile supplier price and stock files against Shopify through the GraphQL Admin API. We reach for Shopify Advanced or Plus when features like carrier-calculated shipping or Checkout Extensibility justify it, and we tell you up front when they do not."
+    ],
+    "points": [
+      { "title": "Online Store 2.0 themes", "body": "Custom themes with reusable sections and JSON templates the marketing team can rearrange from the editor, without the page-builder apps that bloat the storefront." },
+      { "title": "Migration to Shopify", "body": "WooCommerce, Magento, OpenCart, BigCommerce, and custom platforms migrated with customers, historic orders, variants, metafields, and URL redirects to preserve SEO, on a rehearsed cut-over." },
+      { "title": "Custom Shopify apps", "body": "Private and public apps on App Bridge and Polaris for ERP, CRM, billing, and marketplace exports, using OAuth, the GraphQL Admin API, webhooks, and rate-limit-aware background jobs." },
+      { "title": "Supplier-feed automation", "body": "Scheduled ingestion of CSV, FTP, and API price and stock feeds, normalised and reconciled against Shopify, for catalogues up to 70,000+ active SKUs." },
+      { "title": "Calculated shipping on Advanced or Plus", "body": "Third-party carrier rates returned at checkout as a Custom Carrier Service for freight, oversized items, multi-warehouse splits, and trade-customer pricing." },
+      { "title": "Storefront features and Core Web Vitals", "body": "Custom filters, product-finder quizzes, configurators, and bundle builders written as Liquid sections and JS modules, tuned mobile-first for LCP, CLS, and INP." }
+    ],
+    "faqs": [
+      { "question": "Can you migrate our store to Shopify from WooCommerce, Magento, or OpenCart?", "answer": "Yes, we have done all of those plus migrations from custom-built platforms. The work is more than a CSV import: customer accounts and password resets, historic orders, product variants, redirects from old URLs to preserve SEO, metafield mapping, tax and shipping reconfiguration, and a tested cut-over all matter. We use the Shopify APIs, Matrixify, and custom scripts depending on what the source platform exposes." },
+      { "question": "Can you handle a 50,000+ SKU catalogue with supplier-feed automation?", "answer": "Yes. Our largest Shopify build runs a 70,000+ SKU live catalogue fed by automated scripts that pull supplier price and inventory files by CSV, FTP, or API and reconcile them against Shopify on a schedule. The job handles new product creation, price and stock updates, and discontinuation flagging without breaking the storefront." },
+      { "question": "Do you build on Shopify, Shopify Advanced, or Shopify Plus?", "answer": "All three. Most of our work sits on Advanced and Plus, because that is where serious merchants land: Plus unlocks Shopify Functions, Checkout Extensibility, B2B, expansion stores, and the carrier-calculated shipping API. We use the standard plan when the merchant is genuinely earlier-stage, and we are honest about which plan fits the roadmap before recommending an upgrade." }
+    ]
+  },
+  {
+    "slug": "shopify-migration",
+    "title": "Shopify migration",
+    "metaTitle": "Migrate to Shopify from WooCommerce, Magento, or custom",
+    "metaDescription": "Replatform to Shopify without losing SEO or data: customers, historic orders, variants, metafields, and URL redirects, on a rehearsed cut-over plan.",
+    "headline": "migrating to Shopify is a data problem, not a CSV import: we move customers, orders, and SEO intact.",
+    "intro": [
+      "Moving to Shopify from WooCommerce, Magento, OpenCart, BigCommerce, or a custom platform is far more than a product CSV. Customer accounts and password-reset flows, historic orders, product variants, metafields, tax and shipping zones, and payment-provider switching all have to carry across correctly, and the URLs that earned your search rankings have to redirect one to one so you do not lose traffic on launch day.",
+      "We start by auditing the source platform's data model, then map every entity into Shopify using the APIs, Matrixify, and custom scripts chosen for what the old system actually exposes. The migration is rehearsed as a dry run on a development store before the live cut-over, so the switch is a checklist that has already been run through twice rather than a leap of faith."
+    ],
+    "points": [
+      { "title": "Data mapping and audit", "body": "We document the source platform's products, variants, customers, orders, and metafields, and define exactly how each maps into Shopify before anything moves." },
+      { "title": "SEO-preserving redirects", "body": "Every old URL is redirected one to one to its Shopify equivalent so rankings, backlinks, and traffic survive the replatform." },
+      { "title": "Customers and historic orders", "body": "Customer records migrate with password-reset flows, since password hashes do not carry across, alongside historic orders for support and reporting continuity." },
+      { "title": "Tax, shipping, and payments", "body": "Tax zones, shipping rules, and payment-provider configuration are rebuilt and reconciled against the old store rather than assumed." },
+      { "title": "Rehearsed cut-over", "body": "A full dry run on a development store, then a live cut-over with a checklist covering redirects, DNS, payments, and post-launch verification." },
+      { "title": "Post-launch verification", "body": "We monitor for 404s, checkout errors, and indexing changes immediately after launch and fix regressions while the migration is fresh." }
+    ],
+    "faqs": [
+      { "question": "Will migrating to Shopify hurt our search rankings?", "answer": "Not if the redirects are done properly. The biggest SEO risk in any replatform is broken URLs, so we map every old URL to its Shopify equivalent with one-to-one redirects, preserve title and metadata structure where it makes sense, and monitor indexing after launch. Done this way, rankings typically hold through the move." },
+      { "question": "Can you migrate customer accounts and historic orders?", "answer": "Yes. Customers migrate with a password-reset flow because password hashes cannot transfer between platforms, and historic orders come across so support and reporting stay intact. We reconcile counts against the source store so nothing is silently dropped." },
+      { "question": "How do you avoid downtime during the switch?", "answer": "We rehearse the migration as a dry run on a Shopify development store first, then run the live cut-over from a checklist that has already been tested. DNS, redirects, and payments are sequenced so the storefront stays available, and we verify checkout end to end before announcing the new store." }
+    ]
+  },
+  {
+    "slug": "sanity-cms-development",
+    "title": "Sanity CMS development",
+    "metaTitle": "Sanity CMS development and headless content platforms",
+    "metaDescription": "Sanity CMS development done properly: custom schemas, a tailored Studio, GROQ-powered front ends, and structured content that scales across sites and channels.",
+    "headline": "we build Sanity into a content platform your editors trust and your front end can query with GROQ.",
+    "intro": [
+      "Sanity works best when the content model is designed deliberately rather than mirrored from a page layout. We model your content as structured, reusable documents, build custom schemas, and tailor Sanity Studio so editors get exactly the fields, validation, and previews they need: no orphaned rich-text blobs, no fields nobody understands six months later.",
+      "On the delivery side we query content with GROQ and serve it to a Next.js, React, or native front end through the Content Lake and CDN, with live preview and draft workflows wired in. The result is a headless CMS that treats content as data you can reuse across a website, an app, and any other channel, rather than markup locked to a single template."
+    ],
+    "points": [
+      { "title": "Structured content modelling", "body": "We design documents, references, and reusable objects so content is queryable and portable, not trapped inside one page template." },
+      { "title": "Custom Studio configuration", "body": "Tailored schemas, validation, custom input components, and desk structure so the editing experience fits how your team actually works." },
+      { "title": "GROQ-powered delivery", "body": "Efficient GROQ queries against the Content Lake and CDN feed a Next.js, React, or native front end with the exact data each view needs." },
+      { "title": "Live preview and drafts", "body": "Draft perspectives and real-time preview so editors see changes rendered before publishing, without a rebuild for every edit." },
+      { "title": "Migration and integrations", "body": "Content migrated from WordPress, another headless CMS, or legacy databases into Sanity, plus webhooks and functions connecting it to search, commerce, and downstream systems." },
+      { "title": "Portable, multi-channel content", "body": "One content source serving web, mobile, and other surfaces, with localisation and versioning handled in the model rather than bolted on." }
+    ],
+    "faqs": [
+      { "question": "When is Sanity a better choice than WordPress?", "answer": "Sanity fits when content needs to feed more than one front end, such as a website plus an app or several sites sharing a source, and when you want structured, queryable content rather than page-bound markup. WordPress is often the better call when a single site needs a familiar all-in-one admin with plugins and live preview out of the box. We are honest about which suits your situation." },
+      { "question": "Can editors preview content before it goes live?", "answer": "Yes. We configure draft perspectives and live preview so editors see their changes rendered in the real front end before publishing. Combined with structured validation in the Studio, this keeps the editing experience safe without forcing a rebuild for every change." },
+      { "question": "Can you migrate our existing content into Sanity?", "answer": "Yes. We map your current content, whether from WordPress, another headless CMS, or a database, into a Sanity schema, then script the import into the Content Lake with references and assets preserved. We reconcile the migrated content against the source so nothing is lost in the move." }
+    ]
+  },
+  {
+    "slug": "membership-subscriptions-development",
+    "title": "Membership & subscriptions development",
+    "metaTitle": "Membership and subscription platform development",
+    "metaDescription": "Membership and subscription sites built to hold up: tiers, gated content, renewals, proration, dunning, and seats, on WordPress or custom with Stripe.",
+    "headline": "memberships live or die on the edge cases: mid-cycle changes, dunning, and seats, built to stay correct.",
+    "intro": [
+      "A membership site is easy to demo and hard to run. The difficulty is in the edge cases: tiered plans, paid content gating, drip schedules, group and corporate seats, mid-cycle upgrades with proration, automatic renewals, and dunning when a card fails. We build subscription logic that stays correct as members move between plans, rather than a happy-path flow that breaks the first time someone downgrades.",
+      "Depending on the product we build on MemberPress, Restrict Content Pro, WooCommerce Subscriptions, a custom membership engine, or a Stripe-direct integration, chosen for what you actually need rather than a default. Billing state is reconciled against Stripe through idempotent webhooks, so entitlements, invoices, and access all agree."
+    ],
+    "points": [
+      { "title": "Tiers and entitlements", "body": "Multiple plans with clearly modelled entitlements, so what each member can access is driven by data, not scattered conditionals." },
+      { "title": "Content gating and drip", "body": "Paid content gating, drip schedules, and previews, whether the content lives in WordPress, a headless CMS, or your app." },
+      { "title": "Renewals, proration, and plan changes", "body": "Automatic renewals, mid-cycle upgrades and downgrades with proration, trials, and cancellations that keep billing and access in step." },
+      { "title": "Group and corporate seats", "body": "Team accounts, seat management, and admin roles for organisations buying access on behalf of their members." },
+      { "title": "Dunning and churn recovery", "body": "Failed-payment retries, card-update prompts, and grace periods to recover involuntary churn before access is revoked." },
+      { "title": "Reliable billing integration", "body": "Stripe wired in through idempotent, reconciled webhooks so entitlements, invoices, and reporting never drift apart." }
+    ],
+    "faqs": [
+      { "question": "Do you build on an existing membership plugin or something custom?", "answer": "Both. For WordPress we often build on MemberPress, Restrict Content Pro, or WooCommerce Subscriptions when they cover the model well. When the requirements are genuinely bespoke, such as hybrid pricing, complex entitlements, or corporate seats, we build a custom membership engine with a Stripe-direct integration. We choose based on the product, not a default." },
+      { "question": "Can you handle corporate or group memberships with multiple seats?", "answer": "Yes. We model organisations as first-class accounts with seat pools, admin roles, and per-seat access, so a company can buy in bulk and manage its own members. Billing is handled at the organisation level with the same proration and renewal logic as individual plans." },
+      { "question": "What happens when a member's payment fails?", "answer": "We wire in dunning: smart retries, customer-facing prompts to update the card, and a configurable grace period before access is revoked. Because entitlements are reconciled against Stripe through idempotent webhooks, access reflects real billing status rather than drifting out of sync." }
+    ]
+  },
+  {
+    "slug": "headless-wordpress-development",
+    "title": "Headless WordPress development",
+    "metaTitle": "Headless WordPress with Next.js and React front ends",
+    "metaDescription": "Headless WordPress done for the right reasons: a Next.js or React front end on the WP back end, tuned for Core Web Vitals without losing editor preview.",
+    "headline": "headless WordPress when the front end earns it: a Next.js or React app on an editor-friendly WordPress back end.",
+    "intro": [
+      "Headless WordPress keeps the WordPress admin your editors know while replacing the front end with a Next.js or React application served from the edge. Done for the right product it buys you faster pages, better Core Web Vitals, and a back end you can share with a mobile app. Done reflexively it costs you live preview and adds moving parts you did not need.",
+      "We build the front end against the WordPress REST or GraphQL (WPGraphQL) API, add incremental static regeneration and caching so content updates without full rebuilds, and restore the preview and draft workflow editors expect. We go headless when the front end genuinely benefits and stay monolithic when it does not, and we will tell you which case you are in before you commit."
+    ],
+    "points": [
+      { "title": "Decoupled architecture", "body": "A Next.js or React front end consuming WordPress through the REST API or WPGraphQL, with the admin left intact for the content team." },
+      { "title": "Core Web Vitals and edge delivery", "body": "Static and incrementally regenerated pages served from a CDN, tuned for LCP, CLS, and INP on real mobile networks." },
+      { "title": "Preview and draft workflows", "body": "Live preview and draft rendering restored, so editors see changes before publishing despite the decoupled front end." },
+      { "title": "Incremental regeneration and caching", "body": "Content updates propagate through on-demand revalidation and cache invalidation rather than slow full rebuilds." },
+      { "title": "Shared back end for web and app", "body": "One WordPress content source feeding a website and a mobile or native client through the same API." },
+      { "title": "Honest trade-off assessment", "body": "We weigh the editor experience, preview needs, and app footprint per project and only go headless when it genuinely pays off." }
+    ],
+    "faqs": [
+      { "question": "What do we gain and lose by going headless?", "answer": "You gain a faster front end, better Core Web Vitals, and a back end you can share with a mobile app or multiple sites. You lose out-of-the-box live preview, some plugin front-end features, and simplicity, since a headless setup has more moving parts. We only recommend it when the front-end benefit clearly outweighs those costs." },
+      { "question": "Do editors still get live preview?", "answer": "Yes, when we build it. Preview is the main thing teams miss going headless, so we wire draft rendering and live preview into the front end so editors can see changes before publishing. It takes deliberate engineering, but the editing experience does not have to regress." },
+      { "question": "REST API or WPGraphQL?", "answer": "It depends on the front end. WPGraphQL is efficient when views need specific, nested data and helps avoid over-fetching, while the REST API is simpler and well supported for straightforward needs. We choose based on the data shape your front end actually requires rather than a fixed preference." }
+    ]
+  },
+  {
+    "slug": "wordpress-plugin-development",
+    "title": "WordPress plugin development",
+    "metaTitle": "Custom WordPress plugin development for real products",
+    "metaDescription": "Custom WordPress plugins built like software: proper namespacing, hooks, the REST API, tests, and clean upgrade paths, deployed through CI, not the admin.",
+    "headline": "business logic belongs in a versioned plugin, not functions.php: we build WordPress plugins like software.",
+    "intro": [
+      "The right home for custom WordPress functionality is a plugin, not a pile of code in functions.php or a child theme. We build plugins with proper namespacing, custom post types and ACF where they fit, REST API endpoints, and clean settings pages, following the WordPress coding standards so the next engineer to open the codebase is not decoding thousands of lines of glue.",
+      "Nothing is hard-coded that should be configurable, plugins are versioned in git and deployed through CI rather than the admin upload screen, and each is designed with a clean upgrade path so it can be replaced one piece at a time. Whether you need a single feature or a suite of plugins behind a business platform, we write code that survives theme switches, core updates, and years of maintenance."
+    ],
+    "points": [
+      { "title": "Plugins, not theme glue", "body": "Business logic lives in a versioned, testable plugin with clean namespacing, so it survives theme switches and stays maintainable." },
+      { "title": "WordPress coding standards", "body": "Proper hooks, filters, and WordPress Codex conventions, so the plugin integrates cleanly and other developers can read it." },
+      { "title": "Configurable, never hard-coded", "body": "Well-structured settings pages and options give you control without touching code, keeping the plugin flexible as needs change." },
+      { "title": "REST API and integrations", "body": "Custom REST endpoints and third-party integrations where the plugin needs to talk to other systems, with secure, rate-limit-aware handling." },
+      { "title": "Versioned and CI-deployed", "body": "Plugins live in git and ship through CI to staging and production, not edited live in the WordPress admin." },
+      { "title": "Secure and upgrade-safe", "body": "Input sanitised and output escaped, least-privilege data access, and clean upgrade paths so updates do not break existing installs." }
+    ],
+    "faqs": [
+      { "question": "Can you build a plugin to extend WooCommerce or another plugin?", "answer": "Yes. We regularly extend WooCommerce and other established plugins through their hooks and APIs rather than editing their code, so your customisations survive their updates. Where the required behaviour sits outside a host plugin's extension points, we build a standalone plugin that integrates cleanly alongside it." },
+      { "question": "Will the plugin survive WordPress core and theme updates?", "answer": "That is the point of building it as a proper plugin. Business logic lives independently of the theme, uses documented hooks rather than fragile workarounds, and is tested against current WordPress versions. We maintain a clean upgrade path so core and theme updates do not break it." },
+      { "question": "Do you distribute plugins on the WordPress.org repository or keep them private?", "answer": "Either. We build private plugins for a single business as often as ones intended for public distribution. For public plugins we follow the repository's guidelines and security review expectations; for private ones we focus on your specific requirements and deploy them through your own pipeline." }
+    ]
+  },
+  {
+    "slug": "knowledge-base-community-development",
+    "title": "Knowledge base & community development",
+    "metaTitle": "Knowledge base and community platform development",
+    "metaDescription": "Knowledge bases and community forums built for scale: search, cross-referencing, multilingual content, moderation, and editorial review, on WordPress or custom.",
+    "headline": "a knowledge base is a search and workflow problem, not a content problem: we build both to scale.",
+    "intro": [
+      "The hard part of a knowledge base at scale is rarely writing the articles. It is search that actually finds the right answer, cross-referencing between articles, multilingual structure, and the editorial workflow that moves an edit through review before it goes live. We have built exactly this on WordPress for a large cybersecurity company, layering custom plugins for search, indexing, and permissions on top of an admin the content team already knew.",
+      "Community platforms add their own demands: user roles and reputation, moderation and spam control, notifications, and forums that stay fast as threads grow. We build knowledge bases and communities on WordPress with custom plugins, or on a custom stack when the requirements outgrow it, with background jobs for indexing, granular permissions, and audit trails treated as first-class from the start."
+    ],
+    "points": [
+      { "title": "Search that finds answers", "body": "Relevant, fast search with indexing, synonyms, and cross-referencing, so users reach the right article instead of a keyword dump." },
+      { "title": "Editorial review workflow", "body": "Drafts, review, and approval flows so edits move through the right hands before publishing, with full audit trails." },
+      { "title": "Multilingual and structured content", "body": "Multi-language article structures and taxonomies that keep large content sets organised and navigable." },
+      { "title": "Community forums and roles", "body": "Discussion forums, user roles, reputation, and notifications built to stay responsive as threads and membership grow." },
+      { "title": "Moderation and spam control", "body": "Moderation queues, permissions, and spam defences so community spaces stay useful and safe to run." },
+      { "title": "Built to scale", "body": "Background jobs for indexing, granular permissions, and audit trails, so the platform behaves like production software rather than a bolted-on add-on." }
+    ],
+    "faqs": [
+      { "question": "Do you build on WordPress or a dedicated community platform?", "answer": "Both, depending on scale and requirements. WordPress with custom plugins covers a great many knowledge bases and forums and keeps a familiar admin for the content team; we have built a public knowledge base and customer forum this way for a large cybersecurity company. When the requirements outgrow WordPress, we build on a custom stack instead." },
+      { "question": "Can search handle a large, cross-referenced knowledge base?", "answer": "Yes, and it is usually the core of the work. We build indexing and search tuned for relevance, with cross-referencing between related articles and support for synonyms and multilingual content, backed by background indexing jobs so search stays fast as the content set grows." },
+      { "question": "How do you handle moderation and editorial review?", "answer": "For community spaces we build moderation queues, role-based permissions, and spam defences so the space stays usable. For knowledge content we build an editorial workflow where drafts move through review and approval before going live, with audit trails so you can see who changed what and when." }
+    ]
+  },
+  {
+    "slug": "technical-seo-for-saas",
+    "title": "Technical SEO for SaaS",
+    "metaTitle": "Technical SEO for SaaS: rendering, indexing, ranking",
+    "metaDescription": "Technical SEO for JavaScript SaaS: fix rendering so Google sees your content, get application pages indexed, and pass Core Web Vitals. Measured, not guessed.",
+    "headline": "the technical SEO that gets a JavaScript SaaS crawled, indexed and ranked, not just audited.",
+    "intro": [
+      "Most SaaS products are single-page apps: the marketing site, docs and blog render behind JavaScript, and Googlebot often receives an empty shell before the app hydrates. The content is there for users and invisible to search — so pages that should rank never get indexed, and growth that depends on being found stalls.",
+      "We do the technical side: move the routes that matter to server-side or static rendering, fix the crawl and indexing reasons pages fall out, ship structured data, and take Core Web Vitals to green. Everything is verified in Search Console and CrUX field data, not a one-off lab score."
+    ],
+    "points": [
+      { "title": "Rendering & JavaScript SEO", "body": "Client-rendered routes moved to SSR or static generation so Googlebot receives real HTML in the initial response, not an empty root div." },
+      { "title": "Indexing & crawl budget", "body": "The reasons pages fall out of the index fixed: thin templates, duplicate parameters, orphaned routes and a sitemap that lies about what exists." },
+      { "title": "Core Web Vitals", "body": "LCP, INP and CLS fixed at the source in the app and verified in CrUX field data, rather than bolted on with a plugin." },
+      { "title": "Marketing site vs app split", "body": "The logged-out marketing, docs and blog kept fast and indexable without dragging the authenticated app into the same rendering path." },
+      { "title": "Structured data", "body": "Schema for software, breadcrumb, FAQ and article that earns rich results without tripping a manual action." },
+      { "title": "Migration & framework moves", "body": "App Router upgrades, replatforms and domain moves shipped with redirects mapped and rankings preserved." }
+    ],
+    "faqs": [
+      { "question": "Why aren't my JavaScript pages ranking?", "answer": "Usually Google receives an empty shell before your app hydrates. We confirm it in the URL Inspection rendered HTML, then move the affected routes to SSR or static rendering so the content is in the initial response." },
+      { "question": "Do you write the content or just the technical side?", "answer": "The technical side: rendering, indexing, crawlability, speed and structured data. The words stay yours; we make sure Google can actually see and rank them." },
+      { "question": "Can you work with our existing Next.js or React stack?", "answer": "Yes. Next.js, Nuxt, SvelteKit or a custom SPA. We fix rendering and vitals in the framework you already run rather than pushing a rewrite." }
+    ]
+  },
+  {
+    "slug": "cloudflare-edge-engineering",
+    "title": "Cloudflare edge engineering",
+    "metaTitle": "Cloudflare edge engineering: Workers, cache, WAF, R2",
+    "metaDescription": "Cloudflare done properly: Workers at the edge, cache rules that actually hit, R2 and CDN offload, WAF and DNS. Lower origin load and faster global response.",
+    "headline": "Cloudflare configured by engineers who read the docs, not a dashboard left on defaults.",
+    "intro": [
+      "Cloudflare sits in front of a large share of the web, but most accounts use a fraction of it: the proxy is switched on and everything else is left on defaults. The value is at the edge — Workers, cache rules, R2, WAF and smart routing — and none of it configures itself.",
+      "We engineer the edge for your app specifically: cache what should be cached so most requests never reach origin, run logic in Workers close to users, offload media to R2 with no egress fees, and lock things down with WAF and rate limiting. The result is lower origin cost and faster response worldwide, with the numbers to show it."
+    ],
+    "points": [
+      { "title": "Workers & edge logic", "body": "Redirects, A/B tests, auth checks, personalisation and API shaping run at the edge in milliseconds, off your origin." },
+      { "title": "Cache rules that hit", "body": "Cache-Control, tiered cache and cache keys tuned so HTML and assets serve from the edge instead of round-tripping to origin." },
+      { "title": "R2 & media offload", "body": "Object storage with no egress fees fronting your images and downloads, wired to the CDN and image resizing." },
+      { "title": "WAF, bot & rate limiting", "body": "Managed rules, custom firewall expressions and rate limits that stop abuse without blocking real users or Googlebot." },
+      { "title": "DNS & traffic", "body": "DNS, load balancing, failover and Argo smart routing set up for uptime and low latency across regions." },
+      { "title": "Observability", "body": "Logpush, analytics and alerting so you can see cache hit ratio, origin load and blocked traffic rather than guessing." }
+    ],
+    "faqs": [
+      { "question": "We already have Cloudflare switched on. What would change?", "answer": "Most accounts run on defaults: proxy enabled, everything else untouched. The gains come from cache rules, Workers and WAF configured for your app, which is where cache hit ratio and origin cost actually move." },
+      { "question": "Can you move us to R2 from egress-heavy storage?", "answer": "Yes. R2 has no egress fees, so media-heavy sites usually see a real drop in the bill. We migrate the objects, front them with the CDN and update your references." },
+      { "question": "Do you work with the free plan or only Enterprise?", "answer": "Both. Much of what matters — cache rules, Workers, WAF basics, R2 — is available well below Enterprise. We build for the plan you're on and only recommend an upgrade when the numbers justify it." }
+    ]
+  },
+  {
+    "slug": "programmatic-seo-engineering",
+    "title": "Programmatic SEO engineering",
+    "metaTitle": "Programmatic SEO engineering: template pages at scale",
+    "metaDescription": "Template-driven SEO pages built to index and last: clean data, unique-enough content, fast rendering and a sitemap architecture Google can actually crawl.",
+    "headline": "template-scale SEO pages engineered to index and last, not a thin-content penalty waiting to happen.",
+    "intro": [
+      "Programmatic SEO turns a dataset into thousands of pages aimed at long-tail intent. Done badly, it produces near-duplicate, thin pages that Google either ignores or actively penalises. Done well, it is a durable channel that keeps compounding.",
+      "We treat it as an engineering problem: the data model, the templating, internal linking, crawl budget and rendering. The pages come out distinct enough to index, fast enough to rank, and maintainable as the underlying data changes — and we only publish the ones that clear the bar."
+    ],
+    "points": [
+      { "title": "Data model & sources", "body": "A clean, deduplicated dataset behind the pages, because the content quality is capped by the quality of the data." },
+      { "title": "Templates that don't read as templates", "body": "Enough unique, genuinely useful content per page that Google indexes it rather than folding it into a duplicate cluster." },
+      { "title": "Rendering & speed", "body": "Static generation or SSR so tens of thousands of pages ship as real HTML and pass Core Web Vitals." },
+      { "title": "Internal linking & architecture", "body": "Hub-and-spoke linking, breadcrumbs and a sitemap structure that spend crawl budget where it counts." },
+      { "title": "Indexing control", "body": "Canonicalisation, noindex on thin variants and coverage monitoring so you scale without diluting the index." },
+      { "title": "Iteration & measurement", "body": "Coverage, impressions and rankings tracked per template, so you double down on what indexes and cut what doesn't." }
+    ],
+    "faqs": [
+      { "question": "Isn't programmatic SEO just thin content Google penalises?", "answer": "It is when the pages are near-duplicates with no added value. The engineering is in making each page genuinely useful and distinct from the same data, and in publishing only the pages that clear that bar." },
+      { "question": "How many pages can you generate?", "answer": "As many as the data supports — hundreds to hundreds of thousands. The limit is useful, unique data, not the build. We'd rather ship 5,000 pages that index than 50,000 that don't." },
+      { "question": "Will these pages slow the site down?", "answer": "No. We render them statically or server-side so they serve as fast HTML, and we keep them out of the request path of your core app." }
+    ]
+  },
+  {
+    "slug": "wordpress-performance-optimisation",
+    "title": "WordPress performance optimisation",
+    "metaTitle": "WordPress performance optimisation: Core Web Vitals",
+    "metaDescription": "Make WordPress fast: Core Web Vitals to green, caching and CDN done right, database and plugin bloat cut, and TTFB fixed at the source. Measured in field data.",
+    "headline": "WordPress taken to green on Core Web Vitals, fixed at the source instead of buried under another cache plugin.",
+    "intro": [
+      "Most WordPress sites are slow for the same handful of reasons: too many plugins, an unoptimised database, render-blocking CSS and JavaScript, a bloated theme, and a host doing too much work on every request. Stacking another cache plugin hides the problem; it doesn't fix it.",
+      "We profile where the time actually goes — TTFB, queries, assets, third-party scripts — and fix the causes. Server-level caching, a properly configured CDN, modern image and font handling, database cleanup, and cutting the plugins that cost more than they're worth. Progress is measured in CrUX field data, not a single Lighthouse number."
+    ],
+    "points": [
+      { "title": "Diagnose the real bottleneck", "body": "Profiling with Query Monitor, server timing and field data to find where the milliseconds are lost, before touching anything." },
+      { "title": "TTFB & caching", "body": "Full-page and object caching at the server level with Redis, page cache and OPcache, so most requests never hit PHP or the database." },
+      { "title": "CDN & media", "body": "A properly configured CDN, modern formats like WebP and AVIF, lazy-loading and offloaded media so assets load fast worldwide." },
+      { "title": "Database & plugins", "body": "Bloated tables, autoloaded options and old revisions cleaned up, and heavy plugins replaced or removed rather than tolerated." },
+      { "title": "Front-end & Core Web Vitals", "body": "Render-blocking CSS and JavaScript, layout shift and slow LCP fixed in the theme so the vitals pass in CrUX field data." },
+      { "title": "Hosting & stack", "body": "Honest advice on when the host or PHP version is the ceiling, and a move to something that isn't." }
+    ],
+    "faqs": [
+      { "question": "Won't a caching plugin do this?", "answer": "Caching helps once the underlying site is sound, but it hides slow queries and bloated pages rather than fixing them. We fix the causes first, then cache — otherwise you're just caching a slow page." },
+      { "question": "Do I need to go headless to be fast?", "answer": "Usually not. Most WordPress sites can pass Core Web Vitals on a well-configured LiteSpeed or LEMP stack. Headless is worth it when the front-end genuinely warrants it, not as a prerequisite for speed." },
+      { "question": "How do you prove the site got faster?", "answer": "Field-data Core Web Vitals from CrUX and Search Console, plus lab profiling and TTFB and LCP numbers, before and after. We report the measurements, not a single score." }
+    ]
+  }
+]
