@@ -4,6 +4,9 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { LuxReveal } from "@/components/lux-reveal";
+import { JsonLd } from "@/components/jsonld";
+import { siteGraph } from "@/lib/schema";
+import { SITE } from "@/lib/site";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -47,6 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <noscript>
           <style dangerouslySetInnerHTML={{ __html: ".lux .reveal{opacity:1;transform:none}" }} />
         </noscript>
+        <JsonLd data={siteGraph({ email: SITE.email, founded: SITE.founded })} />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />
