@@ -5,6 +5,8 @@ import { ChevronRight, Check, ArrowUpRight } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { FeaturedWork, LogoWall, Testimonials, WritingCards, Faq } from "@/components/sections";
 import { subServiceMedia, PILLAR_CASES, PILLAR_POSTS } from "@/lib/media";
+import { JsonLd } from "@/components/jsonld";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -23,6 +25,24 @@ export function SubServicePage({ s }: { s: SubServiceData }) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          serviceSchema({
+            name: s.title,
+            description: s.metaDescription,
+            path: `/services/${s.slug}/`,
+            image: img,
+            serviceType: pillar?.title ?? s.title,
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services/" },
+            ...(pillar ? [{ name: pillar.title, path: `/services/${pillar.slug}/` }] : []),
+            { name: s.title, path: `/services/${s.slug}/` },
+          ]),
+          faqSchema(s.faqs),
+        ]}
+      />
       <PageHero
         crumbs={[
           { label: "home", href: "/" },

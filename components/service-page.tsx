@@ -5,6 +5,8 @@ import { ChevronRight, Check } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { AwardsStrip, FeaturedWork, LogoWall, Testimonials, WritingCards, Faq } from "@/components/sections";
 import { serviceMedia, PILLAR_PROOF, PILLAR_CASES, PILLAR_POSTS } from "@/lib/media";
+import { JsonLd } from "@/components/jsonld";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -15,6 +17,23 @@ export function ServicePage({ s }: { s: ServiceData }) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          serviceSchema({
+            name: s.title,
+            description: s.description,
+            path: `/services/${s.slug}/`,
+            image: media.img,
+            serviceType: s.title,
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services/" },
+            { name: s.title, path: `/services/${s.slug}/` },
+          ]),
+          faqSchema(s.faqs),
+        ]}
+      />
       <PageHero
         crumbs={[
           { label: "home", href: "/" },

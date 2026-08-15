@@ -544,25 +544,6 @@ a { color: inherit; text-decoration: none; }
 .std__list b { font-weight: 700; font-size: 15px; letter-spacing: -.015em; }
 .std__list span { font-size: 13.5px; line-height: 1.55; color: var(--ink-3); }
 
-/* ---------- writing ---------- */
-.posts { display: grid; margin-top: 2.75rem; border-top: 2px solid var(--rule-2); }
-.post {
-  display: grid; gap: .5rem; padding: 1.6rem 1.15rem; border-bottom: 1px solid var(--rule);
-  grid-template-columns: 1fr; position: relative;
-  transition: background-color .2s var(--ease), padding-left .2s var(--ease);
-}
-@media (min-width: 820px) { .post { grid-template-columns: 9rem 1fr auto; align-items: baseline; gap: 2.25rem; } }
-.post::before {
-  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-  background-image: var(--grad); transform: scaleY(0); transform-origin: top;
-  transition: transform .24s var(--ease);
-}
-.post:hover { background: var(--wash); padding-left: 1.6rem; }
-.post:hover::before { transform: scaleY(1); }
-.post__k { font-weight: 700; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--solid); }
-.post__t { font-weight: 600; font-size: clamp(16px, 1.9vw, 19px); letter-spacing: -.022em; }
-.post:hover .post__t { color: var(--solid); }
-.post__a { font-weight: 700; font-size: 13.5px; color: var(--solid); text-transform: lowercase; }
 
 /* ---------- CTA ---------- */
 .cta { background-image: var(--grad-fill); color: var(--on-grad); position: relative; overflow: clip; }
@@ -891,28 +872,12 @@ a { color: inherit; text-decoration: none; }
 .faq dd { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-3); }
 
 /* blog / writing */
-.blog-grid { display: grid; gap: 1.25rem; margin-top: 1rem; }
-@media (min-width: 640px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
-.blog-card { background: var(--wash); display: flex; flex-direction: column; overflow: hidden; transition: background-color .2s var(--ease), transform .2s var(--ease); }
-.blog-card:hover { background: var(--wash-2); transform: translateY(-4px); }
-.blog-card__shot { aspect-ratio: 16 / 9; overflow: hidden; background: var(--wash-2); }
-.blog-card__shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.blog-card__in { padding: 1.4rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
-.blog-card__meta { font-weight: 700; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--solid); margin: 0; }
-.blog-card__t { font-weight: 700; font-size: 1.1rem; letter-spacing: -.02em; line-height: 1.15; margin: 0; color: var(--ink); }
-.blog-card .body { font-size: 13.5px; }
-.blog-card__date { margin: auto 0 0; padding-top: .5rem; font-size: 12px; color: var(--ink-4, var(--ink-3)); }
 
 .post-meta { margin: 1.25rem 0 0; font-weight: 600; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.6); }
 .post-lead { font-size: clamp(17px, 1.8vw, 20px) !important; line-height: 1.55 !important; color: var(--ink) !important; font-weight: 500; }
 .post-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
 .post-tag { font-weight: 600; font-size: 12px; padding: 5px 11px; background: var(--wash); color: var(--ink-2); }
 
-/* simple prose blocks for static pages */
-.static-prose { max-width: 68ch; margin-top: 1.75rem; }
-.static-prose h2 { font-weight: 700; text-transform: lowercase; letter-spacing: -.03em; font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 2.5rem 0 .9rem; }
-.static-prose p { font-size: 16px; line-height: 1.72; color: var(--ink-2); margin: 0 0 1.05rem; }
-.static-prose a { color: var(--solid); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ==================================================================
    BLOG ARTICLE — ported components, new-theme styling
@@ -1065,16 +1030,8 @@ a { color: inherit; text-decoration: none; }
 .lux .logos__row img { opacity: .5; }
 .lux .logos__row a:hover img { opacity: .85; }
 
-/* blog cards — premium surface, matching the site */
-.lux .blog-card {
-  background: #FCFDFB; border: 1px solid var(--lux-line); border-radius: 14px;
-  box-shadow: var(--lux-sh-sm);
-  transition: transform .5s var(--ease-lux), box-shadow .5s var(--ease-lux), border-color .5s var(--ease-lux), background-color .5s var(--ease-lux);
-}
-.lux .blog-card:hover {
-  background: #fff; transform: translateY(-6px); box-shadow: var(--lux-sh-md);
-  border-color: color-mix(in srgb, var(--solid-hi) 40%, var(--lux-line));
-}
+/* card types that carry no .notch still take the refined radius */
+.lux :is(.wcard, .side-card) { border-radius: 14px; }
 
 /* ============================================================
    MOBILE REFINEMENTS (≤640px only — desktop is untouched)
@@ -1858,6 +1815,68 @@ a { color: inherit; text-decoration: none; }
   .lux .slab__in { padding-block: 2.75rem; }
   .sec__head .h-l { margin-top: 1.1rem; }
   .sec__head .lede { margin-top: .9rem; font-size: 15px; }
+
+  /* — reviews page: same two-up density as the homepage quotes — */
+  .reviews { grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-top: 2rem; }
+  .review { padding: 1.05rem .95rem 1.1rem; gap: .7rem; }
+  .review__stars { font-size: 12px; }
+  .review__t { font-size: 12.8px; line-height: 1.45; }
+  .review__by { flex-direction: column; align-items: flex-start; gap: .5rem; padding-top: .8rem; }
+  .review__by img { width: 38px; height: 38px; }
+  .review__n { font-size: 12px; }
+  .review__r { font-size: 10.5px; }
+  .review__ctx { font-size: 10.5px; }
+
+  /* — pillar + case cards: tighter on a phone — */
+  .pillars { gap: .8rem; margin-top: 2rem; }
+  .pillar__in { padding: 1.05rem 1rem 1.1rem; gap: .5rem; }
+  .pillar__in .h-m { font-size: 1.02rem; }
+  .pillar__in .body { font-size: 12.8px; line-height: 1.45; }
+  .pillar__foot { padding-top: .8rem; }
+  .pillar__count { font-size: 10px; }
+
+  .cases { gap: 1rem; margin-top: 2rem; }
+  .crow__shot { min-height: 0; aspect-ratio: 16 / 10; }
+  .crow__in { padding: 1.2rem 1.1rem 1.35rem; }
+  .crow__body { font-size: 14px; margin-top: .85rem; }
+  .crow__facts { gap: 1rem; margin-top: 1.25rem; padding-top: 1.1rem; }
+  .crow__scope { margin-top: 1.15rem; gap: .3rem; }
+  .crow__scope li { font-size: 10.5px; padding: 4px 8px; }
+  .crow__cta { margin-top: 1.35rem; }
+
+  /* — contact: ways, steps, checklists — */
+  .ways { gap: .6rem; margin-top: 1.75rem; }
+  .way { padding: .9rem 1rem; gap: .75rem; }
+  .way__ico { width: 36px; height: 36px; }
+  .way__ico svg { width: 17px; height: 17px; }
+  .way__t { font-size: 14px; }
+  .way__d { font-size: 12px; }
+  .bring, .checklist { padding: 1.2rem 1.15rem 1.3rem; margin-top: 1.6rem; }
+  .bring li, .checklist li { font-size: 13.5px; gap: .55rem; }
+  .contact-side { gap: 1.75rem; }
+  .step { gap: .85rem; padding-bottom: 1.25rem; }
+  .step__n { width: 32px; height: 32px; font-size: 11px; }
+  .step:not(:last-child)::before { left: 15.5px; top: 32px; }
+  .step__t { font-size: .95rem; }
+  .step__b p { font-size: 13px; }
+
+  /* — blog index: lead + side stories — */
+  .lead-grid { gap: .8rem; margin-top: 2rem; }
+  .lead-card__in { padding: 1.1rem 1.05rem 1.2rem; gap: .55rem; }
+  .lead-card__d { font-size: 13px; }
+  .lead-side { gap: .7rem; }
+  .side-card { grid-template-columns: 92px 1fr; }
+  .side-card__in { padding: .75rem .85rem; }
+  .side-card__t { font-size: 13px; }
+  .topics { padding-block: 1.25rem; }
+  .topics li { font-size: 11.5px; padding: 5px 9px; }
+
+  /* — legal pages — */
+  .legal { gap: 1.75rem; }
+  .legal__summary { padding: 1.2rem 1.15rem 1.3rem; }
+  .legal__summary li { font-size: 13.5px; }
+  .legal__sec { margin-top: 2rem; }
+  .legal__sec p { font-size: 14.5px; line-height: 1.68; }
 
   /* — footer: two columns, brand across the top — */
   .foot__in { gap: 2rem; }

@@ -59,6 +59,10 @@ export default function ReviewsPage() {
           { label: "start a project", href: "/contact/" },
           { label: "see the work", href: "/case-studies/", variant: "out" },
         ]}
+        media={{
+          src: "/images/team-discussion.jpg",
+          alt: "The Appycodes team working with a client",
+        }}
         stats={[
           { n: "UK · EU · US", label: "clients across" },
           { n: "2015", label: "reviewed since" },

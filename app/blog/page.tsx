@@ -46,6 +46,11 @@ export default function BlogIndex() {
         }
         lede="Cost studies, research and benchmarks from real engagements — the data behind the decisions we help founders make, with the working shown."
         actions={[{ label: "start a project", href: "/contact/" }]}
+        media={
+          lead
+            ? { src: lead.image, alt: "", caption: `Latest: ${lead.title}` }
+            : undefined
+        }
         stats={[
           { n: String(posts.length), label: "articles published" },
           { n: "real", label: "engagement data" },
