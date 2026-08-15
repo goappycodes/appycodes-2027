@@ -1,3 +1,27 @@
+@import "tailwindcss";
+
+/* Tailwind token map — the blog/article components use utility classes
+   (text-muted, bg-stone, border-line, text-accent, font-display …). Point
+   those tokens at the new Alloy palette so the ported components render in
+   the new theme automatically. */
+@theme inline {
+  --color-paper: var(--page);
+  --color-stone: var(--wash);
+  --color-card: var(--page);
+  --color-ink: var(--ink);
+  --color-muted: var(--ink-2);
+  --color-faint: var(--ink-3);
+  --color-line: var(--rule);
+  --color-line-strong: var(--rule-2);
+  --color-accent: var(--solid-hi);
+  --color-accent-strong: var(--accent-text);
+  --color-accent-tint: var(--wash);
+  --color-on-accent: #ffffff;
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-sans: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace;
+}
+
 /* ==================================================================
    APPYCODES — homepage, direction 02 "Statement"
    Palette: Alloy  (#0E100F → #5ECD04)
@@ -32,6 +56,7 @@
   --solid: #0E100F;
   --solid-hi: #5ECD04;   /* the loud, unclamped accent — fills only */
   --tint:  #5ECD04;
+  --accent-text: #2E6A02; /* contrast-safe green for small accent text on white */
 
   --page:  #FFFFFF;
   --wash:  #F3FBEC;         /* accent tinted into the page — bands */
@@ -627,3 +652,51 @@ a { color: inherit; text-decoration: none; }
 .static-prose h2 { font-weight: 700; text-transform: lowercase; letter-spacing: -.03em; font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 2.5rem 0 .9rem; }
 .static-prose p { font-size: 16px; line-height: 1.72; color: var(--ink-2); margin: 0 0 1.05rem; }
 .static-prose a { color: var(--solid); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ==================================================================
+   BLOG ARTICLE — ported components, new-theme styling
+   ================================================================== */
+.eyebrow--plain::before { display: none; }
+.btn-primary { background-image: var(--grad-fill); color: #fff; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px -8px var(--solid-hi); }
+.btn-ghost { background: var(--page); color: var(--solid); box-shadow: inset 0 0 0 1.5px var(--rule-2); }
+.btn-ghost:hover { background-image: var(--grad-fill); color: #fff; box-shadow: none; }
+
+.arrow-link { display: inline-flex; align-items: center; gap: .4rem; font-weight: 600; color: var(--accent-text); transition: gap .18s var(--ease); }
+.arrow-link:hover { gap: .7rem; }
+
+.figure { font-weight: 700; letter-spacing: -.03em; line-height: .95; font-variant-numeric: tabular-nums; }
+
+/* responsive cell grid used by StatGrid */
+.cell-grid { display: grid; gap: .75rem; }
+.cell-grid > * { border: 1px solid var(--rule); }
+@media (min-width: 768px) {
+  .cell-grid { gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .cell-grid > * { border: 0; }
+}
+
+/* long-form prose */
+.article { color: var(--ink-2); font-size: 1.02rem; line-height: 1.75; }
+@media (min-width: 768px) { .article { font-size: 1.075rem; } }
+.article > * + * { margin-top: 1.35rem; }
+.article h2 { font-family: var(--f); font-weight: 700; text-transform: lowercase; letter-spacing: -.03em; font-size: clamp(1.5rem, 3.2vw, 2.05rem); color: var(--ink); margin-top: 3rem; line-height: 1.1; scroll-margin-top: 6rem; }
+.article h3 { font-family: var(--f); font-weight: 700; text-transform: lowercase; letter-spacing: -.02em; font-size: clamp(1.2rem, 2.4vw, 1.5rem); color: var(--ink); margin-top: 2.3rem; line-height: 1.15; scroll-margin-top: 6rem; }
+.article h4 { font-weight: 700; font-size: 1.05rem; color: var(--ink); margin-top: 1.8rem; }
+.article p { color: var(--ink-2); }
+.article a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.article a:hover { color: var(--solid); }
+.article strong { color: var(--ink); font-weight: 700; }
+.article em { font-style: italic; }
+.article ul, .article ol { padding-left: 1.35rem; color: var(--ink-2); }
+.article ul { list-style: disc; }
+.article ol { list-style: decimal; }
+.article li { margin-top: .5rem; padding-left: .2rem; }
+.article li::marker { color: var(--solid-hi); }
+.article :not(pre) > code { font-family: var(--font-mono, ui-monospace, monospace); font-size: .85em; background: var(--wash); border: 1px solid var(--rule); border-radius: 4px; padding: .1em .4em; color: var(--ink); }
+.article hr { border: 0; border-top: 1px solid var(--rule); margin: 2.75rem 0; }
+.article blockquote { border-left: 3px solid var(--solid-hi); padding-left: 1.1rem; color: var(--ink); font-style: italic; }
+.article img { border-radius: .5rem; border: 1px solid var(--rule); }
+.article table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.article th { text-align: left; font-weight: 700; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); padding: .7rem .9rem; border-bottom: 1px solid var(--rule-2); background: var(--wash); white-space: nowrap; }
+.article td { padding: .7rem .9rem; border-bottom: 1px solid var(--rule); color: var(--ink-2); vertical-align: top; }
+.article tbody tr:last-child td { border-bottom: 0; }
