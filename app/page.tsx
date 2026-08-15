@@ -146,6 +146,24 @@ export default function HomePage() {
               </a>
             ))}
           </div>
+          {/* Mobile only: two marquee rows drifting in opposite directions.
+              Each track repeats its half twice so the -50% loop is seamless.
+              Decorative — the static row above carries the semantics. */}
+          <div className="logos__marquee" aria-hidden="true">
+            {[
+              CLIENT_LOGOS.slice(0, Math.ceil(CLIENT_LOGOS.length / 2)),
+              CLIENT_LOGOS.slice(Math.ceil(CLIENT_LOGOS.length / 2)),
+            ].map((row, r) => (
+              <div key={r} className={`logos__track${r === 1 ? " logos__track--rev" : ""}`}>
+                {[...row, ...row].map((l, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <span key={i} className="logos__chip">
+                    <img src={l.src} alt="" loading="lazy" />
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

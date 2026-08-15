@@ -344,6 +344,33 @@ a { color: inherit; text-decoration: none; }
   color: var(--on-slab); }
 .slab__in { padding-block: clamp(3rem, 7vw, 6rem); position: relative; z-index: 1; }
 
+/* Process section ("how") — team photo backdrop using the same gradient-overlay
+   recipe as the homepage hero, so the white heading + process cards stay
+   legible. Scoped to `.home #how` (homepage process section only). */
+.home #how {
+  background-color: var(--slab);
+  background-image:
+    radial-gradient(80% 75% at 86% -8%, color-mix(in srgb, var(--solid-hi) 22%, transparent) 0%, transparent 56%),
+    linear-gradient(100deg, #040a07f7 0%, #050b08ed 2%, #060d0999 96%, #060d094d 100%),
+    linear-gradient(0deg, #060d09e6 0%, #060d0900 44%),
+    url("/images/team-discussion.jpg");
+  background-size: 100%;
+  background-position: right 32%;
+  background-repeat: no-repeat;
+}
+@media (max-width: 640px) {
+  /* mobile: full-cover with a heavier, uniform wash — the photo reads as a
+     subtle backdrop behind the stacked heading + cards */
+  .home #how {
+    background-image:
+      radial-gradient(90% 55% at 88% 0%, color-mix(in srgb, var(--solid-hi) 18%, transparent) 0%, transparent 60%),
+      linear-gradient(180deg, #060d09d9 0%, #060d09f0 100%),
+      url("/images/team-discussion.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
 .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.25rem 1.5rem; }
 @media (min-width: 900px) { .stats { grid-template-columns: repeat(4, 1fr); } }
 .stat { border-top: 3px solid; border-image: var(--grad) 1; padding-top: 1.1rem; }
@@ -631,6 +658,41 @@ a { color: inherit; text-decoration: none; }
   max-width: none;
   margin-inline: 0;
   padding-inline: max(var(--pad), calc(50vw - var(--maxw) / 2 + var(--pad)));
+}
+/* Homepage only — founder/team photo behind the hero, dimmed by a layered
+   gradient overlay so the white headline + lede stay legible. Scoped to
+   `.home` (only the homepage carries that class) so every other page keeps the
+   plain gradient hero defined above.
+     1) brand glow (top-right accent, keeps the section on-palette)
+     2) left→right dark wash (strongest under the left-aligned copy)
+     3) bottom→up dark wash (grounds the awards row + its top rule)
+     4) the photo itself */
+.home .hero--dark {
+  background-color: var(--slab);
+  background-image:
+    radial-gradient(80% 75% at 86% -8%, color-mix(in srgb, var(--solid-hi) 22%, transparent) 0%, transparent 56%),
+    linear-gradient(100deg, #040a07f7 0%, #050b08ed 2%, #060d0999 46%, #060d094d 100%),
+    linear-gradient(0deg, #060d09e6 0%, #060d0900 44%),
+    url("/images/ritesh-prince.jpg");
+  background-size: 70%;
+  background-position: right 32%;
+  background-repeat: no-repeat;
+}
+/* Homepage mobile — photo becomes a full-width top band that dissolves into the
+   slab, with the copy padded below it. The fade layer is sized to the photo's
+   own band (height = 100vw * 880/1201 ≈ 73.27vw) so it dissolves exactly at the
+   photo's lower edge; the slab background-color carries the same colour on down
+   — no visible seam. */
+@media (max-width: 640px) {
+  .home .hero--dark {
+    background-image:
+      linear-gradient(#0e100f00 0% 0%, #0e100f8c 50%, #0e100f 82% 100%),
+      url("/images/ritesh-prince.jpg");
+    background-size: 100% 73.27vw, 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    padding-top: 56vw;
+  }
 }
 .hero--dark::before {
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
@@ -922,8 +984,8 @@ a { color: inherit; text-decoration: none; }
 .lux .quote { overflow: visible; }
 .lux .quote__by { position: relative; }
 .lux .quote__by img {
-  width: 64px; height: 64px; margin-left: -32px;
-  border: 3px solid #fff; box-shadow: 0 6px 16px -8px rgba(16,20,15,.4);
+  width: 96px; height: 96px; margin-left: -32px;
+  border: 3px solid #fff; box-shadow: 0 8px 20px -8px rgba(16,20,15,.42);
 }
 
 /* buttons — smoother, softer glow */
@@ -944,4 +1006,68 @@ a { color: inherit; text-decoration: none; }
 .lux .blog-card:hover {
   background: #fff; transform: translateY(-6px); box-shadow: var(--lux-sh-md);
   border-color: color-mix(in srgb, var(--solid-hi) 40%, var(--lux-line));
+}
+
+/* ============================================================
+   MOBILE REFINEMENTS (≤640px only — desktop is untouched)
+   • "Recognised by" strip wraps to two rows, no sideways scroll
+   • compact card padding across every card type / every page
+   • client-logo strip becomes two opposing marquee rows
+   ============================================================ */
+
+/* The marquee markup ships on every render but is a mobile-only device — hidden
+   by default here so it never shows on desktop. (Declared before the media
+   query so the ≤640px rule below wins on phones via source order.) */
+.logos__marquee { display: none; }
+@keyframes logos-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  /* — hero awards: exactly two rows (5 + 4), no horizontal scroll — */
+  .hero__awards { flex-wrap: wrap; overflow-x: visible; gap: .9rem 0; }
+  .hero__awards-lbl { flex-basis: 100%; }        /* label sits on its own line */
+  .awards {
+    flex-basis: 100%;
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1rem .5rem; align-items: center; justify-items: center;
+  }
+  .award { gap: 0; justify-content: center; }
+  .award__name { display: none; }                /* keep the 5 cells uniform */
+  .award__logo { height: auto; max-height: 15px; max-width: 100%; }
+
+  /* — tighter card padding, every card type / every page — */
+  .svc__i        { padding: 1.35rem 1.35rem 1.4rem; }
+  .lux .svc__i   { padding: 1.35rem 1.4rem 1.2rem; }   /* homepage services */
+  .svc__chev     { margin-top: .1rem; }                /* nudge the arrow up */
+  .case__in      { padding: 1.35rem 1.35rem 1.45rem; }
+  .cs-card       { padding: 1.3rem 1.3rem 1.4rem; }
+  .blog-card__in { padding: 1.2rem 1.2rem 1.3rem; }
+  .quote         { padding: 1.3rem 1.3rem 1.15rem; }
+  .proc__i       { padding: 1.4rem 1.3rem 1.5rem; }
+  .lux .proc__i  { padding: 1.5rem 1.4rem 1.5rem; }
+  .svc-sub__i    { padding: .95rem 1.1rem; }
+
+  /* — client logos: two marquee rows, opposite directions — */
+  .logos__row { display: none; }
+  .logos__marquee {
+    display: flex; flex-direction: column; gap: 1.5rem; overflow: hidden;
+    -webkit-mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+            mask: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+  .logos__track {
+    display: flex; align-items: center; gap: 2.5rem; width: max-content;
+    animation: logos-marquee 26s linear infinite;
+  }
+  .logos__track--rev { animation-direction: reverse; }
+  .logos__chip { flex: none; display: inline-flex; }
+  .logos__marquee img {
+    height: 24px; width: auto; display: block;
+    opacity: .5; filter: grayscale(1) brightness(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logos__track { animation: none; }
 }
