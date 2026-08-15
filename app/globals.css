@@ -455,7 +455,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- services ---------- */
 .svc { display: grid; gap: 1.15rem; margin-top: 3.25rem; }
 @media (min-width: 640px)  { .svc { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1040px) { .svc { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px)  { .svc { grid-template-columns: repeat(3, 1fr); } }
 .svc__i {
   background: var(--wash); padding: 1.9rem 1.7rem 2.1rem; display: grid; gap: .8rem; align-content: start;
   position: relative; overflow: hidden;
@@ -511,7 +511,10 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- process ---------- */
 .proc { display: grid; gap: 1.15rem; margin-top: 3.25rem; }
-@media (min-width: 760px) { .proc { grid-template-columns: repeat(4, 1fr); } }
+/* two-up holds all the way to 960 — four across at tablet width leaves each
+   card too narrow for a heading plus a paragraph */
+@media (min-width: 640px) { .proc { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .proc { grid-template-columns: repeat(4, 1fr); } }
 .proc__i {
   background: rgba(255,255,255,.045); padding: 1.7rem 1.5rem 2rem; display: grid; gap: .7rem; align-content: start;
   border-top: 3px solid; border-image: var(--grad) 1;
@@ -654,7 +657,7 @@ a { color: inherit; text-decoration: none; }
 /* ---------- testimonials ---------- */
 .tmon { display: grid; gap: 1.25rem; margin-top: 3.25rem; }
 @media (min-width: 720px)  { .tmon { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1080px) { .tmon { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1000px) { .tmon { grid-template-columns: repeat(4, 1fr); } }
 .quote {
   min-width: 0;  /* let the 1fr grid tracks stay equal */
   background: var(--wash); padding: 1.6rem 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 1rem;
@@ -1285,7 +1288,7 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 .writing-grid { display: grid; gap: 1.4rem; margin-top: 3rem; }
 @media (min-width: 640px)  { .writing-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1040px) { .writing-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1000px) { .writing-grid { grid-template-columns: repeat(4, 1fr); } }
 .wcard {
   display: flex; flex-direction: column; overflow: hidden;
   background: #FCFDFB; border: 1px solid var(--lux-line, var(--rule)); border-radius: 14px;
@@ -1546,9 +1549,8 @@ a { color: inherit; text-decoration: none; }
 .story__fig img { width: 100%; display: block; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 25%; }
 .story__fig figcaption { padding: 1.1rem 1.3rem 1.25rem; font-size: 13px; line-height: 1.5; color: var(--ink-3); }
 
-/* six-up principle grid on the dark slab */
-@media (min-width: 760px)  { .proc--6 { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1180px) { .proc--6 { grid-template-columns: repeat(3, 1fr); } }
+/* six-card variant sits three across once there is room, never four */
+@media (min-width: 960px) { .proc--6 { grid-template-columns: repeat(3, 1fr); } }
 
 /* ============================================================
    REVIEWS — full review cards, platform badges
@@ -1775,6 +1777,14 @@ a { color: inherit; text-decoration: none; }
 .step__b { min-width: 0; padding-top: .35rem; }
 .step__t { font-weight: 700; font-size: 1.02rem; letter-spacing: -.02em; text-transform: lowercase; margin: 0 0 .4rem; color: var(--ink); }
 .step__b p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-3); }
+
+/* Footer columns only became a grid at 860px, so tablets got a single stacked
+   list. Two columns cover everything below that. */
+@media (max-width: 859px) {
+  .foot__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.9rem 1.75rem; }
+  .foot__brand { grid-column: 1 / -1; }
+  .foot__brand p { max-width: 48ch; }
+}
 
 /* ============================================================
    MOBILE, ROUND 2 (≤639px) — density, two-up grids, footer
