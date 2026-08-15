@@ -2,15 +2,13 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 export type CaseBlock =
-  | { t: "section"; eyebrow: string; title: string; lead?: string; paras?: string[]; two?: [string, string] }
-  | { t: "cards"; eyebrow: string; title: string; lead?: string; cols3?: boolean; items: { title: string; body: string }[] }
-  | { t: "figure"; src: string; alt: string; caption: string; phone?: boolean }
-  | { t: "gallery"; eyebrow: string; title: string; lead?: string; shots: { src: string; alt: string }[] }
-  | { t: "tldr"; items: ({ head: string; body: string } | string)[] };
+  | { t: "section"; title: string; lead?: string }
+  | { t: "cards"; title: string; lead?: string; cols3?: boolean; items: { title: string; body: string }[] }
+  | { t: "figure"; src: string; alt: string; caption?: string; phone?: boolean }
+  | { t: "gallery"; title: string; shots: { src: string; alt: string }[] };
 
 export type CaseStudyData = {
   crumb: string;
-  sector: string;
   title: ReactNode;
   lede: string;
   facts: { label: string; value: string }[];
@@ -26,31 +24,13 @@ export type CaseStudyData = {
 
 function Block({ b, wash }: { b: CaseBlock; wash: boolean }) {
   const secClass = `cs-sec${wash ? " cs-sec--wash" : ""}`;
-  if (b.t === "tldr") {
-    return (
-      <section className={secClass}>
-        <div className="wrap">
-          <div className="cs-tldr notch notch-lg">
-            <p className="cs-tldr__lbl">TL;DR</p>
-            <ul>
-              {b.items.map((it, i) => (
-                <li key={i}>
-                  {typeof it === "string" ? it : (<span><b>{it.head}</b> {it.body}</span>)}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-    );
-  }
   if (b.t === "figure") {
     return (
       <section className={secClass}>
         <div className="wrap">
           <figure className={`cs-fig${b.phone ? " cs-fig--phone" : ""}`}>
             <img src={b.src} alt={b.alt} loading="lazy" className={b.phone ? "" : "notch notch-lg"} />
-            <figcaption>{b.caption}</figcaption>
+            {b.caption ? <figcaption>{b.caption}</figcaption> : null}
           </figure>
         </div>
       </section>
@@ -60,9 +40,7 @@ function Block({ b, wash }: { b: CaseBlock; wash: boolean }) {
     return (
       <section className={secClass}>
         <div className="wrap">
-          <p className="cs-eyebrow">{b.eyebrow}</p>
           <h2 className="cs-h2">{b.title}</h2>
-          {b.lead ? <p className="cs-lead">{b.lead}</p> : null}
           <div className="cs-gallery">
             {b.shots.map((s) => (
               <img key={s.src} src={s.src} alt={s.alt} loading="lazy" className="notch" />
@@ -76,7 +54,6 @@ function Block({ b, wash }: { b: CaseBlock; wash: boolean }) {
     return (
       <section className={secClass}>
         <div className="wrap">
-          <p className="cs-eyebrow">{b.eyebrow}</p>
           <h2 className="cs-h2">{b.title}</h2>
           {b.lead ? <p className="cs-lead">{b.lead}</p> : null}
           <div className={`cs-cards${b.cols3 ? " cs-cards--3" : ""}`}>
@@ -92,26 +69,12 @@ function Block({ b, wash }: { b: CaseBlock; wash: boolean }) {
       </section>
     );
   }
-  // section
+  // section — just a lowercase headline and one short line
   return (
     <section className={secClass}>
       <div className="wrap">
-        <p className="cs-eyebrow">{b.eyebrow}</p>
         <h2 className="cs-h2">{b.title}</h2>
         {b.lead ? <p className="cs-lead">{b.lead}</p> : null}
-        {b.two ? (
-          <div className="cs-two">
-            <p>{b.two[0]}</p>
-            <p>{b.two[1]}</p>
-          </div>
-        ) : null}
-        {b.paras ? (
-          <div className="prose">
-            {b.paras.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        ) : null}
       </div>
     </section>
   );
@@ -124,17 +87,16 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
       <section className="hero--dark dotted">
         <div className="wrap cs-hero">
           <p className="cs-crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; <Link href="/case-studies/">Case studies</Link>{" "}
+            <Link href="/">home</Link> &nbsp;/&nbsp; <Link href="/case-studies/">work</Link>{" "}
             &nbsp;/&nbsp; {data.crumb}
           </p>
           <div className="cs-hero__in">
             <div>
-              <p className="cs-sector">{data.sector}</p>
               <h1>{data.title}</h1>
               <p className="cs-lede">{data.lede}</p>
               <div className="cs-hero__btns">
                 <Link className="btn btn--grad notch" href="/contact/">start a project like this</Link>
-                <Link className="btn btn--out notch" href="/case-studies/">all case studies</Link>
+                <Link className="btn btn--out notch" href="/case-studies/">all work</Link>
               </div>
             </div>
             <div className="cs-facts notch notch-lg">
@@ -165,8 +127,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
         <div className="wrap slab__in">
           <dl className="stats">
             {data.stats.map((s) => (
-              <div key={s.label} className="stat">
-                <dt>the record</dt>
+              <div key={s.label} className="stat stat--cs">
                 <dd className="tnum g-dark">{s.n}</dd>
                 <p>{s.label}</p>
               </div>
@@ -183,10 +144,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
       {/* STACK */}
       <section className="cs-sec cs-sec--wash">
         <div className="wrap cs-grid2">
-          <div>
-            <p className="cs-eyebrow">Stack summary</p>
-            <h2 className="cs-h2">what it is built on.</h2>
-          </div>
+          <h2 className="cs-h2">what it is built on.</h2>
           <dl className="cs-stack notch">
             {data.stack.map((row) => (
               <div key={row.layer} className="cs-stack__row">
@@ -201,8 +159,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
       {/* OUTCOMES */}
       <section className="cs-sec">
         <div className="wrap">
-          <p className="cs-eyebrow">Outcomes</p>
-          <h2 className="cs-h2">where the engagement stands.</h2>
+          <h2 className="cs-h2">what happened next.</h2>
           <ul className="cs-outcomes">
             {data.outcomes.map((o) => (
               <li key={o}>{o}</li>
@@ -222,7 +179,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
         <div className="wrap cta__in">
           <div className="cta__t">
             <h2 className="h-l">{data.cta}</h2>
-            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+            <p>A thirty-minute call with the engineer who would run it.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">book a call</Link>
         </div>
