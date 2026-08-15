@@ -3,7 +3,9 @@ import { HeroParticles } from "@/components/hero-particles";
 import { ServiceTitle } from "@/components/service-title";
 import { ChevronRight } from "@/components/icons";
 import { LuxReveal } from "@/components/lux-reveal";
+import { Rail } from "@/components/rail";
 import { SERVICES_DATA } from "@/lib/services-data";
+import { BLOG_POSTS } from "@/lib/blog";
 import { AWARDS, CLIENT_LOGOS, REVIEWS } from "@/lib/site";
 
 const OUTCOMES = [
@@ -52,12 +54,19 @@ const PROCESS = [
   { n: "04", h: "handover or stay", body: "Documented handover to your team, or we keep running it. Both are real options — the first is not a punishment." },
 ];
 
-const POSTS = [
-  { k: "cost study", t: "What it actually costs to take a Lovable prototype to production" },
-  { k: "research", t: "Indexing decay: what happened to 1,200 pages over nine months" },
-  { k: "economics", t: "Token economics for AI features, before you ship them to everyone" },
-  { k: "benchmark", t: "Custom ticketing versus Eventbrite: where the break-even actually falls" },
-];
+/* Four featured studies, pulled from the real article set so the card imagery,
+   dates and read times stay in sync with /blog. */
+const FEATURED_POSTS = [
+  { slug: "lovable-to-production-cost-2026", k: "cost study" },
+  { slug: "indexing-decay-google-study-2026", k: "research" },
+  { slug: "ai-feature-token-economics-2026", k: "economics" },
+  { slug: "custom-ticketing-breakeven-2026", k: "benchmark" },
+]
+  .map((f) => {
+    const post = BLOG_POSTS.find((p) => p.slug === f.slug);
+    return post ? { ...post, k: f.k } : null;
+  })
+  .filter((p): p is NonNullable<typeof p> => p !== null);
 
 function Chevron() {
   return (
@@ -110,27 +119,29 @@ export default function HomePage() {
           <h2 className="h-l">we measure the work by what happened next</h2>
           <p className="lede">Not a menu of services — a short list of companies, and the change we helped them make.</p>
         </div>
-        <div className="work work--2 reveal">
-          {OUTCOMES.map((o) => (
-            <Link key={o.href} href={o.href} className="case notch notch-lg">
-              <div className="case__shot">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={o.img} alt={o.meta} loading="lazy" />
-              </div>
-              <div className="case__bar" />
-              <div className="case__in">
-                <h3 className="h-m">{o.head}</h3>
-                <p className="body">{o.body}</p>
-                <div className="case__metric">
-                  <div className="case__metric-txt">
-                    <span className="case__fig tnum g-disp">{o.fig}</span>
-                    <span className="case__figlabel">{o.figlabel}</span>
-                  </div>
-                  <Chevron />
+        <div className="reveal">
+          <Rail label="Featured case studies" className="work-rail">
+            {OUTCOMES.map((o) => (
+              <Link key={o.href} href={o.href} className="case notch notch-lg">
+                <div className="case__shot">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={o.img} alt={o.meta} loading="lazy" />
                 </div>
-              </div>
-            </Link>
-          ))}
+                <div className="case__bar" />
+                <div className="case__in">
+                  <h3 className="h-m">{o.head}</h3>
+                  <p className="body">{o.body}</p>
+                  <div className="case__metric">
+                    <div className="case__metric-txt">
+                      <span className="case__fig tnum g-disp">{o.fig}</span>
+                      <span className="case__figlabel">{o.figlabel}</span>
+                    </div>
+                    <Chevron />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </Rail>
         </div>
       </section>
 
@@ -255,15 +266,32 @@ export default function HomePage() {
       <section className="wrap sec" id="writing">
         <div className="sec__head reveal">
           <h2 className="h-l">we publish the numbers, not the opinions</h2>
+          <p className="lede">
+            Cost studies and benchmarks from real engagements — the data behind the decisions we help
+            founders make, with the working shown.
+          </p>
         </div>
-        <div className="posts reveal">
-          {POSTS.map((p) => (
-            <a key={p.t} className="post" href="#writing">
-              <span className="post__k">{p.k}</span>
-              <span className="post__t">{p.t}</span>
-              <span className="post__a">read &rarr;</span>
-            </a>
+        <div className="writing-grid reveal">
+          {FEATURED_POSTS.map((p) => (
+            <Link key={p.slug} href={`/blog/${p.slug}/`} className="wcard">
+              <div className="wcard__shot">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.image} alt="" loading="lazy" />
+                <span className="wcard__k">{p.k}</span>
+              </div>
+              <div className="wcard__in">
+                <h3 className="wcard__t">{p.title}</h3>
+                <p className="wcard__d">{p.description}</p>
+                <div className="wcard__foot">
+                  <span>{p.readTime}</span>
+                  <span className="wcard__read">read &rarr;</span>
+                </div>
+              </div>
+            </Link>
           ))}
+        </div>
+        <div className="sec__more reveal">
+          <Link className="btn btn--out notch" href="/blog/">read all writing</Link>
         </div>
       </section>
 

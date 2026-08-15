@@ -694,10 +694,10 @@ git shortlog -sn --no-merges`}</CodeBlock>
             href="/services/white-label-development/"
           />
           <RelatedCard
-            tag="Tool"
-            title="Software Project Estimator"
-            body="Quote the next phase against your scope tonight."
-            href="/software-project-estimator/"
+            tag="Service"
+            title="Scope &amp; cost, in writing"
+            body="We scope and price the next phase against the audit findings."
+            href="/contact/"
           />
         </RelatedGrid>
 

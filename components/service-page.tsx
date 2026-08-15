@@ -1,103 +1,244 @@
 import Link from "next/link";
 import { subServicesFor, type ServiceData } from "@/lib/services-data";
 import { ServiceTitle } from "@/components/service-title";
-import { ChevronRight } from "@/components/icons";
+import { ChevronRight, Check } from "@/components/icons";
+import { PageHero } from "@/components/page-hero";
+import { AwardsStrip, FeaturedWork, LogoWall, Testimonials, WritingCards, Faq } from "@/components/sections";
+import { serviceMedia, PILLAR_PROOF, PILLAR_CASES, PILLAR_POSTS } from "@/lib/media";
 
 /* eslint-disable @next/next/no-img-element */
 
 export function ServicePage({ s }: { s: ServiceData }) {
   const subs = subServicesFor(s.slug);
+  const media = serviceMedia(s.slug);
+  const proof = PILLAR_PROOF[s.slug];
+
   return (
     <>
-      {/* HERO */}
-      <section className="wrap hero hero--dark">
-        <p className="cs-crumb">
-          <Link href="/">home</Link> &nbsp;/&nbsp; <Link href="/services/">services</Link> &nbsp;/&nbsp;{" "}
-          <ServiceTitle label={s.title} />
-        </p>
-        <h1 className="h-l" style={{ maxWidth: "16ch" }}>
-          <ServiceTitle label={s.title} />.
-        </h1>
-        <p className="lede">
-          <ServiceTitle label={s.headline} />
-        </p>
-        <div className="hero__btns">
-          <Link className="btn btn--grad notch" href="/contact/">start a project</Link>
-          <Link className="btn btn--out notch" href="/services/">all services</Link>
+      <PageHero
+        crumbs={[
+          { label: "home", href: "/" },
+          { label: "services", href: "/services/" },
+          { label: s.title },
+        ]}
+        eyebrow="practice"
+        title={
+          <>
+            <ServiceTitle label={s.title} />.
+          </>
+        }
+        lede={<ServiceTitle label={s.headline} />}
+        actions={[
+          { label: "start a project", href: "/contact/" },
+          { label: "all services", href: "/services/", variant: "out" },
+        ]}
+        media={{ src: media.img, alt: media.alt }}
+        stats={[
+          { n: String(subs.length), label: "specialisms in this practice" },
+          { n: "senior", label: "engineers only" },
+          { n: "day one", label: "you own the code" },
+          { n: "2015", label: "shipping since" },
+        ]}
+      />
+
+      <div className="wrap">
+        <AwardsStrip />
+      </div>
+
+      {/* WHY — copy on the left, the concrete list on the right */}
+      <section className="wrap sec">
+        <div className="split">
+          <div className="split__copy">
+            <p className="eyebrow">why it matters</p>
+            <h2 className="h-l">
+              <ServiceTitle label={s.whyTitle} />.
+            </h2>
+            <p className="lede">{s.whyDescription}</p>
+            {s.whyQuote ? <blockquote className="pullquote">{s.whyQuote}</blockquote> : null}
+          </div>
+          <div className="split__side">
+            <div className="checklist notch">
+              <p className="checklist__lbl">what sits inside this practice</p>
+              <ul>
+                {s.whyPoints.map((p) => (
+                  <li key={p}>
+                    <Check className="checklist__ico" aria-hidden />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* WHY */}
-      <section className="wrap sec">
-        <div className="sec__head">
-          <h2 className="h-l"><ServiceTitle label={s.whyTitle} />.</h2>
-          <p className="lede">{s.whyDescription}</p>
-        </div>
-        <ul className="cs-outcomes">
-          {s.whyPoints.map((p) => (
-            <li key={p}>{p}</li>
-          ))}
-        </ul>
-        {s.whyQuote ? <p className="callout notch">{s.whyQuote}</p> : null}
-      </section>
+      {/* PROOF BAND — real screenshots where we have them */}
+      {proof ? (
+        <section className="showcase">
+          <div className="wrap showcase__in">
+            <div className="showcase__copy">
+              <p className="eyebrow eyebrow--slab">in production</p>
+              <h2 className="h-l" style={{ color: "#fff" }}>
+                {proof.kind === "frame" ? (
+                  <>
+                    what it looks like when it&apos;s <span className="g-dark">running</span>
+                  </>
+                ) : (
+                  <>
+                    what it looks like when it&apos;s <span className="g-dark">done properly</span>
+                  </>
+                )}
+              </h2>
+              <p>{proof.caption}</p>
+              {proof.kind === "frame" ? (
+                <>
+                  <dl className="showcase__facts">
+                    {proof.facts.map((f) => (
+                      <div key={f.k} className="showcase__fact">
+                        <dt>{f.k}</dt>
+                        <dd className="tnum">{f.v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <Link className="btn btn--out notch showcase__cta" href={proof.href}>
+                    read the {proof.client} case study
+                  </Link>
+                </>
+              ) : (
+                <Link className="btn btn--out notch showcase__cta" href="/case-studies/">
+                  see the work
+                </Link>
+              )}
+            </div>
 
-      {/* PROCESS */}
+            <div className="showcase__stage">
+              {proof.kind === "frame" ? (
+                <>
+                  <div className="frame notch showcase__browser">
+                    <div className="frame__bar" aria-hidden="true">
+                      <i />
+                      <i />
+                      <i />
+                    </div>
+                    <img src={proof.frame} alt={proof.frameAlt} loading="lazy" />
+                  </div>
+                  {proof.phone ? (
+                    <div className="showcase__phone">
+                      <img src={proof.phone} alt={proof.phoneAlt ?? ""} loading="lazy" />
+                    </div>
+                  ) : null}
+                </>
+              ) : (
+                <figure className="showcase__plain notch notch-lg">
+                  <img src={proof.img} alt={proof.alt} loading="lazy" />
+                </figure>
+              )}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* PROCESS — numbered timeline */}
       <section className="wrap sec">
         <div className="sec__head">
-          <h2 className="h-l"><ServiceTitle label={s.processTitle} />.</h2>
+          <p className="eyebrow">how it runs</p>
+          <h2 className="h-l">
+            <ServiceTitle label={s.processTitle} />.
+          </h2>
         </div>
-        <div className="svc">
+        <div className="steps steps--row">
           {s.processSteps.map((step, i) => (
-            <div key={step.title} className="svc__i notch">
-              <span className="svc__n">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="h-m"><ServiceTitle label={step.title} /></h3>
-              <p className="body">{step.description}</p>
+            <div key={step.title} className="step">
+              <span className="step__n tnum">{String(i + 1).padStart(2, "0")}</span>
+              <div className="step__b">
+                <h3 className="step__t">
+                  <ServiceTitle label={step.title} />
+                </h3>
+                <p>{step.description}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* BENEFITS (dark slab) */}
+      {/* BENEFITS — dark slab */}
       <section className="slab dotted">
         <div className="wrap slab__in">
           <div className="sec__head">
-            <h2 className="h-l" style={{ color: "#fff" }}><ServiceTitle label={s.benefitsTitle} />.</h2>
+            <p className="eyebrow eyebrow--slab">what you get</p>
+            <h2 className="h-l" style={{ color: "#fff" }}>
+              <ServiceTitle label={s.benefitsTitle} />.
+            </h2>
+            {s.benefitsQuote ? (
+              <p className="lede" style={{ color: "rgba(255,255,255,.72)" }}>
+                {s.benefitsQuote}
+              </p>
+            ) : null}
           </div>
-          <div className="proc">
-            {s.benefits.map((b) => (
+          <div className="proc proc--6">
+            {s.benefits.map((b, i) => (
               <div key={b.title} className="proc__i notch">
-                <h3 className="h-s"><ServiceTitle label={b.title} lower /></h3>
+                <span className="proc__n g-dark">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="h-s">
+                  <ServiceTitle label={b.title} lower />
+                </h3>
                 <p>{b.description}</p>
               </div>
             ))}
           </div>
-          {s.benefitsQuote ? (
-            <p className="lede" style={{ color: "rgba(255,255,255,.8)", marginTop: "2.5rem", maxWidth: "40ch" }}>
-              {s.benefitsQuote}
-            </p>
-          ) : null}
         </div>
       </section>
 
-      {/* WHO */}
+      <FeaturedWork
+        title="the same practice, shipped for other people"
+        lede="Production systems, with the numbers attached."
+        only={PILLAR_CASES[s.slug]}
+      />
+
+      <LogoWall />
+
+      {/* WHO IT IS FOR */}
       <section className="wrap sec">
-        <div className="sec__head">
-          <h2 className="h-l"><ServiceTitle label={s.whoTitle} /></h2>
+        <div className="split">
+          <div className="split__copy">
+            <p className="eyebrow">is this you?</p>
+            <h2 className="h-l">
+              <ServiceTitle label={s.whoTitle} />
+            </h2>
+            <p className="lede">
+              If several of these are true, this practice is probably the right starting point. If none
+              of them are, say so on the call and we will point you at the one that fits — or at
+              someone else entirely.
+            </p>
+            <Link className="btn btn--grad notch" href="/contact/" style={{ marginTop: "1.75rem" }}>
+              talk it through
+            </Link>
+          </div>
+          <div className="split__side">
+            <div className="checklist checklist--alt notch">
+              <p className="checklist__lbl">when this is the right call</p>
+              <ul>
+                {s.whoPoints.map((p) => (
+                  <li key={p}>
+                    <Check className="checklist__ico" aria-hidden />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-        <ul className="cs-outcomes">
-          {s.whoPoints.map((p) => (
-            <li key={p}>{p}</li>
-          ))}
-        </ul>
       </section>
 
-      {/* SUB-SERVICES — the original service pages that sit under this pillar */}
+      {/* SUB-SERVICES */}
       {subs.length > 0 ? (
         <section className="wrap sec">
           <div className="sec__head">
+            <p className="eyebrow">the specifics</p>
             <h2 className="h-l">everything we build in this practice.</h2>
             <p className="lede">
-              The specific services under <ServiceTitle label={s.title} />, each with its own page.
+              The {subs.length} services under <ServiceTitle label={s.title} />, each with its own page
+              — the exact work, what is included, and what it costs you to get it wrong.
             </p>
           </div>
           <div className="svc-sub">
@@ -111,22 +252,16 @@ export function ServicePage({ s }: { s: ServiceData }) {
         </section>
       ) : null}
 
-      {/* FAQ */}
-      <section className="wrap sec">
-        <div className="sec__head">
-          <h2 className="h-l">questions, answered.</h2>
-        </div>
-        <dl className="faq">
-          {s.faqs.map((f) => (
-            <div key={f.question} className="faq__row">
-              <dt>{f.question}</dt>
-              <dd>{f.answer}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      <Testimonials limit={4} />
 
-      {/* CTA */}
+      <WritingCards
+        slugs={PILLAR_POSTS[s.slug]}
+        title="the numbers behind this practice"
+        lede="Studies and benchmarks drawn from engagements exactly like this one."
+      />
+
+      <Faq items={s.faqs} title="questions, answered" />
+
       <section className="cta">
         <svg className="art cta-art" viewBox="0 0 400 400" fill="none" aria-hidden="true">
           <path d="M40 120 h220 l100 100 v220 h-320 z" stroke="currentColor" strokeWidth="2.5" />
@@ -134,10 +269,14 @@ export function ServicePage({ s }: { s: ServiceData }) {
         </svg>
         <div className="wrap cta__in">
           <div className="cta__t">
-            <h2 className="h-l"><ServiceTitle label={s.finalTitle} /></h2>
+            <h2 className="h-l">
+              <ServiceTitle label={s.finalTitle} />
+            </h2>
             <p>{s.finalDescription}</p>
           </div>
-          <Link className="cta__btn notch" href="/contact/">book a call</Link>
+          <Link className="cta__btn notch" href="/contact/">
+            book a call
+          </Link>
         </div>
       </section>
     </>

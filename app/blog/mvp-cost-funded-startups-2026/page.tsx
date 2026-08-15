@@ -1121,10 +1121,10 @@ export default function Page() {
 
         <h3>For founders who want a budget number</h3>
         <p>
-          We built an{" "}
-          <Link href="/software-project-estimator/">interactive estimator</Link> that runs the same
-          logic as the dataset above on your specific scope. It outputs a 30-second budget figure you
-          can stress-test against the table, and against your own assumptions.
+          We run the same logic as the dataset above against your specific scope and put the figure in
+          writing — a fixed written scope with the risky parts named up front. Bring three sentences to{" "}
+          <Link href="/contact/">a discovery call</Link> and you leave with a number you can
+          stress-test against the table, and against your own assumptions.
         </p>
 
         <h2>Limitations</h2>
@@ -1193,10 +1193,10 @@ export default function Page() {
             href="/services/startup-launch-support/"
           />
           <RelatedCard
-            tag="Tool"
-            title="Software Project Estimator"
-            body="Get a budget number against your specific scope tonight."
-            href="/software-project-estimator/"
+            tag="Service"
+            title="Scope &amp; cost, in writing"
+            body="A budget number against your specific scope, with the risky parts named."
+            href="/contact/"
           />
           <RelatedCard
             tag="Service"

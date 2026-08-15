@@ -1,91 +1,162 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageHero } from "@/components/page-hero";
+import { AwardsStrip, CASE_STUDIES, LogoWall, Testimonials, Faq } from "@/components/sections";
+import { ChevronRight } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Case studies — companies we've helped ship",
   description:
-    "Selected engagements: Ontick's custom ticketing platform, Bloc's four-year build, and Yippee Malta's booking engine.",
+    "Selected engagements: Ontick's custom ticketing platform, Bloc's four-year build, Yippee Malta's booking engine and Professional Energy's brokerage ERP.",
 };
 
 /* eslint-disable @next/next/no-img-element */
 
-const CASES = [
+const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> = {
+  Ontick: {
+    sector: "Event ticketing",
+    span: "Platform + two native apps",
+    scope: ["Multi-organizer platform", "Stripe instalments", "iOS & Android apps", "Scanning at the door"],
+  },
+  Bloc: {
+    sector: "Social events",
+    span: "Four-year partnership",
+    scope: ["React Native app", "Backend & APIs", "Ads manager", "Algorand marketplace", "Web front"],
+  },
+  "Yippee Malta": {
+    sector: "Travel & tours",
+    span: "Rebuild + custom checkout",
+    scope: ["Mobile-first design system", "Custom checkout", "Proprietary booking API", "Core Web Vitals"],
+  },
+  "Professional Energy": {
+    sector: "Energy brokerage",
+    span: "Tailor-made ERP",
+    scope: ["Supplier tenders", "Contract lifecycle", "Brokerage accounting", "Client management"],
+  },
+};
+
+const FAQS = [
   {
-    href: "/case-studies/ontick/",
-    img: "/images/ontick-6.png",
-    meta: "Ontick · event ticketing",
-    head: <><span className="name">Ontick</span> moved off Eventbrite onto ticketing they own.</>,
-    body: "Off Eventbrite onto a custom Laravel platform — multi-organizer, Stripe instalments, and two native apps.",
-    fig: "£2M+",
-    figlabel: "processed since launch",
+    question: "Why are there only four case studies?",
+    answer:
+      "Because these are the ones we can show properly, with the client's agreement and real numbers attached. We would rather publish four honest engagements than twenty logos with a sentence each.",
   },
   {
-    href: "/case-studies/bloc/",
-    img: "/images/bloc-6.png",
-    meta: "Bloc · social events",
-    head: <><span className="name">Bloc</span> — one of the <span className="caps">UK</span>’s newest social events platforms.</>,
-    body: "A four-year partnership across the app, backend, a TikTok-style ads manager, an Algorand marketplace and the web front.",
-    fig: "4+ yrs",
-    figlabel: "one team, five codebases",
+    question: "Can I talk to any of these clients?",
+    answer:
+      "Yes. On a serious engagement we will put you in touch with a reference whose project looked like yours. That is a better signal than anything on this page.",
   },
   {
-    href: "/case-studies/yippee-malta/",
-    img: "/images/yippee-6.png",
-    meta: "Yippee Malta · travel",
-    head: <>the mobile-first rebuild that won <span className="name">Yippee Malta</span> their own checkout.</>,
-    body: "Malta's leading tour operator rebuilt on a mobile-first design system, with a custom checkout against their proprietary booking API.",
-    fig: "90+",
-    figlabel: "core web vitals, both sides",
-  },
-  {
-    href: "/case-studies/professional-energy/",
-    img: "/images/pes-6.png",
-    meta: "Professional Energy · energy brokerage",
-    head: <>one platform for <span className="name">Professional Energy</span>’s tenders, contracts and accounts.</>,
-    body: "A tailor-made ERP for a UK energy broker — supplier tenders, contract lifecycle, brokerage accounting and client management, all in one place.",
-    fig: "100+",
-    figlabel: "suppliers in one tender",
+    question: "Do you still run these platforms?",
+    answer:
+      "Several of them, years after launch. Handover to your own team is always an option, but we are optimised to still be running your platform in year four rather than to win the pitch.",
   },
 ];
 
 export default function CaseStudiesIndex() {
   return (
     <>
-      <section className="hero--dark dotted">
-        <div className="wrap cs-hero">
-          <p className="cs-crumb">
-            <Link href="/">Home</Link> &nbsp;/&nbsp; Case studies
-          </p>
-          <h1 style={{ maxWidth: "18ch" }}>we measure the work by what happened next.</h1>
-          <p className="cs-lede">
-            Not a menu of services — a short list of companies, and the change we helped them make.
-          </p>
+      <PageHero
+        crumbs={[{ label: "home", href: "/" }, { label: "work" }]}
+        eyebrow="selected work"
+        title={
+          <>
+            we measure the work by what happened <span className="g-disp">next</span>.
+          </>
+        }
+        lede="Not a menu of services — a short list of companies, what we built with them, and the change it made. Every number below comes from a live production system."
+        actions={[
+          { label: "start a project", href: "/contact/" },
+          { label: "see the services", href: "/services/", variant: "out" },
+        ]}
+        stats={[
+          { n: "£2M+", label: "processed via Ontick" },
+          { n: "4+ yrs", label: "longest engagement" },
+          { n: "90+", label: "core web vitals" },
+          { n: "5", label: "codebases, one team" },
+        ]}
+      />
+
+      <LogoWall label="Teams that trusted us with the thing that matters" />
+
+      {/* THE FOUR — full-width alternating rows */}
+      <section className="wrap sec">
+        <div className="sec__head">
+          <p className="eyebrow">the engagements</p>
+          <h2 className="h-l">four companies, four systems still in production.</h2>
+        </div>
+
+        <div className="cases">
+          {CASE_STUDIES.map((c, i) => {
+            const d = DETAIL[c.name];
+            return (
+              <article key={c.href} className="crow notch notch-lg">
+                <Link className="crow__shot" href={c.href} aria-label={c.meta}>
+                  <img src={c.img} alt={c.meta} loading="lazy" />
+                  <span className="crow__n tnum">{String(i + 1).padStart(2, "0")}</span>
+                </Link>
+                <div className="crow__in">
+                  <p className="crow__sector">{d?.sector}</p>
+                  <h3 className="h-l crow__t">
+                    <Link href={c.href}>{c.head}</Link>
+                  </h3>
+                  <p className="lede crow__body">{c.body}</p>
+
+                  <dl className="crow__facts">
+                    <div>
+                      <dt>outcome</dt>
+                      <dd className="tnum g-disp crow__fig">{c.fig}</dd>
+                      <p>{c.figlabel}</p>
+                    </div>
+                    <div>
+                      <dt>engagement</dt>
+                      <dd className="crow__span">{d?.span}</dd>
+                      <p>{c.tags.join(" · ")}</p>
+                    </div>
+                  </dl>
+
+                  {d ? (
+                    <ul className="crow__scope">
+                      {d.scope.map((s) => (
+                        <li key={s}>{s}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+
+                  <Link className="btn btn--out notch crow__cta" href={c.href}>
+                    read the case study <ChevronRight aria-hidden />
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
-      <section className="wrap sec">
-        <div className="work">
-          {CASES.map((o) => (
-            <Link key={o.href} href={o.href} className="case notch notch-lg">
-              <div className="case__shot">
-                <img src={o.img} alt={o.meta} loading="lazy" />
-              </div>
-              <div className="case__bar" />
-              <div className="case__in">
-                <h3 className="h-m">{o.head}</h3>
-                <p className="body">{o.body}</p>
-                <div className="case__metric">
-                  <div className="case__metric-txt">
-                    <span className="case__fig tnum g-disp">{o.fig}</span>
-                    <span className="case__figlabel">{o.figlabel}</span>
-                  </div>
-                  <svg className="case__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          ))}
+      <Testimonials
+        title="the people who signed off this work"
+        lede="Founders and operators who lived with the result long after launch."
+      />
+
+      <div className="wrap">
+        <AwardsStrip />
+      </div>
+
+      <Faq items={FAQS} title="about this page" />
+
+      <section className="cta">
+        <svg className="art cta-art" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+          <path d="M40 120 h220 l100 100 v220 h-320 z" stroke="currentColor" strokeWidth="2.5" />
+          <path d="M110 190 h150 l60 60 v150 h-210 z" stroke="currentColor" strokeWidth="2" opacity=".6" />
+        </svg>
+        <div className="wrap cta__in">
+          <div className="cta__t">
+            <h2 className="h-l">what would your entry on this page say?</h2>
+            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+          </div>
+          <Link className="cta__btn notch" href="/contact/">
+            book a call
+          </Link>
         </div>
       </section>
     </>

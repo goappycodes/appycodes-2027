@@ -669,9 +669,9 @@ export default function Page() {
           />
           <RelatedCard
             tag="Service"
-            title="Software Project Estimator"
-            body="Quote a budget against your scope before you commit to the build."
-            href="/software-project-estimator/"
+            title="Scope &amp; cost, in writing"
+            body="A fixed written scope with the risky parts named, and a number, before you commit."
+            href="/contact/"
           />
         </RelatedGrid>
 

@@ -569,9 +569,9 @@ CREATE POLICY projects_tenant_isolation ON projects
           />
           <RelatedCard
             tag="Service"
-            title="Software Project Estimator"
-            body="Price an architecture against your scope before you commit to the build."
-            href="/software-project-estimator/"
+            title="Scope &amp; cost, in writing"
+            body="We price the architecture against your scope before you commit to the build."
+            href="/contact/"
           />
         </RelatedGrid>
 

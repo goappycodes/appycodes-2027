@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Rail } from "@/components/rail";
+import { CASE_STUDIES, LogoWall, Testimonials } from "@/components/sections";
 
 export type CaseBlock =
   | { t: "section"; title: string; lead?: string }
@@ -77,6 +79,10 @@ function Block({ b }: { b: CaseBlock }) {
 }
 
 export function CaseStudy({ data }: { data: CaseStudyData }) {
+  // Everything except the study you are reading, so the page always offers a
+  // next one rather than dead-ending at the CTA.
+  const others = CASE_STUDIES.filter((c) => !data.crumb.toLowerCase().includes(c.name.toLowerCase()));
+
   return (
     <>
       {/* HERO — same classes as the homepage hero */}
@@ -163,6 +169,51 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
           ))}
         </ul>
       </section>
+
+      <LogoWall label="Teams that trusted us with the thing that matters" />
+
+      <Testimonials
+        title="the people who signed off work like this"
+        limit={4}
+      />
+
+      {/* MORE WORK — never dead-end on a case study */}
+      {others.length > 0 ? (
+        <section className="wrap sec">
+          <div className="sec__head">
+            <p className="eyebrow">keep reading</p>
+            <h2 className="h-l">the other engagements.</h2>
+          </div>
+          <Rail label="More case studies" className="work-rail">
+            {others.map((o) => (
+              <Link key={o.href} href={o.href} className="case notch notch-lg">
+                <div className="case__shot">
+                  <img src={o.img} alt={o.meta} loading="lazy" />
+                </div>
+                <div className="case__bar" />
+                <div className="case__in">
+                  <h3 className="h-m">{o.head}</h3>
+                  <p className="body">{o.body}</p>
+                  <div className="case__metric">
+                    <div className="case__metric-txt">
+                      <span className="case__fig tnum g-disp">{o.fig}</span>
+                      <span className="case__figlabel">{o.figlabel}</span>
+                    </div>
+                    <svg className="case__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </Rail>
+          <div className="sec__more">
+            <Link className="btn btn--out notch" href="/case-studies/">
+              all case studies
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       {/* CTA — same as homepage */}
       <section className="cta">

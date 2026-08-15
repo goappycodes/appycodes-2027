@@ -1,4 +1,9 @@
-import { LEGACY_SERVICE_REDIRECTS, SERVICES_DATA, type ServiceData } from "@/lib/services-data";
+import {
+  LEGACY_SERVICE_LABELS,
+  LEGACY_SERVICE_REDIRECTS,
+  SERVICES_DATA,
+  type ServiceData,
+} from "@/lib/services-data";
 import subServices from "@/lib/sub-services.json";
 
 // The original ("legacy") service pages, rebuilt at their existing URLs to
@@ -28,4 +33,13 @@ export function pillarFor(slug: string): ServiceData | null {
   const parent = LEGACY_SERVICE_REDIRECTS[slug];
   if (!parent) return null;
   return SERVICES_DATA.find((s) => s.slug === parent) ?? null;
+}
+
+/** The other sub-services under the same pillar, for cross-linking. */
+export function siblingsFor(slug: string): { slug: string; label: string }[] {
+  const parent = LEGACY_SERVICE_REDIRECTS[slug];
+  if (!parent) return [];
+  return Object.entries(LEGACY_SERVICE_REDIRECTS)
+    .filter(([s, p]) => p === parent && s !== slug)
+    .map(([s]) => ({ slug: s, label: LEGACY_SERVICE_LABELS[s] ?? s }));
 }

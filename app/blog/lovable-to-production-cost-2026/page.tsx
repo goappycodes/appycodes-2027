@@ -940,10 +940,10 @@ export default function Page() {
             href="/services/startup-launch-support/"
           />
           <RelatedCard
-            tag="Tool"
-            title="Software Project Estimator"
-            body="Get a quote against the same complexity rubric tonight."
-            href="/software-project-estimator/"
+            tag="Service"
+            title="Scope &amp; cost, in writing"
+            body="We run the same complexity rubric against your build and put a number on it."
+            href="/contact/"
           />
         </RelatedGrid>
 

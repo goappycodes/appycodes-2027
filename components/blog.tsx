@@ -32,43 +32,50 @@ export function PostHeader({
   imageAlt: string;
 }) {
   return (
-    <header className="border-b border-line">
-      <div className="wrap pt-8">
-        <nav aria-label="Breadcrumb" className="font-mono text-xs uppercase tracking-wider text-faint">
-          <Link href="/" className="hover:text-ink">Home</Link>
-          <span className="mx-2">/</span>
-          <Link href="/blog/" className="hover:text-ink">Blog</Link>
-          <span className="mx-2">/</span>
-          <span className="text-ink">{breadcrumbLabel}</span>
+    <header className="post-head">
+      <div className="phero__glow" aria-hidden="true" />
+      <div className="wrap post-head__in">
+        <nav aria-label="Breadcrumb" className="crumbs">
+          <span>
+            <Link href="/">home</Link>
+            <i aria-hidden="true">/</i>
+          </span>
+          <span>
+            <Link href="/blog/">writing</Link>
+            <i aria-hidden="true">/</i>
+          </span>
+          <span aria-current="page">{breadcrumbLabel}</span>
         </nav>
-      </div>
 
-      <div className="wrap pb-10 pt-7 md:pb-14 md:pt-10">
-        <div className="mx-auto max-w-3xl">
-          <p className="eyebrow">{eyebrow}</p>
-          <h1 className="mt-5 text-[clamp(1.9rem,5vw,3.3rem)] font-medium leading-[1.06]">{title}</h1>
-          <p className="mt-6 text-lg text-muted">{lead}</p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-[0.72rem] uppercase tracking-wider text-faint">
+        <div className="post-head__copy">
+          <p className="phero__eyebrow">{eyebrow}</p>
+          <h1 className="post-head__t">{title}</h1>
+          <p className="post-head__lead">{lead}</p>
+          <div className="post-head__meta">
+            <span className="post-head__author">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/ritesh.jpg" alt="" loading="eager" />
+              By {authorName}
+            </span>
+            <span aria-hidden>·</span>
             <span>{fmtDate(dateISO)}</span>
             <span aria-hidden>·</span>
             <span>{readTime}</span>
-            <span aria-hidden>·</span>
-            <span>By {authorName}</span>
           </div>
         </div>
+      </div>
 
-        <div className="mx-auto mt-9 max-w-4xl md:mt-12">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={image}
-            alt={imageAlt}
-            width={1280}
-            height={720}
-            fetchPriority="high"
-            decoding="async"
-            className="aspect-[16/9] w-full rounded-xl border border-line bg-stone object-cover"
-          />
-        </div>
+      <div className="wrap post-head__figure">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={image}
+          alt={imageAlt}
+          width={1280}
+          height={720}
+          fetchPriority="high"
+          decoding="async"
+          className="notch notch-lg"
+        />
       </div>
     </header>
   );
