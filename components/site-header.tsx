@@ -24,6 +24,8 @@ export function SiteHeader() {
   const [megaOpen, setMegaOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const megaRef = useRef<HTMLLIElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const burgerRef = useRef<HTMLButtonElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const menuId = useId();
 
@@ -59,6 +61,46 @@ export function SiteHeader() {
     document.body.style.overflow = drawerOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
+    };
+  }, [drawerOpen]);
+
+  // The drawer is a modal dialog: move focus into it, keep Tab inside it, and
+  // hand focus back to the burger on close.
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const panel = panelRef.current;
+    if (!panel) return;
+
+    const focusables = () =>
+      Array.from(
+        panel.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.offsetParent !== null);
+
+    focusables()[0]?.focus();
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key !== "Tab") return;
+      const items = focusables();
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    panel.addEventListener("keydown", onKeyDown);
+    return () => {
+      panel.removeEventListener("keydown", onKeyDown);
+      // Only pull focus back if it is still inside the closing panel — a route
+      // change moves it elsewhere and should not be overridden.
+      if (panel.contains(document.activeElement)) burgerRef.current?.focus();
     };
   }, [drawerOpen]);
 
@@ -168,6 +210,7 @@ export function SiteHeader() {
         <button
           type="button"
           className="nav__burger"
+          ref={burgerRef}
           aria-label={drawerOpen ? "Close menu" : "Open menu"}
           aria-expanded={drawerOpen}
           onClick={() => setDrawerOpen((v) => !v)}
@@ -185,7 +228,7 @@ export function SiteHeader() {
           aria-hidden="true"
           onClick={() => setDrawerOpen(false)}
         />
-        <div className="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+        <div className="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu" ref={panelRef}>
           {/* the panel carries its own header so it can cover the site nav —
               no guessing at the header's height with top padding */}
           <div className="drawer__top">
