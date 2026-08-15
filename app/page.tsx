@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroParticles } from "@/components/hero-particles";
 import { ServiceTitle } from "@/components/service-title";
@@ -6,6 +7,10 @@ import { Rail } from "@/components/rail";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { BLOG_POSTS } from "@/lib/blog";
 import { AWARDS, CLIENT_LOGOS, REVIEWS } from "@/lib/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://appycodes.dev/" },
+};
 
 const OUTCOMES = [
   {

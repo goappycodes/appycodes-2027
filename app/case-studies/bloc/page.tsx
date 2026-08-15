@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import { CaseStudy, type CaseStudyData } from "@/components/case-study";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Bloc — four years building a UK social events platform",
   description:
     "From one Android engineer to owning the whole Bloc stack: a React Native rebuild, the backend, a TikTok-style ads manager, and a BLOCCoin Algorand marketplace.",
-};
+  path: "/case-studies/bloc/",
+  image: "/images/bloc-6.png",
+});
 
 const data: CaseStudyData = {
   crumb: "Bloc",

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import { CaseStudy, type CaseStudyData } from "@/components/case-study";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Ontick — custom ticketing platform, Stripe instalments + two mobile apps",
   description:
     "How Appycodes moved Ontick off Eventbrite onto a custom Laravel ticketing platform with Stripe instalments and two React Native apps. £2M+ processed.",
-};
+  path: "/case-studies/ontick/",
+  image: "/images/ontick-6.png",
+});
 
 const data: CaseStudyData = {
   crumb: "Ontick",

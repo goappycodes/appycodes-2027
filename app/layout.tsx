@@ -23,7 +23,9 @@ export const metadata: Metadata = {
   },
   description:
     "Senior product engineering for companies that have outgrown off-the-shelf. Web platforms, mobile apps and AI systems, shipping in production since 2015.",
-  alternates: { canonical: "https://appycodes.dev/" },
+  // No canonical here — Next inherits alternates down to every page that does
+  // not set its own, which would point the whole site at the homepage. Each
+  // page declares its own via siteMeta()/pageMeta().
   openGraph: {
     type: "website",
     siteName: "Appycodes",

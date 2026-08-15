@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import { CaseStudy, type CaseStudyData } from "@/components/case-study";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Professional Energy — a custom ERP for a UK energy broker (Laravel)",
   description:
     "How Appycodes built Professional Energy Services a tailor-made ERP/CRM — supplier tenders, contract lifecycle, brokerage accounting and client management on Laravel 10, MySQL and AWS S3.",
-};
+  path: "/case-studies/professional-energy/",
+  image: "/images/pes-6.png",
+});
 
 const data: CaseStudyData = {
   crumb: "Professional Energy",

@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { siteMeta } from "@/lib/seo";
 import { SITE } from "@/lib/site";
 import { PageHero } from "@/components/page-hero";
 import { FeaturedWork, LogoWall, WritingCards } from "@/components/sections";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Thanks",
   description: "Thanks — we'll be in touch, usually within one working day.",
-  robots: { index: false, follow: true },
-};
+  path: "/thank-you/",
+  noindex: true,
+});
 
 const NEXT = [
   {

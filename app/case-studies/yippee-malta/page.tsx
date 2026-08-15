@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { siteMeta } from "@/lib/seo";
 import { CaseStudy, type CaseStudyData } from "@/components/case-study";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = siteMeta({
   title: "Yippee Malta — custom WordPress + booking engine for Malta's #1 tour operator",
   description:
     "How Appycodes rebuilt Yippee Malta: a mobile-first WordPress design system with a fully custom checkout against a proprietary booking API. 90+ Core Web Vitals.",
-};
+  path: "/case-studies/yippee-malta/",
+  image: "/images/yippee-6.png",
+});
 
 const data: CaseStudyData = {
   crumb: "Yippee Malta",
