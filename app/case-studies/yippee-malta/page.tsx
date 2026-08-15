@@ -11,7 +11,7 @@ const data: CaseStudyData = {
   crumb: "Yippee Malta",
   title: (
     <>
-      helping <span className="name">Yippee Malta</span> win the booking on their own checkout.
+      the mobile-first rebuild that won <span className="name">Yippee Malta</span> their own checkout.
     </>
   ),
   lede:

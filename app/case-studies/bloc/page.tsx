@@ -11,8 +11,7 @@ const data: CaseStudyData = {
   crumb: "Bloc",
   title: (
     <>
-      helping <span className="name">Bloc</span> launch one of the <span className="caps">UK</span>’s
-      most-used social event apps.
+      <span className="name">Bloc</span> — one of the <span className="caps">UK</span>’s newest social events platforms.
     </>
   ),
   lede:

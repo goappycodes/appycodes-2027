@@ -11,7 +11,7 @@ const data: CaseStudyData = {
   crumb: "Ontick",
   title: (
     <>
-      helping <span className="name">Ontick</span> keep the fees a platform used to take.
+      <span className="name">Ontick</span> moved off Eventbrite onto ticketing they own.
     </>
   ),
   lede:

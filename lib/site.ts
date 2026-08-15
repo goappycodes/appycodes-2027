@@ -18,13 +18,17 @@ export const NAV = [
 
 // Recognition badges (real, from the existing site). Icon-only marks keep a
 // thin name; wordmark logos carry their own name so the caption is dropped.
+// All render as a white silhouette on the dark hero for a uniform strip.
 export const AWARDS = [
   { img: "/images/award-clutch.png", by: "Clutch", name: true },
   { img: "/images/award-pph.png", by: "PeoplePerHour", name: false },
-  { img: "/images/award-google.png", by: "Google", name: false },
+  { img: "/images/award-google.svg", by: "Google", name: false },
   { img: "/images/award-glassdoor.svg", by: "Glassdoor", name: false },
   { img: "/images/award-aws.svg", by: "AWS", name: false },
   { img: "/images/award-payoneer.svg", by: "Payoneer", name: false },
+  { img: "/images/award-iso.png", by: "ISO 9001 & 27001", name: false },
+  { img: "/images/award-startup-india.png", by: "Startup India", name: false },
+  { img: "/images/award-sanmarg.png", by: "Sanmarg Business Awards", name: false },
 ] as const;
 
 // Client logos for the trust strip (dark/mono PNGs, muted → full on hover).

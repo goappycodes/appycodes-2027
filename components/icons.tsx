@@ -92,6 +92,14 @@ export function Chevron({ className, ...p }: IconProps) {
   );
 }
 
+export function ChevronRight({ className, ...p }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" className={className} {...base} {...p}>
+      <path d="m9 5 7 7-7 7" />
+    </svg>
+  );
+}
+
 export function StarHalf({ className, ...p }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width="1em" height="1em" className={className} aria-hidden {...p}>

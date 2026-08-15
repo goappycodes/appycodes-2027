@@ -12,30 +12,39 @@ export const metadata: Metadata = {
 const CASES = [
   {
     href: "/case-studies/ontick/",
-    img: "/images/cs-ontick-platform.jpg",
+    img: "/images/ontick-6.png",
     meta: "Ontick · event ticketing",
-    head: <>helping <span className="name">Ontick</span> keep the fees a platform used to take.</>,
+    head: <><span className="name">Ontick</span> moved off Eventbrite onto ticketing they own.</>,
     body: "Off Eventbrite onto a custom Laravel platform — multi-organizer, Stripe instalments, and two native apps.",
     fig: "£2M+",
     figlabel: "processed since launch",
   },
   {
     href: "/case-studies/bloc/",
-    img: "/images/bloc-ads-dashboard.jpg",
+    img: "/images/bloc-6.png",
     meta: "Bloc · social events",
-    head: <>helping <span className="name">Bloc</span> launch one of the <span className="caps">UK</span>’s most-used social event apps.</>,
+    head: <><span className="name">Bloc</span> — one of the <span className="caps">UK</span>’s newest social events platforms.</>,
     body: "A four-year partnership across the app, backend, a TikTok-style ads manager, an Algorand marketplace and the web front.",
     fig: "4+ yrs",
     figlabel: "one team, five codebases",
   },
   {
     href: "/case-studies/yippee-malta/",
-    img: "/images/cs-yippee-malta-homepage.jpg",
+    img: "/images/yippee-6.png",
     meta: "Yippee Malta · travel",
-    head: <>helping <span className="name">Yippee Malta</span> win the booking on their own checkout.</>,
+    head: <>the mobile-first rebuild that won <span className="name">Yippee Malta</span> their own checkout.</>,
     body: "Malta's leading tour operator rebuilt on a mobile-first design system, with a custom checkout against their proprietary booking API.",
     fig: "90+",
     figlabel: "core web vitals, both sides",
+  },
+  {
+    href: "/case-studies/professional-energy/",
+    img: "/images/pes-6.png",
+    meta: "Professional Energy · energy brokerage",
+    head: <>one platform for <span className="name">Professional Energy</span>’s tenders, contracts and accounts.</>,
+    body: "A tailor-made ERP for a UK energy broker — supplier tenders, contract lifecycle, brokerage accounting and client management, all in one place.",
+    fig: "100+",
+    figlabel: "suppliers in one tender",
   },
 ];
 
@@ -63,7 +72,6 @@ export default function CaseStudiesIndex() {
               </div>
               <div className="case__bar" />
               <div className="case__in">
-                <p className="case__meta">{o.meta}</p>
                 <h3 className="h-m">{o.head}</h3>
                 <p className="body">{o.body}</p>
                 <div className="case__metric">

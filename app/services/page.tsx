@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SERVICES_DATA } from "@/lib/services-data";
+import { ServiceTitle } from "@/components/service-title";
+import { ChevronRight } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Services — what we do well",
   description:
-    "The engineering practices behind the outcomes: platform builds, native mobile, AI systems, rescue and hardening, and ongoing support.",
+    "Six things we ship repeatedly: product platforms, native mobile, AI systems, rescue and hardening, commerce and content, and performance and search.",
 };
 
 export default function ServicesIndex() {
@@ -26,11 +28,11 @@ export default function ServicesIndex() {
 
       <section className="wrap sec">
         <div className="svc">
-          {SERVICES_DATA.map((s, i) => (
+          {SERVICES_DATA.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}/`} className="svc__i notch">
-              <span className="svc__n">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="h-m">{s.title.toLowerCase()}</h3>
-              <p className="body">{s.description}</p>
+              <h3 className="h-m"><ServiceTitle label={s.title} /></h3>
+              <p className="body">{s.summary}</p>
+              <ChevronRight className="svc__chev" aria-hidden />
             </Link>
           ))}
         </div>

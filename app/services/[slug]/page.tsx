@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { SERVICES_DATA } from "@/lib/services-data";
+import { notFound, redirect } from "next/navigation";
+import { SERVICES_DATA, LEGACY_SERVICE_REDIRECTS } from "@/lib/services-data";
 import { ServicePage } from "@/components/service-page";
 
 export function generateStaticParams() {
@@ -25,6 +25,12 @@ export default async function ServiceDetail({
 }) {
   const { slug } = await params;
   const s = SERVICES_DATA.find((x) => x.slug === slug);
-  if (!s) notFound();
+  if (!s) {
+    // Legacy service slugs referenced across older pages / the blog resolve to
+    // the nearest of the six canonical services rather than 404ing.
+    const target = LEGACY_SERVICE_REDIRECTS[slug];
+    if (target) redirect(`/services/${target}/`);
+    notFound();
+  }
   return <ServicePage s={s} />;
 }
