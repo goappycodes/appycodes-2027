@@ -9,10 +9,11 @@ export const SITE = {
 } as const;
 
 export const NAV = [
-  { label: "work", href: "/#work" },
-  { label: "services", href: "/#services" },
-  { label: "how we work", href: "/#how" },
-  { label: "writing", href: "/#writing" },
+  { label: "work", href: "/case-studies/" },
+  { label: "services", href: "/services/" },
+  { label: "writing", href: "/blog/" },
+  { label: "reviews", href: "/reviews/" },
+  { label: "about", href: "/about/" },
 ] as const;
 
 // Recognition badges (real, from the existing site). Icon-only marks keep a

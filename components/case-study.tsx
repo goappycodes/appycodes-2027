@@ -22,59 +22,55 @@ export type CaseStudyData = {
 
 /* eslint-disable @next/next/no-img-element */
 
-function Block({ b, wash }: { b: CaseBlock; wash: boolean }) {
-  const secClass = `cs-sec${wash ? " cs-sec--wash" : ""}`;
+function Block({ b }: { b: CaseBlock }) {
   if (b.t === "figure") {
     return (
-      <section className={secClass}>
-        <div className="wrap">
-          <figure className={`cs-fig${b.phone ? " cs-fig--phone" : ""}`}>
-            <img src={b.src} alt={b.alt} loading="lazy" className={b.phone ? "" : "notch notch-lg"} />
-            {b.caption ? <figcaption>{b.caption}</figcaption> : null}
-          </figure>
-        </div>
+      <section className="wrap sec">
+        <figure className={`cs-fig${b.phone ? " cs-fig--phone" : ""}`}>
+          <img src={b.src} alt={b.alt} loading="lazy" className={b.phone ? "" : "notch notch-lg"} />
+          {b.caption ? <figcaption>{b.caption}</figcaption> : null}
+        </figure>
       </section>
     );
   }
   if (b.t === "gallery") {
     return (
-      <section className={secClass}>
-        <div className="wrap">
-          <h2 className="cs-h2">{b.title}</h2>
-          <div className="cs-gallery">
-            {b.shots.map((s) => (
-              <img key={s.src} src={s.src} alt={s.alt} loading="lazy" className="notch" />
-            ))}
-          </div>
+      <section className="wrap sec">
+        <div className="sec__head">
+          <h2 className="h-l">{b.title}</h2>
+        </div>
+        <div className="cs-gallery">
+          {b.shots.map((s) => (
+            <img key={s.src} src={s.src} alt={s.alt} loading="lazy" className="notch" />
+          ))}
         </div>
       </section>
     );
   }
   if (b.t === "cards") {
     return (
-      <section className={secClass}>
-        <div className="wrap">
-          <h2 className="cs-h2">{b.title}</h2>
-          {b.lead ? <p className="cs-lead">{b.lead}</p> : null}
-          <div className={`cs-cards${b.cols3 ? " cs-cards--3" : ""}`}>
-            {b.items.map((c, i) => (
-              <div key={c.title} className="cs-card notch">
-                <span className="cs-card__n">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{c.title}</h3>
-                <p>{c.body}</p>
-              </div>
-            ))}
-          </div>
+      <section className="wrap sec">
+        <div className="sec__head">
+          <h2 className="h-l">{b.title}</h2>
+          {b.lead ? <p className="lede">{b.lead}</p> : null}
+        </div>
+        <div className="svc">
+          {b.items.map((c, i) => (
+            <div key={c.title} className="svc__i notch">
+              <span className="svc__n">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="h-m">{c.title}</h3>
+              <p className="body">{c.body}</p>
+            </div>
+          ))}
         </div>
       </section>
     );
   }
-  // section — just a lowercase headline and one short line
   return (
-    <section className={secClass}>
-      <div className="wrap">
-        <h2 className="cs-h2">{b.title}</h2>
-        {b.lead ? <p className="cs-lead">{b.lead}</p> : null}
+    <section className="wrap sec">
+      <div className="sec__head">
+        <h2 className="h-l">{b.title}</h2>
+        {b.lead ? <p className="lede">{b.lead}</p> : null}
       </div>
     </section>
   );
@@ -83,53 +79,51 @@ function Block({ b, wash }: { b: CaseBlock; wash: boolean }) {
 export function CaseStudy({ data }: { data: CaseStudyData }) {
   return (
     <>
-      {/* HERO (dark) */}
-      <section className="hero--dark dotted">
-        <div className="wrap cs-hero">
-          <p className="cs-crumb">
-            <Link href="/">home</Link> &nbsp;/&nbsp; <Link href="/case-studies/">work</Link>{" "}
-            &nbsp;/&nbsp; {data.crumb}
-          </p>
-          <div className="cs-hero__in">
-            <div>
-              <h1>{data.title}</h1>
-              <p className="cs-lede">{data.lede}</p>
-              <div className="cs-hero__btns">
-                <Link className="btn btn--grad notch" href="/contact/">start a project like this</Link>
-                <Link className="btn btn--out notch" href="/case-studies/">all work</Link>
-              </div>
-            </div>
-            <div className="cs-facts notch notch-lg">
-              <dl>
-                {data.facts.map((f) => (
-                  <div key={f.label} className="cs-facts__row">
-                    <dt>{f.label}</dt>
-                    <dd>{f.value}</dd>
-                  </div>
-                ))}
-              </dl>
-              {data.links ? (
-                <div className="cs-facts__links">
-                  {data.links.map((l) => (
-                    <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
-                      {l.label} ↗
-                    </a>
-                  ))}
-                </div>
-              ) : null}
+      {/* HERO — same classes as the homepage hero */}
+      <section className="wrap hero hero--dark">
+        <p className="cs-crumb">
+          <Link href="/">home</Link> &nbsp;/&nbsp; <Link href="/case-studies/">work</Link>{" "}
+          &nbsp;/&nbsp; {data.crumb}
+        </p>
+        <div className="cs-hero__in">
+          <div>
+            <h1 className="h-l">{data.title}</h1>
+            <p className="lede">{data.lede}</p>
+            <div className="hero__btns">
+              <Link className="btn btn--grad notch" href="/contact/">start a project like this</Link>
+              <Link className="btn btn--out notch" href="/case-studies/">all work</Link>
             </div>
           </div>
+          <aside className="cs-facts notch notch-lg">
+            <dl>
+              {data.facts.map((f) => (
+                <div key={f.label} className="cs-facts__row">
+                  <dt>{f.label}</dt>
+                  <dd>{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+            {data.links ? (
+              <div className="cs-facts__links">
+                {data.links.map((l) => (
+                  <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
+                    {l.label} ↗
+                  </a>
+                ))}
+              </div>
+            ) : null}
+          </aside>
         </div>
       </section>
 
-      {/* STATS */}
+      {/* STATS — homepage proof slab */}
       <section className="slab dotted">
         <div className="wrap slab__in">
           <dl className="stats">
             {data.stats.map((s) => (
-              <div key={s.label} className="stat stat--cs">
+              <div key={s.label} className="stat">
+                <dt>{s.label}</dt>
                 <dd className="tnum g-dark">{s.n}</dd>
-                <p>{s.label}</p>
               </div>
             ))}
           </dl>
@@ -138,13 +132,15 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
 
       {/* BLOCKS */}
       {data.blocks.map((b, i) => (
-        <Block key={i} b={b} wash={i % 2 === 1} />
+        <Block key={i} b={b} />
       ))}
 
       {/* STACK */}
-      <section className="cs-sec cs-sec--wash">
-        <div className="wrap cs-grid2">
-          <h2 className="cs-h2">what it is built on.</h2>
+      <section className="wrap sec">
+        <div className="cs-grid2">
+          <div className="sec__head">
+            <h2 className="h-l">what it is built on.</h2>
+          </div>
           <dl className="cs-stack notch">
             {data.stack.map((row) => (
               <div key={row.layer} className="cs-stack__row">
@@ -157,18 +153,18 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
       </section>
 
       {/* OUTCOMES */}
-      <section className="cs-sec">
-        <div className="wrap">
-          <h2 className="cs-h2">what happened next.</h2>
-          <ul className="cs-outcomes">
-            {data.outcomes.map((o) => (
-              <li key={o}>{o}</li>
-            ))}
-          </ul>
+      <section className="wrap sec">
+        <div className="sec__head">
+          <h2 className="h-l">what happened next.</h2>
         </div>
+        <ul className="cs-outcomes">
+          {data.outcomes.map((o) => (
+            <li key={o}>{o}</li>
+          ))}
+        </ul>
       </section>
 
-      {/* CTA */}
+      {/* CTA — same as homepage */}
       <section className="cta">
         <svg className="art cta-art" viewBox="0 0 400 400" fill="none" aria-hidden="true">
           <path d="M40 120 h220 l100 100 v220 h-320 z" stroke="currentColor" strokeWidth="2.5" />

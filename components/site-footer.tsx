@@ -15,11 +15,11 @@ export function SiteFooter() {
             </p>
           </div>
           <div>
-            <h4>Practices</h4>
-            <Link href="/#services">Product platforms</Link>
-            <Link href="/#services">Native mobile</Link>
-            <Link href="/#services">AI systems</Link>
-            <Link href="/#services">Rescue &amp; hardening</Link>
+            <h4>Explore</h4>
+            <Link href="/services/">Services</Link>
+            <Link href="/case-studies/">Work</Link>
+            <Link href="/blog/">Writing</Link>
+            <Link href="/reviews/">Reviews</Link>
           </div>
           <div>
             <h4>Work</h4>
@@ -29,10 +29,10 @@ export function SiteFooter() {
           </div>
           <div>
             <h4>Company</h4>
-            <Link href="/#how">How we work</Link>
-            <Link href="/#writing">Writing</Link>
-            <Link href="/#team">Founders</Link>
+            <Link href="/about/">About</Link>
             <Link href="/contact/">Contact</Link>
+            <Link href="/privacy/">Privacy</Link>
+            <Link href="/terms/">Terms</Link>
           </div>
         </div>
         <div className="foot__bar">

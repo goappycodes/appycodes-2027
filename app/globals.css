@@ -495,7 +495,7 @@ a { color: inherit; text-decoration: none; }
     linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
   background-size: 34px 34px;
 }
-.hero--dark .h-xl { color: #fff; }
+.hero--dark .h-xl, .hero--dark .h-l, .hero--dark h1 { color: #fff; }
 .hero--dark .g-disp { background-image: linear-gradient(var(--angle), var(--solid-hi) 0%, color-mix(in srgb, var(--solid-hi) 42%, #ffffff) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero--dark .lede { color: rgba(255,255,255,.74); }
 .hero--dark .btn--out { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.55); }
@@ -569,7 +569,7 @@ a { color: inherit; text-decoration: none; }
 .cs-fig { margin-top: 2.25rem; }
 .cs-fig img { width: 100%; display: block; border: 1px solid var(--rule); }
 .cs-fig--phone img { max-width: 340px; margin-inline: auto; }
-.cs-fig figcaption { margin-top: .85rem; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; line-height: 1.5; color: var(--ink-3); }
+.cs-fig figcaption { margin-top: .95rem; font-size: 13.5px; line-height: 1.5; color: var(--ink-3); }
 .cs-sec--slab .cs-fig figcaption { color: rgba(255,255,255,.55); }
 .cs-sec--slab .cs-fig img { border-color: rgba(255,255,255,.14); }
 
@@ -583,10 +583,47 @@ a { color: inherit; text-decoration: none; }
 .cs-stack__row { display: grid; gap: .3rem; padding: .95rem 1.25rem; border-bottom: 1px solid var(--rule); }
 @media (min-width: 640px) { .cs-stack__row { grid-template-columns: 12rem 1fr; gap: 1.25rem; align-items: baseline; } }
 .cs-stack__row:last-child { border-bottom: 0; }
-.cs-stack dt { font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--solid); margin: 0; }
+.cs-stack dt { font-weight: 700; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--solid); margin: 0; }
 .cs-stack dd { font-size: 14.5px; color: var(--ink-2); margin: 0; }
 
 .cs-outcomes { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; gap: 1rem; }
 @media (min-width: 820px) { .cs-outcomes { grid-template-columns: 1fr 1fr; gap: 1rem 2.5rem; } }
 .cs-outcomes li { display: flex; gap: .7rem; font-size: 15.5px; line-height: 1.55; color: var(--ink-2); }
 .cs-outcomes li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: .45rem; background-image: var(--grad); }
+
+/* ==================================================================
+   SERVICES / BLOG / STATIC
+   ================================================================== */
+.callout { margin-top: 2rem; padding: 1.35rem 1.6rem; background: var(--wash); border-left: 5px solid var(--solid-hi); font-size: clamp(15.5px, 1.6vw, 17.5px); line-height: 1.55; color: var(--ink); max-width: 62ch; }
+
+.faq { margin-top: 2.5rem; border-top: 1px solid var(--rule); }
+.faq__row { padding: 1.3rem 0; border-bottom: 1px solid var(--rule); display: grid; gap: .5rem; }
+@media (min-width: 820px) { .faq__row { grid-template-columns: 22rem 1fr; gap: 2.5rem; } }
+.faq dt { font-weight: 700; font-size: 16px; letter-spacing: -.01em; color: var(--ink); }
+.faq dd { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-3); }
+
+/* blog / writing */
+.blog-grid { display: grid; gap: 1.25rem; margin-top: 1rem; }
+@media (min-width: 640px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
+.blog-card { background: var(--wash); display: flex; flex-direction: column; overflow: hidden; transition: background-color .2s var(--ease), transform .2s var(--ease); }
+.blog-card:hover { background: var(--wash-2); transform: translateY(-4px); }
+.blog-card__shot { aspect-ratio: 16 / 10; overflow: hidden; background: var(--wash-2); }
+.blog-card__shot img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--ease); }
+.blog-card:hover .blog-card__shot img { transform: scale(1.045); }
+.blog-card__in { padding: 1.4rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
+.blog-card__meta { font-weight: 700; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--solid); margin: 0; }
+.blog-card__t { font-weight: 700; font-size: 1.1rem; letter-spacing: -.02em; line-height: 1.15; margin: 0; color: var(--ink); }
+.blog-card .body { font-size: 13.5px; }
+.blog-card__date { margin: auto 0 0; padding-top: .5rem; font-size: 12px; color: var(--ink-4, var(--ink-3)); }
+
+.post-meta { margin: 1.25rem 0 0; font-weight: 600; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.post-lead { font-size: clamp(17px, 1.8vw, 20px) !important; line-height: 1.55 !important; color: var(--ink) !important; font-weight: 500; }
+.post-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+.post-tag { font-weight: 600; font-size: 12px; padding: 5px 11px; background: var(--wash); color: var(--ink-2); }
+
+/* simple prose blocks for static pages */
+.static-prose { max-width: 68ch; margin-top: 1.75rem; }
+.static-prose h2 { font-weight: 700; text-transform: lowercase; letter-spacing: -.03em; font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 2.5rem 0 .9rem; }
+.static-prose p { font-size: 16px; line-height: 1.72; color: var(--ink-2); margin: 0 0 1.05rem; }
+.static-prose a { color: var(--solid); text-decoration: underline; text-underline-offset: 3px; }
