@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SERVICES_DATA } from "@/lib/services-data";
+import { SECTORS_DATA } from "@/lib/sectors-data";
 
 export function SiteFooter() {
   return (
@@ -25,16 +26,28 @@ export function SiteFooter() {
             <Link href="/services/" className="foot__svc">All services</Link>
           </div>
           <div>
+            <h4>Sectors</h4>
+            {SECTORS_DATA.slice(0, 6).map((s) => (
+              <Link key={s.slug} href={`/sectors/${s.slug}/`} className="foot__svc">
+                {s.name}
+              </Link>
+            ))}
+            <Link href="/sectors/" className="foot__svc">All sectors</Link>
+          </div>
+          <div>
             <h4>Work</h4>
             <Link href="/case-studies/ontick/">Ontick</Link>
             <Link href="/case-studies/bloc/">Bloc</Link>
             <Link href="/case-studies/yippee-malta/">Yippee Malta</Link>
             <Link href="/case-studies/professional-energy/">Professional Energy</Link>
             <Link href="/case-studies/">All work</Link>
+            <Link href="/atlas/">The atlas</Link>
+            <Link href="/problems/">Problems solved</Link>
           </div>
           <div>
             <h4>Company</h4>
             <Link href="/about/">About</Link>
+            <Link href="/year-four/">The year-four test</Link>
             <Link href="/blog/">Writing</Link>
             <Link href="/reviews/">Reviews</Link>
             <Link href="/contact/">Contact</Link>

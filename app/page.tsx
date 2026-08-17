@@ -4,6 +4,7 @@ import { HeroParticles } from "@/components/hero-particles";
 import { ServiceTitle } from "@/components/service-title";
 import { ChevronRight } from "@/components/icons";
 import { Rail } from "@/components/rail";
+import { WorldMapPreview } from "@/components/world-map-preview";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { BLOG_POSTS } from "@/lib/blog";
 import { AWARDS, CLIENT_LOGOS, REVIEWS } from "@/lib/site";
@@ -50,6 +51,16 @@ const OUTCOMES = [
     figlabel: "suppliers in one tender",
   },
 ];
+
+/* Headlines on this site spell numbers out. Derived from the data so adding a
+   practice does not leave a stale numeral in an H2. */
+const COUNT_WORD: Record<number, string> = {
+  5: "five",
+  6: "six",
+  7: "seven",
+  8: "eight",
+  9: "nine",
+};
 
 const PROCESS = [
   { n: "01", h: "scope & cost", body: "A fixed written scope with the risky parts named up front. If we think the budget is wrong, we say so before you commit." },
@@ -189,10 +200,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* THE ATLAS — the whole register, plotted */}
+      <WorldMapPreview />
+
       {/* SERVICES */}
       <section className="wrap sec" id="services">
         <div className="sec__head reveal">
-          <h2 className="h-l">outcomes like those need six things done well</h2>
+          <h2 className="h-l">outcomes like those need {COUNT_WORD[SERVICES_DATA.length] ?? SERVICES_DATA.length} things done well</h2>
           <p className="lede">Not a menu to pick from — the areas we have shipped repeatedly for a decade. If your problem sits outside them, we will say so.</p>
         </div>
         <div className="svc reveal">

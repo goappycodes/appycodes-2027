@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* /atlas/ — map, heatmap and bar styles, kept out of this file's 1900 lines. */
+@import "./atlas.css";
 
 /* Tailwind token map — the blog/article components use utility classes
    (text-muted, bg-stone, border-line, text-accent, font-display …). Point

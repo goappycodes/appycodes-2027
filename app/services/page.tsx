@@ -53,7 +53,7 @@ const FAQS = [
       "That is the common case. A product platform usually needs a mobile client, billing and search work behind it. One team runs the whole estate rather than handing you between vendors.",
   },
   {
-    question: "Do you take on work outside these six?",
+    question: "Do you take on work outside these practices?",
     answer:
       "Rarely, and we will tell you on the first call. These are the areas we have shipped repeatedly for a decade; anything else is a worse deal for you than a good referral.",
   },
@@ -88,14 +88,14 @@ export default function ServicesIndex() {
             the practices behind the <span className="g-disp">work</span>.
           </>
         }
-        lede="Not a menu to pick from — the six areas we have shipped repeatedly for a decade. If your problem sits outside them, we will say so on the first call."
+        lede={`Not a menu to pick from — the ${SERVICES_DATA.length} areas we have shipped repeatedly for a decade. If your problem sits outside them, we will say so on the first call.`}
         actions={[
           { label: "start a project", href: "/contact/" },
           { label: "see the work", href: "/case-studies/", variant: "out" },
         ]}
         media={{ src: "/images/service-saas-web.jpg", alt: "A product platform under construction" }}
         stats={[
-          { n: "6", label: "practices" },
+          { n: String(SERVICES_DATA.length), label: "practices" },
           { n: String(subCount), label: "specialisms" },
           { n: "10 yrs", label: "shipping them" },
           { n: "senior", label: "only, no juniors" },
@@ -104,10 +104,10 @@ export default function ServicesIndex() {
 
       <AwardsStrip label="Recognised by" />
 
-      {/* THE SIX PILLARS — image-led cards */}
+      {/* THE PILLARS — image-led cards */}
       <section className="wrap sec">
         <div className="sec__head">
-          <p className="eyebrow">the six</p>
+          <p className="eyebrow">the practices</p>
           <h2 className="h-l">each one is a practice, not a package.</h2>
           <p className="lede">
             Every pillar below has engineers who have run it for years, a process we can show you, and

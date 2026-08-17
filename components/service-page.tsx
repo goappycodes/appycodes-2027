@@ -155,6 +155,30 @@ export function ServicePage({ s }: { s: ServiceData }) {
         </section>
       ) : null}
 
+      {/* WHERE WE HAVE DONE THIS — delivered examples, not claims. Named only
+          where the client is already public on this site. */}
+      {s.proofPoints?.length ? (
+        <section className="wrap sec">
+          <div className="sec__head">
+            <p className="eyebrow">where we have done this</p>
+            <h2 className="h-l">three we have already shipped.</h2>
+            <p className="lede">
+              Drawn from the project register. Where a client is not named it is because the work was
+              delivered under a partner&rsquo;s name — the detail is still ours, and we will walk you
+              through any of it on a call.
+            </p>
+          </div>
+          <ul className="proofpts">
+            {s.proofPoints.map((p) => (
+              <li key={p.where}>
+                <p className="proofpts__w">{p.where}</p>
+                <p className="proofpts__b">{p.what}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       {/* PROCESS — numbered timeline */}
       <section className="wrap sec">
         <div className="sec__head">

@@ -21,6 +21,12 @@ export type ServiceData = {
   faqs: { question: string; answer: string }[];
   finalTitle: string;
   finalDescription: string;
+  /**
+   * Three delivered examples, drawn from the project register. Clients are named
+   * only where they are already public on this site; everything else is by
+   * sector and geography, because a large share of the work is white-label.
+   */
+  proofPoints?: { where: string; what: string }[];
 };
 
 export const SERVICES_DATA: ServiceData[] = [
@@ -79,6 +85,11 @@ export const SERVICES_DATA: ServiceData[] = [
     finalTitle: "build the system your business runs on",
     finalDescription:
       "The core platform is the one thing worth getting right. Let's scope it properly, name the risky parts up front, and build something that holds up as you grow.",
+    proofPoints: [
+      { where: "Ontick — UK event ticketing", what: "A multi-organiser platform with per-tier inventory, instalment billing and two native apps, processing over two million pounds since launch." },
+      { where: "A UK commercial energy broker", what: "A full brokerage ERP — supplier tendering, contract lifecycle and brokerage accounting — with eleven per-supplier invoice extraction pipelines behind it." },
+      { where: "A UK property consultancy", what: "A due-diligence report platform still generating work four years on, extended in increments as small as a single quoted function." },
+    ]
   },
   {
     slug: "native-mobile",
@@ -135,6 +146,11 @@ export const SERVICES_DATA: ServiceData[] = [
     finalTitle: "ship an app that gets approved and stays shipped",
     finalDescription:
       "Mobile is where your users already are. Let's build an app that passes review, works offline, and keeps improving without a fight.",
+    proofPoints: [
+      { where: "A Telangana dental network", what: "Patient and clinic apps on a shared API, with over-the-air updates and app version tracked via a request header written to the customer record by middleware." },
+      { where: "An Indian pharma field force", what: "Punch-in and punch-out capturing an odometer photograph plus a manual reading, with travel allowance calculated automatically for the day." },
+      { where: "Store rejections, resolved", what: "A person-to-person payments exemption argued rather than conceded, a missing camera permission description on a scanner, and an over-declared background-audio capability on a learning app." },
+    ]
   },
   {
     slug: "ai-systems",
@@ -191,6 +207,11 @@ export const SERVICES_DATA: ServiceData[] = [
     finalTitle: "ship ai that still makes sense at scale",
     finalDescription:
       "AI features are easy to prototype and easy to lose money on. Let's design one that is accurate, grounded and costed before it ships to everyone.",
+    proofPoints: [
+      { where: "A UK consultancy", what: "An AI-assisted sales and delivery platform — transcript to delivery brief to quote to client portal — with every hardcoded fallback template removed so a failed generation leaves a blank field rather than fabricated analysis." },
+      { where: "A UK agency", what: "An SEO and GEO content operations platform with a quality-check gate that caught a real issue during its own test run, and three data providers coded in parallel so the client choice never blocked the build." },
+      { where: "An education consultancy", what: "A counselling intelligence design with tiered model routing from the start — cheap models for transcript cleanup, expensive ones only for the recommendation — and admin edits fed back as training signal." },
+    ]
   },
   {
     slug: "rescue-hardening",
@@ -247,6 +268,11 @@ export const SERVICES_DATA: ServiceData[] = [
     finalTitle: "get it from prototype to production, properly",
     finalDescription:
       "A fast prototype is a good start. Let's audit it honestly, close the risks, and finish it so you can put real users through it.",
+    proofPoints: [
+      { where: "A UK caravan servicing business", what: "A live schema migration from one-vehicle-per-customer to many, across roughly fifty files, using an observer-synced mirror so nothing broke and no freeze was needed." },
+      { where: "Inherited codebases", what: "Platforms taken over from previous developers and run on client-owned infrastructure — a recurring pattern across the register, and a job most agencies decline." },
+      { where: "A client on a free-tier database", what: "No backups on the plan, so a scheduled job now dumps roles, schema and data nightly into a version-controlled branch. A compliance risk converted into a git history." },
+    ]
   },
   {
     slug: "commerce-content",
@@ -303,6 +329,11 @@ export const SERVICES_DATA: ServiceData[] = [
     finalTitle: "own the storefront and the checkout",
     finalDescription:
       "Templates are fine until your business is not a template. Let's build commerce and content on top of the systems you already run.",
+    proofPoints: [
+      { where: "Yippee Malta — tour operator", what: "A multilingual rebuild with a custom checkout against a proprietary booking API, and every existing affiliate URL preserved through the migration because that is where the bookings come from." },
+      { where: "A Paris membership publication", what: "A live WooCommerce Subscriptions migration with two parallel plan types, store credit and a fixed cutover date, shipped as must-use plugins so billing code cannot be deactivated by an admin." },
+      { where: "A UK watersports retailer", what: "Magento to Shopify with redirects designed to preserve search equity, plus shortcodes that let editors drop live products into blog posts without touching either admin." },
+    ]
   },
   {
     slug: "performance-search",
@@ -359,6 +390,73 @@ export const SERVICES_DATA: ServiceData[] = [
     finalTitle: "make the site fast enough and visible enough to grow",
     finalDescription:
       "If being found is the constraint on growth, the fix is technical. Let's measure the real state, fix the vitals and the indexing, and prove it in the numbers.",
+    proofPoints: [
+      { where: "A group of TEFL businesses", what: "Roughly nine thousand lines of static country-guide content retired into editable CMS records behind a custom REST namespace — the marketing team now ships without a deploy." },
+      { where: "A UK therapy practice", what: "LocalBusiness and ProfessionalService schema across location pages, validated against the live page source. The client caught a rollout we had missed on two of three pages, and evidence-with-every-fix became standing process." },
+      { where: "A UK ticketing platform", what: "A one-line change taking page load from twenty seconds to three. Worth showing precisely because the value was in the diagnosis, not the diff." },
+    ]
+  },
+  {
+    slug: "security-incident-response",
+    title: "security & incident response",
+    summary:
+      "Compromised sites recovered, live estates hardened, and the audit you want before a raise — from a team that has run real incidents on production systems.",
+    headline: "compromised systems recovered, and hardened so it does not happen twice.",
+    description:
+      "Incident response and hardening for live systems — card skimmers, webshells, exploited endpoints and the infrastructure failures nobody notices until an order fails.",
+    whyTitle: "the attacks that matter are the ones that leave everything working",
+    whyDescription:
+      "A card skimmer does not break your checkout. The order completes, the customer gets their delivery, and your own reporting looks perfectly normal — while card details leave with every transaction. Finding that means actively inspecting what your pages load and where they send data, not waiting for a symptom. We have done this on live stores, and we have done the unglamorous half too: the process exhaustion, the certificate that quietly failed to renew, the endpoint that answered a scanner honestly.",
+    whyPoints: [
+      "Compromise recovery and malware removal",
+      "Card-skimming and checkout integrity",
+      "Webshell and backdoor hunting",
+      "WordPress and WooCommerce hardening",
+      "Exposed endpoint and WAF work",
+      "Security audit before a raise or sale",
+    ],
+    whyQuote:
+      "The transaction still completes. That is exactly what makes it expensive to find and expensive to miss.",
+    processTitle: "how an incident runs",
+    processSteps: [
+      { title: "Contain", description: "Stop the bleeding first — the malicious path closed, credentials rotated, and the site kept up if it can safely stay up." },
+      { title: "Find the way in", description: "Not just the payload. A cleaned site with the original entry point still open is a site that gets hit again next month." },
+      { title: "Clean and verify", description: "Every injected file, database row and scheduled task, with evidence of what was found and what was removed." },
+      { title: "Harden", description: "Access, updates, WAF, monitoring and backups set so the same class of attack cannot land again." },
+    ],
+    benefitsTitle: "what you get",
+    benefits: [
+      { title: "A site you can trust again", description: "Cleaned, verified, and with the entry point closed — not just the visible symptom removed." },
+      { title: "Evidence, in writing", description: "What was found, where it came from, what was changed. The document you need for your processor, your insurer or your board." },
+      { title: "Checkout integrity", description: "What loads on your payment pages and where it sends data, checked and then monitored." },
+      { title: "Hardened access", description: "Admin surfaces, file-editing routes and stale plugins closed off. Nothing left enabled that should not be." },
+      { title: "Monitoring that pages you", description: "Malware scanning, uptime, certificates and error alerting wired to somebody who will act on them." },
+      { title: "Backups you have restored", description: "A backup nobody has restored is a hope, not a plan. We prove the restore path before you need it." },
+    ],
+    benefitsQuote: "Contain, find the way in, clean, harden. In that order — skip step two and you are booking the next incident.",
+    whoTitle: "when to call us",
+    whoPoints: [
+      "Your host, processor or a customer says you are compromised",
+      "Cards used on your site are turning up in fraud reports",
+      "Your site is redirecting, injecting spam or has been blacklisted",
+      "You inherited an estate and have no idea what state it is in",
+      "You need a security position before a raise, sale or enterprise deal",
+    ],
+    faqs: [
+      { question: "How fast can you start?", answer: "Same day for an active compromise. The first hours are containment and evidence — we do not start deleting things before we know how they arrived." },
+      { question: "Will you find how they got in, or just clean it?", answer: "Both, and the second matters more. Cleaning a site without closing the entry point buys you a few weeks, not a fix." },
+      { question: "Do you work on sites you did not build?", answer: "Most of this work is on inherited estates. Taking on somebody else's unfamiliar code is a normal part of what we do." },
+      { question: "What if we just want to know where we stand?", answer: "Take the audit on its own. You get the findings, the risk ranking and the remediation plan whether or not you continue with us." },
+      { question: "Is this only WordPress?", answer: "No. WordPress and WooCommerce are the most common, but the same work applies to custom applications, exposed APIs and the infrastructure underneath either." },
+    ],
+    finalTitle: "get it contained, cleaned and closed",
+    finalDescription:
+      "If something is live right now, say so on the call and we will treat it that way. If nothing is wrong yet, an audit is considerably cheaper than an incident.",
+    proofPoints: [
+      { where: "A European WooCommerce store", what: "A payment-card skimmer found and removed. The transaction still completed and the customer still got their order, which is exactly why nothing in the store own reporting looked wrong." },
+      { where: "Two live UK sites", what: "Webshells discovered and remediated — the persistence layer, not just the visible payload, so the way back in was closed too." },
+      { where: "A publicly exposed endpoint", what: "An active exploit attempt against a public servlet, met with WAF and content-type validation and a change so malformed input returns a flat 400 instead of leaking behaviour to a scanner." },
+    ]
   },
 ];
 
@@ -393,7 +491,13 @@ export const LEGACY_SERVICE_REDIRECTS: Record<string, string> = {
   "maintenance-support": "rescue-hardening",
   "tech-stack-migration": "rescue-hardening",
   "ai-app-completion": "rescue-hardening",
-  "wordpress-security-malware-removal": "rescue-hardening",
+  // → security & incident response
+  // Malware removal moved out of rescue-hardening when security became its own
+  // practice. The URL is unchanged, so the SEO on it carries over.
+  "wordpress-security-malware-removal": "security-incident-response",
+  "website-compromise-recovery": "security-incident-response",
+  "wordpress-woocommerce-hardening": "security-incident-response",
+  "pre-investment-security-audit": "security-incident-response",
   // → commerce & content
   "custom-wordpress-development-for-business": "commerce-content",
   "stripe-billing-integration": "commerce-content",
@@ -439,6 +543,9 @@ export const LEGACY_SERVICE_LABELS: Record<string, string> = {
   "tech-stack-migration": "Tech-stack migration",
   "ai-app-completion": "AI app completion",
   "wordpress-security-malware-removal": "WordPress security & malware removal",
+  "website-compromise-recovery": "Website compromise recovery",
+  "wordpress-woocommerce-hardening": "WordPress & WooCommerce hardening",
+  "pre-investment-security-audit": "Pre-investment security audit",
   "custom-wordpress-development-for-business": "Custom WordPress development",
   "stripe-billing-integration": "Stripe billing integration",
   "shopify-development": "Shopify development",

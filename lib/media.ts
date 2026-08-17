@@ -25,6 +25,10 @@ export const SERVICE_MEDIA: Record<string, { img: string; alt: string }> = {
     img: "/images/service-seo.jpg",
     alt: "Core Web Vitals and search performance being measured",
   },
+  "security-incident-response": {
+    img: "/images/service-maintenance.jpg",
+    alt: "An engineer working through a compromised production system",
+  },
 };
 
 export const SERVICE_FALLBACK = {
@@ -115,6 +119,13 @@ export const PILLAR_PROOF: Record<string, PillarProof> = {
       { k: "market", v: "Malta · EU" },
     ],
   },
+  "security-incident-response": {
+    kind: "image",
+    img: "/images/service-maintenance.jpg",
+    alt: "Working through a compromised production system",
+    caption:
+      "Contain, find the way in, clean, harden — run on live stores where the transaction still completed and nothing in the client's own reporting looked wrong.",
+  },
   "performance-search": {
     kind: "frame",
     frame: "/images/cs-yippee-malta-tour-detail.jpg",
@@ -138,6 +149,7 @@ export const PILLAR_CASES: Record<string, string[]> = {
   "rescue-hardening": ["Bloc", "Yippee Malta", "Professional Energy"],
   "commerce-content": ["Yippee Malta", "Ontick"],
   "performance-search": ["Yippee Malta", "Bloc"],
+  "security-incident-response": ["Bloc", "Yippee Malta", "Ontick"],
 };
 
 /** Articles that back up each pillar with real numbers. */
@@ -178,6 +190,12 @@ export const PILLAR_POSTS: Record<string, string[]> = {
     "wordpress-performance-data-study-2026",
     "schema-saas-rankings-study-2026",
   ],
+  "security-incident-response": [
+    "wordpress-plugin-vulnerability-study-2026",
+    "series-a-codebase-audit-2026",
+    "ai-generated-supabase-audit-2026",
+    "wordpress-performance-data-study-2026",
+  ],
 };
 
 /** Imagery for the 35 legacy service pages, matched on what the page is about. */
@@ -194,6 +212,9 @@ const SUB_SERVICE_MEDIA: Record<string, string> = {
   "maintenance-support": "/images/service-maintenance.jpg",
   "tech-stack-migration": "/images/service-consulting.jpg",
   "wordpress-security-malware-removal": "/images/service-wordpress.jpg",
+  "website-compromise-recovery": "/images/service-maintenance.jpg",
+  "wordpress-woocommerce-hardening": "/images/service-wordpress.jpg",
+  "pre-investment-security-audit": "/images/service-consulting.jpg",
   "custom-wordpress-development-for-business": "/images/service-wordpress.jpg",
   "headless-wordpress-development": "/images/service-wordpress.jpg",
   "wordpress-plugin-development": "/images/service-wordpress.jpg",

@@ -51,3 +51,13 @@ next-env.d.ts
 /*.jpg
 /*.jpeg
 /images/
+
+# Internal source material — NEVER commit, this repository is public.
+# The project register carries client receivables, named security incidents,
+# white-label end clients belonging to a partner, and internal delivery
+# criticism. Only aggregates derived from it belong in lib/portfolio-data.ts.
+/appycodes-case-studies/
+/appycodes-pitch-deck.*
+# The sector rules match on client names, so the filled-in table is a client
+# list. Commit domain-rules.example.js instead.
+/scripts/domain-rules.js

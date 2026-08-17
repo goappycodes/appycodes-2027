@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { AwardsStrip, CASE_STUDIES, LogoWall, Testimonials, Faq } from "@/components/sections";
 import { ChevronRight } from "@/components/icons";
+import { SHORT_CASES } from "@/lib/short-cases";
 
 export const metadata: Metadata = siteMeta({
   title: "Case studies — companies we've helped ship",
@@ -40,9 +41,14 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
 
 const FAQS = [
   {
-    question: "Why are there only four case studies?",
+    question: "Why are only four written up in full?",
     answer:
-      "Because these are the ones we can show properly, with the client's agreement and real numbers attached. We would rather publish four honest engagements than twenty logos with a sentence each.",
+      "Because those are the ones we can show properly, with the client's agreement and real numbers attached. The twelve below them are described by sector rather than named — much of that work was delivered under a partner's name, so the engineering is ours to publish and the identity is not.",
+  },
+  {
+    question: "Is that everything you have done?",
+    answer:
+      "No — the full register is 298 projects for 226 clients across 13 countries, and it is published on the atlas page with the counting method attached. These sixteen are the ones worth reading.",
   },
   {
     question: "Can I talk to any of these clients?",
@@ -133,6 +139,49 @@ export default function CaseStudiesIndex() {
               </article>
             );
           })}
+        </div>
+      </section>
+
+      {/* TIER TWO — one screen each, picked for the hard problem */}
+      <section className="slab dotted">
+        <div className="wrap slab__in">
+          <div className="sec__head">
+            <p className="eyebrow eyebrow--slab">twelve more, in short</p>
+            <h2 className="h-l" style={{ color: "#fff" }}>
+              picked for the hard problem, not the logo.
+            </h2>
+            <p className="lede" style={{ color: "var(--on-slab-2)" }}>
+              Described by sector rather than named — a large share of this was delivered under a
+              partner&rsquo;s name. The engineering is ours to publish. On a live engagement we will
+              introduce you to a reference directly.
+            </p>
+          </div>
+          <div className="shorts">
+            {SHORT_CASES.map((c) => (
+              <article key={c.slug} className="short notch">
+                <p className="short__who">{c.who}</p>
+                <p className="short__what">{c.what}</p>
+                <p className="short__hard">{c.hard}</p>
+                <ul className="short__tags">
+                  {c.tags.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+                <div className="short__foot">
+                  <span className="short__out">{c.outcome}</span>
+                  {c.problem ? (
+                    <Link className="short__link" href={`/problems/${c.problem}/`}>
+                      read the fix <ChevronRight aria-hidden />
+                    </Link>
+                  ) : c.sector ? (
+                    <Link className="short__link" href={`/sectors/${c.sector}/`}>
+                      more in this sector <ChevronRight aria-hidden />
+                    </Link>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

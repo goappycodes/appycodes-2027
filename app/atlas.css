@@ -1,0 +1,324 @@
+/* ==================================================================
+   THE ATLAS  (/atlas/)
+   Three views over the project register: a dot-grid world map with a
+   magnified Europe inset, a category-by-year heatmap, and two bar sets.
+   The map and the complexity bars sit on the dark slab; the heatmap and
+   stack bars sit on the page. Tokens come from globals.css.
+   ================================================================== */
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- layout ---------- */
+/* The map section pads itself rather than using .slab__in, because the map
+   breaks the wrap and runs to the full width of the viewport. */
+.atlas-sec { padding-block: clamp(3rem, 7vw, 6rem); }
+.atlas-bleed { margin-top: 2.6rem; padding-inline: clamp(.6rem, 2vw, 2rem); }
+.atlas { position: relative; }
+/* Map labels are set in SVG user units, so they shrink with the element. A
+   2.5:1 world map at phone width puts them at 6px. Rather than fight that,
+   the map keeps a floor width and scrolls sideways below it — on desktop the
+   container is always wider, so nothing changes there. */
+.atlas__map {
+  position: relative; min-width: 0;
+  overflow-x: auto; overscroll-behavior-x: contain;
+}
+.atlas__map svg { display: block; width: 100%; min-width: 900px; height: auto; }
+
+/* The zoom. transform-box puts the CSS transform into viewBox units, so the
+   translate values below are map coordinates rather than screen pixels. */
+.atlas__stage, .atlas__pin, .atlas__hq {
+  transform-box: view-box; transform-origin: 0 0;
+  transition: transform .62s var(--ease);
+}
+@media (prefers-reduced-motion: reduce) {
+  .atlas__stage, .atlas__pin { transition: none; }
+}
+
+/* ---------- tooltip + control ---------- */
+.atlas__tip {
+  position: absolute; z-index: 3; pointer-events: none;
+  transform: translate(-50%, calc(-100% - 14px));
+  background: #fff; color: var(--ink); padding: .6rem .8rem .65rem;
+  display: grid; gap: .18rem; min-width: 172px;
+  box-shadow: 0 14px 34px -12px rgba(0, 0, 0, .7);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%);
+}
+.atlas__tip b { font-size: 14px; font-weight: 700; letter-spacing: -.02em; }
+.atlas__tip span { font-size: 11.5px; color: var(--ink-2); line-height: 1.45; }
+.atlas__tip em { font-style: normal; font-weight: 700; color: var(--accent-text); }
+.atlas__tip-mix { font-size: 10.5px !important; color: var(--ink-3) !important; }
+
+.atlas__ctrl { position: absolute; top: 0; right: 0; z-index: 2; }
+.atlas__ctrl button {
+  font: inherit; font-size: 12px; font-weight: 600; letter-spacing: -.01em;
+  color: #fff; background: rgba(255, 255, 255, .08); border: 0; cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2);
+  padding: .55rem 1rem; transition: background-color .2s var(--ease);
+}
+.atlas__ctrl button:hover { background: color-mix(in srgb, var(--solid-hi) 24%, transparent); }
+
+/* A spotlight under the map. The slab's own gradient washes to the top-right,
+   which left the map sitting flat on it — this lifts the landmass off the
+   ground so the pins read as marks on something rather than dots in space. */
+.atlas::before {
+  content: ""; position: absolute; inset: -8% -2% -12%; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(58% 76% at 50% 44%, color-mix(in srgb, var(--solid-hi) 13%, transparent) 0%, transparent 70%),
+    radial-gradient(90% 120% at 50% 50%, rgba(255, 255, 255, .07) 0%, transparent 68%);
+}
+.atlas > * { position: relative; z-index: 1; }
+
+/* ---------- the land ---------- */
+/* Each dot is a zero-length round-capped stroke, so ~3,500 of them cost
+   two <path> elements rather than 3,500 <circle>s.
+   non-scaling-stroke on the paths means these widths are screen pixels, so the
+   dots keep their size when the stage scales 5.5x into Europe. */
+.atlas__land {
+  fill: none; stroke: rgba(255, 255, 255, .34); stroke-width: 2.9;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+/* The countries we have delivered in carry the brand colour at full strength
+   and a glow — this is the single thing the map is trying to say. */
+.atlas__land--worked {
+  stroke: var(--solid-hi); stroke-width: 3.4;
+  filter: drop-shadow(0 0 5px color-mix(in srgb, var(--solid-hi) 55%, transparent));
+}
+
+/* ---------- pins ---------- */
+.atlas__pin { pointer-events: none; transition: opacity .22s var(--ease); }
+.atlas__pin.is-off { opacity: .3; }
+.atlas__halo { fill: var(--solid-hi); opacity: .17; transition: opacity .22s var(--ease); }
+.atlas__ring {
+  fill: none; stroke: #fff; stroke-width: 2; opacity: .92;
+  transition: stroke-width .22s var(--ease), opacity .22s var(--ease);
+}
+.atlas__core {
+  fill: #fff;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--solid-hi) 85%, transparent));
+}
+.atlas__hit { fill: none; pointer-events: all; cursor: crosshair; }
+.atlas__pin.is-on .atlas__halo { opacity: .4; }
+.atlas__pin.is-on .atlas__ring { stroke-width: 3.2; opacity: 1; }
+
+.atlas__label {
+  fill: #fff; font-size: 13.5px; font-weight: 700; letter-spacing: -.015em;
+  paint-order: stroke; stroke: var(--slab); stroke-width: 4.5px; stroke-linejoin: round;
+}
+
+/* ---------- Siliguri ---------- */
+.atlas__hq path, .atlas__hq line { stroke: var(--solid-hi); stroke-width: 1.3; stroke-linecap: round; }
+.atlas__hq circle { fill: none; stroke: var(--solid-hi); stroke-width: 1.3; }
+.atlas__hqlabel {
+  fill: #fff; font-size: 10.5px; font-weight: 600;
+  paint-order: stroke; stroke: var(--slab); stroke-width: 3.5px; stroke-linejoin: round;
+}
+
+/* ---------- heatmap ---------- */
+.heat { margin: 3rem 0 0; }
+.heat__scroll { overflow-x: auto; padding-bottom: .4rem; }
+.heat__t { border-collapse: separate; border-spacing: 3px; width: 100%; min-width: 720px; }
+.heat__t th { font-weight: 600; }
+.heat__corner, .heat__cat {
+  text-align: left; font-size: 12.5px; color: var(--ink-2); padding-right: .9rem;
+  white-space: nowrap; width: 1%;
+}
+.heat__corner { font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3); }
+.heat__year { font-size: 11px; color: var(--ink-3); padding-bottom: .3rem; font-variant-numeric: tabular-nums; }
+.heat__year span::before { content: "\2019"; }
+.heat__c {
+  text-align: center; font-size: 12.5px; font-weight: 600; color: var(--ink);
+  height: 34px; min-width: 38px;
+  background-color: color-mix(in srgb, var(--solid-hi) calc(var(--v, 0) * 82%), var(--wash));
+}
+.heat__c.is-zero { background-color: var(--page); box-shadow: inset 0 0 0 1px var(--rule); }
+.heat__tot {
+  text-align: center; font-size: 12px; font-weight: 600; color: var(--ink-3);
+  font-variant-numeric: tabular-nums; padding-left: .5rem;
+}
+.heat__cap { margin: 1.4rem 0 0; font-size: 13px; line-height: 1.6; color: var(--ink-3); max-width: 72ch; }
+
+/* ---------- complexity bars, on the slab ---------- */
+.cbars { margin-top: 2.75rem; }
+.cbars__key { list-style: none; margin: 0 0 1.6rem; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.35rem; }
+.cbars__key li { display: flex; align-items: center; gap: .5rem; font-size: 12px; color: var(--on-slab-2); }
+.cbars__key i, .cbars__bar i { background: rgb(94 205 4 / calc(.16 + var(--i) * .2)); }
+.cbars__key i { width: 16px; height: 10px; display: block; }
+.cbars__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.cbars__row { display: grid; grid-template-columns: 1fr 34px; align-items: center; gap: .35rem .9rem; }
+@media (min-width: 720px) { .cbars__row { grid-template-columns: 190px 1fr 34px; } }
+.cbars__n { font-size: 13.5px; color: var(--on-slab-2); }
+.cbars__bar { display: flex; height: 20px; background: rgba(255, 255, 255, .06); overflow: hidden; grid-column: 1 / -1; }
+@media (min-width: 720px) { .cbars__bar { grid-column: auto; } }
+.cbars__bar i { display: block; height: 100%; }
+.cbars__c { font-size: 12.5px; font-weight: 600; color: #fff; text-align: right; }
+
+/* ---------- stack bands, on the page ---------- */
+.atlas__two { display: grid; gap: 2.5rem; }
+@media (min-width: 980px) {
+  .atlas__two { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 4rem; align-items: start; }
+}
+.sband { display: grid; gap: 2rem; }
+.sband__b { display: grid; gap: .9rem; }
+.sband__h {
+  margin: 0; display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  color: var(--accent-text);
+  padding-bottom: .7rem; border-bottom: 2px solid; border-image: var(--grad) 1;
+}
+.sband__h span { font-size: 11px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--ink-3); }
+.sbars { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.sbars__row { display: grid; grid-template-columns: 118px 1fr 26px; align-items: center; gap: .9rem; }
+.sbars__n { font-size: 13.5px; color: var(--ink-2); }
+.sbars__bar { height: 16px; background: var(--wash); display: block; }
+.sbars__bar i { display: block; height: 100%; background-image: var(--grad); }
+.sbars__c { font-size: 12.5px; font-weight: 600; color: var(--ink-3); text-align: right; }
+
+/* ---------- method note ---------- */
+.atlas__note { background: var(--wash); padding: 2rem 1.9rem 2.2rem; }
+.atlas__note-grid { display: grid; gap: 1.3rem 2.5rem; margin-top: 1.5rem; }
+@media (min-width: 860px) { .atlas__note-grid { grid-template-columns: 1fr 1fr; } }
+.atlas__note-grid p { margin: 0; font-size: 14px; line-height: 1.65; color: var(--ink-2); }
+.atlas__note-grid b { color: var(--ink); font-weight: 600; }
+
+/* The pins are the only interactive thing in the SVG, so their focus ring has
+   to be visible against the slab. */
+.atlas__pin:focus { outline: none; }
+.atlas__pin:focus-visible .atlas__ring { stroke: #fff; stroke-width: 3; opacity: 1; }
+.atlas__pin:focus-visible .atlas__halo { opacity: .34; }
+
+@media (max-width: 700px) {
+  .atlas__label, .atlas__hqlabel { font-size: 15px; stroke-width: 5px; }
+  .sbars__row { grid-template-columns: 104px 1fr 24px; gap: .6rem; }
+  .atlas__ctrl button { font-size: 13px; }
+}
+
+/* ---------- sector pages: the numbered 'hard part' list ---------- */
+.hardlist { list-style: none; margin: 2.75rem 0 0; padding: 0; display: grid; gap: 1.5rem; counter-reset: hard; }
+@media (min-width: 900px) { .hardlist { grid-template-columns: 1fr 1fr; gap: 2rem 3rem; } }
+.hardlist li { display: grid; grid-template-columns: auto 1fr; gap: 1.1rem; align-items: start; }
+.hardlist__n { font-weight: 700; font-size: 1.5rem; letter-spacing: -.04em; line-height: 1; }
+.hardlist p { margin: 0; font-size: 14.5px; line-height: 1.68; color: var(--on-slab-2); }
+
+/* ---------- homepage cut ---------- */
+.atlas__label--eu { font-size: 12px; opacity: .85; }
+.atlas-preview__foot {
+  margin-top: 2.6rem; display: grid; gap: 1.75rem; align-items: end;
+}
+@media (min-width: 900px) {
+  .atlas-preview__foot { grid-template-columns: minmax(0, 1fr) auto; gap: 2.5rem; }
+}
+.atlas-preview__stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; margin: 0; }
+@media (min-width: 640px) { .atlas-preview__stats { grid-template-columns: repeat(4, 1fr); } }
+.atlas-preview__stats > div { border-top: 3px solid; border-image: var(--grad) 1; padding-top: .9rem; }
+.atlas-preview__stats dd {
+  margin: 0; font-weight: 700; font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  letter-spacing: -.05em; line-height: .92;
+}
+.atlas-preview__stats dt {
+  margin-top: .5rem; font-size: 11px; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--on-slab-3);
+}
+
+/* ---------- 'where we have done this' block on service pages ---------- */
+.proofpts { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; gap: 1.15rem; }
+@media (min-width: 900px) { .proofpts { grid-template-columns: repeat(3, 1fr); } }
+.proofpts li {
+  background: var(--wash); padding: 1.7rem 1.6rem 1.9rem;
+  border-top: 3px solid; border-image: var(--grad) 1;
+}
+.proofpts__w {
+  margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--accent-text);
+}
+.proofpts__b { margin: .95rem 0 0; font-size: 14.5px; line-height: 1.65; color: var(--ink-2); }
+
+/* ---------- problems library ---------- */
+.prob { max-width: 74ch; display: grid; gap: 2.75rem; }
+.prob__s h2 { margin-bottom: 1.1rem; }
+.prob__s p { margin: 0 0 1rem; font-size: 16px; line-height: 1.72; color: var(--ink-2); }
+.prob__s p:last-child { margin-bottom: 0; }
+.prob__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.15rem; counter-reset: s; }
+.prob__steps li { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start; }
+.prob__steps span {
+  font-weight: 700; font-size: 13px; color: var(--accent-text);
+  padding-top: .28rem; letter-spacing: .04em;
+}
+.prob__steps p { margin: 0; font-size: 15.5px; line-height: 1.7; color: var(--ink-2); }
+.prob__check { background: var(--wash); padding: 2rem 1.9rem 2.1rem; }
+.prob__check ul { margin: 1.2rem 0 0; padding: 0; list-style: none; display: grid; gap: .85rem; }
+.prob__check li {
+  position: relative; padding-left: 1.6rem; font-size: 15px; line-height: 1.65; color: var(--ink-2);
+}
+.prob__check li::before {
+  content: ; position: absolute; left: 0; top: .6rem; width: 9px; height: 9px;
+  background-image: var(--grad); clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+}
+.prob__lesson {
+  font-size: 17px !important; line-height: 1.62 !important; color: var(--ink) !important;
+  font-weight: 500; border-left: 3px solid; border-image: var(--grad) 1; padding-left: 1.3rem;
+}
+.prob__note { margin: 0; font-size: 13px; color: var(--ink-3); font-style: italic; }
+
+/* ---------- tier-two case studies ---------- */
+.shorts { display: grid; gap: 1.1rem; margin-top: 3rem; }
+@media (min-width: 760px)  { .shorts { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1200px) { .shorts { grid-template-columns: repeat(3, 1fr); } }
+.short {
+  background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+  padding: 1.6rem 1.5rem 1.5rem; display: grid; gap: .8rem; align-content: start;
+  transition: background-color .22s var(--ease);
+}
+.short:hover { background: rgba(255, 255, 255, .08); }
+.short__who {
+  margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--tint);
+}
+.short__what { margin: 0; font-size: 15px; line-height: 1.55; color: #fff; font-weight: 500; }
+.short__hard { margin: 0; font-size: 13.5px; line-height: 1.66; color: var(--on-slab-2); }
+.short__tags { list-style: none; margin: .2rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.short__tags li {
+  font-size: 10.5px; font-weight: 600; letter-spacing: .04em; padding: .28rem .6rem;
+  color: var(--on-slab-2); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16);
+}
+.short__foot {
+  margin-top: .5rem; padding-top: .9rem; border-top: 1px solid var(--slab-rule);
+  display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: baseline; justify-content: space-between;
+}
+.short__out { font-size: 12.5px; font-weight: 600; color: #fff; }
+.short__link {
+  font-size: 12px; font-weight: 600; color: var(--tint);
+  display: inline-flex; align-items: center; gap: .3rem; transition: gap .18s var(--ease);
+}
+.short__link:hover { gap: .55rem; }
+.short__link svg { width: 13px; height: 13px; }
+
+/* ---------- year-four relationships ---------- */
+.yfour { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; gap: 0; }
+.yfour__i {
+  display: grid; gap: .8rem 2.5rem; padding: 2rem 0;
+  border-top: 1px solid var(--rule); align-items: start;
+}
+@media (min-width: 820px) { .yfour__i { grid-template-columns: 150px 1fr; } }
+.yfour__i:last-child { border-bottom: 1px solid var(--rule); }
+.yfour__span { display: grid; gap: .25rem; }
+.yfour__span > span:first-child { font-weight: 700; font-size: 2rem; letter-spacing: -.05em; line-height: .95; }
+.yfour__since { font-size: 11px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3); }
+.yfour__b h3 { margin: 0 0 .6rem; }
+.yfour__b p { margin: 0; font-size: 15px; line-height: 1.68; color: var(--ink-2); max-width: 70ch; }
+
+/* ---------- 'how we handle it' vignettes on the reviews page ---------- */
+.vign { display: grid; gap: 1.1rem; margin-top: 3rem; }
+@media (min-width: 700px)  { .vign { grid-template-columns: repeat(2, 1fr); } }
+.vign__i {
+  background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+  padding: 1.7rem 1.6rem 1.8rem; display: grid; gap: .8rem; align-content: start;
+}
+.vign__k {
+  margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--tint);
+}
+.vign__s { margin: 0; font-size: 14.5px; line-height: 1.6; color: #fff; font-weight: 500; }
+.vign__d { margin: 0; font-size: 13.5px; line-height: 1.68; color: var(--on-slab-2); }
