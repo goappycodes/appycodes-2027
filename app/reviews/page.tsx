@@ -98,7 +98,7 @@ export default function ReviewsPage() {
         stats={[
           { n: "UK · EU · US", label: "clients across" },
           { n: "2015", label: "reviewed since" },
-          { n: "4+ yrs", label: "longest engagement" },
+          { n: "8+ yrs", label: "longest engagement" },
           { n: "founder-led", label: "every engagement" },
         ]}
       />

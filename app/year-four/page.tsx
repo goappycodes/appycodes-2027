@@ -194,7 +194,7 @@ export default function YearFourPage() {
 
       <FeaturedWork
         title="the work behind the relationships"
-        lede="Four written up in full, with the numbers attached."
+        lede="Six written up in full, with the numbers attached."
       />
 
       <Testimonials

@@ -15,6 +15,24 @@ export const metadata: Metadata = {
 
 const OUTCOMES = [
   {
+    href: "/case-studies/creoate/",
+    img: "/images/creoate-marketplace.jpg",
+    meta: "Creoate · B2B wholesale marketplace",
+    head: <><span className="name">Creoate</span> — eight years running a <span className="caps">B2B</span> wholesale marketplace.</>,
+    body: "The Next.js storefront, Python ingestion pipelines, DynamoDB data layer and AWS infra behind a cross-border marketplace of 5,000+ brands and 200,000+ products.",
+    fig: "8+ yrs",
+    figlabel: "one team, still shipping",
+  },
+  {
+    href: "/case-studies/decofetch/",
+    img: "/images/decofetch-home.jpg",
+    meta: "Decofetch · luxury furniture",
+    head: <><span className="name">Decofetch</span> — a luxury furniture marketplace, built from scratch.</>,
+    body: "A fully custom designer-furniture marketplace — a server-rendered Next.js storefront over a Laravel API, a bespoke admin, and AWS infra re-architected to cut cost.",
+    fig: "0→live",
+    figlabel: "custom, front to back",
+  },
+  {
     href: "/case-studies/ontick/",
     img: "/images/ontick-6.png",
     meta: "Ontick · event ticketing",
@@ -193,7 +211,7 @@ export default function HomePage() {
         <div className="wrap slab__in reveal">
           <dl className="stats">
             <div className="stat"><dt>sales processed</dt><dd className="tnum g-dark">£2M+</dd><p>Through the Ontick ticketing platform since launch.</p></div>
-            <div className="stat"><dt>longest engagement</dt><dd className="tnum g-dark">4+ yrs</dd><p>Bloc — app, backend, ads manager, marketplace and web.</p></div>
+            <div className="stat"><dt>longest engagement</dt><dd className="tnum g-dark">8+ yrs</dd><p>Creoate — the Next.js storefront, Python pipelines, DynamoDB and AWS infra behind their marketplace.</p></div>
             <div className="stat"><dt>core web vitals</dt><dd className="tnum g-dark">90+</dd><p>Yippee Malta, on mobile and desktop, after rebuild.</p></div>
             <div className="stat"><dt>building since</dt><dd className="tnum g-dark">2015</dd><p>Independent, senior-only, and still founder-led.</p></div>
           </dl>

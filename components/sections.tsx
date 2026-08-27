@@ -10,6 +10,39 @@ import { BLOG_POSTS } from "@/lib/blog";
 
 export const CASE_STUDIES = [
   {
+    href: "/case-studies/creoate/",
+    img: "/images/creoate-marketplace.jpg",
+    logo: "/images/logo-creoate.png",
+    meta: "Creoate · B2B wholesale marketplace",
+    name: "Creoate",
+    head: (
+      <>
+        <span className="name">Creoate</span> — eight years running a <span className="caps">B2B</span> wholesale
+        marketplace.
+      </>
+    ),
+    body: "The Next.js storefront, Python ingestion pipelines, DynamoDB data layer and AWS infrastructure behind a cross-border wholesale marketplace of 5,000+ brands and 200,000+ products.",
+    fig: "8+ yrs",
+    figlabel: "one team, still shipping",
+    tags: ["Next.js", "DynamoDB", "Python", "AWS"],
+  },
+  {
+    href: "/case-studies/decofetch/",
+    img: "/images/decofetch-home.jpg",
+    logo: "/images/decofetch-home.jpg",
+    meta: "Decofetch · luxury furniture",
+    name: "Decofetch",
+    head: (
+      <>
+        <span className="name">Decofetch</span> — a luxury furniture marketplace, built from scratch.
+      </>
+    ),
+    body: "A fully custom designer-furniture marketplace — a server-rendered Next.js storefront over a Laravel API, a bespoke admin, and AWS infrastructure re-architected to cut cost.",
+    fig: "0→live",
+    figlabel: "custom, front to back",
+    tags: ["Next.js", "Laravel", "AWS"],
+  },
+  {
     href: "/case-studies/ontick/",
     img: "/images/ontick-6.png",
     logo: "/images/logo-bloc.png",

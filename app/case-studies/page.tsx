@@ -9,7 +9,7 @@ import { SHORT_CASES } from "@/lib/short-cases";
 export const metadata: Metadata = siteMeta({
   title: "Case studies — companies we've helped ship",
   description:
-    "Selected engagements: Ontick's custom ticketing platform, Bloc's four-year build, Yippee Malta's booking engine and Professional Energy's brokerage ERP.",
+    "Selected engagements: Creoate's eight-year B2B wholesale marketplace, Decofetch's fully custom luxury furniture store, Ontick's custom ticketing platform, Bloc's four-year build, Yippee Malta's booking engine and Professional Energy's brokerage ERP.",
   path: "/case-studies/",
   image: "/images/ontick-6.png",
 });
@@ -17,6 +17,16 @@ export const metadata: Metadata = siteMeta({
 /* eslint-disable @next/next/no-img-element */
 
 const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> = {
+  Creoate: {
+    sector: "B2B wholesale marketplace",
+    span: "Eight-year partnership",
+    scope: ["Next.js storefront", "Python ingestion pipelines", "DynamoDB data layer", "AWS media & infra", "B2B payments"],
+  },
+  Decofetch: {
+    sector: "Luxury furniture e-commerce",
+    span: "Ground-up build",
+    scope: ["Next.js storefront", "Custom Laravel API", "Bespoke admin", "AWS ECS infra", "SEO & product feeds"],
+  },
   Ontick: {
     sector: "Event ticketing",
     span: "Platform + two native apps",
@@ -41,14 +51,14 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
 
 const FAQS = [
   {
-    question: "Why are only four written up in full?",
+    question: "Why are only six written up in full?",
     answer:
       "Because those are the ones we can show properly, with the client's agreement and real numbers attached. The twelve below them are described by sector rather than named — much of that work was delivered under a partner's name, so the engineering is ours to publish and the identity is not.",
   },
   {
     question: "Is that everything you have done?",
     answer:
-      "No — the full register is 298 projects for 226 clients across 13 countries, and it is published on the atlas page with the counting method attached. These sixteen are the ones worth reading.",
+      "No — the full register is 298 projects for 226 clients across 13 countries, and it is published on the atlas page with the counting method attached. These eighteen are the ones worth reading.",
   },
   {
     question: "Can I talk to any of these clients?",
@@ -80,7 +90,7 @@ export default function CaseStudiesIndex() {
         ]}
         stats={[
           { n: "£2M+", label: "processed via Ontick" },
-          { n: "4+ yrs", label: "longest engagement" },
+          { n: "8+ yrs", label: "longest engagement" },
           { n: "90+", label: "core web vitals" },
           { n: "5", label: "codebases, one team" },
         ]}
@@ -88,11 +98,11 @@ export default function CaseStudiesIndex() {
 
       <LogoWall label="Teams that trusted us with the thing that matters" />
 
-      {/* THE FOUR — full-width alternating rows */}
+      {/* THE SIX — full-width alternating rows */}
       <section className="wrap sec">
         <div className="sec__head">
           <p className="eyebrow">the engagements</p>
-          <h2 className="h-l">four companies, four systems still in production.</h2>
+          <h2 className="h-l">six companies, six systems still in production.</h2>
         </div>
 
         <div className="cases">

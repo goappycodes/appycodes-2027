@@ -102,7 +102,7 @@ export default function AboutPage() {
         stats={[
           { n: String(SITE.founded), label: "building since" },
           { n: "UK · EU · US", label: "markets served" },
-          { n: "4+ yrs", label: "longest engagement" },
+          { n: "8+ yrs", label: "longest engagement" },
           { n: "senior", label: "only, no juniors" },
         ]}
       />
@@ -174,7 +174,7 @@ export default function AboutPage() {
       <LogoWall label="Teams that trusted us with the thing that matters" />
 
       <FeaturedWork
-        title="a decade of it, in four engagements"
+        title="a decade of it, in six engagements"
         lede="Each one still running in production, with the numbers attached."
       />
 
