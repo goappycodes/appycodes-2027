@@ -7,7 +7,7 @@ export const metadata: Metadata = siteMeta({
   description:
     "How we designed and built Decofetch from scratch — a server-rendered Next.js storefront over a custom Laravel API, a bespoke admin and AWS infrastructure, for a six-figure catalogue of designer furniture.",
   path: "/case-studies/decofetch/",
-  image: "/images/decofetch-home.jpg",
+  image: "/images/decofetch-featured.png",
 });
 
 const data: CaseStudyData = {

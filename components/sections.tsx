@@ -11,7 +11,7 @@ import { BLOG_POSTS } from "@/lib/blog";
 export const CASE_STUDIES = [
   {
     href: "/case-studies/creoate/",
-    img: "/images/creoate-marketplace.jpg",
+    img: "/images/creoate-featured.png",
     logo: "/images/logo-creoate.png",
     meta: "Creoate · B2B wholesale marketplace",
     name: "Creoate",
@@ -28,8 +28,8 @@ export const CASE_STUDIES = [
   },
   {
     href: "/case-studies/decofetch/",
-    img: "/images/decofetch-home.jpg",
-    logo: "/images/decofetch-home.jpg",
+    img: "/images/decofetch-featured.png",
+    logo: "/images/decofetch-featured.png",
     meta: "Decofetch · luxury furniture",
     name: "Decofetch",
     head: (

@@ -7,7 +7,7 @@ export const metadata: Metadata = siteMeta({
   description:
     "How we design, build and run the Next.js storefront, Python ingestion pipelines, DynamoDB layer and AWS infrastructure behind Creoate — a cross-border B2B wholesale marketplace of 5,000+ brands and 200,000+ products.",
   path: "/case-studies/creoate/",
-  image: "/images/creoate-marketplace.jpg",
+  image: "/images/creoate-featured.png",
 });
 
 const data: CaseStudyData = {

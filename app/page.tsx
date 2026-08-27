@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const OUTCOMES = [
   {
     href: "/case-studies/creoate/",
-    img: "/images/creoate-marketplace.jpg",
+    img: "/images/creoate-featured.png",
     meta: "Creoate · B2B wholesale marketplace",
     head: <><span className="name">Creoate</span> — eight years running a <span className="caps">B2B</span> wholesale marketplace.</>,
     body: "The Next.js storefront, Python ingestion pipelines, DynamoDB data layer and AWS infra behind a cross-border marketplace of 5,000+ brands and 200,000+ products.",
@@ -25,7 +25,7 @@ const OUTCOMES = [
   },
   {
     href: "/case-studies/decofetch/",
-    img: "/images/decofetch-home.jpg",
+    img: "/images/decofetch-featured.png",
     meta: "Decofetch · luxury furniture",
     head: <><span className="name">Decofetch</span> — a luxury furniture marketplace, built from scratch.</>,
     body: "A fully custom designer-furniture marketplace — a server-rendered Next.js storefront over a Laravel API, a bespoke admin, and AWS infra re-architected to cut cost.",
