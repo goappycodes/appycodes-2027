@@ -69,7 +69,10 @@ export function SiteFooter() {
         </div>
         <div className="foot__bar">
           <p>© {new Date().getFullYear()} Appycodes. Building since 2015.</p>
-          <span className="foot__badge notch notch-sm">Alloy</span>
+          <p className="foot__reg">
+            <span className="tnum">298</span> projects · <span className="tnum">226</span> clients ·{" "}
+            <span className="tnum">13</span> countries
+          </p>
         </div>
       </div>
     </footer>
