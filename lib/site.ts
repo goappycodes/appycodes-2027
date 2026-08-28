@@ -23,7 +23,7 @@ export const NAV = [
 export const AWARDS = [
   { img: "/images/award-clutch.png", by: "Clutch", name: true },
   { img: "/images/award-pph.png", by: "PeoplePerHour", name: false },
-  { img: "/images/award-google.svg", by: "Google", name: false },
+  { img: "/images/award-google.png", by: "Google", name: false },
   { img: "/images/award-glassdoor.svg", by: "Glassdoor", name: false },
   { img: "/images/award-aws.svg", by: "AWS", name: false },
   { img: "/images/award-payoneer.svg", by: "Payoneer", name: false },

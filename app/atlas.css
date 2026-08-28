@@ -27,6 +27,13 @@
 }
 .atlas__map svg { display: block; width: 100%; min-width: 900px; height: auto; }
 
+/* Homepage preview (#atlas) fits the viewport instead of scrolling sideways —
+   the full, label-legible, scrollable map lives on the /atlas page. */
+@media (max-width: 900px) {
+  #atlas .atlas__map { overflow-x: visible; }
+  #atlas .atlas__map svg { min-width: 0; }
+}
+
 /* The zoom. transform-box puts the CSS transform into viewBox units, so the
    translate values below are map coordinates rather than screen pixels. */
 .atlas__stage, .atlas__pin, .atlas__hq {

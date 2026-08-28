@@ -279,21 +279,23 @@ export default function HomePage() {
         <div className="sec__head reveal">
           <h2 className="h-l">the people who signed off the work</h2>
         </div>
-        <div className="tmon reveal">
-          {REVIEWS.map((t) => (
-            <figure key={t.name} className="quote notch">
-              <span className="quote__mark">&ldquo;</span>
-              <blockquote className="quote__t">{t.quote}</blockquote>
-              <figcaption className="quote__by">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={t.avatar} alt={t.name} loading="lazy" />
-                <span>
-                  <span className="quote__n">{t.name}</span>
-                  <span className="quote__r">{t.role}</span>
-                </span>
-              </figcaption>
-            </figure>
-          ))}
+        <div className="reveal">
+          <Rail label="Client testimonials" className="tmon-rail">
+            {REVIEWS.map((t) => (
+              <figure key={t.name} className="quote notch">
+                <span className="quote__mark">&ldquo;</span>
+                <blockquote className="quote__t">{t.quote}</blockquote>
+                <figcaption className="quote__by">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={t.avatar} alt={t.name} loading="lazy" />
+                  <span>
+                    <span className="quote__n">{t.name}</span>
+                    <span className="quote__r">{t.role}</span>
+                  </span>
+                </figcaption>
+              </figure>
+            ))}
+          </Rail>
         </div>
       </section>
 
@@ -338,24 +340,26 @@ export default function HomePage() {
             founders make, with the working shown.
           </p>
         </div>
-        <div className="writing-grid reveal">
-          {FEATURED_POSTS.map((p) => (
-            <Link key={p.slug} href={`/blog/${p.slug}/`} className="wcard">
-              <div className="wcard__shot">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.image} alt="" loading="lazy" />
-                <span className="wcard__k">{p.k}</span>
-              </div>
-              <div className="wcard__in">
-                <h3 className="wcard__t">{p.title}</h3>
-                <p className="wcard__d">{p.description}</p>
-                <div className="wcard__foot">
-                  <span>{p.readTime}</span>
-                  <span className="wcard__read">read &rarr;</span>
+        <div className="reveal">
+          <Rail label="Featured writing" className="writing-rail">
+            {FEATURED_POSTS.map((p) => (
+              <Link key={p.slug} href={`/blog/${p.slug}/`} className="wcard">
+                <div className="wcard__shot">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.image} alt="" loading="lazy" />
+                  <span className="wcard__k">{p.k}</span>
                 </div>
-              </div>
-            </Link>
-          ))}
+                <div className="wcard__in">
+                  <h3 className="wcard__t">{p.title}</h3>
+                  <p className="wcard__d">{p.description}</p>
+                  <div className="wcard__foot">
+                    <span>{p.readTime}</span>
+                    <span className="wcard__read">read &rarr;</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </Rail>
         </div>
         <div className="sec__more reveal">
           <Link className="btn btn--out notch" href="/blog/">read all writing</Link>

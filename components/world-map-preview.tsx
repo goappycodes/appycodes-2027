@@ -11,16 +11,21 @@ import { HQ, LAND, LAND_WORKED, MAP, MARKERS, TOTALS } from "@/lib/portfolio-dat
  * links through to the real thing.
  */
 
-const radius = (count: number) => 4 + Math.sqrt(count) * 1.55;
+// Capped so a single high-count country (India, the UK) can't swamp the map —
+// the number is still on the label, but the pins read as coverage, not one dot.
+const radius = (count: number) => Math.min(4 + Math.sqrt(count) * 1.3, 12.5);
 
 const LABEL: Record<string, { dx: number; dy: number; anchor: "start" | "middle" | "end" }> = {
   "United States": { dx: -14, dy: 4, anchor: "end" },
   India: { dx: -24, dy: 5, anchor: "end" },
-  "Sri Lanka": { dx: 10, dy: 4, anchor: "start" },
   "Hong Kong": { dx: 10, dy: 4, anchor: "start" },
   Singapore: { dx: 10, dy: 4, anchor: "start" },
   Australia: { dx: 0, dy: 21, anchor: "middle" },
 };
+
+// Sri Lanka's single project collides with the India pin at world scale, so it
+// is folded into the register total rather than plotted.
+const PLOTTED = MARKERS.filter((m) => m.country !== "Sri Lanka");
 
 /** Europe carries no labels at world scale, so it gets one collective note. */
 const EUROPE = MARKERS.filter((m) => m.eu);
@@ -59,7 +64,7 @@ export function WorldMapPreview() {
                 vectorEffect="non-scaling-stroke"
               />
 
-              {MARKERS.map((m) => {
+              {PLOTTED.map((m) => {
                 const r = radius(m.count);
                 const label = LABEL[m.country];
                 return (

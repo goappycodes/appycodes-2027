@@ -6,7 +6,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { NAV, SITE } from "@/lib/site";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { ServiceTitle } from "@/components/service-title";
-import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Mail, FlagUK, FlagEU } from "@/components/icons";
+import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Mail, FlagUK, FlagEU, FlagIndia } from "@/components/icons";
 
 const SERVICES_HREF = "/services/";
 
@@ -226,10 +226,11 @@ export function SiteHeader() {
         </nav>
 
         <div className="nav__right">
-          {/* UK & EU market focus — quiet credibility marker, not a CTA */}
-          <span className="nav__region" role="img" aria-label="Working with UK and EU businesses">
+          {/* UK & EU market, India-based team — quiet credibility marker, not a CTA */}
+          <span className="nav__region" role="img" aria-label="Working with UK and EU businesses, built by a team in India">
             <span className="flag flag--uk"><FlagUK /></span>
             <span className="flag flag--eu"><FlagEU /></span>
+            <span className="flag flag--in"><FlagIndia /></span>
             <span className="nav__region-txt">UK &amp; EU</span>
           </span>
 

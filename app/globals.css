@@ -233,8 +233,7 @@ a { color: inherit; text-decoration: none; }
 .nav__right { margin-left: auto; display: flex; align-items: center; gap: clamp(.7rem, 2vw, 1.15rem); }
 .nav__region { display: inline-flex; align-items: center; gap: .38rem; }
 .nav__region-txt { font-size: 11.5px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: rgba(255,255,255,.6); white-space: nowrap; }
-.flag { width: 22px; height: 15px; border-radius: 2.5px; overflow: hidden; display: inline-flex; flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,.22), 0 1px 2px rgba(0,0,0,.28); }
-.flag + .flag { margin-left: -1px; }
+.flag { width: 21px; height: 21px; border-radius: 50%; overflow: hidden; display: inline-flex; flex: none; box-shadow: 0 0 0 1px rgba(255,255,255,.28), 0 1px 3px rgba(0,0,0,.32); }
 .flag svg { width: 100%; height: 100%; display: block; }
 @media (max-width: 639px) { .nav__region-txt { display: none; } }
 
@@ -314,6 +313,16 @@ a { color: inherit; text-decoration: none; }
 .nav__burger:hover { background: rgba(255,255,255,.12); }
 .nav__burger svg { width: 22px; height: 22px; }
 @media (min-width: 900px) { .nav__burger { display: none; } }
+/* tighter, less tall header on phones */
+@media (max-width: 639px) {
+  .nav__in { min-height: 44px; gap: .75rem; }
+  .nav .logo { font-size: 18px; }
+  .nav__burger { width: 34px; height: 34px; margin-left: .1rem; }
+  .nav__burger svg { width: 18px; height: 18px; }
+  .nav__right { gap: .55rem; }
+  .nav__region { gap: .28rem; }
+  .flag { width: 18px; height: 18px; }
+}
 @media (max-width: 559px) { .nav__cta { display: none; } }
 
 /* The drawer sits ABOVE the nav (z 60 vs 50) and carries its own header row,
@@ -888,8 +897,7 @@ a { color: inherit; text-decoration: none; }
 .callout { margin-top: 2rem; padding: 1.35rem 1.6rem; background: var(--wash); border-left: 5px solid var(--solid-hi); font-size: clamp(15.5px, 1.6vw, 17.5px); line-height: 1.55; color: var(--ink); max-width: 62ch; }
 
 /* sub-services — the original service pages linked from each pillar */
-.svc-sub { display: grid; gap: .7rem; margin-top: 2.75rem; grid-template-columns: 1fr; }
-@media (min-width: 620px) { .svc-sub { grid-template-columns: repeat(2, 1fr); } }
+.svc-sub { display: grid; gap: .7rem; margin-top: 2.75rem; grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 1040px) { .svc-sub { grid-template-columns: repeat(3, 1fr); } }
 .svc-sub__i {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
@@ -1104,19 +1112,25 @@ a { color: inherit; text-decoration: none; }
   }
   .award { gap: 0; justify-content: center; }
   .award__name { display: none; }                /* keep the 5 cells uniform */
-  .award__logo { height: auto; max-height: 15px; max-width: 100%; }
+  .award__logo { height: auto; max-height: 22px; max-width: 100%; }
 
   /* — tighter card padding, every card type / every page — */
   .svc__i        { padding: 1.35rem 1.35rem 1.4rem; }
   .lux .svc__i   { padding: 1.35rem 1.4rem 1.2rem; }   /* homepage services */
   .svc__chev     { margin-top: .1rem; }                /* nudge the arrow up */
-  .case__in      { padding: 1.35rem 1.35rem 1.45rem; }
+  .case__in      { padding: 1.15rem 1.15rem 1.25rem; gap: .55rem; }
+  .case__in .h-m { font-size: 1.02rem; line-height: 1.12; }
+  .case__in .body { font-size: 12.6px; line-height: 1.45; }
+  .case__metric  { padding-top: .7rem; }
+  .case__fig     { font-size: 1.55rem; }
   .cs-card       { padding: 1.3rem 1.3rem 1.4rem; }
   .blog-card__in { padding: 1.2rem 1.2rem 1.3rem; }
   .quote         { padding: 1.3rem 1.3rem 1.15rem; }
   .proc__i       { padding: 1.4rem 1.3rem 1.5rem; }
   .lux .proc__i  { padding: 1.5rem 1.4rem 1.5rem; }
-  .svc-sub__i    { padding: .95rem 1.1rem; }
+  .svc-sub       { gap: .5rem; }
+  .svc-sub__i    { padding: .8rem .9rem; gap: .5rem; font-size: 12.8px; line-height: 1.25; }
+  .svc-sub__chev { width: 15px; height: 15px; }
 
   /* — client logos: two marquee rows, opposite directions — */
   .logos__row { display: none; }
@@ -1253,9 +1267,9 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 639px) {
   .awards-band { gap: .85rem; padding-block: 1.4rem; }
   .awards-band__lbl { flex-basis: 100%; }
-  .awards-band .awards { flex-basis: 100%; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem .5rem; justify-items: center; align-items: center; }
+  .awards-band .awards { flex-basis: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem 1rem; justify-items: center; align-items: center; }
   .awards-band .award__name { display: none; }
-  .awards-band .award__logo { height: auto; max-height: 16px; max-width: 100%; }
+  .awards-band .award__logo { height: auto; max-height: 26px; max-width: 100%; }
 }
 
 /* ============================================================
@@ -1311,7 +1325,21 @@ a { color: inherit; text-decoration: none; }
 /* the work rail on the homepage keeps the 2-up card proportions */
 .work-rail .case { height: 100%; }
 @media (max-width: 900px) { .rail { --rail-n: 1.35; --rail-gap: 1rem; } }
-@media (max-width: 560px) { .rail { --rail-n: 1.12; --rail-gap: .75rem; } }
+@media (max-width: 560px) { .rail { --rail-n: 1.42; --rail-gap: .7rem; } }
+
+/* Testimonials + writing rails carry more per row on wide screens, and a clean
+   1.5-card peek on phones. Declared after the base .rail rules so they win by
+   source order at equal specificity. */
+.tmon-rail { --rail-n: 3.15; }
+.writing-rail { --rail-n: 3.15; }
+@media (max-width: 900px) { .tmon-rail, .writing-rail { --rail-n: 2.15; } }
+@media (max-width: 560px) { .tmon-rail, .writing-rail { --rail-n: 1.5; } }
+
+/* Blog card art shown whole rather than cropped inside the writing carousel.
+   The shot matches the 16:9 artwork and sits on a dark ground, so there is no
+   pale-green letterbox bleeding around the image. */
+.writing-rail .wcard__shot { aspect-ratio: 16 / 9; background: #0a0d09; }
+.writing-rail .wcard__shot img { object-fit: contain; }
 
 /* ============================================================
    SERVICES — six across on desktop (compact tile mode)
@@ -1962,4 +1990,52 @@ a { color: inherit; text-decoration: none; }
   .foot a, .foot p { font-size: 13px; }
   .foot__bar { padding-top: 1.2rem; gap: .6rem 1rem; }
   .foot__bar p { font-size: 11.5px; }
+}
+
+/* ============================================================
+   HOVER — no lift, no image zoom (per request). Cards settle on
+   a subtle ring (the "border") plus a soft shadow instead of
+   rising; directional chevrons keep their small nudge. Appended
+   last so these win by source order at matching specificity.
+   ============================================================ */
+
+/* animate the ring/shadow rather than a jump */
+.svc__i, .case, .quote, .proc__i, .wcard, .pillar, .pillar-link,
+.cs-card, .review, .lead-card, .side-card, .way {
+  transition: background-color .2s var(--ease), box-shadow .25s var(--ease),
+              border-color .2s var(--ease);
+}
+
+/* kill the vertical lift everywhere it was used */
+.svc__i:hover, .lux .svc__i:hover,
+.case:hover, .lux .case:hover,
+.quote:hover, .lux .quote:hover,
+.proc__i:hover, .lux .proc__i:hover,
+.wcard:hover, .pillar:hover, .pillar-link:hover,
+.cs-card:hover, .cs-outcomes li:hover,
+.svc-sub__i:hover, .review:hover, .lead-card:hover,
+.side-card:hover, .way:hover { transform: none; }
+
+/* kill the image zoom everywhere it was used */
+.mega__promo:hover .mega__promo-shot img,
+.wcard:hover .wcard__shot img,
+.pillar:hover .pillar__shot img,
+.lead-card:hover .lead-card__shot img,
+.crow:hover .crow__shot img { transform: none; }
+
+/* light-context cards — faint accent ring + soft shadow */
+.svc__i:hover, .lux .svc__i:hover,
+.case:hover, .lux .case:hover,
+.quote:hover, .lux .quote:hover,
+.wcard:hover, .pillar:hover,
+.cs-card:hover, .review:hover, .lead-card:hover,
+.side-card:hover, .way:hover {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--solid-hi) 24%, var(--rule)),
+              0 14px 30px -20px rgba(16, 20, 15, .24);
+}
+
+/* dark-slab cards — light ring instead so it reads on the slab */
+.proc__i:hover, .lux .proc__i:hover, .pillar-link:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .20),
+              0 14px 30px -20px rgba(0, 0, 0, .5);
 }

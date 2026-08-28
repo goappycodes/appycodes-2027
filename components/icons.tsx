@@ -127,12 +127,13 @@ export function Star({ className, ...p }: IconProps) {
 
 /* ---- Region flags (crisp inline SVG — emoji flags render as letters on
    Windows, so they are drawn here for a consistent, premium look). Decorative;
-   the surrounding group carries the accessible label. Rounded corners come from
-   the CSS wrapper (.flag), so no clip-path / id collisions. ---- */
+   the surrounding group carries the accessible label. The CSS wrapper (.flag)
+   is a circle with overflow hidden; "slice" scales each flag to cover it while
+   keeping its true proportions, so the coin reads undistorted. ---- */
 
 export function FlagUK({ className, ...p }: IconProps) {
   return (
-    <svg viewBox="0 0 60 40" className={className} aria-hidden preserveAspectRatio="none" {...p}>
+    <svg viewBox="0 0 60 40" className={className} aria-hidden preserveAspectRatio="xMidYMid slice" {...p}>
       <rect width="60" height="40" fill="#012169" />
       <path d="M0 0 L60 40 M60 0 L0 40" stroke="#fff" strokeWidth="8" />
       <path d="M0 0 L60 40 M60 0 L0 40" stroke="#C8102E" strokeWidth="4" />
@@ -155,12 +156,43 @@ function euStar(cx: number, cy: number, r: number) {
 
 export function FlagEU({ className, ...p }: IconProps) {
   return (
-    <svg viewBox="0 0 60 40" className={className} aria-hidden preserveAspectRatio="none" {...p}>
+    <svg viewBox="0 0 60 40" className={className} aria-hidden preserveAspectRatio="xMidYMid slice" {...p}>
       <rect width="60" height="40" fill="#003399" />
       {Array.from({ length: 12 }).map((_, i) => {
         const a = ((-90 + i * 30) * Math.PI) / 180;
         return <path key={i} d={euStar(30 + 12.5 * Math.cos(a), 20 + 12.5 * Math.sin(a), 2.7)} fill="#FFCC00" />;
       })}
+    </svg>
+  );
+}
+
+export function FlagIndia({ className, ...p }: IconProps) {
+  // Tricolour + 24-spoke Ashoka Chakra. Cropped to a circle by .flag, so the
+  // chakra sits dead-centre and the bands read as three even thirds.
+  const cx = 30;
+  const cy = 20;
+  const r = 5.6;
+  return (
+    <svg viewBox="0 0 60 40" className={className} aria-hidden preserveAspectRatio="xMidYMid slice" {...p}>
+      <rect width="60" height="40" fill="#fff" />
+      <rect width="60" height="13.34" fill="#FF9933" />
+      <rect y="26.66" width="60" height="13.34" fill="#138808" />
+      {Array.from({ length: 24 }).map((_, i) => {
+        const a = (i * 15 * Math.PI) / 180;
+        return (
+          <line
+            key={i}
+            x1={cx}
+            y1={cy}
+            x2={cx + r * Math.cos(a)}
+            y2={cy + r * Math.sin(a)}
+            stroke="#000080"
+            strokeWidth="0.5"
+          />
+        );
+      })}
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#000080" strokeWidth="0.8" />
+      <circle cx={cx} cy={cy} r="1.1" fill="#000080" />
     </svg>
   );
 }

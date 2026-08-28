@@ -273,7 +273,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Do you handle KYC?", answer: "Yes, including the unglamorous part — testing verification against deliberately mismatched documents, which is how we found a flow that accepted the wrong country's ID." },
       { question: "Who owns the code?", answer: "You do, from day one. On financial systems that matters more than anywhere else." },
     ],
-    services: ["product-platforms", "commerce-content", "security-incident-response"],
+    services: ["product-platforms", "commerce-content", "rescue-hardening"],
     cta: "money moving through code you did not write?",
   },
 
@@ -508,7 +508,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Can you work with our existing clinical systems?", answer: "Yes. Integration into existing records and scheduling is normal; we will be honest about which integrations are hard before you budget for them." },
       { question: "Is our data safe with an offshore team?", answer: "You own the repository, the cloud accounts and the keys from day one, and we scope access per engagement. Ask us for the security page — that is a practice here, not a checkbox." },
     ],
-    services: ["native-mobile", "product-platforms", "security-incident-response"],
+    services: ["native-mobile", "product-platforms", "rescue-hardening"],
     cta: "building something with patients on the other end?",
   },
 

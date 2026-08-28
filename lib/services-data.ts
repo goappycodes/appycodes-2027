@@ -215,63 +215,64 @@ export const SERVICES_DATA: ServiceData[] = [
   },
   {
     slug: "rescue-hardening",
-    title: "rescue & hardening",
+    title: "rescue & security",
     summary:
-      "AI-generated prototypes and stalled builds taken to production. Audit first, stabilise second, then finish it properly.",
-    headline: "ai-generated prototypes and stalled builds, taken to production properly.",
+      "AI-generated prototypes and stalled builds taken to production, and compromised live systems recovered — audited first, stabilised second, then finished and hardened properly.",
+    headline: "stalled builds finished, compromised systems recovered — both taken to production and made safe.",
     description:
-      "AI-generated prototypes and stalled builds taken to production — audited first, stabilised second, then finished properly and hardened for real users.",
-    whyTitle: "the last twenty percent is what decides if it ships",
+      "AI-generated prototypes and stalled builds finished for production, and live systems recovered from compromise — audited first, stabilised second, then hardened so it holds and does not happen twice.",
+    whyTitle: "finish what stalled, recover what broke, harden both",
     whyDescription:
-      "AI builders like Lovable, v0, Replit and Base44 get you a working prototype fast. Turning that into something you can put real users and real money through is a different job — security, data integrity, the edge cases and the architecture the generator skipped. We audit what you have, stabilise it, then finish it the way it needed to be built.",
+      "AI builders like Lovable, v0, Replit and Base44 get you a working prototype fast; turning that into something you can put real users and real money through is a different job — security, data integrity, the edge cases and the architecture the generator skipped. A live system under attack is the same instinct in reverse: a card skimmer that leaves every order completing normally, a webshell that survives a surface clean. Same team, either way — audit what is really there, close the risks first, then finish or harden it properly.",
     whyPoints: [
       "AI-generated apps from Lovable, v0, Replit, Base44, Bolt, Cursor",
       "Stalled builds from a previous team",
       "Prototypes that need to become products",
-      "Codebases with security or data-integrity risks",
-      "Systems too fragile to add features to",
-      "Pre-audit before a raise or acquisition",
+      "Compromise recovery, malware and webshell removal",
+      "Card-skimming and checkout integrity",
+      "Security and data-integrity risks, closed",
+      "A pre-raise or pre-acquisition audit",
     ],
     whyQuote: "Audit first, stabilise second, finish it properly. In that order, every time.",
-    processTitle: "how a rescue runs",
+    processTitle: "how a rescue or an incident runs",
     processSteps: [
-      { title: "Audit", description: "A clear-eyed read of the codebase, the risks and the data model. You get the findings whether or not you continue with us." },
-      { title: "Stabilise", description: "The security holes, data-integrity bugs and worst fragility fixed first, so the ground stops moving." },
-      { title: "Finish", description: "The missing features, real error handling and the architecture the prototype needed, built in properly." },
-      { title: "Harden", description: "Tests, monitoring, backups and a deployment you can trust before the users arrive." },
+      { title: "Audit / triage", description: "A clear-eyed read of the code, the data model and — if it is live — what is actually running on it. You get the findings whether or not you continue with us." },
+      { title: "Contain & stabilise", description: "The security holes, data-integrity bugs and worst fragility closed first. If something is actively wrong, the bleeding is stopped before anything else." },
+      { title: "Finish & clean", description: "The missing features and real error handling built in; every injected file, database row and scheduled task removed, with evidence of what was found." },
+      { title: "Harden", description: "Tests, monitoring, backups, access and WAF set so neither the fragility nor the same class of attack can land again." },
     ],
     benefitsTitle: "what we deliver",
     benefits: [
-      { title: "A codebase audit you can act on", description: "What is safe, what is not, and what it would take to fix — in plain language." },
-      { title: "Security and data integrity first", description: "The vulnerabilities and silent data bugs that AI generators routinely miss, closed." },
-      { title: "An architecture that holds", description: "The generated logic refactored into something a team can maintain and extend." },
+      { title: "An audit you can act on", description: "What is safe, what is not, and what it would take to fix — in plain language." },
+      { title: "Security and data integrity first", description: "The vulnerabilities and silent data bugs that AI generators and tired estates routinely miss, closed." },
+      { title: "The way in, closed", description: "Not just the visible payload or the missing feature — the entry point and the architecture behind it, so it does not recur next month." },
       { title: "The missing twenty percent", description: "Auth edge cases, error states and the flows the prototype only pretended to handle." },
-      { title: "Production infrastructure", description: "CI/CD, monitoring, backups and a deploy that does not need a prayer." },
-      { title: "A foundation to build on", description: "Handed over documented, or run by us — either is a real option." },
+      { title: "Evidence, in writing", description: "What was found, where it came from, what changed — the document your processor, insurer or board needs." },
+      { title: "Production infrastructure", description: "CI/CD, monitoring, and backups you have actually restored — not a deploy that needs a prayer." },
     ],
-    benefitsQuote: "Your idea already exists. We make it real, safe and ready to grow.",
+    benefitsQuote: "Audit, contain, finish, harden — in that order. Skip the audit and you are booking the next incident.",
     whoTitle: "when this is the right call",
     whoPoints: [
       "You built a prototype with an AI tool and need it production-ready",
       "A previous team left you a stalled or fragile build",
-      "You are worried about security or data integrity",
-      "The codebase is too brittle to add features to",
-      "You need an honest audit before a raise or launch",
+      "Your host, processor or a customer says you are compromised",
+      "You inherited an estate and have no idea what state it is in",
+      "You need an honest audit before a raise, sale or enterprise deal",
     ],
     faqs: [
       { question: "Which AI-built codebases do you work with?", answer: "Lovable, v0, Replit, Base44, Bolt, Cursor-generated projects and hand-rolled prototypes alike." },
-      { question: "Do I have to commit before the audit?", answer: "No. The audit stands on its own — you get the findings and a plan whether or not you continue with the build." },
-      { question: "Can you fix an app that is already live?", answer: "Yes. We stabilise live systems carefully, closing the worst risks first without taking you offline." },
-      { question: "Will you rebuild everything from scratch?", answer: "Rarely. We keep what is sound and rebuild only what is genuinely holding you back." },
-      { question: "How long does a rescue take?", answer: "An audit in days; stabilisation and finishing typically 4 to 12 weeks depending on the state of the code." },
+      { question: "Do I have to commit before the audit?", answer: "No. The audit stands on its own — you get the findings and a plan whether or not you continue." },
+      { question: "Can you fix an app or site that is already live?", answer: "Yes. We stabilise, and if it is compromised we contain live systems carefully — closing the worst risks first without taking you offline." },
+      { question: "Will you find how they got in, or just clean it?", answer: "Both, and the second matters more. Cleaning a site without closing the entry point buys you a few weeks, not a fix." },
+      { question: "How long does it take?", answer: "An audit in days; stabilisation, finishing or full remediation typically 4 to 12 weeks depending on the state of things." },
     ],
-    finalTitle: "get it from prototype to production, properly",
+    finalTitle: "get it shipped, or get it safe — properly",
     finalDescription:
-      "A fast prototype is a good start. Let's audit it honestly, close the risks, and finish it so you can put real users through it.",
+      "Whether it is a prototype that needs finishing or a live system that needs recovering, the first step is an honest audit. Let's find the real state, close the risks, and build something you can put users and money through.",
     proofPoints: [
+      { where: "A European WooCommerce store", what: "A payment-card skimmer found and removed. The transaction still completed and the customer still got their order, which is exactly why nothing in the store's own reporting looked wrong." },
       { where: "A UK caravan servicing business", what: "A live schema migration from one-vehicle-per-customer to many, across roughly fifty files, using an observer-synced mirror so nothing broke and no freeze was needed." },
-      { where: "Inherited codebases", what: "Platforms taken over from previous developers and run on client-owned infrastructure — a recurring pattern across the register, and a job most agencies decline." },
-      { where: "A client on a free-tier database", what: "No backups on the plan, so a scheduled job now dumps roles, schema and data nightly into a version-controlled branch. A compliance risk converted into a git history." },
+      { where: "Two live UK sites", what: "Webshells discovered and remediated — the persistence layer, not just the visible payload, so the way back in was closed too." },
     ]
   },
   {
@@ -396,68 +397,6 @@ export const SERVICES_DATA: ServiceData[] = [
       { where: "A UK ticketing platform", what: "A one-line change taking page load from twenty seconds to three. Worth showing precisely because the value was in the diagnosis, not the diff." },
     ]
   },
-  {
-    slug: "security-incident-response",
-    title: "security & incident response",
-    summary:
-      "Compromised sites recovered, live estates hardened, and the audit you want before a raise — from a team that has run real incidents on production systems.",
-    headline: "compromised systems recovered, and hardened so it does not happen twice.",
-    description:
-      "Incident response and hardening for live systems — card skimmers, webshells, exploited endpoints and the infrastructure failures nobody notices until an order fails.",
-    whyTitle: "the attacks that matter are the ones that leave everything working",
-    whyDescription:
-      "A card skimmer does not break your checkout. The order completes, the customer gets their delivery, and your own reporting looks perfectly normal — while card details leave with every transaction. Finding that means actively inspecting what your pages load and where they send data, not waiting for a symptom. We have done this on live stores, and we have done the unglamorous half too: the process exhaustion, the certificate that quietly failed to renew, the endpoint that answered a scanner honestly.",
-    whyPoints: [
-      "Compromise recovery and malware removal",
-      "Card-skimming and checkout integrity",
-      "Webshell and backdoor hunting",
-      "WordPress and WooCommerce hardening",
-      "Exposed endpoint and WAF work",
-      "Security audit before a raise or sale",
-    ],
-    whyQuote:
-      "The transaction still completes. That is exactly what makes it expensive to find and expensive to miss.",
-    processTitle: "how an incident runs",
-    processSteps: [
-      { title: "Contain", description: "Stop the bleeding first — the malicious path closed, credentials rotated, and the site kept up if it can safely stay up." },
-      { title: "Find the way in", description: "Not just the payload. A cleaned site with the original entry point still open is a site that gets hit again next month." },
-      { title: "Clean and verify", description: "Every injected file, database row and scheduled task, with evidence of what was found and what was removed." },
-      { title: "Harden", description: "Access, updates, WAF, monitoring and backups set so the same class of attack cannot land again." },
-    ],
-    benefitsTitle: "what you get",
-    benefits: [
-      { title: "A site you can trust again", description: "Cleaned, verified, and with the entry point closed — not just the visible symptom removed." },
-      { title: "Evidence, in writing", description: "What was found, where it came from, what was changed. The document you need for your processor, your insurer or your board." },
-      { title: "Checkout integrity", description: "What loads on your payment pages and where it sends data, checked and then monitored." },
-      { title: "Hardened access", description: "Admin surfaces, file-editing routes and stale plugins closed off. Nothing left enabled that should not be." },
-      { title: "Monitoring that pages you", description: "Malware scanning, uptime, certificates and error alerting wired to somebody who will act on them." },
-      { title: "Backups you have restored", description: "A backup nobody has restored is a hope, not a plan. We prove the restore path before you need it." },
-    ],
-    benefitsQuote: "Contain, find the way in, clean, harden. In that order — skip step two and you are booking the next incident.",
-    whoTitle: "when to call us",
-    whoPoints: [
-      "Your host, processor or a customer says you are compromised",
-      "Cards used on your site are turning up in fraud reports",
-      "Your site is redirecting, injecting spam or has been blacklisted",
-      "You inherited an estate and have no idea what state it is in",
-      "You need a security position before a raise, sale or enterprise deal",
-    ],
-    faqs: [
-      { question: "How fast can you start?", answer: "Same day for an active compromise. The first hours are containment and evidence — we do not start deleting things before we know how they arrived." },
-      { question: "Will you find how they got in, or just clean it?", answer: "Both, and the second matters more. Cleaning a site without closing the entry point buys you a few weeks, not a fix." },
-      { question: "Do you work on sites you did not build?", answer: "Most of this work is on inherited estates. Taking on somebody else's unfamiliar code is a normal part of what we do." },
-      { question: "What if we just want to know where we stand?", answer: "Take the audit on its own. You get the findings, the risk ranking and the remediation plan whether or not you continue with us." },
-      { question: "Is this only WordPress?", answer: "No. WordPress and WooCommerce are the most common, but the same work applies to custom applications, exposed APIs and the infrastructure underneath either." },
-    ],
-    finalTitle: "get it contained, cleaned and closed",
-    finalDescription:
-      "If something is live right now, say so on the call and we will treat it that way. If nothing is wrong yet, an audit is considerably cheaper than an incident.",
-    proofPoints: [
-      { where: "A European WooCommerce store", what: "A payment-card skimmer found and removed. The transaction still completed and the customer still got their order, which is exactly why nothing in the store own reporting looked wrong." },
-      { where: "Two live UK sites", what: "Webshells discovered and remediated — the persistence layer, not just the visible payload, so the way back in was closed too." },
-      { where: "A publicly exposed endpoint", what: "An active exploit attempt against a public servlet, met with WAF and content-type validation and a change so malformed input returns a flat 400 instead of leaking behaviour to a scanner." },
-    ]
-  },
 ];
 
 /**
@@ -487,17 +426,17 @@ export const LEGACY_SERVICE_REDIRECTS: Record<string, string> = {
   "ai-saas-product-development": "ai-systems",
   "workflow-automation-development": "ai-systems",
   "ai-chatbot-rag-development": "ai-systems",
-  // → rescue & hardening
+  // → rescue & security
   "maintenance-support": "rescue-hardening",
   "tech-stack-migration": "rescue-hardening",
   "ai-app-completion": "rescue-hardening",
-  // → security & incident response
-  // Malware removal moved out of rescue-hardening when security became its own
-  // practice. The URL is unchanged, so the SEO on it carries over.
-  "wordpress-security-malware-removal": "security-incident-response",
-  "website-compromise-recovery": "security-incident-response",
-  "wordpress-woocommerce-hardening": "security-incident-response",
-  "pre-investment-security-audit": "security-incident-response",
+  // Security & incident response folded back into rescue & security. The old
+  // pillar URL and every security specialism redirect there, so the SEO carries.
+  "security-incident-response": "rescue-hardening",
+  "wordpress-security-malware-removal": "rescue-hardening",
+  "website-compromise-recovery": "rescue-hardening",
+  "wordpress-woocommerce-hardening": "rescue-hardening",
+  "pre-investment-security-audit": "rescue-hardening",
   // → commerce & content
   "custom-wordpress-development-for-business": "commerce-content",
   "stripe-billing-integration": "commerce-content",
@@ -561,9 +500,11 @@ export const LEGACY_SERVICE_LABELS: Record<string, string> = {
   "wordpress-performance-optimisation": "WordPress performance optimisation",
 };
 
-/** The original service pages that sit under a given pillar service. */
+/** The original service pages that sit under a given pillar service. A redirect
+ *  without a label (e.g. a former pillar folded into another) is not a
+ *  specialism, so it is excluded from the list. */
 export function subServicesFor(mainSlug: string): { slug: string; label: string }[] {
   return Object.entries(LEGACY_SERVICE_REDIRECTS)
-    .filter(([, target]) => target === mainSlug)
-    .map(([slug]) => ({ slug, label: LEGACY_SERVICE_LABELS[slug] ?? slug }));
+    .filter(([slug, target]) => target === mainSlug && LEGACY_SERVICE_LABELS[slug])
+    .map(([slug]) => ({ slug, label: LEGACY_SERVICE_LABELS[slug] }));
 }

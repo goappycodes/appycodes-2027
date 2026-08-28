@@ -70,7 +70,6 @@ export function ServicePage({ s }: { s: ServiceData }) {
               <ServiceTitle label={s.whyTitle} />.
             </h2>
             <p className="lede">{s.whyDescription}</p>
-            {s.whyQuote ? <blockquote className="pullquote">{s.whyQuote}</blockquote> : null}
           </div>
           <div className="split__side">
             <div className="checklist notch">

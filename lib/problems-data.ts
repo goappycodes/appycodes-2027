@@ -330,7 +330,7 @@ export const PROBLEMS: Problem[] = [
     ],
     lesson:
       "The attacks that cost the most are the ones that leave everything working. If your only detection strategy is noticing that something broke, you will not detect this class of attack at all.",
-    service: "security-incident-response",
+    service: "rescue-hardening",
   },
   {
     slug: "webshell-found-on-a-live-site",
@@ -362,7 +362,7 @@ export const PROBLEMS: Problem[] = [
     ],
     lesson:
       "Removal is not remediation. If you cannot name how they got in and show that it is closed, you have bought a few weeks rather than fixed a problem.",
-    service: "security-incident-response",
+    service: "rescue-hardening",
   },
   {
     slug: "public-endpoint-under-active-exploitation",
@@ -393,7 +393,7 @@ export const PROBLEMS: Problem[] = [
     ],
     lesson:
       "You cannot stop being scanned, so the goal is to be uninteresting. Uniform, boring responses to bad input give an automated attacker nothing to work with — and error handling is a security control, not a UX detail.",
-    service: "security-incident-response",
+    service: "rescue-hardening",
   },
 
   /* -------------------------------------------------- data & integrations -- */

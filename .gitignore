@@ -61,3 +61,6 @@ next-env.d.ts
 # The sector rules match on client names, so the filled-in table is a client
 # list. Commit domain-rules.example.js instead.
 /scripts/domain-rules.js
+
+# Scratch assets and source files kept locally, never shipped.
+/files-do-not-commit/

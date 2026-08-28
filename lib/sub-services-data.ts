@@ -40,6 +40,6 @@ export function siblingsFor(slug: string): { slug: string; label: string }[] {
   const parent = LEGACY_SERVICE_REDIRECTS[slug];
   if (!parent) return [];
   return Object.entries(LEGACY_SERVICE_REDIRECTS)
-    .filter(([s, p]) => p === parent && s !== slug)
-    .map(([s]) => ({ slug: s, label: LEGACY_SERVICE_LABELS[s] ?? s }));
+    .filter(([s, p]) => p === parent && s !== slug && LEGACY_SERVICE_LABELS[s])
+    .map(([s]) => ({ slug: s, label: LEGACY_SERVICE_LABELS[s] }));
 }

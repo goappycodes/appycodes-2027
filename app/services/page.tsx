@@ -73,10 +73,10 @@ export default function ServicesIndex() {
   const subsByPillar = SERVICES_DATA.map((s) => ({
     pillar: s,
     subs: Object.entries(LEGACY_SERVICE_REDIRECTS)
-      .filter(([, parent]) => parent === s.slug)
-      .map(([slug]) => ({ slug, label: LEGACY_SERVICE_LABELS[slug] ?? slug })),
+      .filter(([slug, parent]) => parent === s.slug && LEGACY_SERVICE_LABELS[slug])
+      .map(([slug]) => ({ slug, label: LEGACY_SERVICE_LABELS[slug] })),
   }));
-  const subCount = Object.keys(LEGACY_SERVICE_REDIRECTS).length;
+  const subCount = Object.keys(LEGACY_SERVICE_LABELS).length;
 
   return (
     <>
