@@ -113,6 +113,7 @@ const data: CaseStudyData = {
       ],
     },
   ],
+  tech: ["laravel", "php", "mysql", "aws", "bootstrap", "vite"],
   stack: [
     { layer: "Framework", value: "Laravel 10, PHP 8.1, on Laravel Forge" },
     { layer: "Database", value: "MySQL 8 — clients, accounts, tenders, contracts, HH data" },

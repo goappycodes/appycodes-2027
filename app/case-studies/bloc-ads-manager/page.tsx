@@ -100,6 +100,7 @@ const data: CaseStudyData = {
       phone: true,
     },
   ],
+  tech: ["nextjs", "node", "postgresql", "python"],
   stack: [
     { layer: "Frontend", value: "Next.js — the Bloc for Business dashboard" },
     { layer: "Backend", value: "Node / Express APIs" },

@@ -95,6 +95,7 @@ const data: CaseStudyData = {
       ],
     },
   ],
+  tech: ["nextjs", "python", "dynamodb", "aws"],
   stack: [
     { layer: "Storefront", value: "Next.js (App Router, SSR/ISR) — the platform that fronts the marketplace" },
     { layer: "Data", value: "Amazon DynamoDB on the hot paths, MySQL for legacy commerce" },

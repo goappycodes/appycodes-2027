@@ -93,6 +93,7 @@ const data: CaseStudyData = {
       ],
     },
   ],
+  tech: ["nextjs", "laravel", "aws"],
   stack: [
     { layer: "Frontend", value: "Next.js — server-rendered storefront, SEO-first" },
     { layer: "API", value: "Laravel REST API (api.decofetch.com), MySQL" },

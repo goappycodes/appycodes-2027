@@ -90,6 +90,7 @@ const data: CaseStudyData = {
       ],
     },
   ],
+  tech: ["nextjs", "supabase", "claude", "stripe", "vercel"],
   stack: [
     { layer: "Frontend", value: "Next.js (App Router), deployed on Vercel" },
     { layer: "Backend & data", value: "Supabase — Postgres, auth, storage, row-level access" },

@@ -97,6 +97,7 @@ const data: CaseStudyData = {
       ],
     },
   ],
+  tech: ["react", "expo"],
   stack: [
     { layer: "Mobile", value: "React Native — iOS & Android" },
     { layer: "Web", value: "Responsive web app — Home, Hub, Discover, Dashboard" },

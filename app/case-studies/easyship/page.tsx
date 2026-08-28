@@ -97,6 +97,7 @@ const data: CaseStudyData = {
       phone: true,
     },
   ],
+  tech: ["nuxt", "node", "mongodb", "gcp", "cloudflare", "redis"],
   stack: [
     { layer: "Frontend", value: "Nuxt (Vue 3) — server-rendered, Pinia state" },
     { layer: "Backend", value: "Node — APIs and content services" },

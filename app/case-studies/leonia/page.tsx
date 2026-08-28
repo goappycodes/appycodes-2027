@@ -98,6 +98,7 @@ const data: CaseStudyData = {
       ],
     },
   ],
+  tech: ["shopify"],
   stack: [
     { layer: "Platform", value: "Shopify — Online Store 2.0" },
     { layer: "Theme", value: "Custom Liquid theme, front to back" },

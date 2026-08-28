@@ -97,6 +97,7 @@ const data: CaseStudyData = {
       ],
     },
   ],
+  tech: ["wordpress", "php"],
   stack: [
     { layer: "Platform", value: "WordPress — custom theme" },
     { layer: "Configurator", value: "Custom pricing engine — customer type × call-out fee × billing" },

@@ -92,6 +92,7 @@ const data: CaseStudyData = {
         "Yippee's customers arrive from across Europe, so the whole thing is multilingual on Polylang — English plus French, Italian, Spanish, Polish and German. Not just the marketing pages: 254 translated strings covering every tour page and its sunset version, the boat trips, the group and private tours, the quiz and the entire checkout, so a German visitor books in German end to end.",
     },
   ],
+  tech: ["wordpress", "php", "redis"],
   stack: [
     { layer: "CMS", value: "Custom WordPress theme (ACF modules) on Laravel Forge" },
     { layer: "Frontend", value: "Hand-audited HTML/CSS/JS, WebP imagery — 90+ CWV" },

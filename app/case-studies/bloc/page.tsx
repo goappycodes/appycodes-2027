@@ -104,6 +104,7 @@ const data: CaseStudyData = {
         "A real on-chain rewards marketplace — BLOCCoin issued as an Algorand ASA, earned in-app and spent with partners, settled on-chain with the same discipline we bring to any payments flow.",
     },
   ],
+  tech: ["reactnative", "dynamodb", "aws", "algorand", "vercel"],
   stack: [
     { layer: "Mobile", value: "React Native (rebuilt from Swift + Java); build time cut 60→25 min" },
     { layer: "App backend", value: "Java Struts + DynamoDB (AWS); Cloudinary media" },

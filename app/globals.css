@@ -871,6 +871,20 @@ a { color: inherit; text-decoration: none; }
 .cs-stack dt { font-weight: 700; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--solid); margin: 0; }
 .cs-stack dd { font-size: 14.5px; color: var(--ink-2); margin: 0; }
 
+/* "built with" — a strip of monochrome brand marks in the case-study hero (dark) */
+.cs-tech { margin-top: 1.9rem; }
+.cs-tech__lbl { display: block; font-weight: 700; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: .7rem; }
+.cs-tech__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.cs-tech__chip {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .38rem .72rem; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; background: rgba(255,255,255,.05);
+  font-weight: 600; font-size: 12.5px; letter-spacing: -.005em; color: rgba(255,255,255,.82);
+  transition: border-color .18s var(--ease), color .18s var(--ease), background-color .18s var(--ease);
+}
+.cs-tech__chip svg { width: 16px; height: 16px; color: rgba(255,255,255,.62); flex: none; transition: color .18s var(--ease); }
+.cs-tech__chip:hover { border-color: color-mix(in srgb, var(--solid-hi) 55%, rgba(255,255,255,.16)); background: rgba(255,255,255,.09); color: #fff; }
+.cs-tech__chip:hover svg { color: var(--solid-hi); }
+
 /* outcome / "right call" lists — carried as cards so they read as findings
    rather than a bulleted paragraph */
 .cs-outcomes { list-style: none; margin: 2.25rem 0 0; padding: 0; display: grid; gap: .8rem; }

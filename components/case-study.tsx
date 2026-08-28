@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Rail } from "@/components/rail";
 import { CASE_STUDIES, LogoWall, Testimonials } from "@/components/sections";
+import { TechStack } from "@/components/tech-logos";
 import { JsonLd } from "@/components/jsonld";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -23,6 +24,8 @@ export type CaseStudyData = {
   stats: { n: string; label: string }[];
   blocks: CaseBlock[];
   stack: { layer: string; value: string }[];
+  /** Tech-stack logo keys (see components/tech-logos.tsx), shown as a "built with" strip. */
+  tech?: string[];
   outcomes: string[];
   cta: string;
 };
@@ -114,6 +117,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
               <Link className="btn btn--grad notch" href="/contact/">start a project like this</Link>
               <Link className="btn btn--out notch" href="/case-studies/">all work</Link>
             </div>
+            {data.tech ? <TechStack tech={data.tech} /> : null}
           </div>
           <aside className="cs-facts notch notch-lg">
             <dl>

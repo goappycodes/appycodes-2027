@@ -128,6 +128,7 @@ const data: CaseStudyData = {
       caption: "The customer app on iOS and Android — book, pay, and carry the ticket to the gate.",
     },
   ],
+  tech: ["laravel", "mysql", "stripe", "reactnative", "expo", "digitalocean"],
   stack: [
     { layer: "Web platform", value: "Laravel (Blade) — booking, organizer + super-admin, REST API" },
     { layer: "Database", value: "MySQL on DigitalOcean managed DB — multi-organizer schema, instalment ledger" },

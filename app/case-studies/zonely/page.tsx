@@ -88,6 +88,7 @@ const data: CaseStudyData = {
       ],
     },
   ],
+  tech: ["reactnative", "expo"],
   stack: [
     { layer: "Mobile", value: "React Native (Expo) — consumer & buddy apps" },
     { layer: "Backend", value: "Custom API — sessions, wallet, metered billing" },

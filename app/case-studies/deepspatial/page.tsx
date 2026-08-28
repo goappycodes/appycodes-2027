@@ -90,6 +90,7 @@ const data: CaseStudyData = {
       phone: true,
     },
   ],
+  tech: ["react", "amplify"],
   stack: [
     { layer: "Frontend", value: "React (Next.js), continuously deployed on AWS Amplify" },
     { layer: "Content", value: "Dynamic sections — mentors, cohorts, news, newsletters — with reusable admin tables" },
