@@ -3,7 +3,6 @@ import { SITE } from "@/lib/site";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { SUB_SERVICES_DATA } from "@/lib/sub-services-data";
 import { SECTORS_DATA } from "@/lib/sectors-data";
-import { PROBLEMS } from "@/lib/problems-data";
 import { BLOG_POSTS } from "@/lib/blog";
 
 const CASE_STUDIES = ["creoate", "easyship", "decofetch", "leonia", "plusheat", "ba-engine-room", "bloc-ads-manager", "ontick", "bloc", "zonely", "player-profile-hub", "deepspatial", "yippee-malta", "professional-energy"];
@@ -13,7 +12,6 @@ const STATIC_PAGES: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
   { path: "/services/", changeFrequency: "monthly", priority: 0.9 },
   { path: "/case-studies/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/sectors/", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/problems/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/atlas/", changeFrequency: "monthly", priority: 0.7 },
   { path: "/blog/", changeFrequency: "weekly", priority: 0.8 },
   { path: "/reviews/", changeFrequency: "monthly", priority: 0.6 },
@@ -56,13 +54,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.8,
-    })),
-    // Problems library
-    ...PROBLEMS.map((p) => ({
-      url: url(`/problems/${p.slug}/`),
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
     })),
     // Case studies
     ...CASE_STUDIES.map((slug) => ({

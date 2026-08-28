@@ -4,7 +4,7 @@ import { siteMeta } from "@/lib/seo";
 import { PageHero } from "@/components/page-hero";
 import { AwardsStrip, Faq, Testimonials } from "@/components/sections";
 import { ChevronRight } from "@/components/icons";
-import { PROBLEMS, PROBLEM_AREAS } from "@/lib/problems-data";
+import { PROBLEMS, PROBLEM_AREAS } from "./problems-data";
 
 export const metadata: Metadata = siteMeta({
   title: "Problems we have solved — symptom, diagnosis, fix",

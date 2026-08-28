@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { siteMeta } from "@/lib/seo";
-import { PROBLEMS, problemBySlug } from "@/lib/problems-data";
+import { PROBLEMS, problemBySlug } from "../problems-data";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { PageHero } from "@/components/page-hero";
 import { ChevronRight } from "@/components/icons";

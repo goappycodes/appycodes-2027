@@ -219,11 +219,7 @@ export default function CaseStudiesIndex() {
                 </ul>
                 <div className="short__foot">
                   <span className="short__out">{c.outcome}</span>
-                  {c.problem ? (
-                    <Link className="short__link" href={`/problems/${c.problem}/`}>
-                      read the fix <ChevronRight aria-hidden />
-                    </Link>
-                  ) : c.sector ? (
+                  {c.sector ? (
                     <Link className="short__link" href={`/sectors/${c.sector}/`}>
                       more in this sector <ChevronRight aria-hidden />
                     </Link>

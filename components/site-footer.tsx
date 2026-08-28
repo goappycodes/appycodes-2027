@@ -54,7 +54,6 @@ export function SiteFooter() {
             <Link href="/case-studies/bloc/">Bloc</Link>
             <Link href="/case-studies/">All work</Link>
             <Link href="/atlas/">The atlas</Link>
-            <Link href="/problems/">Problems solved</Link>
           </div>
           <div>
             <h4>Company</h4>
