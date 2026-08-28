@@ -71,7 +71,7 @@ export default function ThankYouPage() {
 
       <FeaturedWork
         title="while you wait — the work"
-        lede="Six engagements, each one still running in production with the numbers attached."
+        lede="Eight engagements, each one still running in production with the numbers attached."
       />
 
       <WritingCards

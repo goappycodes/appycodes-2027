@@ -4,7 +4,7 @@
  *
  * Clients are described by sector and geography rather than named. A large
  * share of this work was delivered under a partner's name, and publishing an
- * end client we do not hold the relationship with is not ours to do. The six
+ * end client we do not hold the relationship with is not ours to do. The eight
  * written-up studies are the ones with agreement attached; on a live engagement
  * we introduce a reference directly.
  */

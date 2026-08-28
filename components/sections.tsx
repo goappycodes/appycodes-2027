@@ -43,6 +43,23 @@ export const CASE_STUDIES = [
     tags: ["Next.js", "Laravel", "AWS"],
   },
   {
+    href: "/case-studies/ba-engine-room/",
+    img: "/images/engineroom-featured.png",
+    logo: "/images/engineroom-featured.png",
+    meta: "BA Engine Room · AI ops platform",
+    name: "BA Engine Room",
+    head: (
+      <>
+        <span className="name">BA Engine Room</span> — an <span className="caps">AI</span> operating system for a
+        consultancy.
+      </>
+    ),
+    body: "A custom AI-native platform that runs an agency lead-to-invoice — AI discovery briefs, e-signed contracts, Stripe deposits and milestone delivery — on Next.js, Supabase and Claude.",
+    fig: "0→1",
+    figlabel: "built from the ground up",
+    tags: ["Next.js", "Supabase", "Claude AI"],
+  },
+  {
     href: "/case-studies/ontick/",
     img: "/images/ontick-6.png",
     logo: "/images/logo-bloc.png",
@@ -74,6 +91,23 @@ export const CASE_STUDIES = [
     fig: "4+ yrs",
     figlabel: "one team, five codebases",
     tags: ["React Native", "Node", "Algorand"],
+  },
+  {
+    href: "/case-studies/deepspatial/",
+    img: "/images/deepspatial-featured.png",
+    logo: "/images/deepspatial-featured.png",
+    meta: "DeepSpatial · geospatial AI",
+    name: "DeepSpatial",
+    head: (
+      <>
+        the web presence behind <span className="name">DeepSpatial</span>, a listed geospatial{" "}
+        <span className="caps">AI</span> company.
+      </>
+    ),
+    body: "The corporate site, investor pages and Xploor talent platform for a publicly-traded geospatial AI company — a React front end shipped continuously on AWS Amplify.",
+    fig: "2 yrs",
+    figlabel: "one team, ongoing",
+    tags: ["React", "AWS Amplify", "IR"],
   },
   {
     href: "/case-studies/yippee-malta/",

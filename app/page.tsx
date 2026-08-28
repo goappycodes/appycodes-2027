@@ -33,6 +33,15 @@ const OUTCOMES = [
     figlabel: "custom, front to back",
   },
   {
+    href: "/case-studies/ba-engine-room/",
+    img: "/images/engineroom-featured.png",
+    meta: "BA Engine Room · AI ops platform",
+    head: <><span className="name">BA Engine Room</span> — an <span className="caps">AI</span> operating system for a consultancy.</>,
+    body: "A custom AI-native platform that runs an agency lead-to-invoice — AI discovery briefs, e-signed contracts, Stripe deposits and milestone delivery.",
+    fig: "0→1",
+    figlabel: "built from the ground up",
+  },
+  {
     href: "/case-studies/ontick/",
     img: "/images/ontick-6.png",
     meta: "Ontick · event ticketing",
@@ -49,6 +58,15 @@ const OUTCOMES = [
     body: "A four-year partnership across the whole estate — the app, its backend, a TikTok-style ads manager, an Algorand marketplace and the web front.",
     fig: "4+ yrs",
     figlabel: "one team, five codebases",
+  },
+  {
+    href: "/case-studies/deepspatial/",
+    img: "/images/deepspatial-featured.png",
+    meta: "DeepSpatial · geospatial AI",
+    head: <>the web presence behind <span className="name">DeepSpatial</span>, a listed geospatial <span className="caps">AI</span> company.</>,
+    body: "The corporate site, investor pages and Xploor talent platform for a publicly-traded geospatial AI company — a React front end on AWS Amplify.",
+    fig: "2 yrs",
+    figlabel: "one team, ongoing",
   },
   {
     href: "/case-studies/yippee-malta/",
