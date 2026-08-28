@@ -6,7 +6,7 @@ import { PageHero } from "@/components/page-hero";
 import { AwardsStrip, FeaturedWork, LogoWall, Testimonials, WritingCards, Faq } from "@/components/sections";
 import { serviceMedia, PILLAR_PROOF, PILLAR_CASES, PILLAR_POSTS } from "@/lib/media";
 import { JsonLd } from "@/components/jsonld";
-import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -31,7 +31,6 @@ export function ServicePage({ s }: { s: ServiceData }) {
             { name: "Services", path: "/services/" },
             { name: s.title, path: `/services/${s.slug}/` },
           ]),
-          faqSchema(s.faqs),
         ]}
       />
       <PageHero

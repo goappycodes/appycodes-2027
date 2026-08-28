@@ -6,7 +6,7 @@ import { PageHero } from "@/components/page-hero";
 import { FeaturedWork, LogoWall, Testimonials, WritingCards, Faq } from "@/components/sections";
 import { subServiceMedia, PILLAR_CASES, PILLAR_POSTS } from "@/lib/media";
 import { JsonLd } from "@/components/jsonld";
-import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -40,7 +40,6 @@ export function SubServicePage({ s }: { s: SubServiceData }) {
             ...(pillar ? [{ name: pillar.title, path: `/services/${pillar.slug}/` }] : []),
             { name: s.title, path: `/services/${s.slug}/` },
           ]),
-          faqSchema(s.faqs),
         ]}
       />
       <PageHero

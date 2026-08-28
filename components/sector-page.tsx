@@ -6,7 +6,7 @@ import { Check, ChevronRight } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
 import { AwardsStrip, FeaturedWork, LogoWall, Testimonials, Faq } from "@/components/sections";
 import { JsonLd } from "@/components/jsonld";
-import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
+import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 
 /**
  * A sector page. Same furniture as the service pages, different argument: a
@@ -34,7 +34,6 @@ export function SectorPage({ s }: { s: SectorData }) {
             { name: "Sectors", path: "/sectors/" },
             { name: s.name, path: `/sectors/${s.slug}/` },
           ]),
-          faqSchema(s.faqs),
         ]}
       />
 

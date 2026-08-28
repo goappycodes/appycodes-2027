@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import { Rail } from "@/components/rail";
 import { AWARDS, CLIENT_LOGOS, REVIEWS } from "@/lib/site";
 import { BLOG_POSTS } from "@/lib/blog";
+import { JsonLd } from "@/components/jsonld";
+import { faqSchema } from "@/lib/schema";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -404,6 +406,9 @@ export function Faq({
   if (!items || items.length === 0) return null;
   return (
     <section className="wrap sec reveal">
+      {/* FAQPage structured data — helps answer engines (Google, ChatGPT,
+          Perplexity) quote these Q&As directly. Content matches what renders. */}
+      <JsonLd data={faqSchema(items)} />
       <div className="sec__head">
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="h-l">{title}</h2>
