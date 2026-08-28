@@ -78,9 +78,9 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
     scope: ["Corporate site", "Investor-relations pages", "Xploor talent platform", "Global & India editions", "AWS Amplify"],
   },
   "Yippee Malta": {
-    sector: "Travel & tours",
-    span: "Rebuild + custom checkout",
-    scope: ["Mobile-first design system", "Custom checkout", "Proprietary booking API", "Core Web Vitals"],
+    sector: "Travel & tours, Malta",
+    span: "Rebuild + custom booking engine",
+    scope: ["Custom booking engine", "Deposit payments (JWT)", "Coupons & affiliate tracking", "Six languages (Polylang)", "90+ Core Web Vitals"],
   },
   "Professional Energy": {
     sector: "Energy brokerage",
