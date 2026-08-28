@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { SECTORS_DATA } from "@/lib/sectors-data";
+import { FlagUK, FlagEU, Star } from "@/components/icons";
 
 export function SiteFooter() {
   return (
@@ -15,6 +16,16 @@ export function SiteFooter() {
               Senior product engineering for companies that have outgrown off-the-shelf. Building
               since 2015.
             </p>
+            <div className="foot__region">
+              <span className="flag flag--uk"><FlagUK /></span>
+              <span className="flag flag--eu"><FlagEU /></span>
+              <span>Engineering partners for UK &amp; EU businesses</span>
+            </div>
+            <div className="foot__stars" aria-hidden="true">
+              {Array.from({ length: 12 }).map((_, i) => (
+                <Star key={i} />
+              ))}
+            </div>
           </div>
           <div>
             <h4>Services</h4>
@@ -36,10 +47,11 @@ export function SiteFooter() {
           </div>
           <div>
             <h4>Work</h4>
+            <Link href="/case-studies/creoate/">Creoate</Link>
+            <Link href="/case-studies/decofetch/">Decofetch</Link>
+            <Link href="/case-studies/ba-engine-room/">BA Engine Room</Link>
             <Link href="/case-studies/ontick/">Ontick</Link>
             <Link href="/case-studies/bloc/">Bloc</Link>
-            <Link href="/case-studies/yippee-malta/">Yippee Malta</Link>
-            <Link href="/case-studies/professional-energy/">Professional Energy</Link>
             <Link href="/case-studies/">All work</Link>
             <Link href="/atlas/">The atlas</Link>
             <Link href="/problems/">Problems solved</Link>

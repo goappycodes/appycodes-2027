@@ -404,6 +404,8 @@ a { color: inherit; text-decoration: none; }
   display: grid; gap: .8rem;
 }
 .drawer__cta { justify-content: center; width: 100%; }
+.drawer__region { display: flex; align-items: center; justify-content: center; gap: .45rem; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,.62); }
+.drawer__region .flag { flex: none; }
 .drawer__mail { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; font-size: 13px; color: rgba(255,255,255,.62); }
 .drawer__mail svg { width: 15px; height: 15px; }
 
@@ -581,7 +583,7 @@ a { color: inherit; text-decoration: none; }
   radial-gradient(90% 120% at 100% 0%, color-mix(in srgb, var(--solid-hi) 13%, var(--slab)), var(--slab) 60%);
   color: var(--on-slab); }
 .foot__in { padding-block: clamp(2.75rem, 5vw, 4.5rem) 2rem; display: grid; gap: 2.75rem; }
-@media (min-width: 860px) { .foot__cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2rem; } }
+@media (min-width: 860px) { .foot__cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 2rem; } }
 .foot__cols > div { display: grid; gap: .65rem; align-content: start; }
 .foot h4 { margin: 0 0 .4rem; font-weight: 700; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--tint); }
 .foot a, .foot p { font-size: 14.5px; color: var(--on-slab-2); margin: 0; }
@@ -590,6 +592,11 @@ a { color: inherit; text-decoration: none; }
 .foot a:hover { color: var(--tint); }
 .foot__brand .logo { color: var(--on-slab); }
 .foot__brand p { margin-top: 1rem; max-width: 32ch; }
+.foot__region { display: flex; align-items: center; gap: .5rem; margin-top: 1.15rem; font-size: 13px; font-weight: 600; color: var(--on-slab-2); }
+.foot__region .flag { flex: none; }
+/* subtle EU-nod: the twelve stars, muted and small */
+.foot__stars { display: flex; gap: .32rem; margin-top: .95rem; color: #FFCC00; opacity: .34; }
+.foot__stars svg { width: 9px; height: 9px; }
 .foot__bar { border-top: 1px solid var(--slab-rule); padding-top: 1.6rem; display: flex; flex-wrap: wrap; gap: .7rem 1.5rem; align-items: center; }
 .foot__bar p { font-size: 12.5px; color: var(--on-slab-3); }
 .foot__badge {

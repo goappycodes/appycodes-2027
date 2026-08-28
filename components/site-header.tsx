@@ -332,6 +332,11 @@ export function SiteHeader() {
           </div>
 
           <div className="drawer__foot">
+            <span className="drawer__region">
+              <span className="flag flag--uk"><FlagUK /></span>
+              <span className="flag flag--eu"><FlagEU /></span>
+              Working with UK &amp; EU businesses
+            </span>
             <Link className="btn btn--grad notch drawer__cta" href="/contact/">
               start a project
             </Link>
