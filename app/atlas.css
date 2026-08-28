@@ -322,3 +322,13 @@
 }
 .vign__s { margin: 0; font-size: 14.5px; line-height: 1.6; color: #fff; font-weight: 500; }
 .vign__d { margin: 0; font-size: 13.5px; line-height: 1.68; color: var(--on-slab-2); }
+
+/* ---------- phone: compact card padding (enterprise density) ---------- */
+@media (max-width: 639px) {
+  .short { padding: .9rem .9rem 1rem; gap: .55rem; }
+  .atlas__note { padding: 1.1rem 1rem 1.2rem; }
+  .proofpts li { padding: 1rem 1rem 1.1rem; }
+  .prob__check { padding: 1.1rem 1rem 1.2rem; }
+  .vign__i { padding: 1rem 1rem 1.1rem; gap: .55rem; }
+  .yfour__i { padding: 1.1rem 0 1.15rem; }
+}
