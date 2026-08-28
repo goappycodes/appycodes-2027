@@ -24,6 +24,15 @@ const OUTCOMES = [
     figlabel: "one team, still shipping",
   },
   {
+    href: "/case-studies/easyship/",
+    img: "/images/easyship-featured.png",
+    meta: "Easyship · global shipping platform",
+    head: <>the embedded team behind <span className="name">Easyship</span>’s site and <span className="caps">CMS</span>.</>,
+    body: "Inside Easyship’s own Nuxt/Vue codebase — the shipping-rate and tax & duty calculators, server-rendered courier pages, a MongoDB CMS and the reliability work behind it, on Google Cloud.",
+    fig: "550+",
+    figlabel: "couriers on the calculator",
+  },
+  {
     href: "/case-studies/decofetch/",
     img: "/images/decofetch-featured.png",
     meta: "Decofetch · luxury furniture",

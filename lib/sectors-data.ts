@@ -7,7 +7,7 @@
  * proof is far more convincing when it is sector-specific.
  *
  * Rule applied throughout: clients are named only where they are already public
- * on this site (the ten written case studies and the logo wall). Everything
+ * on this site (the eleven written case studies and the logo wall). Everything
  * else is described by sector and geography — a large share of the register is
  * white-label work delivered under a partner's name, and a compromised store is
  * never named at all.

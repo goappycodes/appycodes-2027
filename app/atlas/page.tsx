@@ -169,7 +169,7 @@ export default function AtlasPage() {
       <LogoWall label="Teams that trusted us with the thing that matters" />
 
       <FeaturedWork
-        title="ten of them, written up properly"
+        title="eleven of them, written up properly"
         lede="The map is the shape of the business. These are the engagements with the detail attached."
       />
 

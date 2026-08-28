@@ -29,6 +29,23 @@ export const CASE_STUDIES = [
     tags: ["Next.js", "DynamoDB", "Python", "AWS"],
   },
   {
+    href: "/case-studies/easyship/",
+    img: "/images/easyship-featured.png",
+    logo: "/images/easyship-featured.png",
+    meta: "Easyship · global shipping platform",
+    name: "Easyship",
+    head: (
+      <>
+        the embedded team behind <span className="name">Easyship</span>&rsquo;s site and{" "}
+        <span className="caps">CMS</span>.
+      </>
+    ),
+    body: "Inside a global logistics company's own Nuxt/Vue codebase — the shipping-rate and tax & duty calculators, server-rendered programmatic courier pages, a MongoDB CMS and the reliability work behind it, on Google Cloud.",
+    fig: "550+",
+    figlabel: "couriers on the rate calculator",
+    tags: ["Nuxt/Vue", "Node", "MongoDB", "GCP"],
+  },
+  {
     href: "/case-studies/decofetch/",
     img: "/images/decofetch-featured.png",
     logo: "/images/decofetch-featured.png",

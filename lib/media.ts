@@ -148,7 +148,7 @@ export const PILLAR_CASES: Record<string, string[]> = {
   "ai-systems": ["Bloc", "Professional Energy", "Ontick"],
   "rescue-hardening": ["Bloc", "Yippee Malta", "Professional Energy"],
   "commerce-content": ["Yippee Malta", "Ontick"],
-  "performance-search": ["Yippee Malta", "Bloc"],
+  "performance-search": ["Easyship", "Yippee Malta", "Bloc"],
   "security-incident-response": ["Bloc", "Yippee Malta", "Ontick"],
 };
 

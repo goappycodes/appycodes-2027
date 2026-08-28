@@ -145,7 +145,7 @@ export default function ContactPage() {
                 </span>
                 <span className="way__b">
                   <span className="way__t">see the work first</span>
-                  <span className="way__d">Ten engagements, with the numbers attached</span>
+                  <span className="way__d">Eleven engagements, with the numbers attached</span>
                 </span>
                 <ArrowUpRight className="way__arrow" aria-hidden />
               </Link>
