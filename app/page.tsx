@@ -96,6 +96,15 @@ const OUTCOMES = [
     figlabel: "consumer + buddy, iOS & Android",
   },
   {
+    href: "/case-studies/player-profile-hub/",
+    img: "/images/pph-featured.png",
+    meta: "Player Profile Hub · grassroots football",
+    head: <><span className="name">Player Profile Hub</span> — a safeguarded profile platform for grassroots football.</>,
+    body: "A verified, safeguarding-first platform for youth football, built from the ground up — FIFA-style player cards, a highlight feed, coach discovery and five tiers, on web and a React Native app.",
+    fig: "0→1",
+    figlabel: "built from the ground up",
+  },
+  {
     href: "/case-studies/deepspatial/",
     img: "/images/deepspatial-featured.png",
     meta: "DeepSpatial · geospatial AI",

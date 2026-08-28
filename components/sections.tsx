@@ -160,6 +160,22 @@ export const CASE_STUDIES = [
     tags: ["React Native", "Expo", "Real-time"],
   },
   {
+    href: "/case-studies/player-profile-hub/",
+    img: "/images/pph-featured.png",
+    logo: "/images/pph-featured.png",
+    meta: "Player Profile Hub · grassroots football",
+    name: "Player Profile Hub",
+    head: (
+      <>
+        <span className="name">Player Profile Hub</span> — a safeguarded profile platform for grassroots football.
+      </>
+    ),
+    body: "A verified, safeguarding-first platform for youth football, built from the ground up — FIFA-style player cards, a highlight feed, coach discovery and five profile tiers, on web and a React Native app.",
+    fig: "0→1",
+    figlabel: "built from the ground up",
+    tags: ["React Native", "Web app", "Video"],
+  },
+  {
     href: "/case-studies/deepspatial/",
     img: "/images/deepspatial-featured.png",
     logo: "/images/deepspatial-featured.png",
