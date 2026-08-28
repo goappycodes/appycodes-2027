@@ -484,14 +484,17 @@ a { color: inherit; text-decoration: none; }
 .sec__head .lede { margin-top: 1.35rem; }
 
 /* ---------- services ---------- */
-.svc { display: grid; gap: 1.15rem; margin-top: 3.25rem; }
+.svc { display: grid; gap: 1rem; margin-top: 3.25rem; align-items: start; }
 @media (min-width: 640px)  { .svc { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 900px)  { .svc { grid-template-columns: repeat(3, 1fr); } }
 .svc__i {
-  background: var(--wash); padding: 1.9rem 1.7rem 2.1rem; display: grid; gap: .8rem; align-content: start;
+  background: var(--wash); padding: 1.6rem 1.5rem 1.5rem; display: grid; gap: .7rem; align-content: start;
   position: relative; overflow: hidden;
   transition: background-color .22s var(--ease), transform .22s var(--ease);
 }
+/* reserve two lines for the title so one- and two-line titles keep the
+   bodies aligned across a row */
+.svc__i .h-m { min-height: 2lh; }
 .svc__i::after {
   content: ""; position: absolute; left: 0; top: 0; height: 4px; width: 0;
   background-image: var(--grad); transition: width .3s var(--ease);
@@ -898,11 +901,17 @@ a { color: inherit; text-decoration: none; }
 .svc-sub__chev { width: 17px; height: 17px; color: var(--solid); flex: none; transition: transform .2s var(--ease); }
 .svc-sub__i:hover .svc-sub__chev { transform: translateX(3px); }
 
-.faq { margin-top: 2.5rem; border-top: 1px solid var(--rule); }
-.faq__row { padding: 1.3rem 0; border-bottom: 1px solid var(--rule); display: grid; gap: .5rem; }
-@media (min-width: 820px) { .faq__row { grid-template-columns: 22rem 1fr; gap: 2.5rem; } }
-.faq dt { font-weight: 700; font-size: 16px; letter-spacing: -.01em; color: var(--ink); }
-.faq dd { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-3); }
+.faq { margin-top: 2.25rem; border-top: 1px solid var(--rule); }
+.faq__row { border-bottom: 1px solid var(--rule); }
+.faq__q {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+  gap: 1.25rem; padding: 1.05rem 0; font-weight: 700; font-size: 15.5px; letter-spacing: -.01em; color: var(--ink);
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q:hover { color: var(--accent-text); }
+.faq__mark { width: 18px; height: 18px; flex: none; color: var(--ink-3); transition: transform .25s var(--ease), color .2s var(--ease); }
+.faq__row[open] .faq__mark { transform: rotate(180deg); color: var(--solid); }
+.faq__a { margin: 0; padding: 0 0 1.15rem; font-size: 14.5px; line-height: 1.6; color: var(--ink-3); max-width: 74ch; }
 
 /* blog / writing */
 
@@ -1036,7 +1045,7 @@ a { color: inherit; text-decoration: none; }
 .lux .case__in { padding: 2.1rem 2.1rem 2.2rem; gap: 1rem; }
 
 /* services — more air */
-.lux .svc { gap: 1.6rem; }
+.lux .svc { gap: 1rem; }
 .lux .svc__i { padding: 2.2rem 2.1rem; }
 
 /* process (dark) — refined, numbers removed */
@@ -1358,7 +1367,7 @@ a { color: inherit; text-decoration: none; }
 /* ============================================================
    PILLAR CARDS — image-led service cards (services index)
    ============================================================ */
-.pillars { display: grid; gap: 1.5rem; margin-top: 3rem; }
+.pillars { display: grid; gap: 1.5rem; margin-top: 3rem; align-items: start; }
 @media (min-width: 660px)  { .pillars { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1080px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
 .pillar {
@@ -1383,7 +1392,7 @@ a { color: inherit; text-decoration: none; }
   background-image: var(--grad-fill); color: #fff;
 }
 .pillar__in { padding: 1.5rem 1.5rem 1.35rem; display: flex; flex-direction: column; gap: .7rem; flex: 1; }
-.pillar__in .h-m { text-transform: lowercase; }
+.pillar__in .h-m { text-transform: lowercase; min-height: 2lh; }
 .pillar__in .body { font-size: 14px; }
 .pillar__foot {
   margin-top: auto; padding-top: 1.1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
@@ -1839,11 +1848,11 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 @media (max-width: 639px) {
   /* — services + process + testimonials: two per row — */
-  .svc  { grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-top: 2rem; }
-  .proc { grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-top: 2rem; }
-  .tmon { grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-top: 2rem; }
-  .writing-grid { grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-top: 2rem; }
-  .cs-cards { grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+  .svc, .lux .svc { grid-template-columns: repeat(2, 1fr); gap: .5rem; margin-top: 2rem; }
+  .proc { grid-template-columns: repeat(2, 1fr); gap: .5rem; margin-top: 2rem; }
+  .tmon { grid-template-columns: repeat(2, 1fr); gap: .5rem; margin-top: 2rem; }
+  .writing-grid { grid-template-columns: repeat(2, 1fr); gap: .5rem; margin-top: 2rem; }
+  .cs-cards { grid-template-columns: repeat(2, 1fr); gap: .5rem; }
 
   /* compact tile type so two columns stay readable */
   .svc__i, .lux .svc__i { padding: .85rem .8rem .9rem; gap: .4rem; }
@@ -1882,7 +1891,7 @@ a { color: inherit; text-decoration: none; }
   .sec__head .lede { margin-top: .9rem; font-size: 15px; }
 
   /* — reviews page: same two-up density as the homepage quotes — */
-  .reviews { grid-template-columns: repeat(2, 1fr); gap: .7rem; margin-top: 2rem; }
+  .reviews { grid-template-columns: repeat(2, 1fr); gap: .5rem; margin-top: 2rem; }
   .review { padding: .85rem .8rem .9rem; gap: .6rem; }
   .review__stars { font-size: 12px; }
   .review__t { font-size: 12.8px; line-height: 1.45; }
@@ -1893,7 +1902,7 @@ a { color: inherit; text-decoration: none; }
   .review__ctx { font-size: 10.5px; }
 
   /* — pillar + case cards: tighter on a phone — */
-  .pillars { gap: .8rem; margin-top: 2rem; }
+  .pillars { gap: .5rem; margin-top: 2rem; }
   .pillar__in { padding: .85rem .85rem .9rem; gap: .45rem; }
   .pillar__in .h-m { font-size: 1.02rem; }
   .pillar__in .body { font-size: 12.8px; line-height: 1.45; }

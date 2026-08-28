@@ -408,14 +408,19 @@ export function Faq({
         <p className="eyebrow">{eyebrow}</p>
         <h2 className="h-l">{title}</h2>
       </div>
-      <dl className="faq">
+      <div className="faq">
         {items.map((f) => (
-          <div key={f.question} className="faq__row">
-            <dt>{f.question}</dt>
-            <dd>{f.answer}</dd>
-          </div>
+          <details key={f.question} className="faq__row" name="faq">
+            <summary className="faq__q">
+              <span>{f.question}</span>
+              <svg className="faq__mark" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </summary>
+            <p className="faq__a">{f.answer}</p>
+          </details>
         ))}
-      </dl>
+      </div>
     </section>
   );
 }
