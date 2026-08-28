@@ -6,7 +6,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { NAV, SITE } from "@/lib/site";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { ServiceTitle } from "@/components/service-title";
-import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Mail } from "@/components/icons";
+import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Mail, FlagUK, FlagEU } from "@/components/icons";
 
 const SERVICES_HREF = "/services/";
 
@@ -225,24 +225,33 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <Link
-          className="btn btn--ink btn--sm nav__cta notch notch-sm"
-          href="/contact/"
-        >
-          start a project
-        </Link>
+        <div className="nav__right">
+          {/* UK & EU market focus — quiet credibility marker, not a CTA */}
+          <span className="nav__region" role="img" aria-label="Working with UK and EU businesses">
+            <span className="flag flag--uk"><FlagUK /></span>
+            <span className="flag flag--eu"><FlagEU /></span>
+            <span className="nav__region-txt">UK &amp; EU</span>
+          </span>
 
-        {/* ---------- mobile toggle ---------- */}
-        <button
-          type="button"
-          className="nav__burger"
-          ref={burgerRef}
-          aria-label={drawerOpen ? "Close menu" : "Open menu"}
-          aria-expanded={drawerOpen}
-          onClick={() => setDrawerOpen((v) => !v)}
-        >
-          {drawerOpen ? <Close aria-hidden /> : <Menu aria-hidden />}
-        </button>
+          <Link
+            className="btn btn--ink btn--sm nav__cta notch notch-sm"
+            href="/contact/"
+          >
+            start a project
+          </Link>
+
+          {/* ---------- mobile toggle ---------- */}
+          <button
+            type="button"
+            className="nav__burger"
+            ref={burgerRef}
+            aria-label={drawerOpen ? "Close menu" : "Open menu"}
+            aria-expanded={drawerOpen}
+            onClick={() => setDrawerOpen((v) => !v)}
+          >
+            {drawerOpen ? <Close aria-hidden /> : <Menu aria-hidden />}
+          </button>
+        </div>
       </div>
 
       {/* ---------- mobile drawer ---------- */}

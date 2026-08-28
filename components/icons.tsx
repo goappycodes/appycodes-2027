@@ -124,3 +124,43 @@ export function Star({ className, ...p }: IconProps) {
     </svg>
   );
 }
+
+/* ---- Region flags (crisp inline SVG — emoji flags render as letters on
+   Windows, so they are drawn here for a consistent, premium look). Decorative;
+   the surrounding group carries the accessible label. Rounded corners come from
+   the CSS wrapper (.flag), so no clip-path / id collisions. ---- */
+
+export function FlagUK({ className, ...p }: IconProps) {
+  return (
+    <svg viewBox="0 0 60 40" className={className} aria-hidden preserveAspectRatio="none" {...p}>
+      <rect width="60" height="40" fill="#012169" />
+      <path d="M0 0 L60 40 M60 0 L0 40" stroke="#fff" strokeWidth="8" />
+      <path d="M0 0 L60 40 M60 0 L0 40" stroke="#C8102E" strokeWidth="4" />
+      <path d="M30 0 V40 M0 20 H60" stroke="#fff" strokeWidth="12" />
+      <path d="M30 0 V40 M0 20 H60" stroke="#C8102E" strokeWidth="7" />
+    </svg>
+  );
+}
+
+function euStar(cx: number, cy: number, r: number) {
+  const inner = r * 0.382;
+  let d = "";
+  for (let i = 0; i < 10; i++) {
+    const rad = i % 2 === 0 ? r : inner;
+    const a = ((-90 + i * 36) * Math.PI) / 180;
+    d += (i === 0 ? "M" : "L") + (cx + rad * Math.cos(a)).toFixed(2) + " " + (cy + rad * Math.sin(a)).toFixed(2);
+  }
+  return d + "Z";
+}
+
+export function FlagEU({ className, ...p }: IconProps) {
+  return (
+    <svg viewBox="0 0 60 40" className={className} aria-hidden preserveAspectRatio="none" {...p}>
+      <rect width="60" height="40" fill="#003399" />
+      {Array.from({ length: 12 }).map((_, i) => {
+        const a = ((-90 + i * 30) * Math.PI) / 180;
+        return <path key={i} d={euStar(30 + 12.5 * Math.cos(a), 20 + 12.5 * Math.sin(a), 2.7)} fill="#FFCC00" />;
+      })}
+    </svg>
+  );
+}
