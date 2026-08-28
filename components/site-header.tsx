@@ -23,10 +23,10 @@ const MEGA_FEATURE = {
 /* Selected work, shown in the mobile drawer — the menu doubles as the fastest
    route to the proof, which on a phone is the thing people came for. */
 const DRAWER_WORK = [
+  { href: "/case-studies/creoate/", img: "/images/creoate-featured.png", name: "Creoate", metric: "8+ yrs, still shipping" },
+  { href: "/case-studies/decofetch/", img: "/images/decofetch-featured.png", name: "Decofetch", metric: "custom, front to back" },
+  { href: "/case-studies/ba-engine-room/", img: "/images/engineroom-featured.png", name: "BA Engine Room", metric: "AI ops platform" },
   { href: "/case-studies/ontick/", img: "/images/ontick-6.png", name: "Ontick", metric: "£2M+ processed" },
-  { href: "/case-studies/bloc/", img: "/images/bloc-6.png", name: "Bloc", metric: "4+ yrs, 5 codebases" },
-  { href: "/case-studies/yippee-malta/", img: "/images/yippee-6.png", name: "Yippee Malta", metric: "90+ web vitals" },
-  { href: "/case-studies/professional-energy/", img: "/images/pes-6.png", name: "Professional Energy", metric: "100+ suppliers" },
 ];
 
 export function SiteHeader() {
