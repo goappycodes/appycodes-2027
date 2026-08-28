@@ -42,6 +42,15 @@ const OUTCOMES = [
     figlabel: "built from the ground up",
   },
   {
+    href: "/case-studies/bloc-ads-manager/",
+    img: "/images/blocads-featured.png",
+    meta: "Bloc Ads Manager · ad-tech",
+    head: <>a self-serve ad platform for <span className="name">Bloc</span>, built from the ground up.</>,
+    body: "Bloc for Business — a Meta-style ad platform with PostGIS audience estimation, Python interest targeting, in-app ad serving and check-in attribution.",
+    fig: "check-ins",
+    figlabel: "closed-loop attribution",
+  },
+  {
     href: "/case-studies/ontick/",
     img: "/images/ontick-6.png",
     meta: "Ontick · event ticketing",

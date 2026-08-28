@@ -9,7 +9,7 @@ import { SHORT_CASES } from "@/lib/short-cases";
 export const metadata: Metadata = siteMeta({
   title: "Case studies — companies we've helped ship",
   description:
-    "Selected engagements: Creoate's eight-year B2B marketplace, Decofetch's fully custom furniture store, the BA Engine Room AI ops platform, Ontick's ticketing, DeepSpatial's geospatial-AI web presence, Bloc's four-year build, Yippee Malta and Professional Energy's ERP.",
+    "Selected engagements: Creoate's eight-year B2B marketplace, Decofetch's custom furniture store, the BA Engine Room AI ops platform, Bloc's self-serve ad manager, Ontick's ticketing, DeepSpatial's geospatial-AI site, Bloc's four-year build, Yippee Malta and Professional Energy's ERP.",
   path: "/case-studies/",
   image: "/images/ontick-6.png",
 });
@@ -31,6 +31,11 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
     sector: "AI ops platform",
     span: "Ground-up build",
     scope: ["Lead-to-invoice pipeline", "AI discovery briefs (Claude)", "E-signed MSA contracts", "Stripe milestone payments", "Client portal & support"],
+  },
+  "Bloc Ads Manager": {
+    sector: "Ad-tech · self-serve advertising",
+    span: "Built from scratch, live 2026",
+    scope: ["Meta-style campaign builder", "PostGIS audience estimation", "Python interest targeting", "In-app ad serving", "Billing, VAT & credits"],
   },
   Ontick: {
     sector: "Event ticketing",
@@ -61,14 +66,14 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
 
 const FAQS = [
   {
-    question: "Why are only eight written up in full?",
+    question: "Why are only nine written up in full?",
     answer:
       "Because those are the ones we can show properly, with the client's agreement and real numbers attached. The twelve below them are described by sector rather than named — much of that work was delivered under a partner's name, so the engineering is ours to publish and the identity is not.",
   },
   {
     question: "Is that everything you have done?",
     answer:
-      "No — the full register is 298 projects for 226 clients across 13 countries, and it is published on the atlas page with the counting method attached. These twenty are the ones worth reading.",
+      "No — the full register is 298 projects for 226 clients across 13 countries, and it is published on the atlas page with the counting method attached. These twenty-one are the ones worth reading.",
   },
   {
     question: "Can I talk to any of these clients?",
@@ -112,7 +117,7 @@ export default function CaseStudiesIndex() {
       <section className="wrap sec">
         <div className="sec__head">
           <p className="eyebrow">the engagements</p>
-          <h2 className="h-l">eight companies, eight systems still in production.</h2>
+          <h2 className="h-l">nine companies, nine systems still in production.</h2>
         </div>
 
         <div className="cases">

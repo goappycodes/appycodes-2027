@@ -6,7 +6,7 @@ import { SECTORS_DATA } from "@/lib/sectors-data";
 import { PROBLEMS } from "@/lib/problems-data";
 import { BLOG_POSTS } from "@/lib/blog";
 
-const CASE_STUDIES = ["creoate", "decofetch", "ba-engine-room", "ontick", "bloc", "deepspatial", "yippee-malta", "professional-energy"];
+const CASE_STUDIES = ["creoate", "decofetch", "ba-engine-room", "bloc-ads-manager", "ontick", "bloc", "deepspatial", "yippee-malta", "professional-energy"];
 
 const STATIC_PAGES: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
   { path: "/", changeFrequency: "weekly", priority: 1 },

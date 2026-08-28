@@ -60,6 +60,22 @@ export const CASE_STUDIES = [
     tags: ["Next.js", "Supabase", "Claude AI"],
   },
   {
+    href: "/case-studies/bloc-ads-manager/",
+    img: "/images/blocads-featured.png",
+    logo: "/images/blocads-featured.png",
+    meta: "Bloc Ads Manager · ad-tech",
+    name: "Bloc Ads Manager",
+    head: (
+      <>
+        a self-serve ad platform for <span className="name">Bloc</span>, built from the ground up.
+      </>
+    ),
+    body: "Bloc for Business — a Meta-style ad platform with PostGIS audience estimation, Python interest targeting, in-app ad serving and reporting that closes the loop to real venue check-ins.",
+    fig: "check-ins",
+    figlabel: "closed-loop attribution",
+    tags: ["Next.js", "PostGIS", "Python"],
+  },
+  {
     href: "/case-studies/ontick/",
     img: "/images/ontick-6.png",
     logo: "/images/logo-bloc.png",
