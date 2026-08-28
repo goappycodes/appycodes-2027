@@ -84,8 +84,8 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
   },
   "Professional Energy": {
     sector: "Energy brokerage",
-    span: "Tailor-made ERP",
-    scope: ["Supplier tenders", "Contract lifecycle", "Brokerage accounting", "Client management"],
+    span: "Custom ERP, since 2023",
+    scope: ["Supplier tender engine", "Contract lifecycle & accounting", "Invoice extraction & validation", "Half-hourly data & tranches", "Client CRM + S3 vault"],
   },
 };
 
