@@ -48,9 +48,9 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
     scope: ["Meta-style campaign builder", "PostGIS audience estimation", "Python interest targeting", "In-app ad serving", "Billing, VAT & credits"],
   },
   Ontick: {
-    sector: "Event ticketing",
-    span: "Platform + two native apps",
-    scope: ["Multi-organizer platform", "Stripe instalments", "iOS & Android apps", "Scanning at the door"],
+    sector: "Event ticketing & festivals",
+    span: "Built & run since 2021",
+    scope: ["Multi-organizer Laravel platform", "Stripe instalments & payouts", "Customer + check-in apps", "Live door analytics", "Guest checkout & Apple Pay"],
   },
   Bloc: {
     sector: "Social events",
