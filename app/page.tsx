@@ -42,6 +42,15 @@ const OUTCOMES = [
     figlabel: "custom, front to back",
   },
   {
+    href: "/case-studies/leonia/",
+    img: "/images/leonia-featured.png",
+    meta: "Léonia Paris · clean-beauty e-commerce",
+    head: <>the custom <span className="caps">Shopify</span> build behind <span className="name">Léonia Paris</span>.</>,
+    body: "A certified-organic French beauty brand on Shopify — a bespoke theme plus the features Shopify can’t do natively: a real account dashboard, loyalty and referral, gift-with-purchase, and a performance pass.",
+    fig: "5 yrs",
+    figlabel: "partners since 2021",
+  },
+  {
     href: "/case-studies/ba-engine-room/",
     img: "/images/engineroom-featured.png",
     meta: "BA Engine Room · AI ops platform",
