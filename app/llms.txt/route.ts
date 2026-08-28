@@ -60,7 +60,7 @@ export function GET() {
 
   lines.push("## Company");
   lines.push(`- [About](${BASE}/about/): the studio, the founders and how the work is run.`);
-  lines.push(`- [Reviews](${BASE}/reviews/): what clients say, with the numbers attached.`);
+  lines.push(`- [Testimonials](${BASE}/testimonials/): verified Clutch reviews, each linked to the original.`);
   lines.push(`- [The atlas](${BASE}/atlas/): the full register of 298 projects, plotted by country.`);
   lines.push(`- [Writing](${BASE}/blog/): engineering cost studies and research.`);
   lines.push(`- [Contact](${BASE}/contact/): book a call with the engineer who would run it.`);

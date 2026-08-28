@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroParticles } from "@/components/hero-particles";
 import { ServiceTitle } from "@/components/service-title";
-import { ChevronRight } from "@/components/icons";
+import { ChevronRight, ArrowUpRight } from "@/components/icons";
 import { Rail } from "@/components/rail";
+import { Monogram } from "@/components/monogram";
 import { WorldMapPreview } from "@/components/world-map-preview";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { BLOG_POSTS } from "@/lib/blog";
-import { AWARDS, CLIENT_LOGOS, REVIEWS } from "@/lib/site";
+import { AWARDS, CLIENT_LOGOS, REVIEWS, CLUTCH_STATS, reviewIdentity } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "https://appycodes.dev/" },
@@ -322,25 +323,50 @@ export default function HomePage() {
       {/* TESTIMONIALS */}
       <section className="wrap sec" id="reviews">
         <div className="sec__head reveal">
+          <p className="eyebrow">reviews · verified on clutch</p>
           <h2 className="h-l">the people who signed off the work</h2>
+          <p className="lede">
+            {CLUTCH_STATS.count} verified reviews on Clutch, every one rated {CLUTCH_STATS.rating}
+            /5.0. Each card opens the original.
+          </p>
         </div>
         <div className="reveal">
           <Rail label="Client testimonials" className="tmon-rail">
-            {REVIEWS.map((t) => (
-              <figure key={t.name} className="quote notch">
-                <span className="quote__mark">&ldquo;</span>
-                <blockquote className="quote__t">{t.quote}</blockquote>
-                <figcaption className="quote__by">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={t.avatar} alt={t.name} loading="lazy" />
-                  <span>
-                    <span className="quote__n">{t.name}</span>
-                    <span className="quote__r">{t.role}</span>
+            {REVIEWS.map((t) => {
+              const id = reviewIdentity(t);
+              return (
+                <a
+                  key={t.url}
+                  className="quote notch"
+                  href={t.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Read ${id.primary}'s review on Clutch`}
+                >
+                  <span className="quote__mark">&ldquo;</span>
+                  <blockquote className="quote__t">{t.quote}</blockquote>
+                  <span className="quote__by">
+                    {t.avatar ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={t.avatar} alt="" loading="lazy" />
+                    ) : (
+                      <Monogram seed={id.seed} className="quote__mono" />
+                    )}
+                    <span className="quote__who">
+                      <span className="quote__n">{id.primary}</span>
+                      <span className="quote__r">{id.secondary}</span>
+                    </span>
+                    <ArrowUpRight className="quote__src" />
                   </span>
-                </figcaption>
-              </figure>
-            ))}
+                </a>
+              );
+            })}
           </Rail>
+        </div>
+        <div className="reveal" style={{ marginTop: "2rem" }}>
+          <Link href="/testimonials/" className="btn btn--out notch">
+            read all {CLUTCH_STATS.count} reviews
+          </Link>
         </div>
       </section>
 

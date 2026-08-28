@@ -692,6 +692,7 @@ a { color: inherit; text-decoration: none; }
 .quote {
   min-width: 0;  /* let the 1fr grid tracks stay equal */
   background: var(--wash); padding: 1.6rem 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 1rem;
+  color: inherit; text-decoration: none;  /* the whole card is an <a> to the Clutch review */
   transition: background-color .22s var(--ease), transform .22s var(--ease);
 }
 .quote:hover { background: var(--wash-2); transform: translateY(-3px); }
@@ -701,10 +702,22 @@ a { color: inherit; text-decoration: none; }
 /* caption anchored to the card bottom, separated by a hairline so the
    equal-height cards read as intentional rather than stranded */
 .quote__by { display: flex; align-items: center; gap: .7rem; margin-top: auto; padding-top: 1.1rem; border-top: 1px solid var(--rule-2); }
-.quote__by img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; background: #fff; }
-.quote__by > span { display: flex; flex-direction: column; min-width: 0; }
+.quote__by img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; flex: none; background: #fff; }
+.quote__who { display: flex; flex-direction: column; min-width: 0; flex: 1; }
 .quote__n { display: block; font-weight: 700; font-size: 13.5px; letter-spacing: -.01em; line-height: 1.25; }
 .quote__r { display: block; font-size: 12px; color: var(--ink-3); margin-top: 3px; line-height: 1.3; }
+/* the small "opens on Clutch" cue, brightening as the card is hovered */
+.quote__src { flex: none; width: 15px; height: 15px; color: var(--ink-3); transition: color .2s var(--ease), transform .2s var(--ease); }
+.quote:hover .quote__src { color: var(--accent-text); transform: translate(1px, -1px); }
+
+/* Monogram avatar — initials in a brand coin, for reviewers with no photo */
+.mono {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background-image: var(--grad-fill); color: #fff;
+  font-weight: 800; font-size: 14px; letter-spacing: .01em; line-height: 1;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.14);
+}
 
 /* ---------- founders band ---------- */
 .founders-band { padding-block: clamp(2.75rem, 6vw, 4.5rem); }
@@ -1079,12 +1092,10 @@ a { color: inherit; text-decoration: none; }
 .lux .founder-cta { border: 1px solid var(--lux-line); }
 .lux .founder-cta__pics img { width: clamp(120px, 13vw, 172px); height: clamp(120px, 13vw, 172px); border-width: 5px; }
 
-/* testimonials — bigger avatars that overhang the card edge */
-.lux .quote { overflow: visible; }
-.lux .quote__by { position: relative; }
+/* testimonials — photos and monograms share one size so a mixed wall reads
+   evenly (verified Clutch reviewers publish with and without a photo) */
 .lux .quote__by img {
-  width: 96px; height: 96px; margin-left: -32px;
-  border: 3px solid #fff; box-shadow: 0 8px 20px -8px rgba(16,20,15,.42);
+  border: 2px solid #fff; box-shadow: 0 6px 16px -8px rgba(16,20,15,.4);
 }
 
 /* buttons — smoother, softer glow */
@@ -1672,6 +1683,38 @@ a { color: inherit; text-decoration: none; }
 .review__r { font-size: 12px; color: var(--ink-3); margin-top: 2px; line-height: 1.3; }
 .review__ctx { margin: 0; font-size: 11.5px; line-height: 1.45; color: var(--ink-3); }
 .review__ctx a { color: var(--accent-text); font-weight: 600; }
+.review__by .mono { width: 46px; height: 46px; font-size: 15px; }
+.review__meta { margin: -.35rem 0 0; font-size: 11px; letter-spacing: .01em; color: var(--ink-3); line-height: 1.4; }
+.review__foot { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.review__src, .review__case {
+  display: inline-flex; align-items: center; gap: .3rem;
+  font-weight: 700; font-size: 12px; letter-spacing: -.005em;
+  transition: gap .2s var(--ease), color .2s var(--ease);
+}
+.review__src { color: var(--accent-text); }
+.review__src svg, .review__case svg { width: 13px; height: 13px; }
+.review__case { color: var(--ink-3); }
+.review__src:hover, .review__case:hover { gap: .5rem; }
+.review__case:hover { color: var(--ink); }
+
+/* Clutch attribution — these reviews are collected and verified by Clutch */
+.clutch-strip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem;
+  margin-top: 0; padding-block: clamp(1.5rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--rule);
+}
+.clutch-strip__mark { flex: none; display: inline-flex; align-items: center; gap: .55rem; }
+.clutch-strip__mark img { height: 26px; width: auto; display: block; filter: grayscale(1) brightness(0); opacity: .72; }
+.clutch-strip__mark span { font-weight: 800; font-size: 15px; letter-spacing: -.01em; color: var(--ink-2); }
+.clutch-strip__t { flex: 1 1 22rem; margin: 0; font-size: 14px; line-height: 1.6; color: var(--ink-2); max-width: 70ch; }
+.clutch-strip__t strong { color: var(--ink); font-weight: 700; }
+.clutch-strip__cta {
+  flex: none; display: inline-flex; align-items: center; gap: .4rem;
+  font-weight: 700; font-size: 13px; color: var(--accent-text);
+  transition: gap .2s var(--ease);
+}
+.clutch-strip__cta svg { width: 14px; height: 14px; }
+.clutch-strip__cta:hover { gap: .65rem; }
 
 /* ============================================================
    BLOG INDEX — lead story, side stories, topics
@@ -1913,6 +1956,8 @@ a { color: inherit; text-decoration: none; }
   .quote__t { font-size: 12.8px; line-height: 1.45; }
   .quote__by { gap: .5rem; padding-top: .8rem; flex-direction: column; align-items: flex-start; }
   .lux .quote__by img, .quote__by img { width: 38px; height: 38px; margin-left: 0; border-width: 2px; box-shadow: none; }
+  .quote__by .mono { width: 38px; height: 38px; font-size: 12.5px; }
+  .quote__src { display: none; }
   .quote__n { font-size: 12px; }
   .quote__r { font-size: 10.5px; }
 

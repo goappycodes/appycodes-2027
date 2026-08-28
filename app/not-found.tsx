@@ -63,7 +63,7 @@ export default function NotFound() {
             { href: "/services/", label: "All services" },
             { href: "/case-studies/", label: "Case studies" },
             { href: "/blog/", label: "Writing — cost studies & benchmarks" },
-            { href: "/reviews/", label: "Client reviews" },
+            { href: "/testimonials/", label: "Testimonials" },
             { href: "/about/", label: "About the studio" },
             { href: "/contact/", label: "Start a project" },
           ].map((l) => (

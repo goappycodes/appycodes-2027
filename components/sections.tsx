@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Rail } from "@/components/rail";
-import { AWARDS, CLIENT_LOGOS, REVIEWS } from "@/lib/site";
+import { AWARDS, CLIENT_LOGOS, REVIEWS, reviewIdentity } from "@/lib/site";
 import { BLOG_POSTS } from "@/lib/blog";
 import { JsonLd } from "@/components/jsonld";
 import { faqSchema } from "@/lib/schema";
+import { Monogram } from "@/components/monogram";
+import { ArrowUpRight } from "@/components/icons";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -393,24 +395,39 @@ export function Testimonials({
   return (
     <section className="wrap sec reveal">
       <div className="sec__head">
-        <p className="eyebrow">reviews</p>
+        <p className="eyebrow">reviews · verified on clutch</p>
         <h2 className="h-l">{title}</h2>
         {lede ? <p className="lede">{lede}</p> : null}
       </div>
       <div className="tmon">
-        {items.map((t) => (
-          <figure key={t.name} className="quote notch">
-            <span className="quote__mark">&ldquo;</span>
-            <blockquote className="quote__t">{t.quote}</blockquote>
-            <figcaption className="quote__by">
-              <img src={t.avatar} alt={t.name} loading="lazy" />
-              <span>
-                <span className="quote__n">{t.name}</span>
-                <span className="quote__r">{t.role}</span>
+        {items.map((t) => {
+          const id = reviewIdentity(t);
+          return (
+            <a
+              key={t.url}
+              className="quote notch"
+              href={t.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Read ${id.primary}'s review on Clutch`}
+            >
+              <span className="quote__mark">&ldquo;</span>
+              <blockquote className="quote__t">{t.quote}</blockquote>
+              <span className="quote__by">
+                {t.avatar ? (
+                  <img src={t.avatar} alt="" loading="lazy" />
+                ) : (
+                  <Monogram seed={id.seed} className="quote__mono" />
+                )}
+                <span className="quote__who">
+                  <span className="quote__n">{id.primary}</span>
+                  <span className="quote__r">{id.secondary}</span>
+                </span>
+                <ArrowUpRight className="quote__src" />
               </span>
-            </figcaption>
-          </figure>
-        ))}
+            </a>
+          );
+        })}
       </div>
     </section>
   );

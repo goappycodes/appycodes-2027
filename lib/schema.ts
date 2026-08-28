@@ -110,6 +110,52 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
+/**
+ * AggregateRating + individual Review nodes on the Organization, for the
+ * testimonials page. Every review is a real, Clutch-verified client review; the
+ * `url` on each points at the original on Clutch.
+ */
+export function reviewsSchema(
+  reviews: {
+    quote: string;
+    name: string;
+    role: string;
+    iso: string;
+    url: string;
+  }[],
+  rating: string,
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORG_ID,
+    name: "Appycodes",
+    url: `${BASE}/`,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: rating,
+      reviewCount: reviews.length,
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: reviews.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.name },
+      datePublished: r.iso,
+      reviewBody: r.quote,
+      url: r.url,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+        bestRating: "5",
+        worstRating: "1",
+      },
+      itemReviewed: { "@id": ORG_ID },
+      publisher: { "@type": "Organization", name: "Clutch" },
+    })),
+  };
+}
+
 /** Service node for a pillar or specialism page. */
 export function serviceSchema(opts: {
   name: string;
