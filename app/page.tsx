@@ -69,6 +69,15 @@ const OUTCOMES = [
     figlabel: "one team, five codebases",
   },
   {
+    href: "/case-studies/zonely/",
+    img: "/images/zonely-featured.png",
+    meta: "Zonely · companionship app",
+    head: <><span className="name">Zonely</span> — a pay-by-the-minute companionship app, on both stores.</>,
+    body: "A two-sided React Native marketplace — consumer app, buddy app, backend and admin — with real-time per-minute billing and a trust-and-safety layer built to pass App Store review.",
+    fig: "2 apps",
+    figlabel: "consumer + buddy, iOS & Android",
+  },
+  {
     href: "/case-studies/deepspatial/",
     img: "/images/deepspatial-featured.png",
     meta: "DeepSpatial · geospatial AI",

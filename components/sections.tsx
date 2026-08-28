@@ -109,6 +109,22 @@ export const CASE_STUDIES = [
     tags: ["React Native", "Node", "Algorand"],
   },
   {
+    href: "/case-studies/zonely/",
+    img: "/images/zonely-featured.png",
+    logo: "/images/zonely-featured.png",
+    meta: "Zonely · companionship app",
+    name: "Zonely",
+    head: (
+      <>
+        <span className="name">Zonely</span> — a pay-by-the-minute companionship app, on both stores.
+      </>
+    ),
+    body: "A two-sided React Native marketplace — consumer app, buddy app, backend and admin — with real-time per-minute billing and the trust-and-safety layer it took to pass App Store review.",
+    fig: "2 apps",
+    figlabel: "consumer + buddy, iOS & Android",
+    tags: ["React Native", "Expo", "Real-time"],
+  },
+  {
     href: "/case-studies/deepspatial/",
     img: "/images/deepspatial-featured.png",
     logo: "/images/deepspatial-featured.png",
