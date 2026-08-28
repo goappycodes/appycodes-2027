@@ -9,7 +9,7 @@ import { SHORT_CASES } from "@/lib/short-cases";
 export const metadata: Metadata = siteMeta({
   title: "Case studies — companies we've helped ship",
   description:
-    "Selected engagements: Creoate's eight-year B2B marketplace, Easyship's global shipping site and CMS, Decofetch's custom furniture store, Léonia's clean-beauty Shopify build, PlusHeat's boiler-cover configurator, the BA Engine Room AI ops platform, Bloc's self-serve ad manager, Ontick's ticketing, Bloc's four-year build, Zonely's real-time companionship app, Player Profile Hub's grassroots-football platform, DeepSpatial's geospatial-AI site, Yippee Malta and Professional Energy's ERP.",
+    "Selected engagements: Creoate's eight-year B2B marketplace, Easyship's global shipping site and CMS, Decofetch's custom furniture store, Léonia's clean-beauty Shopify build, PlusHeat's boiler-cover configurator, Shutters 365's made-to-measure shutter builder, the BA Engine Room AI ops platform, Bloc's self-serve ad manager, Ontick's ticketing, Bloc's four-year build, Zonely's real-time companionship app, Player Profile Hub's grassroots-football platform, DeepSpatial's geospatial-AI site, Yippee Malta and Professional Energy's ERP.",
   path: "/case-studies/",
   image: "/images/ontick-6.png",
 });
@@ -41,6 +41,11 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
     sector: "Home services · subscription cover",
     span: "Web partner since 2021",
     scope: ["Cover-plan configurator", "Lead capture + address lookup", "CRM sync & attribution", "Landing-page system", "Design-system rebuild"],
+  },
+  "Shutters 365": {
+    sector: "Home improvement · e-commerce",
+    span: "Build & run, since 2026",
+    scope: ["Made-to-measure configurator", "Live per-window pricing", "Free-samples flow", "Measure & fit guides", "Order & supplier ops"],
   },
   "BA Engine Room": {
     sector: "AI ops platform",
@@ -91,14 +96,14 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
 
 const FAQS = [
   {
-    question: "Why are only fourteen written up in full?",
+    question: "Why are only fifteen written up in full?",
     answer:
       "Because those are the ones we can show properly, with the client's agreement and real numbers attached. The twelve below them are described by sector rather than named — much of that work was delivered under a partner's name, so the engineering is ours to publish and the identity is not.",
   },
   {
     question: "Is that everything you have done?",
     answer:
-      "No — the full register is 298 projects for 226 clients across 13 countries, and it is published on the atlas page with the counting method attached. These twenty-six are the ones worth reading.",
+      "No — the full register is 298 projects for 226 clients across 13 countries, and it is published on the atlas page with the counting method attached. These twenty-seven are the ones worth reading.",
   },
   {
     question: "Can I talk to any of these clients?",
@@ -142,7 +147,7 @@ export default function CaseStudiesIndex() {
       <section className="wrap sec">
         <div className="sec__head">
           <p className="eyebrow">the engagements</p>
-          <h2 className="h-l">fourteen companies, fourteen systems still in production.</h2>
+          <h2 className="h-l">fifteen companies, fifteen systems still in production.</h2>
         </div>
 
         <div className="cases">

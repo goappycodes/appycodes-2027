@@ -94,6 +94,22 @@ export const CASE_STUDIES = [
     tags: ["WordPress", "Lead engine", "CRM"],
   },
   {
+    href: "/case-studies/shutters365/",
+    img: "/images/shutters-featured.png",
+    logo: "/images/shutters-featured.png",
+    meta: "Shutters 365 · made-to-measure shutters",
+    name: "Shutters 365",
+    head: (
+      <>
+        the made-to-measure configurator behind <span className="name">Shutters 365</span>.
+      </>
+    ),
+    body: "A factory-direct made-to-measure shutters store — a seven-step online configurator with a live preview and a live per-window price, a free-samples flow, measuring and fitting guides, and the order and supplier tooling behind the factory.",
+    fig: "7-step",
+    figlabel: "configurator, live pricing",
+    tags: ["WordPress", "WooCommerce", "Stripe"],
+  },
+  {
     href: "/case-studies/ba-engine-room/",
     img: "/images/engineroom-featured.png",
     logo: "/images/engineroom-featured.png",

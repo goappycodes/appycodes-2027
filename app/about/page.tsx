@@ -174,7 +174,7 @@ export default function AboutPage() {
       <LogoWall label="Teams that trusted us with the thing that matters" />
 
       <FeaturedWork
-        title="a decade of it, in fourteen engagements"
+        title="a decade of it, in fifteen engagements"
         lede="Each one still running in production, with the numbers attached."
       />
 
