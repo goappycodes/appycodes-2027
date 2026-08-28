@@ -53,9 +53,9 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
     scope: ["Multi-organizer Laravel platform", "Stripe instalments & payouts", "Customer + check-in apps", "Live door analytics", "Guest checkout & Apple Pay"],
   },
   Bloc: {
-    sector: "Social events",
+    sector: "Social events & rewards",
     span: "Four-year partnership",
-    scope: ["React Native app", "Backend & APIs", "Ads manager", "Algorand marketplace", "Web front"],
+    scope: ["React Native app + BLOC Replay", "Backend & APIs (DynamoDB)", "Bloc Command ops tool", "Ads manager", "Algorand marketplace"],
   },
   Zonely: {
     sector: "Social · real-time marketplace",
