@@ -51,6 +51,15 @@ const OUTCOMES = [
     figlabel: "partners since 2021",
   },
   {
+    href: "/case-studies/plusheat/",
+    img: "/images/plusheat-featured.png",
+    meta: "PlusHeat · UK boiler & home cover",
+    head: <>the cover-plan engine behind <span className="name">PlusHeat</span>.</>,
+    body: "The conversion engine for a UK boiler-cover brand — a custom plan configurator, a postcode-lookup lead flow, CRM sync and campaign landing pages, built to turn a browse into a qualified lead.",
+    fig: "5 yrs",
+    figlabel: "web partner since 2021",
+  },
+  {
     href: "/case-studies/ba-engine-room/",
     img: "/images/engineroom-featured.png",
     meta: "BA Engine Room · AI ops platform",

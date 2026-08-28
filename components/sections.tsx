@@ -78,6 +78,22 @@ export const CASE_STUDIES = [
     tags: ["Shopify", "Liquid", "Custom account"],
   },
   {
+    href: "/case-studies/plusheat/",
+    img: "/images/plusheat-featured.png",
+    logo: "/images/plusheat-featured.png",
+    meta: "PlusHeat · UK boiler & home cover",
+    name: "PlusHeat",
+    head: (
+      <>
+        the cover-plan engine behind <span className="name">PlusHeat</span>.
+      </>
+    ),
+    body: "The conversion engine for a UK boiler-cover brand — a custom plan configurator that prices homeowner and landlord cover by call-out fee and billing period, a postcode-lookup lead flow, CRM sync and landing pages. Partners since 2021.",
+    fig: "5 yrs",
+    figlabel: "web partner since 2021",
+    tags: ["WordPress", "Lead engine", "CRM"],
+  },
+  {
     href: "/case-studies/ba-engine-room/",
     img: "/images/engineroom-featured.png",
     logo: "/images/engineroom-featured.png",

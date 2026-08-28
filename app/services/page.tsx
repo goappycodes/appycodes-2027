@@ -166,7 +166,7 @@ export default function ServicesIndex() {
 
       <FeaturedWork
         title="what these practices have shipped"
-        lede="Thirteen engagements, each one running in production with the numbers attached."
+        lede="Fourteen engagements, each one running in production with the numbers attached."
       />
 
       <LogoWall />
