@@ -15,7 +15,7 @@ export default function IndexingReportPage() {
     <>
       <PageHero
         crumbs={[
-          { label: "home", href: "/" },
+          { label: "Home", href: "/" },
           { label: "admin" },
           { label: "indexing report" },
         ]}

@@ -17,7 +17,7 @@ export default function NotFound() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "not found" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Not found" }]}
         eyebrow="error 404"
         title={
           <>
@@ -26,8 +26,8 @@ export default function NotFound() {
         }
         lede="Either the URL changed in the rebuild, or it never existed. Nothing else is broken — here is the way back to everything that does."
         actions={[
-          { label: "back home", href: "/" },
-          { label: "see the work", href: "/case-studies/", variant: "out" },
+          { label: "Back home", href: "/" },
+          { label: "See the work", href: "/case-studies/", variant: "out" },
         ]}
         aside={
           <div className="next-card notch notch-lg">
@@ -86,7 +86,7 @@ export default function NotFound() {
             <p>Tell us where you came from and we will fix the redirect.</p>
           </div>
           <a className="cta__btn notch" href={`mailto:${SITE.email}`}>
-            email {SITE.email}
+            Email {SITE.email}
           </a>
         </div>
       </section>

@@ -79,7 +79,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "contact" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         eyebrow="start a project"
         title={
           <>
@@ -92,7 +92,7 @@ export default function ContactPage() {
             that goes nowhere. Founder-led and senior-only since {SITE.founded}.
           </>
         }
-        actions={[{ label: `email ${SITE.email}`, href: `mailto:${SITE.email}` }]}
+        actions={[{ label: `Email ${SITE.email}`, href: `mailto:${SITE.email}` }]}
         stats={[
           { n: "< 1 day", label: "typical reply time" },
           { n: "30 min", label: "discovery call" },
@@ -116,7 +116,7 @@ export default function ContactPage() {
               <a className="way notch" href={`mailto:${SITE.email}`}>
                 <span className="way__ico"><Mail aria-hidden /></span>
                 <span className="way__b">
-                  <span className="way__t">email us directly</span>
+                  <span className="way__t">Email us directly</span>
                   <span className="way__d">{SITE.email}</span>
                 </span>
                 <ArrowUpRight className="way__arrow" aria-hidden />
@@ -132,7 +132,7 @@ export default function ContactPage() {
                   </svg>
                 </span>
                 <span className="way__b">
-                  <span className="way__t">book a discovery call</span>
+                  <span className="way__t">Book a discovery call</span>
                   <span className="way__d">Thirty minutes, with the engineer who would run it</span>
                 </span>
                 <ArrowUpRight className="way__arrow" aria-hidden />
@@ -144,7 +144,7 @@ export default function ContactPage() {
                   </svg>
                 </span>
                 <span className="way__b">
-                  <span className="way__t">see the work first</span>
+                  <span className="way__t">See the work first</span>
                   <span className="way__d">Fifteen engagements, with the numbers attached</span>
                 </span>
                 <ArrowUpRight className="way__arrow" aria-hidden />
@@ -213,7 +213,7 @@ export default function ContactPage() {
             <p>We reply within one working day, from the engineer who would run your project.</p>
           </div>
           <a className="cta__btn notch" href={`mailto:${SITE.email}`}>
-            email {SITE.email}
+            Email {SITE.email}
           </a>
         </div>
       </section>

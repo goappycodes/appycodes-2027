@@ -81,7 +81,7 @@ export default function ServicesIndex() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "services" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Services" }]}
         eyebrow="what we do"
         title={
           <>
@@ -90,8 +90,8 @@ export default function ServicesIndex() {
         }
         lede={`Not a menu to pick from — the ${SERVICES_DATA.length} areas we have shipped repeatedly for a decade. If your problem sits outside them, we will say so on the first call.`}
         actions={[
-          { label: "start a project", href: "/contact/" },
-          { label: "see the work", href: "/case-studies/", variant: "out" },
+          { label: "Start a project", href: "/contact/" },
+          { label: "See the work", href: "/case-studies/", variant: "out" },
         ]}
         media={{ src: "/images/service-saas-web.jpg", alt: "A product platform under construction" }}
         stats={[
@@ -223,7 +223,7 @@ export default function ServicesIndex() {
             <p>Describe the problem in three sentences. We will tell you which practice it is — or that it is not us.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

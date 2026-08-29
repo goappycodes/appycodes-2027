@@ -29,7 +29,7 @@ export default function ClientsPage() {
       />
 
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "clients" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Clients" }]}
         eyebrow="clients"
         title={
           <>
@@ -38,8 +38,8 @@ export default function ClientsPage() {
         }
         lede={`Founders, product teams and operators who trusted us with the thing their business runs on — ${TOTALS.clients} of them since ${TOTALS.firstYear}, from first-time founders to companies you have heard of.`}
         actions={[
-          { label: "start a project", href: "/contact/" },
-          { label: "read what they say", href: "/testimonials/", variant: "out" },
+          { label: "Start a project", href: "/contact/" },
+          { label: "Read what they say", href: "/testimonials/", variant: "out" },
         ]}
         media={{
           src: "/images/team-discussion.jpg",
@@ -71,7 +71,7 @@ export default function ClientsPage() {
           </div>
           <div className="sec__more" style={{ marginTop: "2rem" }}>
             <Link className="btn btn--out notch" href="/atlas/">
-              explore the atlas <ArrowRight aria-hidden />
+              Explore the atlas <ArrowRight aria-hidden />
             </Link>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function ClientsPage() {
       <section className="wrap" style={{ marginTop: "-1.5rem" }}>
         <div className="sec__more">
           <Link className="btn btn--grad notch" href="/testimonials/">
-            read all {CLUTCH_STATS.count} testimonials <ArrowUpRight aria-hidden />
+            Read all {CLUTCH_STATS.count} testimonials <ArrowUpRight aria-hidden />
           </Link>
         </div>
       </section>
@@ -107,7 +107,7 @@ export default function ClientsPage() {
             <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

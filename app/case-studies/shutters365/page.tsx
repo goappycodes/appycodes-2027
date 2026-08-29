@@ -27,7 +27,7 @@ const data: CaseStudyData = {
     { label: "Owned", value: "Configurator, samples flow, guides, order ops" },
     { label: "Proof", value: "Factory-direct · 5-year guarantee" },
   ],
-  links: [{ label: "shutters365.co.uk", href: "https://shutters365.co.uk/" }],
+  links: [{ label: "Shutters365.co.uk", href: "https://shutters365.co.uk/" }],
   tech: ["wordpress", "php", "stripe"],
   stats: [
     { n: "7-step", label: "configurator, live per-window price" },

@@ -27,7 +27,7 @@ const data: CaseStudyData = {
     { label: "Owned", value: "Plan configurator, lead flow, landing pages, CRM sync" },
     { label: "Proof", value: "Trustpilot — rated Excellent" },
   ],
-  links: [{ label: "plusheat.co.uk", href: "https://www.plusheat.co.uk/" }],
+  links: [{ label: "Plusheat.co.uk", href: "https://www.plusheat.co.uk/" }],
   stats: [
     { n: "5 yrs", label: "web partner since 2021" },
     { n: "3-axis", label: "plan configurator, live pricing" },

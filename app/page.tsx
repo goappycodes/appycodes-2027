@@ -28,7 +28,7 @@ const OUTCOMES = [
     href: "/case-studies/easyship/",
     img: "/images/easyship-featured.png",
     meta: "Easyship · global shipping platform",
-    head: <>the embedded team behind <span className="name">Easyship</span>’s site and <span className="caps">CMS</span>.</>,
+    head: <>The embedded team behind <span className="name">Easyship</span>’s site and <span className="caps">CMS</span>.</>,
     body: "Inside Easyship’s own Nuxt/Vue codebase — the shipping-rate and tax & duty calculators, server-rendered courier pages, a MongoDB CMS and the reliability work behind it, on Google Cloud.",
     fig: "550+",
     figlabel: "couriers on the calculator",
@@ -46,7 +46,7 @@ const OUTCOMES = [
     href: "/case-studies/leonia/",
     img: "/images/leonia-featured.png",
     meta: "Léonia Paris · clean-beauty e-commerce",
-    head: <>the custom <span className="caps">Shopify</span> build behind <span className="name">Léonia Paris</span>.</>,
+    head: <>The custom <span className="caps">Shopify</span> build behind <span className="name">Léonia Paris</span>.</>,
     body: "A certified-organic French beauty brand on Shopify — a bespoke theme plus the features Shopify can’t do natively: a real account dashboard, loyalty and referral, gift-with-purchase, and a performance pass.",
     fig: "5 yrs",
     figlabel: "partners since 2021",
@@ -55,7 +55,7 @@ const OUTCOMES = [
     href: "/case-studies/plusheat/",
     img: "/images/plusheat-featured.png",
     meta: "PlusHeat · UK boiler & home cover",
-    head: <>the cover-plan engine behind <span className="name">PlusHeat</span>.</>,
+    head: <>The cover-plan engine behind <span className="name">PlusHeat</span>.</>,
     body: "The conversion engine for a UK boiler-cover brand — a custom plan configurator, a postcode-lookup lead flow, CRM sync and campaign landing pages, built to turn a browse into a qualified lead.",
     fig: "5 yrs",
     figlabel: "web partner since 2021",
@@ -64,7 +64,7 @@ const OUTCOMES = [
     href: "/case-studies/shutters365/",
     img: "/images/shutters-featured.png",
     meta: "Shutters 365 · made-to-measure shutters",
-    head: <>the made-to-measure configurator behind <span className="name">Shutters 365</span>.</>,
+    head: <>The made-to-measure configurator behind <span className="name">Shutters 365</span>.</>,
     body: "A factory-direct made-to-measure shutters store — a seven-step online configurator with a live preview and a live per-window price, a free-samples flow, and the order and supplier tooling behind the factory.",
     fig: "7-step",
     figlabel: "configurator, live pricing",
@@ -82,7 +82,7 @@ const OUTCOMES = [
     href: "/case-studies/bloc-ads-manager/",
     img: "/images/blocads-featured.png",
     meta: "Bloc Ads Manager · ad-tech",
-    head: <>a self-serve ad platform for <span className="name">Bloc</span>, built from the ground up.</>,
+    head: <>A self-serve ad platform for <span className="name">Bloc</span>, built from the ground up.</>,
     body: "Bloc for Business — a Meta-style ad platform with PostGIS audience estimation, Python interest targeting, in-app ad serving and check-in attribution.",
     fig: "check-ins",
     figlabel: "closed-loop attribution",
@@ -127,7 +127,7 @@ const OUTCOMES = [
     href: "/case-studies/deepspatial/",
     img: "/images/deepspatial-featured.png",
     meta: "DeepSpatial · geospatial AI",
-    head: <>the web presence behind <span className="name">DeepSpatial</span>, a listed geospatial <span className="caps">AI</span> company.</>,
+    head: <>The web presence behind <span className="name">DeepSpatial</span>, a listed geospatial <span className="caps">AI</span> company.</>,
     body: "The corporate site, investor pages and Xploor talent platform for a publicly-traded geospatial AI company — a React front end on AWS Amplify.",
     fig: "2 yrs",
     figlabel: "one team, ongoing",
@@ -136,7 +136,7 @@ const OUTCOMES = [
     href: "/case-studies/yippee-malta/",
     img: "/images/yippee-6.png",
     meta: "Yippee Malta · travel",
-    head: <>the mobile-first rebuild that won <span className="name">Yippee Malta</span> their own checkout.</>,
+    head: <>The mobile-first rebuild that won <span className="name">Yippee Malta</span> their own checkout.</>,
     body: "Malta’s leading tour operator rebuilt on a mobile-first design system, with a custom checkout against their proprietary booking API.",
     fig: "90+",
     figlabel: "core web vitals, both sides",
@@ -145,7 +145,7 @@ const OUTCOMES = [
     href: "/case-studies/professional-energy/",
     img: "/images/pes-6.png",
     meta: "Professional Energy · energy brokerage",
-    head: <>one platform for <span className="name">Professional Energy</span>’s tenders, contracts and accounts.</>,
+    head: <>One platform for <span className="name">Professional Energy</span>’s tenders, contracts and accounts.</>,
     body: "A tailor-made ERP for a UK energy broker — supplier tenders, contract lifecycle, brokerage accounting and client relationships, all in one place.",
     fig: "100+",
     figlabel: "suppliers in one tender",
@@ -163,10 +163,10 @@ const COUNT_WORD: Record<number, string> = {
 };
 
 const PROCESS = [
-  { n: "01", h: "scope & cost", body: "A fixed written scope with the risky parts named up front. If we think the budget is wrong, we say so before you commit." },
-  { n: "02", h: "architecture", body: "Data model, integrations and failure modes decided on paper first. This is where most projects are quietly lost." },
-  { n: "03", h: "build in the open", body: "Your repo, your infrastructure, weekly demos on a real environment. No black box, no big reveal at the end." },
-  { n: "04", h: "handover or stay", body: "Documented handover to your team, or we keep running it. Both are real options — the first is not a punishment." },
+  { n: "01", h: "Scope & cost", body: "A fixed written scope with the risky parts named up front. If we think the budget is wrong, we say so before you commit." },
+  { n: "02", h: "Architecture", body: "Data model, integrations and failure modes decided on paper first. This is where most projects are quietly lost." },
+  { n: "03", h: "Build in the open", body: "Your repo, your infrastructure, weekly demos on a real environment. No black box, no big reveal at the end." },
+  { n: "04", h: "Handover or stay", body: "Documented handover to your team, or we keep running it. Both are real options — the first is not a punishment." },
 ];
 
 /* Four featured studies, pulled from the real article set so the card imagery,
@@ -198,7 +198,7 @@ export default function HomePage() {
       <section className="wrap hero hero--dark">
         <HeroParticles />
         <h1 className="h-xl">
-          we build the software businesses <span className="g-disp">actually run on</span>
+          We build the software businesses <span className="g-disp">actually run on</span>
         </h1>
         <p className="lede">
           Web platforms, mobile apps and AI systems for companies that have outgrown off-the-shelf.
@@ -206,8 +206,8 @@ export default function HomePage() {
           keep it running.
         </p>
         <div className="hero__btns">
-          <a className="btn btn--grad notch" href="#work">see what we&apos;ve helped build</a>
-          <Link className="btn btn--out notch" href="/contact/">start a project</Link>
+          <a className="btn btn--grad notch" href="#work">See what we&apos;ve helped build</a>
+          <Link className="btn btn--out notch" href="/contact/">Start a project</Link>
         </div>
         <div className="hero__awards">
           <span className="hero__awards-lbl">Recognised by</span>
@@ -226,7 +226,7 @@ export default function HomePage() {
       {/* OUTCOMES — featured case studies, 2 per row */}
       <section className="wrap sec" id="work">
         <div className="sec__head reveal">
-          <h2 className="h-l">we measure the work by what happened next</h2>
+          <h2 className="h-l">We measure the work by what happened next</h2>
           <p className="lede">Not a menu of services — a short list of companies, and the change we helped them make.</p>
         </div>
         <div className="reveal">
@@ -306,7 +306,7 @@ export default function HomePage() {
       {/* SERVICES */}
       <section className="wrap sec" id="services">
         <div className="sec__head reveal">
-          <h2 className="h-l">outcomes like those need {COUNT_WORD[SERVICES_DATA.length] ?? SERVICES_DATA.length} things done well</h2>
+          <h2 className="h-l">Outcomes like those need {COUNT_WORD[SERVICES_DATA.length] ?? SERVICES_DATA.length} things done well</h2>
           <p className="lede">Not a menu to pick from — the areas we have shipped repeatedly for a decade. If your problem sits outside them, we will say so.</p>
         </div>
         <div className="svc reveal">
@@ -324,7 +324,7 @@ export default function HomePage() {
       <section className="wrap sec" id="reviews">
         <div className="sec__head reveal">
           <p className="eyebrow">reviews · verified on clutch</p>
-          <h2 className="h-l">the people who signed off the work</h2>
+          <h2 className="h-l">The people who signed off the work</h2>
           <p className="lede">
             {CLUTCH_STATS.count} verified reviews on Clutch, every one rated {CLUTCH_STATS.rating}
             /5.0. Each card opens the original.
@@ -365,7 +365,7 @@ export default function HomePage() {
         </div>
         <div className="reveal" style={{ marginTop: "2rem" }}>
           <Link href="/testimonials/" className="btn btn--out notch">
-            read all {CLUTCH_STATS.count} reviews
+            Read all {CLUTCH_STATS.count} reviews
           </Link>
         </div>
       </section>
@@ -373,7 +373,7 @@ export default function HomePage() {
       {/* PROCESS */}
       <section className="slab dotted" id="how">
         <div className="wrap slab__in reveal">
-          <h2 className="h-l" style={{ maxWidth: "21ch" }}>no discovery theatre. four steps, and you own everything at each one</h2>
+          <h2 className="h-l" style={{ maxWidth: "21ch" }}>No discovery theatre. Four steps, and you own everything at each one</h2>
           <div className="proc">
             {PROCESS.map((p) => (
               <div key={p.n} className="proc__i notch">
@@ -394,9 +394,9 @@ export default function HomePage() {
               <img src="/images/ritesh.jpg" alt="Ritesh, founder and lead architect" loading="lazy" />
             </div>
             <div className="founder-cta__body">
-              <h2 className="h-l">book a discovery call with lead architect <span className="name">Ritesh</span></h2>
+              <h2 className="h-l">Book a discovery call with lead architect <span className="name">Ritesh</span></h2>
               <p className="founder-cta__t">You work with the founders. Ritesh and Swati have run every engagement on this page. The people who scope your project are the people who build it.</p>
-              <Link className="btn btn--grad notch" href="/contact/">book a discovery call</Link>
+              <Link className="btn btn--grad notch" href="/contact/">Book a discovery call</Link>
             </div>
           </div>
         </div>
@@ -405,7 +405,7 @@ export default function HomePage() {
       {/* WRITING */}
       <section className="wrap sec" id="writing">
         <div className="sec__head reveal">
-          <h2 className="h-l">we publish the numbers, not the opinions</h2>
+          <h2 className="h-l">We publish the numbers, not the opinions</h2>
           <p className="lede">
             Cost studies and benchmarks from real engagements — the data behind the decisions we help
             founders make, with the working shown.
@@ -425,7 +425,7 @@ export default function HomePage() {
                   <p className="wcard__d">{p.description}</p>
                   <div className="wcard__foot">
                     <span>{p.readTime}</span>
-                    <span className="wcard__read">read &rarr;</span>
+                    <span className="wcard__read">Read &rarr;</span>
                   </div>
                 </div>
               </Link>
@@ -433,7 +433,7 @@ export default function HomePage() {
           </Rail>
         </div>
         <div className="sec__more reveal">
-          <Link className="btn btn--out notch" href="/blog/">read all writing</Link>
+          <Link className="btn btn--out notch" href="/blog/">Read all writing</Link>
         </div>
       </section>
 
@@ -447,10 +447,10 @@ export default function HomePage() {
         </svg>
         <div className="wrap cta__in reveal">
           <div className="cta__t">
-            <h2 className="h-l">tell us what you are trying to build</h2>
+            <h2 className="h-l">Tell us what you are trying to build</h2>
             <p>A thirty-minute call with the engineer who would run it — not a salesperson, and not a form that goes nowhere.</p>
           </div>
-          <Link className="cta__btn notch" href="/contact/">book a call</Link>
+          <Link className="cta__btn notch" href="/contact/">Book a call</Link>
         </div>
       </section>
     </div>

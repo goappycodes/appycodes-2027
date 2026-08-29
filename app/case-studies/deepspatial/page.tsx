@@ -28,8 +28,8 @@ const data: CaseStudyData = {
     { label: "Owned", value: "Corporate site, Xploor platform, IR pages" },
   ],
   links: [
-    { label: "deepspatial.ai", href: "https://www.deepspatial.ai/" },
-    { label: "investors", href: "https://www.deepspatial.ai/investors" },
+    { label: "Deepspatial.ai", href: "https://www.deepspatial.ai/" },
+    { label: "Investors", href: "https://www.deepspatial.ai/investors" },
   ],
   stats: [
     { n: "2 yrs", label: "one team, ongoing" },

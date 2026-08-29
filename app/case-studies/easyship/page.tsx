@@ -28,7 +28,7 @@ const data: CaseStudyData = {
     { label: "Team", value: "Cross-geographic — India ↔ Hong Kong & US" },
     { label: "Owned", value: "Calculators, courier pages, CMS, SEO, reliability" },
   ],
-  links: [{ label: "easyship.com", href: "https://www.easyship.com/" }],
+  links: [{ label: "Easyship.com", href: "https://www.easyship.com/" }],
   stats: [
     { n: "550+", label: "couriers on the rate calculator" },
     { n: "220+", label: "destinations quoted" },

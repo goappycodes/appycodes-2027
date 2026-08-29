@@ -24,7 +24,7 @@ export function UkLandingPage({ config }: { config: UkLandingConfig }) {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: pageLabel }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: pageLabel }]}
         eyebrow={config.adKeyword}
         title={config.h1}
         titleSize="md"
@@ -69,7 +69,7 @@ export function UkLandingPage({ config }: { config: UkLandingConfig }) {
       <section className="wrap sec">
         <div className="sec__head">
           <p className="eyebrow">scope</p>
-          <h2 className="h-l">{config.buildHeading.toLowerCase()}.</h2>
+          <h2 className="h-l">{config.buildHeading}.</h2>
         </div>
         <div className="svc">
           {config.build.map((b, i) => (
@@ -210,7 +210,7 @@ export function UkLandingPage({ config }: { config: UkLandingConfig }) {
             <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            get a free quote
+            Get a free quote
           </Link>
         </div>
       </section>

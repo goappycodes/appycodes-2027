@@ -114,8 +114,8 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             <h1 className="h-l">{data.title}</h1>
             <p className="lede">{data.lede}</p>
             <div className="hero__btns">
-              <Link className="btn btn--grad notch" href="/contact/">start a project like this</Link>
-              <Link className="btn btn--out notch" href="/case-studies/">all work</Link>
+              <Link className="btn btn--grad notch" href="/contact/">Start a project like this</Link>
+              <Link className="btn btn--out notch" href="/case-studies/">All work</Link>
             </div>
             {data.tech ? <TechStack tech={data.tech} /> : null}
           </div>
@@ -228,7 +228,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
           </Rail>
           <div className="sec__more">
             <Link className="btn btn--out notch" href="/case-studies/">
-              all case studies
+              All case studies
             </Link>
           </div>
         </section>
@@ -247,7 +247,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             <h2 className="h-l">{data.cta}</h2>
             <p>A thirty-minute call with the engineer who would run it.</p>
           </div>
-          <Link className="cta__btn notch" href="/contact/">book a call</Link>
+          <Link className="cta__btn notch" href="/contact/">Book a call</Link>
         </div>
       </section>
     </>

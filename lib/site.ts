@@ -9,12 +9,12 @@ export const SITE = {
 } as const;
 
 export const NAV = [
-  { label: "work", href: "/case-studies/" },
-  { label: "clients", href: "/clients/" },
-  { label: "services", href: "/services/" },
-  { label: "sectors", href: "/sectors/" },
-  { label: "writing", href: "/blog/" },
-  { label: "about", href: "/about/" },
+  { label: "Work", href: "/case-studies/" },
+  { label: "Clients", href: "/clients/" },
+  { label: "Services", href: "/services/" },
+  { label: "Sectors", href: "/sectors/" },
+  { label: "Writing", href: "/blog/" },
+  { label: "About", href: "/about/" },
 ] as const;
 
 // Recognition badges (real, from the existing site). Icon-only marks keep a

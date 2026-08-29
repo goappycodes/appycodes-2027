@@ -205,7 +205,7 @@ export default function SoftwareProjectEstimatorPage() {
             <p>A thirty-minute scoping call with the engineer who would run the build.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

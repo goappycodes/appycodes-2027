@@ -27,8 +27,8 @@ const data: CaseStudyData = {
     { label: "Owned", value: "Storefront, API, admin, AWS infra" },
   ],
   links: [
-    { label: "decofetch.com", href: "https://www.decofetch.com/" },
-    { label: "trade programme", href: "https://www.decofetch.com/trade" },
+    { label: "Decofetch.com", href: "https://www.decofetch.com/" },
+    { label: "Trade programme", href: "https://www.decofetch.com/trade" },
   ],
   stats: [
     { n: "0→live", label: "designed and built from scratch" },

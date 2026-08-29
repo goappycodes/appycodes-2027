@@ -271,7 +271,7 @@ export function WorldMapPreview() {
             </div>
           </dl>
           <Link className="btn btn--out notch" href="/atlas/">
-            explore the atlas <ArrowRight aria-hidden />
+            Explore the atlas <ArrowRight aria-hidden />
           </Link>
         </div>
       </div>

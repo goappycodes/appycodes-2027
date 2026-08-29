@@ -28,7 +28,7 @@ const data: CaseStudyData = {
     { label: "Live", value: "iOS & Android, in production" },
   ],
   links: [
-    { label: "getonbloc.com", href: "https://getonbloc.com/" },
+    { label: "Getonbloc.com", href: "https://getonbloc.com/" },
     { label: "App Store", href: "https://apps.apple.com/gb/app/bloc-social-events-rewards/id870870144" },
     { label: "Google Play", href: "https://play.google.com/store/apps/details?id=uk.co.createanet.bloc" },
   ],

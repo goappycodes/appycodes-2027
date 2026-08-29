@@ -83,7 +83,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "about" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
         eyebrow="the studio"
         title={
           <>
@@ -92,8 +92,8 @@ export default function AboutPage() {
         }
         lede={`What began in ${SITE.founded} with one engineer and a laptop is now a senior team supporting companies across India, the UK and the US — and we still own the codebases we shipped in year one.`}
         actions={[
-          { label: "book a discovery call", href: "/contact/" },
-          { label: "see the work", href: "/case-studies/", variant: "out" },
+          { label: "Book a discovery call", href: "/contact/" },
+          { label: "See the work", href: "/case-studies/", variant: "out" },
         ]}
         media={{
           src: "/images/team-discussion.jpg",
@@ -207,7 +207,7 @@ export default function AboutPage() {
             <p>A thirty-minute call with the engineer who would run it.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

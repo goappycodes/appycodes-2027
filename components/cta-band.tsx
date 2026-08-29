@@ -9,8 +9,8 @@ import { FeaturedWork, LogoWall } from "@/components/sections";
  */
 export function CtaBand({
   eyebrow,
-  title = "tell us what you are trying to build.",
-  primaryLabel = "book a call",
+  title = "Tell us what you are trying to build.",
+  primaryLabel = "Book a call",
   proof = true,
 }: {
   eyebrow?: string;
@@ -25,7 +25,7 @@ export function CtaBand({
         <>
           <LogoWall label="The engagements this writing comes from" />
           <FeaturedWork
-            title="where these numbers came from"
+            title="Where these numbers came from"
             lede="Production systems, not thought experiments — each with the figures attached."
           />
         </>
@@ -38,11 +38,11 @@ export function CtaBand({
         </svg>
         <div className="wrap cta__in">
           <div className="cta__t">
-            <h2 className="h-l">{title.toLowerCase()}</h2>
+            <h2 className="h-l">{title}</h2>
             <p>{eyebrow ?? "A thirty-minute call with the engineer who would run it."}</p>
           </div>
           <Link className="cta__btn notch" href={SITE.contactHref}>
-            {primaryLabel.toLowerCase()}
+            {primaryLabel}
           </Link>
         </div>
       </section>

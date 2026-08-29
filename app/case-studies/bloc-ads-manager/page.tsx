@@ -27,8 +27,8 @@ const data: CaseStudyData = {
     { label: "Owned", value: "Campaign builder, targeting, billing, ad serving" },
   ],
   links: [
-    { label: "business.getonbloc.com", href: "https://business.getonbloc.com/" },
-    { label: "getonbloc.com", href: "https://getonbloc.com/" },
+    { label: "Business.getonbloc.com", href: "https://business.getonbloc.com/" },
+    { label: "Getonbloc.com", href: "https://getonbloc.com/" },
   ],
   stats: [
     { n: "0→live", label: "built from scratch, live 2026" },

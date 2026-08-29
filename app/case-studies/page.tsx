@@ -121,7 +121,7 @@ export default function CaseStudiesIndex() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "work" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Work" }]}
         eyebrow="selected work"
         title={
           <>
@@ -130,8 +130,8 @@ export default function CaseStudiesIndex() {
         }
         lede="Not a menu of services — a short list of companies, what we built with them, and the change it made. Every number below comes from a live production system."
         actions={[
-          { label: "start a project", href: "/contact/" },
-          { label: "see the services", href: "/services/", variant: "out" },
+          { label: "Start a project", href: "/contact/" },
+          { label: "See the services", href: "/services/", variant: "out" },
         ]}
         stats={[
           { n: "£2M+", label: "processed via Ontick" },
@@ -188,7 +188,7 @@ export default function CaseStudiesIndex() {
                   ) : null}
 
                   <Link className="btn btn--out notch crow__cta" href={c.href}>
-                    read the case study <ChevronRight aria-hidden />
+                    Read the case study <ChevronRight aria-hidden />
                   </Link>
                 </div>
               </article>
@@ -256,7 +256,7 @@ export default function CaseStudiesIndex() {
             <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

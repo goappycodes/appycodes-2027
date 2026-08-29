@@ -37,7 +37,7 @@ export default function SectorsIndex() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "sectors" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Sectors" }]}
         eyebrow="where we have done it before"
         title={
           <>
@@ -46,8 +46,8 @@ export default function SectorsIndex() {
         }
         lede={`${TOTALS.projects} projects for ${TOTALS.clients} clients since ${TOTALS.firstYear} cluster into a handful of sectors we know properly — including the domain rules that only surface when somebody who knows the field reads the data model.`}
         actions={[
-          { label: "start a project", href: "/contact/" },
-          { label: "see the whole register", href: "/atlas/", variant: "out" },
+          { label: "Start a project", href: "/contact/" },
+          { label: "See the whole register", href: "/atlas/", variant: "out" },
         ]}
         stats={[
           { n: String(SECTORS_DATA.length), label: "sectors written up" },
@@ -100,7 +100,7 @@ export default function SectorsIndex() {
             <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

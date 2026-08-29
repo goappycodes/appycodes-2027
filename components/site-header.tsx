@@ -257,7 +257,7 @@ export function SiteHeader() {
             className="btn btn--ink btn--sm nav__cta notch notch-sm"
             href="/contact/"
           >
-            start a project
+            Start a project
           </Link>
 
           {/* ---------- mobile toggle ---------- */}
@@ -375,7 +375,7 @@ export function SiteHeader() {
               Working with UK &amp; EU businesses
             </span>
             <Link className="btn btn--grad notch drawer__cta" href="/contact/">
-              start a project
+              Start a project
             </Link>
             <a className="drawer__mail" href={`mailto:${SITE.email}`}>
               <Mail aria-hidden /> {SITE.email}

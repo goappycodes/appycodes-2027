@@ -81,7 +81,7 @@ export default function YearFourPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "year four" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Year four" }]}
         eyebrow="the retention record"
         title={
           <>
@@ -90,8 +90,8 @@ export default function YearFourPage() {
         }
         lede={`We are optimised to still be running your platform in year four rather than to win the pitch, and that single decision explains most of how we work. This page is the evidence rather than the principle — relationships from the register that are still producing work today.`}
         actions={[
-          { label: "book a discovery call", href: "/contact/" },
-          { label: "see the register", href: "/atlas/", variant: "out" },
+          { label: "Book a discovery call", href: "/contact/" },
+          { label: "See the register", href: "/atlas/", variant: "out" },
         ]}
         media={{ src: "/images/team-discussion.jpg", alt: "The Appycodes team working through a problem" }}
         stats={[
@@ -215,7 +215,7 @@ export default function YearFourPage() {
             <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

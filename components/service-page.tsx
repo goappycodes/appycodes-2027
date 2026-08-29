@@ -35,8 +35,8 @@ export function ServicePage({ s }: { s: ServiceData }) {
       />
       <PageHero
         crumbs={[
-          { label: "home", href: "/" },
-          { label: "services", href: "/services/" },
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services/" },
           { label: s.title },
         ]}
         eyebrow="practice"
@@ -47,8 +47,8 @@ export function ServicePage({ s }: { s: ServiceData }) {
         }
         lede={<ServiceTitle label={s.headline} />}
         actions={[
-          { label: "start a project", href: "/contact/" },
-          { label: "all services", href: "/services/", variant: "out" },
+          { label: "Start a project", href: "/contact/" },
+          { label: "All services", href: "/services/", variant: "out" },
         ]}
         media={{ src: media.img, alt: media.alt }}
         stats={[
@@ -96,11 +96,11 @@ export function ServicePage({ s }: { s: ServiceData }) {
               <h2 className="h-l" style={{ color: "#fff" }}>
                 {proof.kind === "frame" ? (
                   <>
-                    what it looks like when it&apos;s <span className="g-dark">running</span>
+                    What it looks like when it&apos;s <span className="g-dark">running</span>
                   </>
                 ) : (
                   <>
-                    what it looks like when it&apos;s <span className="g-dark">done properly</span>
+                    What it looks like when it&apos;s <span className="g-dark">done properly</span>
                   </>
                 )}
               </h2>
@@ -116,12 +116,12 @@ export function ServicePage({ s }: { s: ServiceData }) {
                     ))}
                   </dl>
                   <Link className="btn btn--out notch showcase__cta" href={proof.href}>
-                    read the {proof.client} case study
+                    Read the {proof.client} case study
                   </Link>
                 </>
               ) : (
                 <Link className="btn btn--out notch showcase__cta" href="/case-studies/">
-                  see the work
+                  See the work
                 </Link>
               )}
             </div>
@@ -159,7 +159,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
         <section className="wrap sec">
           <div className="sec__head">
             <p className="eyebrow">where we have done this</p>
-            <h2 className="h-l">three we have already shipped.</h2>
+            <h2 className="h-l">Three we have already shipped.</h2>
             <p className="lede">
               Drawn from the project register. Where a client is not named it is because the work was
               delivered under a partner&rsquo;s name — the detail is still ours, and we will walk you
@@ -219,7 +219,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
               <div key={b.title} className="proc__i notch">
                 <span className="proc__n g-dark">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="h-s">
-                  <ServiceTitle label={b.title} lower />
+                  <ServiceTitle label={b.title} />
                 </h3>
                 <p>{b.description}</p>
               </div>
@@ -229,7 +229,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
       </section>
 
       <FeaturedWork
-        title="the same practice, shipped for other people"
+        title="The same practice, shipped for other people"
         lede="Production systems, with the numbers attached."
         only={PILLAR_CASES[s.slug]}
       />
@@ -250,7 +250,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
               someone else entirely.
             </p>
             <Link className="btn btn--grad notch" href="/contact/" style={{ marginTop: "1.75rem" }}>
-              talk it through
+              Talk it through
             </Link>
           </div>
           <div className="split__side">
@@ -274,7 +274,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
         <section className="wrap sec">
           <div className="sec__head">
             <p className="eyebrow">the specifics</p>
-            <h2 className="h-l">everything we build in this practice.</h2>
+            <h2 className="h-l">Everything we build in this practice.</h2>
             <p className="lede">
               The {subs.length} services under <ServiceTitle label={s.title} />, each with its own page
               — the exact work, what is included, and what it costs you to get it wrong.
@@ -291,15 +291,15 @@ export function ServicePage({ s }: { s: ServiceData }) {
         </section>
       ) : null}
 
-      <Testimonials limit={4} />
+      <Testimonials limit={4} title="The people who signed off the work" />
 
       <WritingCards
         slugs={PILLAR_POSTS[s.slug]}
-        title="the numbers behind this practice"
+        title="The numbers behind this practice"
         lede="Studies and benchmarks drawn from engagements exactly like this one."
       />
 
-      <Faq items={s.faqs} title="questions, answered" />
+      <Faq items={s.faqs} title="Questions, answered" />
 
       <section className="cta">
         <svg className="art cta-art" viewBox="0 0 400 400" fill="none" aria-hidden="true">
@@ -314,7 +314,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
             <p>{s.finalDescription}</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

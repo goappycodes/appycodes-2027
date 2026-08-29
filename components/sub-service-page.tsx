@@ -44,8 +44,8 @@ export function SubServicePage({ s }: { s: SubServiceData }) {
       />
       <PageHero
         crumbs={[
-          { label: "home", href: "/" },
-          { label: "services", href: "/services/" },
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services/" },
           ...(pillar ? [{ label: pillar.title, href: `/services/${pillar.slug}/` }] : []),
           { label: s.title },
         ]}
@@ -58,10 +58,10 @@ export function SubServicePage({ s }: { s: SubServiceData }) {
         titleSize={s.title.length > 26 ? "md" : "lg"}
         lede={<ServiceTitle label={s.headline} />}
         actions={[
-          { label: "start a project", href: "/contact/" },
+          { label: "Start a project", href: "/contact/" },
           pillar
             ? { label: `${pillar.title} overview`, href: `/services/${pillar.slug}/`, variant: "out" as const }
-            : { label: "all services", href: "/services/", variant: "out" as const },
+            : { label: "All services", href: "/services/", variant: "out" as const },
         ]}
         media={{ src: img, alt: s.title }}
         stats={[
@@ -228,7 +228,7 @@ export function SubServicePage({ s }: { s: SubServiceData }) {
             <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

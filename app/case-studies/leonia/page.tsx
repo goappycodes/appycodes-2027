@@ -28,7 +28,7 @@ const data: CaseStudyData = {
     { label: "Engagement", value: "Ongoing partnership since 2021" },
     { label: "Market", value: "France — French-first, Cosmébio / Vegan" },
   ],
-  links: [{ label: "leonia-cosmetiques.com", href: "https://leonia-cosmetiques.com/" }],
+  links: [{ label: "Leonia-cosmetiques.com", href: "https://leonia-cosmetiques.com/" }],
   stats: [
     { n: "5 yrs", label: "partnership, and counting" },
     { n: "Shopify", label: "a bespoke theme, front to back" },

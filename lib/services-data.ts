@@ -35,10 +35,10 @@ export const SERVICES_DATA: ServiceData[] = [
     title: "product platforms",
     summary:
       "Multi-tenant SaaS, marketplaces, ticketing and booking engines — the systems your business actually runs on, built to survive their own success.",
-    headline: "the multi-tenant systems your business runs on, built to survive their own success.",
+    headline: "The multi-tenant systems your business runs on, built to survive their own success.",
     description:
       "Multi-tenant SaaS, marketplaces, ticketing and booking engines — the operational core your business runs on, engineered to scale.",
-    whyTitle: "software that is the business, not a brochure for it",
+    whyTitle: "Software that is the business, not a brochure for it",
     whyDescription:
       "A product platform is the system your revenue passes through — accounts, roles, billing and the operator tools your team lives in all day. When it is slow, insecure or impossible to change, growth is what breaks it. We build the core so that success is not the thing that takes it down.",
     whyPoints: [
@@ -50,14 +50,14 @@ export const SERVICES_DATA: ServiceData[] = [
       "Usage-based and subscription billing",
     ],
     whyQuote: "The platform is the product. Everything else is a page about it.",
-    processTitle: "how we build a platform",
+    processTitle: "How we build a platform",
     processSteps: [
       { title: "Data model first", description: "The tenants, roles, money and edge cases decided on paper before code. This is where platforms are quietly won or lost." },
       { title: "Core and access", description: "Auth, permissions, billing and the operator surface — the parts every future feature will lean on for years." },
       { title: "Build in the open", description: "Your repo, your infrastructure, weekly demos on a real environment. No black box, no big reveal at the end." },
       { title: "Scale and harden", description: "Load paths, indexes, backups and monitoring set before the traffic arrives, not after it hurts." },
     ],
-    benefitsTitle: "what you get",
+    benefitsTitle: "What you get",
     benefits: [
       { title: "Multi-tenant architecture", description: "Isolated, secure tenants with sane defaults and no noisy-neighbour surprises." },
       { title: "Billing that reconciles", description: "Plans, tiers, usage metering and Stripe orchestration wired to your ledger, so the numbers always agree." },
@@ -67,7 +67,7 @@ export const SERVICES_DATA: ServiceData[] = [
       { title: "Room to grow", description: "Indexing, caching and queue design that hold up at the volume you are aiming for." },
     ],
     benefitsQuote: "Built so the day you succeed is not the day it falls over.",
-    whoTitle: "when this is the right call",
+    whoTitle: "When this is the right call",
     whoPoints: [
       "You are outgrowing spreadsheets, Airtable or a no-code tool",
       "Off-the-shelf SaaS cannot model how you actually work",
@@ -82,7 +82,7 @@ export const SERVICES_DATA: ServiceData[] = [
       { question: "How do you handle billing?", answer: "Stripe-orchestrated subscriptions, usage metering and instalments, reconciled against your own records so the figures match." },
       { question: "How long does a platform build take?", answer: "A focused MVP in 8 to 12 weeks; a full platform typically 12 to 20, depending on scope." },
     ],
-    finalTitle: "build the system your business runs on",
+    finalTitle: "Build the system your business runs on",
     finalDescription:
       "The core platform is the one thing worth getting right. Let's scope it properly, name the risky parts up front, and build something that holds up as you grow.",
     proofPoints: [

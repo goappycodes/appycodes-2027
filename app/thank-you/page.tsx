@@ -34,7 +34,7 @@ export default function ThankYouPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "thanks" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Thanks" }]}
         eyebrow="message received"
         title={
           <>
@@ -43,8 +43,8 @@ export default function ThankYouPage() {
         }
         lede="Usually within one working day, from the engineer who would run your project. In the meantime, here is what we have shipped for other people."
         actions={[
-          { label: "see the work", href: "/case-studies/" },
-          { label: "back home", href: "/", variant: "out" },
+          { label: "See the work", href: "/case-studies/" },
+          { label: "Back home", href: "/", variant: "out" },
         ]}
         aside={
           <div className="next-card notch notch-lg">
@@ -86,7 +86,7 @@ export default function ThankYouPage() {
             <p>Reply to the thread, or write to us directly — it reaches the same people.</p>
           </div>
           <a className="cta__btn notch" href={`mailto:${SITE.email}`}>
-            email {SITE.email}
+            Email {SITE.email}
           </a>
         </div>
       </section>

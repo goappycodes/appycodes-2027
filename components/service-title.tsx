@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 
-// Abbreviations that must stay uppercase inside the site's lowercase headline
-// system (headings use text-transform: lowercase; .caps forces uppercase back).
+// Abbreviations that must render uppercase, so "ai systems" reads "AI systems".
+// .caps forces uppercase regardless of the surrounding case treatment.
 const CAPS = new Set([
   "ai", "api", "seo", "saas", "ui", "ux", "ci", "cd", "cms",
   "rag", "crm", "b2b", "b2c", "ios", "sql", "url", "eas",
@@ -9,11 +9,10 @@ const CAPS = new Set([
 
 /**
  * Renders a label keeping known abbreviations uppercase, so "AI systems" reads
- * "AI systems" and "ai features" reads "AI features". Pass `lower` when the
- * surrounding element does NOT already lowercase via CSS (e.g. .h-s, .lede) and
- * you still want the lowercase house style — abbreviations stay uppercase.
+ * "AI systems" and "ai features" reads "AI features". Other tokens render as
+ * written; the first letter is capitalised by CSS where the label is a heading.
  */
-export function ServiceTitle({ label, lower = false }: { label: string; lower?: boolean }) {
+export function ServiceTitle({ label }: { label: string }) {
   const tokens = label.split(" ");
   return (
     <>
@@ -25,8 +24,6 @@ export function ServiceTitle({ label, lower = false }: { label: string; lower?: 
           <Fragment key={i}>
             {isCaps ? (
               <span className="caps">{tok}</span>
-            ) : lower ? (
-              tok.toLowerCase()
             ) : (
               tok
             )}

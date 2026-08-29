@@ -39,8 +39,8 @@ export function SectorPage({ s }: { s: SectorData }) {
 
       <PageHero
         crumbs={[
-          { label: "home", href: "/" },
-          { label: "sectors", href: "/sectors/" },
+          { label: "Home", href: "/" },
+          { label: "Sectors", href: "/sectors/" },
           { label: s.name },
         ]}
         eyebrow="sector"
@@ -48,8 +48,8 @@ export function SectorPage({ s }: { s: SectorData }) {
         title={<ServiceTitle label={s.headline} />}
         lede={s.summary}
         actions={[
-          { label: "start a project", href: "/contact/" },
-          { label: "see the register", href: "/atlas/", variant: "out" },
+          { label: "Start a project", href: "/contact/" },
+          { label: "See the register", href: "/atlas/", variant: "out" },
         ]}
         stats={s.stats}
       />
@@ -217,7 +217,7 @@ export function SectorPage({ s }: { s: SectorData }) {
             <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

@@ -27,7 +27,7 @@ const data: CaseStudyData = {
     { label: "Languages", value: "English + French, Italian, Spanish, Polish, German" },
     { label: "Result", value: "90+ Core Web Vitals" },
   ],
-  links: [{ label: "yippeemalta.com", href: "https://yippeemalta.com/" }],
+  links: [{ label: "Yippeemalta.com", href: "https://yippeemalta.com/" }],
   stats: [
     { n: "90+", label: "Core Web Vitals, both sides" },
     { n: "6", label: "languages, 254 strings" },

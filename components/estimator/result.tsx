@@ -315,7 +315,7 @@ export default function Result({ answers, currency, onCurrencyChange, onRestart 
         </div>
         <div className={styles.ctaBtns}>
           <Link href="/contact/" className="btn btn--grad notch">
-            book a scoping call
+            Book a scoping call
             <ArrowRight />
           </Link>
         </div>
@@ -324,11 +324,11 @@ export default function Result({ answers, currency, onCurrencyChange, onRestart 
       {/* Footer actions */}
       <div className={styles.footActions}>
         <button type="button" onClick={onRestart} className={styles.restart}>
-          start over
+          Start over
         </button>
         <span aria-hidden>·</span>
         <Link href="/contact/" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "4px" }}>
-          or talk to an engineer
+          Or talk to an engineer
         </Link>
       </div>
     </div>

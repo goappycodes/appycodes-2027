@@ -250,7 +250,7 @@ export const CASE_STUDIES = [
     name: "Professional Energy",
     head: (
       <>
-        one platform for <span className="name">Professional Energy</span>&rsquo;s tenders, contracts and
+        One platform for <span className="name">Professional Energy</span>&rsquo;s tenders, contracts and
         accounts.
       </>
     ),
@@ -317,7 +317,7 @@ export function FeaturedWork({
       {more ? (
         <div className="sec__more">
           <Link className="btn btn--out notch" href="/case-studies/">
-            all case studies
+            All case studies
           </Link>
         </div>
       ) : null}
@@ -482,7 +482,7 @@ export function WritingCards({
       {more ? (
         <div className="sec__more">
           <Link className="btn btn--out notch" href="/blog/">
-            read all writing
+            Read all writing
           </Link>
         </div>
       ) : null}
@@ -533,11 +533,11 @@ export function Faq({
 export function FoundersBand({
   title = (
     <>
-      book a discovery call with lead architect <span className="name">Ritesh</span>
+      Book a discovery call with lead architect <span className="name">Ritesh</span>
     </>
   ),
   body = "You work with the founders. Ritesh and Swati have run every engagement on this site. The people who scope your project are the people who build it.",
-  cta = "book a discovery call",
+  cta = "Book a discovery call",
 }: {
   title?: ReactNode;
   body?: string;

@@ -28,7 +28,7 @@ const data: CaseStudyData = {
     { label: "Live", value: "Customer app on the App Store; Android in review" },
   ],
   links: [
-    { label: "ontick.co.uk", href: "https://ontick.co.uk/" },
+    { label: "Ontick.co.uk", href: "https://ontick.co.uk/" },
     { label: "Ontick on the App Store", href: "https://apps.apple.com/us/app/ontick/id6782900037" },
   ],
   stats: [

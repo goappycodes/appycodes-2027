@@ -28,8 +28,8 @@ const data: CaseStudyData = {
     { label: "Owned", value: "Storefront, commerce engine, data pipelines, infra" },
   ],
   links: [
-    { label: "creoate.com", href: "https://www.creoate.com/" },
-    { label: "about creoate", href: "https://www.creoate.com/about" },
+    { label: "Creoate.com", href: "https://www.creoate.com/" },
+    { label: "About creoate", href: "https://www.creoate.com/about" },
   ],
   stats: [
     { n: "8+ yrs", label: "one team, still shipping" },

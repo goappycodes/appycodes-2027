@@ -40,7 +40,7 @@ export default function BlogIndex() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "writing" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Writing" }]}
         eyebrow="writing"
         title={
           <>
@@ -48,7 +48,7 @@ export default function BlogIndex() {
           </>
         }
         lede="Cost studies, research and benchmarks from real engagements — the data behind the decisions we help founders make, with the working shown."
-        actions={[{ label: "start a project", href: "/contact/" }]}
+        actions={[{ label: "Start a project", href: "/contact/" }]}
         media={
           lead
             ? { src: lead.image, alt: "", caption: `Latest: ${lead.title}` }
@@ -166,7 +166,7 @@ export default function BlogIndex() {
             <p>A thirty-minute call with the engineer who would run it — the maths comes free.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

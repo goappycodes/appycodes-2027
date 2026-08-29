@@ -35,7 +35,7 @@ export default function AtlasPage() {
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "atlas" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Atlas" }]}
         eyebrow="the register, plotted"
         titleSize="md"
         title={
@@ -46,8 +46,8 @@ export default function AtlasPage() {
         }
         lede={`Most agencies show you six logos. This is the whole register — every engagement we can account for since ${TOTALS.firstYear}, plotted by where it was delivered, what kind of work it was, and how hard it actually was.`}
         actions={[
-          { label: "start a project", href: "/contact/" },
-          { label: "read the case studies", href: "/case-studies/", variant: "out" },
+          { label: "Start a project", href: "/contact/" },
+          { label: "Read the case studies", href: "/case-studies/", variant: "out" },
         ]}
         stats={[
           { n: String(TOTALS.projects), label: "projects recorded" },
@@ -185,7 +185,7 @@ export default function AtlasPage() {
             <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

@@ -78,7 +78,7 @@ export default function TestimonialsPage() {
       />
 
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: "testimonials" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Testimonials" }]}
         eyebrow="testimonials · verified on clutch"
         title={
           <>
@@ -87,8 +87,8 @@ export default function TestimonialsPage() {
         }
         lede="Every review below is a verified client review from our Clutch profile — reproduced word for word, each one linking back to the original. Founders and product teams across the UK, EU and US, on work that shipped and stayed in production."
         actions={[
-          { label: "start a project", href: "/contact/" },
-          { label: "see the work", href: "/case-studies/", variant: "out" },
+          { label: "Start a project", href: "/contact/" },
+          { label: "See the work", href: "/case-studies/", variant: "out" },
         ]}
         media={{
           src: "/images/team-discussion.jpg",
@@ -222,7 +222,7 @@ export default function TestimonialsPage() {
             <p>A thirty-minute call with the engineer who would run it.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
-            book a call
+            Book a call
           </Link>
         </div>
       </section>

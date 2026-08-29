@@ -27,7 +27,7 @@ export function LegalPage({
   return (
     <>
       <PageHero
-        crumbs={[{ label: "home", href: "/" }, { label: crumb }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: crumb }]}
         eyebrow={`last updated ${updated}`}
         title={title}
         lede={lede}
@@ -48,7 +48,7 @@ export function LegalPage({
               ))}
             </ol>
             <Link className="btn btn--out btn--sm notch legal__ask" href="/contact/">
-              ask us a question
+              Ask us a question
             </Link>
           </aside>
 
