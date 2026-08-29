@@ -8,9 +8,8 @@ import { AwardsStrip, FeaturedWork, LogoWall } from "@/components/sections";
 import { COMPLEXITY, DOMAINS, HEAT, MARKERS, TOTALS, YEARS } from "@/lib/portfolio-data";
 
 export const metadata: Metadata = siteMeta({
-  title: "The atlas — 298 projects, 13 countries, twelve years",
-  description:
-    "Every engagement in our register, plotted. 298 projects for 226 clients across 13 countries since 2015 — mapped by country, by category and by how hard the work actually was.",
+  title: `The atlas — ${TOTALS.projects} projects, ${TOTALS.countries} countries, twelve years`,
+  description: `Every engagement in our register, plotted. ${TOTALS.projects} projects for ${TOTALS.clients} clients across ${TOTALS.countries} countries since ${TOTALS.firstYear} — mapped by country, by category and by how hard the work actually was.`,
   path: "/atlas/",
   image: "/images/ontick-6.png",
 });

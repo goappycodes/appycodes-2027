@@ -209,6 +209,36 @@
 .hardlist__n { font-weight: 700; font-size: 1.5rem; letter-spacing: -.04em; line-height: 1; }
 .hardlist p { margin: 0; font-size: 14.5px; line-height: 1.68; color: var(--on-slab-2); }
 
+/* ---------- always-on Europe inset ---------- */
+/* Seven European countries sit within thirty degrees of each other, so at world
+   scale they are one blob. Rather than a click-to-zoom, the homepage map carries
+   a permanent magnified Europe in the corner, framed on the world map by a dashed
+   box so the relationship reads at a glance. */
+.atlas__euframe {
+  fill: none; stroke: rgba(255, 255, 255, .38); stroke-width: 1; stroke-dasharray: 4 4;
+}
+.atlas-inset {
+  position: absolute; z-index: 2;
+  left: clamp(.5rem, 2%, 1.75rem); bottom: clamp(.5rem, 3%, 1.75rem);
+  width: clamp(190px, 33%, 340px);
+  background: rgba(9, 11, 9, .72); backdrop-filter: blur(3px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 20px 44px -20px rgba(0, 0, 0, .75);
+  padding: .5rem .55rem .35rem;
+}
+.atlas-inset__head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: .5rem;
+  padding: .1rem .3rem .45rem;
+}
+.atlas-inset__k { font-size: 9.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--tint); }
+.atlas-inset__n { font-size: 10px; color: rgba(255, 255, 255, .6); font-variant-numeric: tabular-nums; }
+.atlas-inset__svg { display: block; width: 100%; height: auto; }
+/* The inset viewBox is ~5.5x smaller than the world, so pin rings and labels
+   drawn in user units come out large — pull them back down in this scope. */
+.atlas-inset .atlas__label { font-size: 6.5px; stroke-width: 2.4px; }
+.atlas-inset .atlas__ring { stroke-width: 1.1; }
+.atlas-inset .atlas__land { stroke-width: 2.6; }
+.atlas-inset .atlas__land--worked { stroke-width: 3; }
+
 /* ---------- homepage cut ---------- */
 .atlas__label--eu { font-size: 12px; opacity: .85; }
 .atlas-preview__foot {

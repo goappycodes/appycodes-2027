@@ -192,6 +192,10 @@ a { color: inherit; text-decoration: none; }
 .btn--out:hover { background: none; box-shadow: none; transform: none; color: var(--solid); text-decoration-color: currentColor; gap: .7rem; }
 .btn--sm { padding: .55rem 1rem; font-size: 13px; }
 .btn--sm.btn--out { padding: .3rem 0; }
+/* On a dark slab the base green text-link reads too dim (e.g. "explore the
+   atlas"). Lift it to white, matching the hero and inner-page-hero overrides. */
+.slab .btn--out { color: #fff; text-decoration-color: rgba(255,255,255,.45); }
+.slab .btn--out:hover { color: #fff; text-decoration-color: #fff; }
 
 /* ---------- nav ---------- */
 .nav {

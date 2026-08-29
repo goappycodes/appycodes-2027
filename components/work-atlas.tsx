@@ -33,11 +33,16 @@ const radius = (count: number) => 4 + Math.sqrt(count) * 1.55;
 /** Hand-placed so no label crosses a pin or another label, at either zoom. */
 const LABEL: Record<string, { dx: number; dy: number; anchor: "start" | "middle" | "end" }> = {
   "United States": { dx: -14, dy: 4, anchor: "end" },
-  India: { dx: -24, dy: 5, anchor: "end" },
-  "Sri Lanka": { dx: 10, dy: 4, anchor: "start" },
+  India: { dx: 0, dy: -18, anchor: "middle" },
+  "Sri Lanka": { dx: -9, dy: 4, anchor: "end" },
   "Hong Kong": { dx: 10, dy: 4, anchor: "start" },
   Singapore: { dx: 10, dy: 4, anchor: "start" },
   Australia: { dx: 0, dy: 21, anchor: "middle" },
+  Thailand: { dx: 0, dy: 16, anchor: "middle" },
+  Dubai: { dx: -9, dy: 4, anchor: "end" },
+  "South Africa": { dx: 0, dy: 20, anchor: "middle" },
+  Kenya: { dx: 9, dy: 4, anchor: "start" },
+  Bermuda: { dx: 8, dy: 4, anchor: "start" },
 };
 const EU_LABEL: Record<string, { dx: number; dy: number; anchor: "start" | "middle" | "end" }> = {
   "United Kingdom": { dx: 0, dy: -30, anchor: "middle" },

@@ -103,7 +103,7 @@ const FAQS = [
   {
     question: "Is that everything you have done?",
     answer:
-      "No — the full register is 298 projects for 226 clients across 13 countries, and it is published on the atlas page with the counting method attached. These twenty-seven are the ones worth reading.",
+      "No — the full register is 298 projects for 226 clients across 18 countries, and it is published on the atlas page with the counting method attached. These twenty-seven are the ones worth reading.",
   },
   {
     question: "Can I talk to any of these clients?",

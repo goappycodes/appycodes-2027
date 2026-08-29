@@ -273,6 +273,92 @@ export const MARKERS: Marker[] = [
     "x": 489.7,
     "y": 118.9,
     "eu": true
+  },
+  {
+    "country": "Thailand",
+    "count": 4,
+    "clients": 3,
+    "from": 2022,
+    "mix": [
+      {
+        "name": "Travel & hospitality",
+        "n": 2
+      },
+      {
+        "name": "Commerce & retail",
+        "n": 1
+      },
+      {
+        "name": "Consumer apps & marketplaces",
+        "n": 1
+      }
+    ],
+    "x": 779.6,
+    "y": 193.8
+  },
+  {
+    "country": "Dubai",
+    "count": 2,
+    "clients": 2,
+    "from": 2023,
+    "mix": [
+      {
+        "name": "Property, legal & professional",
+        "n": 1
+      },
+      {
+        "name": "Commerce & retail",
+        "n": 1
+      }
+    ],
+    "x": 653.9,
+    "y": 163.3
+  },
+  {
+    "country": "South Africa",
+    "count": 2,
+    "clients": 2,
+    "from": 2023,
+    "mix": [
+      {
+        "name": "Commerce & retail",
+        "n": 1
+      },
+      {
+        "name": "Agencies & partners",
+        "n": 1
+      }
+    ],
+    "x": 578.2,
+    "y": 300.2
+  },
+  {
+    "country": "Kenya",
+    "count": 1,
+    "clients": 1,
+    "from": 2024,
+    "mix": [
+      {
+        "name": "Financial services",
+        "n": 1
+      }
+    ],
+    "x": 602.6,
+    "y": 233.8
+  },
+  {
+    "country": "Bermuda",
+    "count": 1,
+    "clients": 1,
+    "from": 2023,
+    "mix": [
+      {
+        "name": "Financial services",
+        "n": 1
+      }
+    ],
+    "x": 320.1,
+    "y": 144.4
   }
 ];
 
@@ -391,9 +477,9 @@ export const CATEGORIES: { name: string; n: number }[] =
 export const TOTALS = {
   projects: 298,
   clients: 226,
-  countries: 13,
-  located: 236,
-  unlocated: 62,
+  countries: 18,
+  located: 246,
+  unlocated: 52,
   firstYear: 2015,
   lastYear: 2026,
   caseStudies: 74,

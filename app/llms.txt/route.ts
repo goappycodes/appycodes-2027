@@ -36,7 +36,7 @@ export function GET() {
   );
   lines.push("");
   lines.push(
-    "Appycodes has delivered 298 projects for 226 clients across 13 countries since 2015. Engagements are run by the founders with a small senior team — the people who scope your project build it. Typical stacks: Next.js, React, React Native, Laravel, Node.js, Python, AWS, DynamoDB and PostgreSQL, on infrastructure you own."
+    "Appycodes has delivered 298 projects for 226 clients across 18 countries since 2015. Engagements are run by the founders with a small senior team — the people who scope your project build it. Typical stacks: Next.js, React, React Native, Laravel, Node.js, Python, AWS, DynamoDB and PostgreSQL, on infrastructure you own."
   );
   lines.push("");
 

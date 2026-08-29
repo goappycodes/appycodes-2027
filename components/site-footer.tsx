@@ -53,6 +53,7 @@ export function SiteFooter() {
             <Link href="/case-studies/ontick/">Ontick</Link>
             <Link href="/case-studies/bloc/">Bloc</Link>
             <Link href="/case-studies/">All work</Link>
+            <Link href="/clients/">Clients</Link>
             <Link href="/atlas/">The atlas</Link>
           </div>
           <div>
@@ -71,7 +72,7 @@ export function SiteFooter() {
           <p>© {new Date().getFullYear()} Appycodes. Building since 2015.</p>
           <p className="foot__reg">
             <span className="tnum">298</span> projects · <span className="tnum">226</span> clients ·{" "}
-            <span className="tnum">13</span> countries
+            <span className="tnum">18</span> countries
           </p>
         </div>
       </div>
