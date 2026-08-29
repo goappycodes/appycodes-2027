@@ -216,6 +216,8 @@ const SUB_SERVICE_MEDIA: Record<string, string> = {
   "wordpress-woocommerce-hardening": "/images/service-wordpress.jpg",
   "pre-investment-security-audit": "/images/service-consulting.jpg",
   "custom-wordpress-development-for-business": "/images/service-wordpress.jpg",
+  "woocommerce-development": "/images/service-wordpress.jpg",
+  "python-django-api-development": "/images/service-saas-web.jpg",
   "headless-wordpress-development": "/images/service-wordpress.jpg",
   "wordpress-plugin-development": "/images/service-wordpress.jpg",
   "wordpress-performance-optimisation": "/images/service-seo.jpg",

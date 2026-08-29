@@ -293,6 +293,32 @@ a { color: inherit; text-decoration: none; }
   font-size: 15px; letter-spacing: -.035em; margin-right: .3rem;
   background-image: var(--grad-text-dark); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
+
+/* the estimator — a tool, not a service. A full-width bar under the columns,
+   always visible in the menu so it does not depend on the wide-screen promo. */
+.mega__tool {
+  display: flex; align-items: center; gap: .85rem;
+  margin-top: .6rem; padding: .8rem 1rem;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
+  transition: background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.mega__tool:hover { background: rgba(255,255,255,.08); border-color: color-mix(in srgb, var(--solid-hi) 45%, rgba(255,255,255,.1)); }
+.mega__tool-ico {
+  flex: none; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: var(--solid-hi);
+}
+.mega__tool-ico svg { width: 21px; height: 21px; }
+.mega__tool-b { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.mega__tool-t { font-weight: 700; font-size: 14px; letter-spacing: -.02em; color: #fff; }
+.mega__tool-d { font-size: 11.5px; line-height: 1.45; color: rgba(255,255,255,.55); }
+.mega__tool-cta { flex: none; display: inline-flex; align-items: center; gap: .65rem; }
+.mega__tool-badge {
+  font-weight: 700; font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--tint);
+  border: 1px solid rgba(255,255,255,.18); padding: 3px 7px;
+}
+.mega__tool-arrow { width: 15px; height: 15px; color: rgba(255,255,255,.7); transition: color .16s var(--ease), transform .2s var(--ease); }
+.mega__tool:hover .mega__tool-arrow { color: #fff; transform: translate(1px, -1px); }
+
 .mega__item { display: flex; gap: .7rem; padding: .78rem .7rem; align-items: baseline; position: relative; transition: background-color .16s var(--ease); }
 .mega__item:hover { background: rgba(255,255,255,.05); }
 .mega__n { font-weight: 700; font-size: 11px; letter-spacing: .06em; font-variant-numeric: tabular-nums; color: rgba(255,255,255,.34); flex: none; transition: color .16s var(--ease); }
@@ -411,6 +437,17 @@ a { color: inherit; text-decoration: none; }
   transition: color .16s var(--ease), background-color .18s var(--ease), border-color .18s var(--ease);
 }
 .drawer__link:active, .drawer__link.is-active { color: #fff; background: rgba(255,255,255,.05); border-left-color: var(--solid-hi); }
+
+/* the estimator in the drawer — icon + title + one-line hint, like a service row */
+.drawer__link--tool { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .8rem; }
+.drawer__tool-ico {
+  flex: none; width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: var(--solid-hi);
+}
+.drawer__tool-ico svg { width: 18px; height: 18px; }
+.drawer__tool-b { display: grid; gap: .12rem; min-width: 0; }
+.drawer__tool-t { font-weight: 700; font-size: 15.5px; letter-spacing: -.02em; color: #fff; text-transform: lowercase; line-height: 1.15; }
+.drawer__tool-d { font-weight: 500; font-size: 11.5px; color: rgba(255,255,255,.46); text-transform: none; }
 
 .drawer__foot {
   flex: none; padding: 1rem 1.25rem calc(1rem + env(safe-area-inset-bottom));

@@ -417,6 +417,7 @@ export const LEGACY_SERVICE_REDIRECTS: Record<string, string> = {
   "b2b-marketplace-development": "product-platforms",
   "vue-nuxt-development": "product-platforms",
   "event-ticketing-platform-development": "product-platforms",
+  "python-django-api-development": "product-platforms",
   // → native mobile
   "react-native-app-development": "native-mobile",
   "app-store-launch": "native-mobile",
@@ -447,6 +448,7 @@ export const LEGACY_SERVICE_REDIRECTS: Record<string, string> = {
   "headless-wordpress-development": "commerce-content",
   "wordpress-plugin-development": "commerce-content",
   "knowledge-base-community-development": "commerce-content",
+  "woocommerce-development": "commerce-content",
   // → performance & search
   "technical-seo-for-saas": "performance-search",
   "cloudflare-edge-engineering": "performance-search",
@@ -471,6 +473,7 @@ export const LEGACY_SERVICE_LABELS: Record<string, string> = {
   "b2b-marketplace-development": "B2B marketplace development",
   "vue-nuxt-development": "Vue & Nuxt development",
   "event-ticketing-platform-development": "Event ticketing platform development",
+  "python-django-api-development": "Python & Django API development",
   "react-native-app-development": "React Native app development",
   "app-store-launch": "App Store launch",
   "web-app-to-native-mobile-app": "Web app to native mobile app",
@@ -494,6 +497,7 @@ export const LEGACY_SERVICE_LABELS: Record<string, string> = {
   "headless-wordpress-development": "Headless WordPress development",
   "wordpress-plugin-development": "WordPress plugin development",
   "knowledge-base-community-development": "Knowledge base & community development",
+  "woocommerce-development": "WooCommerce development",
   "technical-seo-for-saas": "Technical SEO for SaaS",
   "cloudflare-edge-engineering": "Cloudflare edge engineering",
   "programmatic-seo-engineering": "Programmatic SEO engineering",

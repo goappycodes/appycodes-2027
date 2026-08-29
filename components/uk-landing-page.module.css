@@ -1,0 +1,139 @@
+/* Landing-page-only grids and the honest-comparison table. Everything here
+   reuses the global palette tokens so it sits inside the design system rather
+   than beside it. Layout mirrors the global .svc / .proc grids. */
+
+/* ---- concern → answer + guarantees grids ---- */
+.grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3.25rem;
+  align-items: start;
+}
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* trust card — the concern, then the one-line answer */
+.trust {
+  background: var(--wash);
+  padding: 1.6rem 1.5rem 1.55rem;
+  display: grid;
+  gap: 0.55rem;
+  align-content: start;
+  border-left: 4px solid var(--solid-hi);
+}
+.concern {
+  margin: 0;
+  font-weight: 700;
+  font-size: 15.5px;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.answer {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.58;
+  color: var(--ink-3);
+}
+
+/* guarantee card — flat, bordered, quieter than the tinted trust cards */
+.guard {
+  background: var(--page);
+  border: 1px solid var(--rule);
+  padding: 1.45rem 1.4rem 1.4rem;
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+}
+.guardHead {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.guardIco {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--solid);
+  stroke-width: 2.2;
+}
+.guardTitle {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14.5px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.guardBody {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+
+/* ---- honest comparison table ---- */
+.tableWrap {
+  margin-top: 3.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--rule);
+}
+.table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.table tbody tr:last-child th,
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+.table thead th {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 2px solid var(--rule-2);
+  white-space: nowrap;
+}
+.table tbody th {
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 15rem;
+}
+.table td {
+  color: var(--ink-2);
+}
+
+/* the row-header column label */
+.criterionHead {
+  color: var(--ink) !important;
+}
+
+/* the Appycodes column — tinted band, accent header, confident text */
+.us {
+  background: var(--wash);
+  color: var(--ink) !important;
+  font-weight: 600;
+}
+.usHead {
+  color: var(--on-grad) !important;
+  background-image: var(--grad-fill);
+  border-bottom-color: transparent !important;
+}

@@ -1,0 +1,687 @@
+/* Software Project Estimator — scoped styling for the interactive wizard and
+   result. Light-only, built entirely on the site's global design tokens
+   (--ink, --rule, --wash, --solid, --accent-text, --notch …) so it reads as
+   part of the same understated system. No colours are hard-coded. */
+
+.root {
+  --e-line: var(--rule);
+  --e-line-2: var(--rule-2);
+}
+
+/* ---------------------------------------------------------------- panel ---- */
+
+.panel {
+  position: relative;
+  background: var(--page);
+  border: 1px solid var(--e-line);
+  overflow: hidden;
+}
+/* thin gradient accent along the top edge — the site's card signature */
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background-image: var(--grad);
+}
+.pad {
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+/* ---------------------------------------------------------------- kicker --- */
+
+.kicker {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin: 0;
+}
+.kickerMuted {
+  color: var(--ink-3);
+}
+
+/* -------------------------------------------------------------- progress --- */
+
+.progress {
+  margin-bottom: 1.75rem;
+}
+.progressHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+.stepLabel {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  padding: 0;
+  transition: color 0.18s var(--ease);
+}
+.back:hover {
+  color: var(--solid);
+}
+.back svg {
+  width: 14px;
+  height: 14px;
+}
+.track {
+  height: 4px;
+  background: var(--wash-2);
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  background-image: var(--grad);
+  transition: width 0.35s var(--ease);
+}
+
+/* ------------------------------------------------------------- questions --- */
+
+.stepBody {
+  min-height: 250px;
+}
+.legend {
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+  color: var(--ink);
+  margin: 0;
+  padding: 0;
+}
+.sub {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  margin: 0.55rem 0 0;
+  max-width: 54ch;
+}
+.options {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+@media (min-width: 560px) {
+  .options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  text-align: left;
+  width: 100%;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: var(--wash);
+  border: 1px solid transparent;
+  padding: 0.95rem 1.05rem;
+  cursor: pointer;
+  transition: background-color 0.18s var(--ease), border-color 0.18s var(--ease),
+    color 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.opt:hover {
+  background: var(--wash-2);
+  transform: translateY(-1px);
+}
+.optActive,
+.optActive:hover {
+  background: var(--wash-2);
+  border-color: var(--solid-hi);
+  color: var(--ink);
+  font-weight: 600;
+}
+.optCheck {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--solid);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+}
+.optActive .optCheck {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ----------------------------------------------------------------- footer -- */
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--e-line);
+}
+.footHint {
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.nextBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.nextBtn:disabled:hover {
+  box-shadow: none;
+}
+
+/* =============================================================== RESULT ==== */
+
+.result {
+  display: grid;
+  gap: clamp(2rem, 4vw, 2.75rem);
+}
+
+.summaryHead {
+  display: grid;
+  gap: 1rem;
+}
+.summaryLine {
+  font-size: clamp(15.5px, 1.7vw, 17px);
+  line-height: 1.55;
+  color: var(--ink);
+  margin: 0.6rem 0 0;
+  max-width: 60ch;
+}
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 12.5px;
+}
+.metaLabel {
+  color: var(--ink-3);
+}
+.pill {
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.6rem;
+  background: var(--wash-2);
+  color: var(--accent-text);
+}
+.currencyBox {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.select {
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--page);
+  border: 1px solid var(--e-line-2);
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+.select:focus-visible {
+  outline: 2px solid var(--solid);
+  outline-offset: 2px;
+}
+
+/* --- three headline cards --- */
+
+.cards {
+  display: grid;
+  gap: 0.85rem;
+}
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.card {
+  background: var(--wash);
+  padding: 1.25rem 1.3rem 1.35rem;
+}
+.cardHead {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+.cardHead svg {
+  width: 18px;
+  height: 18px;
+  color: var(--solid);
+}
+.cardLabel {
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.cardValue {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  color: var(--ink);
+}
+.cardSub {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin: 0.4rem 0 0;
+}
+
+/* --- section wrapper --- */
+
+.section {
+  display: grid;
+  gap: 1rem;
+}
+.sectionTitle {
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: -0.025em;
+  font-size: clamp(1.05rem, 1.9vw, 1.25rem);
+  color: var(--ink);
+  margin: 0;
+}
+.sectionNote {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  margin: 0;
+}
+
+/* --- role breakdown bars --- */
+
+.bars {
+  display: grid;
+  gap: 0.6rem;
+  background: var(--wash);
+  padding: 1.25rem 1.3rem;
+}
+.barRow {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+.barLabel {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.barTrack {
+  height: 12px;
+  background: var(--page);
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  background-image: var(--grad);
+  min-width: 3px;
+}
+.barVal {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  min-width: 3.5rem;
+}
+@media (max-width: 520px) {
+  .barRow {
+    grid-template-columns: 6.5rem 1fr auto;
+    gap: 0.5rem;
+  }
+  .barLabel {
+    font-size: 11.5px;
+  }
+}
+
+/* --- timeline gantt --- */
+
+.gantt {
+  display: grid;
+  gap: 0.5rem;
+  background: var(--wash);
+  padding: 1.25rem 1.3rem;
+}
+.ganttRow {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+}
+.ganttLabel {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.ganttTrack {
+  position: relative;
+  height: 16px;
+  background: var(--page);
+}
+.ganttSpan {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-image: var(--grad);
+  min-width: 4px;
+}
+.ganttAxis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  margin-top: 0.15rem;
+  padding-left: 6.75rem;
+}
+
+/* --- recommended stack --- */
+
+.stackCard {
+  background: var(--wash);
+  padding: 1.35rem 1.4rem;
+}
+.stackList {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0.85rem 0 0.9rem;
+}
+.stackItem {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.stackKey {
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 7.5rem;
+  flex: none;
+}
+.stackVal {
+  color: var(--ink-2);
+}
+.stackWhy {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  font-style: italic;
+  margin: 0;
+}
+.alts {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+}
+@media (min-width: 720px) {
+  .alts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.altCard {
+  background: var(--page);
+  border: 1px solid var(--e-line);
+  padding: 1.15rem 1.2rem;
+}
+
+/* --- externals table --- */
+
+.tableWrap {
+  border: 1px solid var(--e-line);
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+.table th {
+  text-align: left;
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  background: var(--wash);
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--e-line);
+}
+.table td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--e-line);
+  color: var(--ink-2);
+}
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.table td:first-child {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* --- hosting tiers --- */
+
+.hostGrid {
+  display: grid;
+  gap: 0.85rem;
+}
+@media (min-width: 720px) {
+  .hostGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.hostCard {
+  background: var(--wash);
+  padding: 1.15rem 1.2rem;
+}
+.hostLabel {
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 0.5rem;
+}
+.hostCost {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: var(--ink);
+}
+.hostSub {
+  font-size: 11px;
+  color: var(--ink-3);
+  margin: 0.3rem 0 0;
+}
+
+/* --- cost range --- */
+
+.costCard {
+  background: var(--wash);
+  padding: 1.5rem 1.5rem 1.6rem;
+}
+.costLine {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+}
+.costNum {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-size: clamp(1.9rem, 4.4vw, 2.75rem);
+}
+.costTo {
+  color: var(--ink-3);
+  font-size: 15px;
+}
+.costPct {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  align-self: center;
+}
+.costNote {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 68ch;
+}
+
+/* --- scope in / out --- */
+
+.scopeGrid {
+  display: grid;
+  gap: 0.85rem;
+}
+@media (min-width: 720px) {
+  .scopeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.scopeCard {
+  background: var(--wash);
+  padding: 1.35rem 1.4rem;
+}
+.scopeList {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+.scopeList li {
+  position: relative;
+  padding-left: 1.35rem;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.scopeList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 7px;
+  height: 7px;
+  background-image: var(--grad);
+}
+.scopeListOut li::before {
+  background: var(--rule-2);
+}
+.scopeNote {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-3);
+  font-style: italic;
+  margin: 0.85rem 0 0;
+}
+
+/* --- next-step CTA (replaces the old inline lead form; the new site funnels
+       every enquiry through /contact/) --- */
+
+.cta {
+  background: var(--slab);
+  color: var(--on-slab);
+  padding: clamp(1.6rem, 4vw, 2.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+.ctaCopy {
+  flex: 1 1 22rem;
+}
+.ctaKicker {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tint);
+  margin: 0 0 0.7rem;
+}
+.ctaTitle {
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  color: var(--on-slab);
+  margin: 0;
+}
+.ctaBody {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--on-slab-2);
+  margin: 0.85rem 0 0;
+  max-width: 46ch;
+}
+.ctaBtns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+/* --- footer actions --- */
+
+.footActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.restart {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--rule-2);
+  transition: color 0.18s var(--ease), text-decoration-color 0.18s var(--ease);
+}
+.restart:hover {
+  color: var(--solid);
+  text-decoration-color: currentColor;
+}

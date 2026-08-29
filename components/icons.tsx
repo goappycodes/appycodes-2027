@@ -100,6 +100,16 @@ export function ChevronRight({ className, ...p }: IconProps) {
   );
 }
 
+export function Gauge({ className, ...p }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" width="1em" height="1em" className={className} {...base} {...p}>
+      <path d="M4 16a8 8 0 0 1 16 0" />
+      <path d="M12 16l4.2-3.1" />
+      <circle cx="12" cy="16" r="1.15" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export function StarHalf({ className, ...p }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" width="1em" height="1em" className={className} aria-hidden {...p}>

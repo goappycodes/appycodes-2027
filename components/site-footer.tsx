@@ -61,6 +61,7 @@ export function SiteFooter() {
             <Link href="/year-four/">The year-four test</Link>
             <Link href="/blog/">Writing</Link>
             <Link href="/testimonials/">Testimonials</Link>
+            <Link href="/software-project-estimator/">Project estimator</Link>
             <Link href="/contact/">Contact</Link>
             <Link href="/privacy/">Privacy</Link>
             <Link href="/terms/">Terms</Link>

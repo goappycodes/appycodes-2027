@@ -24,8 +24,9 @@ const AI_AND_SEARCH_BOTS = [
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      ...AI_AND_SEARCH_BOTS.map((userAgent) => ({ userAgent, allow: "/" })),
-      { userAgent: "*", allow: "/" },
+      ...AI_AND_SEARCH_BOTS.map((userAgent) => ({ userAgent, allow: "/", disallow: "/admin/" })),
+      // The internal indexing report lives under /admin/ — kept out of every index.
+      { userAgent: "*", allow: "/", disallow: "/admin/" },
     ],
     sitemap: `${SITE.url}/sitemap.xml`,
     host: SITE.url,

@@ -6,9 +6,10 @@ import { useEffect, useId, useRef, useState } from "react";
 import { NAV, SITE } from "@/lib/site";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { ServiceTitle } from "@/components/service-title";
-import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Mail, FlagUK, FlagEU, FlagIndia } from "@/components/icons";
+import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Gauge, Mail, FlagUK, FlagEU, FlagIndia } from "@/components/icons";
 
 const SERVICES_HREF = "/services/";
+const ESTIMATOR_HREF = "/software-project-estimator/";
 
 /* The case study promoted inside the desktop services menu. */
 const MEGA_FEATURE = {
@@ -208,6 +209,24 @@ export function SiteHeader() {
                           </span>
                         </Link>
                       </div>
+
+                      {/* a tool, not a service — always shown, full width */}
+                      <Link href={ESTIMATOR_HREF} className="mega__tool" role="menuitem">
+                        <span className="mega__tool-ico" aria-hidden>
+                          <Gauge />
+                        </span>
+                        <span className="mega__tool-b">
+                          <span className="mega__tool-t">Project cost estimator</span>
+                          <span className="mega__tool-d">
+                            Eight quick questions for a realistic cost range — effort, timeline and
+                            recommended stack. No email.
+                          </span>
+                        </span>
+                        <span className="mega__tool-cta">
+                          <span className="mega__tool-badge">2 min</span>
+                          <ArrowUpRight className="mega__tool-arrow" aria-hidden />
+                        </span>
+                      </Link>
                     </div>
                   </div>
                 </li>
@@ -302,6 +321,23 @@ export function SiteHeader() {
               ))}
               <Link href={SERVICES_HREF} className="drawer__all">
                 all services <ArrowUpRight aria-hidden />
+              </Link>
+            </div>
+
+            <p className="drawer__lbl">tools</p>
+            <div className="drawer__links">
+              <Link
+                href={ESTIMATOR_HREF}
+                className={`drawer__link drawer__link--tool${isActive(ESTIMATOR_HREF) ? " is-active" : ""}`}
+              >
+                <span className="drawer__tool-ico" aria-hidden>
+                  <Gauge />
+                </span>
+                <span className="drawer__tool-b">
+                  <span className="drawer__tool-t">project cost estimator</span>
+                  <span className="drawer__tool-d">a 2-minute ballpark — no email</span>
+                </span>
+                <ChevronRight className="drawer__chev" aria-hidden />
               </Link>
             </div>
 
