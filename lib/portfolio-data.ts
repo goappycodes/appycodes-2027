@@ -404,7 +404,7 @@ export const STACK: { band: string; note: string; items: { name: string; n: numb
     ]
   },
   {
-    "band": "commerce & content",
+    "band": "web & commerce",
     "note": "revenue surfaces",
     "items": [
       {

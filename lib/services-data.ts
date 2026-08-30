@@ -277,7 +277,7 @@ export const SERVICES_DATA: ServiceData[] = [
   },
   {
     slug: "commerce-content",
-    title: "commerce & content",
+    title: "web & commerce",
     summary:
       "Headless WordPress, Shopify and custom checkouts wired to whatever proprietary API the business already depends on.",
     headline: "headless storefronts and custom checkouts, wired to the api your business already runs on.",
@@ -438,7 +438,7 @@ export const LEGACY_SERVICE_REDIRECTS: Record<string, string> = {
   "website-compromise-recovery": "rescue-hardening",
   "wordpress-woocommerce-hardening": "rescue-hardening",
   "pre-investment-security-audit": "rescue-hardening",
-  // → commerce & content
+  // → web & commerce
   "custom-wordpress-development-for-business": "commerce-content",
   "stripe-billing-integration": "commerce-content",
   "shopify-development": "commerce-content",

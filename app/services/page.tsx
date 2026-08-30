@@ -11,7 +11,7 @@ import { serviceMedia } from "@/lib/media";
 export const metadata: Metadata = siteMeta({
   title: "Services — what we do well",
   description:
-    "Six practices we ship repeatedly: product platforms, native mobile, AI systems, rescue and hardening, commerce and content, and performance and search.",
+    "Product engineering, native mobile, AI systems, rescue and security, web and commerce, and performance and search.",
   path: "/services/",
   image: "/images/service-saas-web.jpg",
 });
