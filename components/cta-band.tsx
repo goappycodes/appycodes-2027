@@ -26,7 +26,7 @@ export function CtaBand({
           <LogoWall label="The engagements this writing comes from" />
           <FeaturedWork
             title="Where these numbers came from"
-            lede="Production systems, not thought experiments — each with the figures attached."
+            lede="Production systems with the delivery figures attached."
           />
         </>
       ) : null}

@@ -43,7 +43,7 @@ const data: CaseStudyData = {
     },
     {
       t: "section",
-      title: "a booking engine, not a booking plugin.",
+      title: "a custom booking engine for complex tour operations.",
       lead:
         "A real tour operation does not fit WooCommerce: deposits rather than full payment, live availability from a proprietary API, coupons, affiliate credit, per-vehicle rules for the self-drive tours, and age tiers per tour. So we built the checkout ourselves — the rules held as data, the money handled properly, and the availability re-checked at the moment of payment so a booking confirms cleanly or fails friendly.",
     },

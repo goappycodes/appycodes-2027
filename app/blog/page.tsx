@@ -6,7 +6,7 @@ import { PageHero } from "@/components/page-hero";
 import { FeaturedWork, LogoWall } from "@/components/sections";
 
 export const metadata: Metadata = siteMeta({
-  title: "Writing — the numbers, not the opinions",
+  title: "Writing — delivery notes, costs and benchmarks",
   description:
     "Cost studies, research and benchmarks from real engagements: MVP costs, indexing decay, token economics, replatform maths and more.",
   path: "/blog/",
@@ -153,7 +153,7 @@ export default function BlogIndex() {
 
       <FeaturedWork
         title="where these numbers came from"
-        lede="Every study above is drawn from work like this — production systems, not thought experiments."
+        lede="Every study above is drawn from live production work."
       />
 
       <section className="cta">

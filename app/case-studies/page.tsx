@@ -128,7 +128,7 @@ export default function CaseStudiesIndex() {
             we measure the work by what happened <span className="g-disp">next</span>.
           </>
         }
-        lede="Not a menu of services — a short list of companies, what we built with them, and the change it made. Every number below comes from a live production system."
+        lede="Companies, systems and measurable outcomes from live production work."
         actions={[
           { label: "Start a project", href: "/contact/" },
           { label: "See the services", href: "/services/", variant: "out" },
@@ -203,7 +203,7 @@ export default function CaseStudiesIndex() {
           <div className="sec__head">
             <p className="eyebrow eyebrow--slab">twelve more, in short</p>
             <h2 className="h-l" style={{ color: "#fff" }}>
-              picked for the hard problem, not the logo.
+              twelve more delivery records.
             </h2>
             <p className="lede" style={{ color: "var(--on-slab-2)" }}>
               Described by sector rather than named — a large share of this was delivered under a
@@ -253,7 +253,7 @@ export default function CaseStudiesIndex() {
         <div className="wrap cta__in">
           <div className="cta__t">
             <h2 className="h-l">what would your entry on this page say?</h2>
-            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+            <p>A thirty-minute call with the engineer who would lead the work.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call

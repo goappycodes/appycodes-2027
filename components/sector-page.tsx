@@ -84,7 +84,7 @@ export function SectorPage({ s }: { s: SectorData }) {
       <section className="wrap sec">
         <div className="sec__head">
           <p className="eyebrow">what we have built here</p>
-          <h2 className="h-l">not a capability list. delivered systems.</h2>
+          <h2 className="h-l">systems delivered in this sector.</h2>
         </div>
         <div className="svc">
           {s.built.map((b, i) => (
@@ -127,8 +127,7 @@ export function SectorPage({ s }: { s: SectorData }) {
             <p className="eyebrow">what it runs on</p>
             <h2 className="h-l">the stack we reach for here.</h2>
             <p className="lede">
-              Chosen for what this sector needs and what a team can still maintain in year four —
-              not for novelty.
+              Chosen for the sector requirements and for maintainability over the life of the system.
             </p>
           </div>
           <dl className="cs-stack notch">
@@ -214,7 +213,7 @@ export function SectorPage({ s }: { s: SectorData }) {
         <div className="wrap cta__in">
           <div className="cta__t">
             <h2 className="h-l">{s.cta}</h2>
-            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+            <p>A thirty-minute call with the engineer who would lead the work.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call

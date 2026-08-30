@@ -78,7 +78,7 @@ export function InstitutionalSubServicePage({ service }: { service: SubServiceDa
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <span className={styles.kicker}>{pillar?.title ?? "Engineering service"} / specialist delivery</span>
-              <h1>{sentence(service.headline)}</h1>
+              <h1>{sentence(service.title)}.</h1>
               <p>{service.metaDescription}</p>
               <div className={styles.actions}>
                 <Link href="/contact/" className={styles.primary}>Discuss your project <Arrow /></Link>

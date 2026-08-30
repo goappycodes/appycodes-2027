@@ -27,7 +27,7 @@ const PRINCIPLES = [
   {
     n: "01",
     h: "senior engineers only",
-    body: "No juniors billed at senior rates, and no offshore layer you never meet. The people who scope your project are the people who write the code.",
+    body: "The senior engineers who scope your project remain directly involved in the build.",
   },
   {
     n: "02",
@@ -37,21 +37,21 @@ const PRINCIPLES = [
   {
     n: "03",
     h: "built for year four",
-    body: "We are optimised to still be running your platform in year four, not to win the pitch. That changes what we build and what we refuse to build.",
+    body: "We design for long-term operation and continue supporting several platforms years after launch.",
   },
   {
     n: "04",
-    h: "we say no",
-    body: "If the work sits outside what we do well, we say so on the first call and point you somewhere better. A good referral beats a bad engagement.",
+    h: "clear fit from the start",
+    body: "We confirm where we can add value on the first call and recommend a better route when another team is more suitable.",
   },
   {
     n: "05",
-    h: "the numbers, not the opinions",
-    body: "We publish cost studies and benchmarks from real engagements, including the ones where the answer was 'do not build this'.",
+    h: "evidence from delivery",
+    body: "Our cost studies and benchmarks use data from completed, production engagements.",
   },
   {
     n: "06",
-    h: "no discovery theatre",
+    h: "clear scope and risk",
     body: "A fixed written scope with the risky parts named up front. If we think your budget is wrong for the outcome, you hear it before you commit.",
   },
 ];
@@ -191,7 +191,7 @@ export default function AboutPage() {
 
       <WritingCards
         title="what we have published"
-        lede="Cost studies and benchmarks from real engagements — including the ones where the honest answer was 'do not build this'."
+        lede="Cost studies and benchmarks drawn from real delivery work."
       />
 
       <Faq items={FAQS} title="the practical questions" />

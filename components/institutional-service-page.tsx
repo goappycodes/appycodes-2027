@@ -69,6 +69,15 @@ function sentence(value: string) {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
+const SERVICE_HEADLINES: Record<string, string> = {
+  "product-platforms": "Software for the systems your business runs on.",
+  "native-mobile": "Native apps built for reliable growth.",
+  "ai-systems": "AI systems designed for production.",
+  "rescue-hardening": "We recover and finish troubled software.",
+  "commerce-content": "Commerce systems built to convert and scale.",
+  "performance-search": "Faster websites. Stronger search visibility.",
+};
+
 export function InstitutionalServicePage({ service }: { service: ServiceData }) {
   const isProduct = service.slug === "product-platforms";
   const specialisms = subServicesFor(service.slug);
@@ -107,8 +116,8 @@ export function InstitutionalServicePage({ service }: { service: ServiceData }) 
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <span className={styles.kicker}>{sentence(service.title)} / senior-led delivery</span>
-              <h1>{isProduct ? "Software for the systems your business runs on." : sentence(service.headline)}</h1>
-              <p>{service.description}</p>
+              <h1>{SERVICE_HEADLINES[service.slug] ?? sentence(service.title)}</h1>
+              <p>{service.summary}</p>
               <div className={styles.actions}>
                 <Link href="/contact/" className={styles.primary}>Discuss your project <Arrow /></Link>
                 <a href="#work" className={styles.secondary}>Review our work</a>

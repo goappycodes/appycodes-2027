@@ -44,7 +44,7 @@ export default function AtlasPage() {
             <span className="g-disp">twelve years.</span>
           </>
         }
-        lede={`Most agencies show you six logos. This is the whole register — every engagement we can account for since ${TOTALS.firstYear}, plotted by where it was delivered, what kind of work it was, and how hard it actually was.`}
+        lede={`Every engagement we can account for since ${TOTALS.firstYear}, organised by delivery location, sector and technical complexity.`}
         actions={[
           { label: "Start a project", href: "/contact/" },
           { label: "Read the case studies", href: "/case-studies/", variant: "out" },
@@ -85,9 +85,8 @@ export default function AtlasPage() {
           <p className="eyebrow">the shape of it</p>
           <h2 className="h-l">what we were hired for, year by year.</h2>
           <p className="lede">
-            Cut by sector rather than by deliverable — &ldquo;website&rdquo; and &ldquo;platform&rdquo;
-            describe what we shipped, not what we understand. {named} sectors, none of them a
-            one-off, and {recent} of the {TOTALS.projects} landed in the last four years.
+              The register spans {named} established sectors, with {recent} of the {TOTALS.projects}
+              projects delivered in the last four years. This view groups work by the client domain.
           </p>
         </div>
         <WorkHeatmap />
@@ -102,11 +101,9 @@ export default function AtlasPage() {
               which sectors are actually hard.
             </h2>
             <p className="lede" style={{ color: "var(--on-slab-2)" }}>
-              Every project carries a complexity band, set from what the build involved rather than
-              what it billed. {hardest[0]?.d} runs hardest at{" "}
+              Every project carries a complexity band based on the engineering involved. {hardest[0]?.d} runs hardest at{" "}
               {Math.round((hardest[0]?.share ?? 0) * 100)}% medium-high or above, with{" "}
-              {hardest[1]?.d} and {hardest[2]?.d} behind it — that is where the engineering is, and
-              it is not where the volume is.
+              {hardest[1]?.d} and {hardest[2]?.d} behind it.
             </p>
           </div>
           <ComplexityBars />
@@ -182,7 +179,7 @@ export default function AtlasPage() {
         <div className="wrap cta__in">
           <div className="cta__t">
             <h2 className="h-l">which mark on that map would be yours?</h2>
-            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+            <p>A thirty-minute call with the engineer who would lead the work.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call

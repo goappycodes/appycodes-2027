@@ -97,7 +97,7 @@ export default function SectorsIndex() {
         <div className="wrap cta__in">
           <div className="cta__t">
             <h2 className="h-l">which of these is you?</h2>
-            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+            <p>A thirty-minute call with the engineer who would lead the work.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call

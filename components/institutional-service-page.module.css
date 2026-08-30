@@ -8,6 +8,7 @@
   --accent-soft: #dcece4;
   --concept-ink: var(--ink);
   --concept-muted: var(--muted);
+  --concept-card: var(--card);
   --concept-line: var(--line);
   --concept-accent: var(--accent);
   --concept-accent-2: var(--accent-soft);
@@ -30,8 +31,8 @@
 .crumbs a:hover { color: var(--accent); }
 .heroGrid { margin-top: clamp(34px, 4vw, 54px); display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(390px, .82fr); gap: clamp(52px, 6vw, 100px); align-items: center; }
 .heroCopy { max-width: 880px; }
-.heroCopy h1 { max-width: 11ch; margin-top: 21px; font-size: clamp(60px, 7vw, 106px); line-height: .95; letter-spacing: -.07em; font-weight: 650; text-wrap: balance; }
-.heroCopy > p { max-width: 65ch; margin-top: 38px; color: var(--muted); font-size: clamp(17px, 1.45vw, 22px); line-height: 1.58; }
+.heroCopy h1 { max-width: 14ch; margin-top: 19px; font-size: clamp(46px, 5vw, 78px); line-height: .98; letter-spacing: -.06em; font-weight: 650; text-wrap: balance; }
+.heroCopy > p { max-width: 61ch; margin-top: 28px; color: var(--muted); font-size: clamp(16px, 1.15vw, 19px); line-height: 1.58; }
 .actions { margin-top: 38px; display: flex; align-items: center; gap: 28px; }
 .primary { min-height: 54px; padding: 0 24px; display: inline-flex; align-items: center; justify-content: center; gap: 24px; color: #fff !important; background: var(--accent); font-size: 13px; font-weight: 700; }
 .primary svg, .textLink svg, .workMetric svg, .specialismGrid nav svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
@@ -59,7 +60,7 @@
 
 .section, .work, .faq { padding: clamp(66px, 7vw, 106px) 0; }
 .sectionHead { margin-bottom: clamp(45px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: 80px; align-items: end; }
-.sectionHead h2, .processIntro h2, .specialismGrid h2, .faqGrid h2, .closing h2 { max-width: 14ch; margin-top: 18px; font-size: clamp(40px, 5vw, 72px); line-height: 1; letter-spacing: -.055em; font-weight: 620; text-wrap: balance; }
+.sectionHead h2, .processIntro h2, .specialismGrid h2, .faqGrid h2, .closing h2 { max-width: 15ch; margin-top: 16px; font-size: clamp(36px, 4vw, 58px); line-height: 1.02; letter-spacing: -.05em; font-weight: 620; text-wrap: balance; }
 .sectionHead > p, .processIntro > p, .specialismGrid > div > p, .closing > .inner > p { max-width: 52ch; color: var(--muted); font-size: 15px; line-height: 1.72; }
 
 .scopeGrid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
@@ -155,7 +156,7 @@
   .crumbs { overflow: hidden; white-space: nowrap; }
   .heroGrid { margin-top: 30px; gap: 34px; }
   .kicker { font-size: 8.5px; line-height: 1.55; }
-  .heroCopy h1 { margin-top: 17px; font-size: clamp(39px, 11.5vw, 50px); line-height: .99; overflow-wrap: break-word; }
+  .heroCopy h1 { margin-top: 15px; font-size: clamp(35px, 10vw, 44px); line-height: 1; overflow-wrap: break-word; }
   .heroCopy > p { margin-top: 22px; font-size: 15px; line-height: 1.58; }
   .actions { margin-top: 28px; align-items: flex-start; flex-direction: column; gap: 17px; }
   .primary { width: 100%; min-height: 52px; justify-content: space-between; }
@@ -168,7 +169,7 @@
   .recordGrid span { font-size: 8px; }
   .section, .work, .faq { padding-block: 54px; }
   .sectionHead { margin-bottom: 36px; }
-  .sectionHead h2, .processIntro h2, .specialismGrid h2, .faqGrid h2, .closing h2 { margin-top: 14px; font-size: 34px; }
+  .sectionHead h2, .processIntro h2, .specialismGrid h2, .faqGrid h2, .closing h2 { margin-top: 13px; font-size: 31px; }
   .sectionHead > p, .processIntro > p, .specialismGrid > div > p, .closing > .inner > p { font-size: 14px; }
   .scopeGrid { grid-template-columns: 1fr; }
   .scopeCard { min-height: 0; padding: 20px 18px; display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; }

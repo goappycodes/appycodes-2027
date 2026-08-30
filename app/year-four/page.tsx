@@ -88,7 +88,7 @@ export default function YearFourPage() {
             anyone can win the pitch. the test is <span className="g-disp">year four</span>.
           </>
         }
-        lede={`We are optimised to still be running your platform in year four rather than to win the pitch, and that single decision explains most of how we work. This page is the evidence rather than the principle — relationships from the register that are still producing work today.`}
+        lede={`We design and operate software for long-term use. These relationships from the register are still producing work today.`}
         actions={[
           { label: "Book a discovery call", href: "/contact/" },
           { label: "See the register", href: "/atlas/", variant: "out" },
@@ -150,7 +150,7 @@ export default function YearFourPage() {
               </p>
             </div>
             <div className="proc__i notch">
-              <h3 className="h-s">scope creep gets a quote, not a fight</h3>
+              <h3 className="h-s">scope changes are priced clearly</h3>
               <p>
                 On a fixed-design build, the change requests were separated from what was already in
                 scope, re-quoted, and the relationship held. Absorbing them silently is how year two
@@ -158,7 +158,7 @@ export default function YearFourPage() {
               </p>
             </div>
             <div className="proc__i notch">
-              <h3 className="h-s">estimates defended, not discounted</h3>
+              <h3 className="h-s">estimates backed by delivery evidence</h3>
               <p>
                 Challenged on a timeline, the answer was specific: two developers in parallel, five
                 weeks covers development only, testing and revisions sit on top. No padding, no
@@ -166,7 +166,7 @@ export default function YearFourPage() {
               </p>
             </div>
             <div className="proc__i notch">
-              <h3 className="h-s">saying no to the wrong scope</h3>
+              <h3 className="h-s">the right scope from the start</h3>
               <p>
                 A client specified leave management at the depth of a dedicated HR platform inside a
                 field-sales app. We declined and triaged it into a later phase.
@@ -212,7 +212,7 @@ export default function YearFourPage() {
         <div className="wrap cta__in">
           <div className="cta__t">
             <h2 className="h-l">where would you want us in year four?</h2>
-            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+            <p>A thirty-minute call with the engineer who would lead the work.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call

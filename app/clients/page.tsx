@@ -59,14 +59,14 @@ export default function ClientsPage() {
       <section className="slab dotted">
         <div className="wrap slab__in">
           <div className="sec__head">
-            <p className="eyebrow eyebrow--slab">not a curated shortlist</p>
+            <p className="eyebrow eyebrow--slab">the full client record</p>
             <h2 className="h-l" style={{ color: "#fff", maxWidth: "24ch" }}>
               {TOTALS.clients} clients. {TOTALS.projects} projects. {TOTALS.countries} countries.
             </h2>
             <p className="lede" style={{ color: "var(--on-slab-2)" }}>
-              Most agencies show you six logos. We publish the whole register — every engagement we
-              can account for since {TOTALS.firstYear}, plotted by where it was delivered, with the
-              counting method attached. The logos above are a sample; the atlas is all of it.
+              The atlas records every engagement we can account for since {TOTALS.firstYear},
+              including delivery location and counting method. The logos above are a sample of that
+              wider record.
             </p>
           </div>
           <div className="sec__more" style={{ marginTop: "2rem" }}>
@@ -104,7 +104,7 @@ export default function ClientsPage() {
         <div className="wrap cta__in">
           <div className="cta__t">
             <h2 className="h-l">want to join them?</h2>
-            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+            <p>A thirty-minute call with the engineer who would lead the work.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call

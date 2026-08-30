@@ -25,7 +25,7 @@ const STEPS = [
   {
     n: "02",
     h: "we reply within one working day",
-    body: "From the engineer who would run it, not an account manager. If it is not something we do well, we say so in that first reply and point you somewhere better.",
+    body: "The engineer who would lead the work replies directly and confirms whether the project fits our experience.",
   },
   {
     n: "03",
@@ -35,7 +35,7 @@ const STEPS = [
   {
     n: "04",
     h: "a written scope and a number",
-    body: "A fixed scope with the risky parts named up front. If we think your budget is wrong for the outcome, we tell you before you commit, not after.",
+    body: "You receive a fixed scope with the main risks, budget and delivery assumptions stated before you commit.",
   },
 ];
 
@@ -88,8 +88,7 @@ export default function ContactPage() {
         }
         lede={
           <>
-            A thirty-minute call with the engineer who would run it — not a salesperson, and not a form
-            that goes nowhere. Founder-led and senior-only since {SITE.founded}.
+            A thirty-minute call with the engineer who would lead the work. Founder-led and senior-only since {SITE.founded}.
           </>
         }
         actions={[{ label: `Email ${SITE.email}`, href: `mailto:${SITE.email}` }]}
@@ -108,8 +107,7 @@ export default function ContactPage() {
             <p className="eyebrow">how to reach us</p>
             <h2 className="h-l">three sentences is enough to start.</h2>
             <p className="lede">
-              There is no intake form, no qualification call and no CRM sequence. Email lands with the
-              founders and gets a real answer.
+              Email the founders directly with a few lines about the product, timing and business goal.
             </p>
 
             <div className="ways">

@@ -32,12 +32,12 @@ const HOW = [
   {
     n: "03",
     h: "build in the open",
-    body: "Your repo, your infrastructure, weekly demos on a real environment. No black box, no big reveal at the end.",
+    body: "You receive repository and infrastructure access from the start, with weekly demonstrations on a working environment.",
   },
   {
     n: "04",
     h: "handover or stay",
-    body: "Documented handover to your team, or we keep running it. Both are real options — the first is not a punishment.",
+    body: "We document the system for handover to your team, or continue operating it with you.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function ServicesIndex() {
             the practices behind the <span className="g-disp">work</span>.
           </>
         }
-        lede={`Not a menu to pick from — the ${SERVICES_DATA.length} areas we have shipped repeatedly for a decade. If your problem sits outside them, we will say so on the first call.`}
+        lede={`${SERVICES_DATA.length} established practices covering the systems we have delivered repeatedly for a decade.`}
         actions={[
           { label: "Start a project", href: "/contact/" },
           { label: "See the work", href: "/case-studies/", variant: "out" },
@@ -108,7 +108,7 @@ export default function ServicesIndex() {
       <section className="wrap sec">
         <div className="sec__head">
           <p className="eyebrow">the practices</p>
-          <h2 className="h-l">each one is a practice, not a package.</h2>
+          <h2 className="h-l">six established engineering practices.</h2>
           <p className="lede">
             Every pillar below has engineers who have run it for years, a process we can show you, and
             case studies attached. Open one to see how it actually works.
@@ -149,7 +149,7 @@ export default function ServicesIndex() {
           <div className="sec__head">
             <p className="eyebrow eyebrow--slab">how we work</p>
             <h2 className="h-l" style={{ color: "#fff", maxWidth: "21ch" }}>
-              no discovery theatre. four steps, and you own everything at each one
+              four clear stages from scope to production
             </h2>
           </div>
           <div className="proc">
@@ -219,8 +219,8 @@ export default function ServicesIndex() {
         </svg>
         <div className="wrap cta__in">
           <div className="cta__t">
-            <h2 className="h-l">not sure which one you need?</h2>
-            <p>Describe the problem in three sentences. We will tell you which practice it is — or that it is not us.</p>
+            <h2 className="h-l">tell us what you need to solve.</h2>
+            <p>Describe the problem in three sentences and we will identify the right practice and next step.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call

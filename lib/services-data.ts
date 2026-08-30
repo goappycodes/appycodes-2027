@@ -38,7 +38,7 @@ export const SERVICES_DATA: ServiceData[] = [
     headline: "The multi-tenant systems your business runs on, built to survive their own success.",
     description:
       "Multi-tenant SaaS, marketplaces, ticketing and booking engines — the operational core your business runs on, engineered to scale.",
-    whyTitle: "Software that is the business, not a brochure for it",
+    whyTitle: "Software that runs the business",
     whyDescription:
       "A product platform is the system your revenue passes through — accounts, roles, billing and the operator tools your team lives in all day. When it is slow, insecure or impossible to change, growth is what breaks it. We build the core so that success is not the thing that takes it down.",
     whyPoints: [
@@ -54,8 +54,8 @@ export const SERVICES_DATA: ServiceData[] = [
     processSteps: [
       { title: "Data model first", description: "The tenants, roles, money and edge cases decided on paper before code. This is where platforms are quietly won or lost." },
       { title: "Core and access", description: "Auth, permissions, billing and the operator surface — the parts every future feature will lean on for years." },
-      { title: "Build in the open", description: "Your repo, your infrastructure, weekly demos on a real environment. No black box, no big reveal at the end." },
-      { title: "Scale and harden", description: "Load paths, indexes, backups and monitoring set before the traffic arrives, not after it hurts." },
+      { title: "Build in the open", description: "You receive repository and infrastructure access from the start, with weekly demonstrations on a working environment." },
+      { title: "Scale and harden", description: "Load paths, indexes, backups and monitoring are prepared for the traffic volumes you plan to reach." },
     ],
     benefitsTitle: "What you get",
     benefits: [
@@ -99,7 +99,7 @@ export const SERVICES_DATA: ServiceData[] = [
     headline: "react native apps that ship past app store review, and stay shipped.",
     description:
       "Production React Native apps for iOS and Android — offline-first, push, real-time sync and over-the-air updates, built to pass review and survive real use.",
-    whyTitle: "a real app, not a website in a wrapper",
+    whyTitle: "Native mobile products built for daily use",
     whyDescription:
       "Users can tell the difference between a native app and a web page inside a shell — and so can App Store review. Real mobile work means the offline path, the push pipeline, the sync conflicts and the device integrations, all handled properly. We build apps that get approved the first time and keep working when the network does not.",
     whyPoints: [
@@ -115,7 +115,7 @@ export const SERVICES_DATA: ServiceData[] = [
     processSteps: [
       { title: "Architecture for mobile", description: "Navigation, state, offline storage and the sync model decided before the first screen is built." },
       { title: "Build and integrate", description: "Clean React Native, native modules where they earn their place, and your backend wired in properly." },
-      { title: "Review-ready", description: "Permissions, privacy, entitlements and the store listing prepared so approval is not a gamble." },
+      { title: "Review-ready", description: "Permissions, privacy, entitlements and store listings are prepared for a predictable review process." },
       { title: "Ship and iterate", description: "Over-the-air updates, crash reporting and analytics, so you fix and improve without a two-week review each time." },
     ],
     benefitsTitle: "what we deliver",
@@ -160,7 +160,7 @@ export const SERVICES_DATA: ServiceData[] = [
     headline: "ai features costed per token before a line is written, so the unit economics survive scale.",
     description:
       "Retrieval pipelines, support deflection and internal copilots — designed for accuracy and costed per token up front, so the economics still work at volume.",
-    whyTitle: "ai that works at volume, not just in the demo",
+    whyTitle: "AI that works reliably at volume",
     whyDescription:
       "An AI feature that dazzles in a demo can quietly lose money on every request once real users arrive. We design retrieval, prompts and model routing for accuracy and cost together — and we put a number on the unit economics before you commit engineering to it.",
     whyPoints: [
@@ -186,7 +186,7 @@ export const SERVICES_DATA: ServiceData[] = [
       { title: "Internal copilots", description: "Assistants wired to your systems that save your team the search-and-copy busywork." },
       { title: "Token economics up front", description: "A costed estimate per request, and model routing to keep it there at volume." },
       { title: "Evals and guardrails", description: "A measurable quality bar, so “it feels better” becomes a number you can defend." },
-      { title: "Production monitoring", description: "Cost, latency, drift and quality tracked in production, not discovered on the bill." },
+      { title: "Production monitoring", description: "Cost, latency, drift and quality are tracked continuously in production." },
     ],
     benefitsQuote: "The demo is easy. We build the version that is still profitable at ten thousand requests a day.",
     whoTitle: "when this is the right call",
@@ -245,10 +245,10 @@ export const SERVICES_DATA: ServiceData[] = [
     benefits: [
       { title: "An audit you can act on", description: "What is safe, what is not, and what it would take to fix — in plain language." },
       { title: "Security and data integrity first", description: "The vulnerabilities and silent data bugs that AI generators and tired estates routinely miss, closed." },
-      { title: "The way in, closed", description: "Not just the visible payload or the missing feature — the entry point and the architecture behind it, so it does not recur next month." },
+      { title: "The entry point closed", description: "We remove the visible payload, close the original entry point and address the architecture behind it." },
       { title: "The missing twenty percent", description: "Auth edge cases, error states and the flows the prototype only pretended to handle." },
       { title: "Evidence, in writing", description: "What was found, where it came from, what changed — the document your processor, insurer or board needs." },
-      { title: "Production infrastructure", description: "CI/CD, monitoring, and backups you have actually restored — not a deploy that needs a prayer." },
+      { title: "Production infrastructure", description: "CI/CD, monitoring and tested backup restoration are configured before handover." },
     ],
     benefitsQuote: "Audit, contain, finish, harden — in that order. Skip the audit and you are booking the next incident.",
     whoTitle: "when this is the right call",
@@ -299,13 +299,13 @@ export const SERVICES_DATA: ServiceData[] = [
     processSteps: [
       { title: "Map the commerce logic", description: "Pricing, tax, inventory and the booking or fulfilment API modelled before anything is built." },
       { title: "Headless front-end", description: "A fast, editable storefront on Next.js, decoupled from the CMS or commerce backend." },
-      { title: "Checkout that converts", description: "A custom checkout wired to your payment and business logic, measured on completion, not clicks." },
+      { title: "Checkout that converts", description: "A custom checkout wired to your payment and business logic, with completion measured end to end." },
       { title: "Launch and measure", description: "Migrated cleanly, indexed properly, and instrumented so you can see what actually sells." },
     ],
     benefitsTitle: "what we deliver",
     benefits: [
       { title: "Headless storefronts", description: "WordPress or Shopify as the backend, a fast Next.js front-end your editors still control." },
-      { title: "Custom checkouts", description: "Checkouts wired to your own pricing, booking or fulfilment API — not a plugin's idea of it." },
+      { title: "Custom checkouts", description: "Checkouts wired directly to your pricing, booking or fulfilment API." },
       { title: "Subscriptions and memberships", description: "Recurring billing, instalments and gated content that reconcile against your records." },
       { title: "Content editors own", description: "Publishing workflows your marketing team can run without a developer in the loop." },
       { title: "Clean migrations", description: "Re-platforming and content migration with redirects and rankings preserved." },
@@ -355,17 +355,17 @@ export const SERVICES_DATA: ServiceData[] = [
       "Schema and structured data",
       "Migration SEO and rank preservation",
     ],
-    whyQuote: "We publish the numbers, not the opinions. Your rankings deserve the same.",
+    whyQuote: "Performance and search decisions are tied to field data and measurable outcomes.",
     processTitle: "how we fix performance and search",
     processSteps: [
       { title: "Measure honestly", description: "Field data, lab data and crawl logs — the actual state, before anyone promises an improvement." },
       { title: "Fix the rendering", description: "SSR, hydration and the JavaScript SEO issues that keep content out of the index." },
-      { title: "Fix the vitals", description: "LCP, CLS and INP taken to green with changes tied to numbers, not guesses." },
+      { title: "Fix the vitals", description: "LCP, CLS and INP are taken to green with each change tied to field data." },
       { title: "Index and hold", description: "Structured data, crawl-budget and monitoring so the gains stick after we leave." },
     ],
     benefitsTitle: "what we deliver",
     benefits: [
-      { title: "Core Web Vitals to green", description: "LCP, INP and CLS fixed at the source, verified in field data — not a lab-only score." },
+      { title: "Core Web Vitals to green", description: "LCP, INP and CLS are fixed at the source and verified in field data." },
       { title: "JavaScript SEO", description: "Rendering and hydration fixed so Google sees the content, not an empty shell." },
       { title: "Indexing that sticks", description: "Crawl-budget, sitemaps and the technical reasons pages fall out of the index, addressed." },
       { title: "Programmatic SEO", description: "Template-scale pages that are fast, unique enough to index, and built to last." },

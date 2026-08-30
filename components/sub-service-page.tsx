@@ -151,7 +151,7 @@ export function SubServicePage({ s }: { s: SubServiceData }) {
           <div className="sec__head">
             <p className="eyebrow eyebrow--slab">how it runs</p>
             <h2 className="h-l" style={{ color: "#fff", maxWidth: "21ch" }}>
-              no discovery theatre. four steps, and you own everything at each one
+              four clear stages from scope to production
             </h2>
           </div>
           <div className="proc">
@@ -225,7 +225,7 @@ export function SubServicePage({ s }: { s: SubServiceData }) {
         <div className="wrap cta__in">
           <div className="cta__t">
             <h2 className="h-l">tell us what you are trying to build.</h2>
-            <p>A thirty-minute call with the engineer who would run it — not a salesperson.</p>
+            <p>A thirty-minute call with the engineer who would lead the work.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call
