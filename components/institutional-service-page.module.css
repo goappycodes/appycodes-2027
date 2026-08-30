@@ -118,17 +118,21 @@
 .process li h3 { font-size: 21px; letter-spacing: -.025em; }
 .process li p { max-width: 58ch; margin-top: 9px; color: rgba(255,255,255,.55); font-size: 13px; line-height: 1.65; }
 
-.specialisms { padding: clamp(64px, 7vw, 100px) 0; border-block: 1px solid var(--line); background: var(--card); }
-.specialismGrid { display: grid; grid-template-columns: minmax(310px, .75fr) minmax(520px, 1.25fr); gap: clamp(60px, 9vw, 135px); }
-.specialismGrid > div > p { margin-top: 25px; }
-.specialismGrid nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-.specialismGrid nav a { position: relative; min-height: 112px; padding: 17px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 20px; grid-template-rows: auto 1fr; gap: 8px 13px; align-items: center; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.specialismIcon { width: 44px; height: 44px; display: grid; place-items: center; grid-column: 1; grid-row: 1 / span 2; border: 1px solid var(--line); color: var(--accent); background: #f1f6f3; }
-.specialismIcon svg { width: 23px !important; height: 23px !important; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
-.specialismGrid nav a > span { color: var(--accent); font-size: 8px; font-weight: 750; }
-.specialismGrid nav a strong { align-self: start; font-size: 13px; line-height: 1.3; }
-.specialismGrid nav a > svg { grid-column: 3; grid-row: 1 / span 2; color: var(--accent); transition: transform .2s ease; }
-.specialismGrid nav a:hover > svg { transform: translateX(4px); }
+.specialisms { padding: clamp(40px, 5vw, 64px) 0; border-block: 1px solid var(--line); background: var(--card); }
+.specialismGrid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 26px; }
+.specialismGrid > div { max-width: 720px; }
+.specialismGrid > div h2 { max-width: none; margin: 12px 0 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; text-wrap: initial; }
+.specialismGrid > div > p { max-width: none; margin-top: 12px; font-size: 14px; line-height: 1.6; }
+.specialismGrid nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.specialismGrid nav a { min-width: 0; min-height: 82px; padding: 18px; display: grid; grid-template-columns: 40px minmax(0, 1fr) 20px; gap: 14px; align-items: center; border: 1px solid var(--line); background: var(--card); transition: background-color .18s ease, border-color .18s ease; }
+.specialismIcon { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); color: var(--accent); background: #f1f6f3; }
+.specialismGrid nav a > .specialismIcon, .specialismGrid nav a > .scopeIcon { width: 40px; height: 40px; grid-column: 1; grid-row: 1; }
+.specialismIcon svg, .specialismGrid nav .scopeIcon svg { width: 23px !important; height: 23px !important; fill: none; stroke: currentColor; stroke-width: 1.35; stroke-linecap: round; stroke-linejoin: round; }
+.specialismGrid nav a strong { grid-column: 2; grid-row: 1; align-self: center; font-size: 14px; line-height: 1.4; font-weight: 600; }
+.specialismGrid nav a > svg { grid-column: 3; grid-row: 1; justify-self: end; color: var(--accent); transition: transform .2s ease; }
+.specialismGrid nav a:hover { background: #f1f6f3; border-color: #a6c3b4; }
+.specialismGrid nav a:hover > svg { transform: translateX(3px); }
+.specialismGrid nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .testimonial { padding: clamp(70px, 8vw, 110px) 0; border-bottom: 1px solid var(--line); background: var(--accent-soft); }
 
@@ -158,7 +162,8 @@
   .sectionHead { gap: 23px; }
   .workGrid { grid-template-columns: 1fr 1fr; }
   .workCard:last-child { grid-column: 1 / -1; max-width: calc(50% - 10px); }
-  .specialismGrid, .faqGrid { gap: 50px; }
+  .specialismGrid nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .faqGrid { gap: 50px; }
 }
 
 @media (max-width: 680px) {
@@ -196,12 +201,12 @@
   .process { padding-block: 56px; }
   .processGrid { gap: 45px; }
   .process li { grid-template-columns: 36px 1fr; gap: 9px; padding: 22px 0; }
-  .specialisms { padding-block: 54px; }
-  .specialismGrid { gap: 38px; }
+  .specialisms { padding-block: 36px; }
+  .specialismGrid { gap: 22px; }
+  .specialismGrid > div > p { font-size: 13px; }
   .specialismGrid nav { grid-template-columns: 1fr; }
   .specialismGrid nav a { min-height: 64px; padding: 12px; grid-template-columns: 34px minmax(0, 1fr) 18px; grid-template-rows: 1fr; gap: 12px; }
   .specialismGrid nav a > .specialismIcon, .specialismGrid nav a > .scopeIcon { width: 34px; height: 34px; grid-column: 1; grid-row: 1; }
-  .specialismGrid nav a > span:not(.specialismIcon):not(.scopeIcon) { display: none; }
   .specialismGrid nav a strong { grid-column: 2; grid-row: 1; align-self: center; font-size: 13px; line-height: 1.35; }
   .specialismGrid nav a > svg { grid-column: 3; grid-row: 1; width: 18px; height: 18px; }
   .testimonial { padding-block: 54px; }
@@ -213,5 +218,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .primary svg, .workCard, .workImage img, .specialismGrid nav a svg, .faqList summary i { transition: none; }
+  .primary svg, .workCard, .workImage img, .specialismGrid nav a, .specialismGrid nav a svg, .faqList summary i { transition: none; }
 }

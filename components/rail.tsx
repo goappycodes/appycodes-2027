@@ -13,10 +13,12 @@ export function Rail({
   children,
   label,
   className = "",
+  scrollSmallSets = false,
 }: {
   children: ReactNode;
   label: string;
   className?: string;
+  scrollSmallSets?: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [atStart, setAtStart] = useState(true);
@@ -39,8 +41,8 @@ export function Rail({
     return () => ro.disconnect();
   }, [measure]);
 
-  // Two cards or fewer never scroll — a rail would just leave a dead gap at the
-  // end, so they lay out as an ordinary grid instead.
+  // Small sets normally use a grid. Case-study rails can opt into scrolling
+  // to keep two cards compact on mobile.
   const count = Children.toArray(children).length;
 
   function nudge(dir: 1 | -1) {
@@ -51,7 +53,7 @@ export function Rail({
     el.scrollBy({ left: step * dir, behavior: "smooth" });
   }
 
-  if (count <= 2) {
+  if (count <= 2 && !scrollSmallSets) {
     return (
       <div className={`rail-static ${className}`} role="group" aria-label={label}>
         {children}

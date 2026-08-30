@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ClientLogo } from "@/components/client-logo";
 import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
 import { getWorkCards } from "@/lib/work-cards";
 import { TestimonialSlider } from "@/components/testimonial-slider";
@@ -50,7 +51,7 @@ export function InstitutionalCreoateCaseStudy() {
         </div>
         <div className={`${styles.inner} ${styles.heroGrid}`}>
           <div className={styles.heroCopy}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}<img className={styles.clientLogo} src="/images/logo-creoate.png" alt="Creoate" />
+            <ClientLogo href="/case-studies/creoate/" name="Creoate" hero />
             <span className={styles.kicker}>B2B wholesale marketplace / UK, Europe &amp; US</span>
             <h1>Eight years engineering Creoate’s wholesale marketplace.</h1>
             <p>We run the Next.js storefront, Python ingestion pipelines, DynamoDB data layer and AWS infrastructure behind a marketplace of 5,000+ brands and 200,000+ products.</p>

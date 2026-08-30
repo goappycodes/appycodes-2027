@@ -28,14 +28,14 @@ function DeliveryIcon({ title }: { title: string }) {
 }
 
 /** Shared deliverables section for every service template. */
-export function ServiceDeliverables({ items, title = "What we deliver" }: { items: readonly Deliverable[]; title?: string }) {
+export function ServiceDeliverables({ items, title = "What we deliver", kicker = "What you receive", description = "We agree the scope with you before development starts." }: { items: readonly Deliverable[]; title?: string; kicker?: string; description?: string }) {
   const heading = title.charAt(0).toUpperCase() + title.slice(1).replace(/\.$/, "");
-  return <section className={styles.section} aria-label="What you receive">
+  return <section className={styles.section} aria-label={kicker}>
     <div className={styles.inner}>
       <header className={styles.heading}>
-        <span className={styles.kicker}>What you receive</span>
+        <span className={styles.kicker}>{kicker}</span>
         <h2><ServiceTitle label={heading} />.</h2>
-        <p>We agree the scope with you before development starts.</p>
+        {description && <p>{description}</p>}
       </header>
       <div className={styles.grid}>
         {items.map((item, index) => <article className={styles.card} key={item.title}>

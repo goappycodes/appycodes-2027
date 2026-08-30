@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ClientLogo } from "@/components/client-logo";
 import { siteMeta } from "@/lib/seo";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
@@ -160,6 +161,7 @@ export default function CaseStudiesIndex() {
                   <span className="crow__n tnum">{String(i + 1).padStart(2, "0")}</span>
                 </Link>
                 <div className="crow__in">
+                  <ClientLogo href={c.href} name={c.name} />
                   <p className="crow__sector">{d?.sector}</p>
                   <h3 className="h-l crow__t">
                     <Link href={c.href}>{c.head}</Link>

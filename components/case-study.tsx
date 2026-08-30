@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ClientLogo } from "@/components/client-logo";
 import type { ReactNode } from "react";
 import { CASE_STUDIES } from "@/components/sections";
 import { JsonLd } from "@/components/jsonld";
@@ -92,7 +93,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
       <div className={styles.crumbBar}><nav className={`${styles.inner} ${styles.crumbs}`} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/case-studies/">Case studies</Link><span>/</span><span>{data.crumb}</span></nav></div>
       <div className={`${styles.inner} ${styles.heroGrid}`}>
         <div className={styles.heroCopy}>
-          <strong className={styles.clientName}>{data.crumb}</strong>
+          <ClientLogo href={data.path ?? entry?.href ?? ""} name={data.crumb} hero />
           <span className={styles.kicker}>{descriptor} / production case study</span>
           <h1>{data.title}</h1>
           <p>{entry?.body ?? data.lede}</p>

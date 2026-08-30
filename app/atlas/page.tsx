@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { DELIVERY_SUMMARY, PROJECTS_DELIVERED } from "@/lib/site";
 import { siteMeta } from "@/lib/seo";
 import { PageHero } from "@/components/page-hero";
 import { WorkAtlas } from "@/components/work-atlas";
@@ -8,15 +9,14 @@ import { AwardsStrip, FeaturedWork, LogoWall } from "@/components/sections";
 import { COMPLEXITY, DOMAINS, HEAT, MARKERS, TOTALS, YEARS } from "@/lib/portfolio-data";
 
 export const metadata: Metadata = siteMeta({
-  title: `The atlas — ${TOTALS.projects} projects, ${TOTALS.countries} countries, twelve years`,
-  description: `Every engagement in our register, plotted. ${TOTALS.projects} projects for ${TOTALS.clients} clients across ${TOTALS.countries} countries since ${TOTALS.firstYear} — mapped by country, by category and by how hard the work actually was.`,
+  title: "Our global project record",
+  description: DELIVERY_SUMMARY,
   path: "/atlas/",
   image: "/images/ontick-6.png",
 });
 
 /* Figures the copy leans on, derived rather than typed so they cannot drift
    from the register when it is regenerated. */
-const named = DOMAINS.filter((d) => d !== "Other").length;
 const sum = (a: number[]) => a.reduce((x, y) => x + y, 0);
 
 /** Sectors with at least a fifth of their work in the top two complexity bands. */
@@ -28,8 +28,6 @@ const hardest = DOMAINS.map((d, i) => ({
   .filter((x) => x.n >= 10 && x.d !== "Other")
   .sort((a, b) => b.share - a.share);
 
-/** How the last four years split against everything before them. */
-const recent = sum(YEARS.map((y, c) => (y >= 2023 ? sum(HEAT.map((r) => r[c])) : 0)));
 
 export default function AtlasPage() {
   return (
@@ -40,18 +38,17 @@ export default function AtlasPage() {
         titleSize="md"
         title={
           <>
-            {TOTALS.projects} projects. {TOTALS.countries} countries.{" "}
-            <span className="g-disp">twelve years.</span>
+            Software delivered across the world.{" "}
           </>
         }
-        lede={`Every engagement we can account for since ${TOTALS.firstYear}, organised by delivery location, sector and technical complexity.`}
+        lede={DELIVERY_SUMMARY}
         actions={[
           { label: "Start a project", href: "/contact/" },
           { label: "Read the case studies", href: "/case-studies/", variant: "out" },
         ]}
         stats={[
-          { n: String(TOTALS.projects), label: "projects recorded" },
-          { n: String(TOTALS.clients), label: "distinct clients" },
+          { n: PROJECTS_DELIVERED, label: "projects delivered" },
+          { n: "11 years", label: "of experience" },
           { n: String(TOTALS.countries), label: "countries delivered in" },
           { n: `${TOTALS.firstYear}–${TOTALS.lastYear}`, label: "years covered" },
         ]}
@@ -85,8 +82,7 @@ export default function AtlasPage() {
           <p className="eyebrow">the shape of it</p>
           <h2 className="h-l">what we were hired for, year by year.</h2>
           <p className="lede">
-              The register spans {named} established sectors, with {recent} of the {TOTALS.projects}
-              projects delivered in the last four years. This view groups work by the client domain.
+              This view groups recorded projects by sector and delivery year.
           </p>
         </div>
         <WorkHeatmap />
@@ -125,7 +121,7 @@ export default function AtlasPage() {
             <p className="body" style={{ marginTop: "1.4rem" }}>
               A flat frequency count would put WordPress on top — accurate for a decade of content
               sites, and a poor description of what a new build starts from today. The register also
-              leaves the stack column blank on 195 of {TOTALS.projects} rows, so these count the
+              has incomplete technology records, so these count the
               written case studies rather than guessing across the whole set.
             </p>
           </div>
@@ -139,8 +135,7 @@ export default function AtlasPage() {
           <h2 className="h-m">how this page is counted</h2>
           <div className="atlas__note-grid">
             <p>
-              <b>The register</b> is a single list of {TOTALS.projects} engagements for{" "}
-              {TOTALS.clients} clients, rebuilt from our workspace, our mail and our accounting
+              <b>The register</b> lists recorded projects, rebuilt from our workspace, our mail and our accounting
               ledger. One row is one engagement, not one invoice and not one release.
             </p>
             <p>
@@ -154,9 +149,7 @@ export default function AtlasPage() {
               On a live engagement we will introduce you to a reference directly.
             </p>
             <p>
-              <b>Nothing on this page is rounded up.</b> Where the record is thin we say so rather
-              than estimating — which is also why the case studies number{" "}
-              {TOTALS.caseStudies} and not {TOTALS.projects}.
+              <b>The charts use recorded project data.</b> The headline total is rounded; chart values reflect the underlying records. Case studies cover a selection of this work.
             </p>
           </div>
         </div>

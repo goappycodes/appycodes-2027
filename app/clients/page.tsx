@@ -6,12 +6,12 @@ import { LogoWall, FeaturedWork, Testimonials } from "@/components/sections";
 import { ArrowRight, ArrowUpRight } from "@/components/icons";
 import { JsonLd } from "@/components/jsonld";
 import { breadcrumbSchema } from "@/lib/schema";
-import { CLUTCH_STATS } from "@/lib/site";
+import { CLUTCH_STATS, DELIVERY_SUMMARY, PROJECTS_DELIVERED } from "@/lib/site";
 import { TOTALS } from "@/lib/portfolio-data";
 
 export const metadata: Metadata = siteMeta({
   title: "Clients — who we build for",
-  description: `The teams behind the register: ${TOTALS.clients} clients and ${TOTALS.projects} projects across ${TOTALS.countries} countries since ${TOTALS.firstYear} — founders, product teams and operators, and what they say about the work.`,
+  description: DELIVERY_SUMMARY,
   path: "/clients/",
   image: "/images/team-discussion.jpg",
 });
@@ -36,7 +36,7 @@ export default function ClientsPage() {
             the teams behind the <span className="g-disp">register</span>.
           </>
         }
-        lede={`Founders, product teams and operators who trusted us with the thing their business runs on — ${TOTALS.clients} of them since ${TOTALS.firstYear}, from first-time founders to companies you have heard of.`}
+        lede="We work with founders, product teams and businesses across the UK, Europe and worldwide."
         actions={[
           { label: "Start a project", href: "/contact/" },
           { label: "Read what they say", href: "/testimonials/", variant: "out" },
@@ -46,8 +46,8 @@ export default function ClientsPage() {
           alt: "The Appycodes team working with a client",
         }}
         stats={[
-          { n: String(TOTALS.clients), label: "distinct clients" },
-          { n: String(TOTALS.projects), label: "projects delivered" },
+          { n: "11 years", label: "of experience" },
+          { n: PROJECTS_DELIVERED, label: "projects delivered" },
           { n: String(TOTALS.countries), label: "countries" },
           { n: `since ${TOTALS.firstYear}`, label: "building" },
         ]}
@@ -61,7 +61,7 @@ export default function ClientsPage() {
           <div className="sec__head">
             <p className="eyebrow eyebrow--slab">the full client record</p>
             <h2 className="h-l" style={{ color: "#fff", maxWidth: "24ch" }}>
-              {TOTALS.clients} clients. {TOTALS.projects} projects. {TOTALS.countries} countries.
+              {DELIVERY_SUMMARY}
             </h2>
             <p className="lede" style={{ color: "var(--on-slab-2)" }}>
               The atlas records every engagement we can account for since {TOTALS.firstYear},

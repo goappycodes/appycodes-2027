@@ -36,7 +36,7 @@ export function GET() {
   );
   lines.push("");
   lines.push(
-    "Appycodes has delivered 298 projects for 226 clients across 18 countries since 2015. Engagements are run by the founders with a small senior team — the people who scope your project build it. Typical stacks: Next.js, React, React Native, Laravel, Node.js, Python, AWS, DynamoDB and PostgreSQL, on infrastructure you own."
+    "Appycodes has delivered 300 projects across a large number of sectors since 2015. Engagements are run by the founders with a small senior team — the people who scope your project build it. Typical stacks: Next.js, React, React Native, Laravel, Node.js, Python, AWS, DynamoDB and PostgreSQL, on infrastructure you own."
   );
   lines.push("");
 
@@ -61,7 +61,7 @@ export function GET() {
   lines.push("## Company");
   lines.push(`- [About](${BASE}/about/): the studio, the founders and how the work is run.`);
   lines.push(`- [Testimonials](${BASE}/testimonials/): verified Clutch reviews, each linked to the original.`);
-  lines.push(`- [The atlas](${BASE}/atlas/): the full register of 298 projects, plotted by country.`);
+  lines.push(`- [The atlas](${BASE}/atlas/): our project record, plotted by country.`);
   lines.push(`- [Writing](${BASE}/blog/): engineering cost studies and research.`);
   lines.push(`- [Contact](${BASE}/contact/): book a call with the engineer who would run it.`);
   lines.push("");

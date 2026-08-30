@@ -185,9 +185,9 @@ export function InstitutionalServicePage({ service }: { service: ServiceData }) 
 
       <section className={styles.specialisms}>
         <div className={`${styles.inner} ${styles.specialismGrid}`}>
-          <div><span className={styles.kicker}>Specific capabilities</span><h2>Bring us the exact problem.</h2><p>These {service.title} services can be commissioned individually or as one connected programme.</p></div>
+          <div><span className={styles.kicker}>Specific capabilities</span><h2>Specialist services.</h2><p>Choose a service to see what’s included.</p></div>
           <nav aria-label={`${service.title} specialisms`}>
-            {specialisms.map((item, index) => <Link href={`/services/${item.slug}/`} key={item.slug}><SpecialismIcon index={index} /><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.label}</strong><Arrow /></Link>)}
+            {specialisms.map((item, index) => <Link href={`/services/${item.slug}/`} key={item.slug}><SpecialismIcon index={index} /><strong>{item.label}</strong><Arrow /></Link>)}
           </nav>
         </div>
       </section>

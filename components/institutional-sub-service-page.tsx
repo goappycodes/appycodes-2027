@@ -125,8 +125,8 @@ export function InstitutionalSubServicePage({ service }: { service: SubServiceDa
 
       {siblings.length && pillar ? <section className={styles.specialisms}>
         <div className={`${styles.inner} ${styles.specialismGrid}`}>
-          <div><span className={styles.kicker}>Also in this practice</span><h2>One team across the whole system.</h2><p>Related {pillar.title} capabilities can be commissioned individually or as one connected programme.</p></div>
-          <nav aria-label={`${pillar.title} services`}>{siblings.map((item, index) => <Link href={`/services/${item.slug}/`} key={item.slug}><CapabilityIcon index={index} /><span>{String(index + 1).padStart(2, "0")}</span><strong>{item.label}</strong><Arrow /></Link>)}</nav>
+          <div><span className={styles.kicker}>Also in this practice</span><h2>Related services.</h2><p>Explore other {pillar.title} services.</p></div>
+          <nav aria-label={`${pillar.title} services`}>{siblings.map((item, index) => <Link href={`/services/${item.slug}/`} key={item.slug}><CapabilityIcon index={index} /><strong>{item.label}</strong><Arrow /></Link>)}</nav>
         </div>
       </section> : null}
 

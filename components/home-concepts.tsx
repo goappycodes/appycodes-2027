@@ -22,7 +22,7 @@ const CAPABILITIES = [
 const METRICS = [
   { value: "2015", label: "Building production software since" },
   { value: "11 years", label: "of experience" },
-  { value: "300+", label: "products delivered" },
+  { value: "300", label: "projects delivered" },
   { value: "5.0", label: "Average across 18 Clutch reviews" },
 ];
 
@@ -207,12 +207,12 @@ function InstitutionalHero() {
     <section className={`${styles.hero} ${styles.institutionalHero}`}>
       <div className={`${styles.inner} ${styles.heroGrid}`}>
         <div className={styles.heroCopy}>
-          <h1>Custom software for growing businesses.</h1>
+          <h1>Custom software, websites and mobile apps built to help your business grow.</h1>
           <figure className={styles.heroInlineVisual}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/images/appycodes-hero-delivery-system.png" alt="Connected software modules forming a production system" fetchPriority="high" />
           </figure>
-          <p>We build web platforms, mobile apps and AI systems for businesses across the UK, Europe and worldwide.</p>
+          <p>We design, build and support web platforms, mobile apps and AI systems for businesses across the UK, Europe and worldwide. Our senior team handles planning, development and ongoing support, with clear communication from the first call through to launch.</p>
           <div className={styles.actions}>
             <Link href="/contact/" className={styles.primaryButton}>Discuss your project <Arrow /></Link>
             <a href="#selected-work" className={styles.secondaryButton}>Review our work</a>

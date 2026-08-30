@@ -97,7 +97,7 @@ export default function YearFourPage() {
         stats={[
           { n: "10 yrs", label: "longest relationship" },
           { n: "6", label: "past the four-year mark" },
-          { n: String(TOTALS.clients), label: "clients in the register" },
+          { n: "300", label: "projects delivered" },
           { n: String(TOTALS.firstYear), label: "building since" },
         ]}
       />

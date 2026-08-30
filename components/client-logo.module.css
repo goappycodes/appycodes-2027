@@ -1,0 +1,11 @@
+.logo { display: inline-flex; align-items: center; justify-content: flex-start; width: 150px; max-width: 100%; height: 42px; flex: none; text-transform: none; letter-spacing: normal; }
+.logo img { display: block; width: auto; max-width: 100%; height: auto; max-height: 36px; object-fit: contain; object-position: left center; }
+.dark { padding: 7px 10px; background: #171917; }
+.dark img { max-height: 28px; }
+.trimmed { overflow: hidden; }
+.trimmed img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: center; }
+.name { font-size: 15px; line-height: 1.2; font-weight: 600; color: #26362d; }
+.hero { width: 180px; height: 50px; margin-bottom: 18px; }
+.hero img { max-height: 42px; }
+.hero.dark img { max-height: 36px; }
+@media (max-width: 680px) { .logo { width: 128px; height: 38px; } .logo img { max-height: 32px; } .dark img { max-height: 24px; } .hero { width: 160px; height: 46px; } }

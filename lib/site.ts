@@ -1,4 +1,6 @@
 // Single source of truth for site-wide constants used across the rebrand.
+export const DELIVERY_SUMMARY = "300 projects delivered across a large number of sectors.";
+export const PROJECTS_DELIVERED = "300";
 
 export const SITE = {
   name: "Appycodes",

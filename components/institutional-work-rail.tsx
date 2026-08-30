@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Rail } from "@/components/rail";
+import { ClientLogo } from "@/components/client-logo";
 import styles from "./home-concepts.module.css";
 import type { InstitutionalWorkItem } from "@/lib/work-cards";
 
@@ -11,7 +12,7 @@ function Arrow() {
 
 export function InstitutionalWorkRail({ items, label = "Selected case studies" }: { items: InstitutionalWorkItem[]; label?: string }) {
   return (
-    <Rail label={label} className={styles.workGrid}>
+    <Rail label={label} className={styles.workGrid} scrollSmallSets={items.length === 2}>
       {items.map((item, index) => (
         <Link href={item.href} className={styles.workCard} key={item.client}>
           <div className={styles.workImage}>
@@ -21,12 +22,7 @@ export function InstitutionalWorkRail({ items, label = "Selected case studies" }
           </div>
           <div className={styles.workBody}>
             <div className={styles.workMeta}>
-              <span className={`${styles.caseBrand} ${styles[`brand${item.brand}`] ?? ""}`}>
-                {item.logo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.logo} alt={item.client} loading="lazy" />
-                ) : <span>{item.client}</span>}
-              </span>
+              <ClientLogo href={item.href} name={item.client} />
               <span>{item.sector}</span>
             </div>
             <h3>{item.title}</h3>

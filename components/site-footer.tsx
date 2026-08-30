@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DELIVERY_SUMMARY } from "@/lib/site";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { SECTORS_DATA } from "@/lib/sectors-data";
 import { FlagUK, FlagEU, Star } from "@/components/icons";
@@ -70,10 +71,7 @@ export function SiteFooter() {
         </div>
         <div className="foot__bar">
           <p>© {new Date().getFullYear()} Appycodes. Building since 2015.</p>
-          <p className="foot__reg">
-            <span className="tnum">298</span> projects · <span className="tnum">226</span> clients ·{" "}
-            <span className="tnum">18</span> countries
-          </p>
+          <p className="foot__reg">{DELIVERY_SUMMARY}</p>
         </div>
       </div>
     </footer>

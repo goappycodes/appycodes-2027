@@ -1,0 +1,56 @@
+.hero { padding-bottom: 40px; border-bottom: 1px solid #dce1e5; }
+.heroGrid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); align-items: center; gap: clamp(32px, 5vw, 72px); padding-top: 36px; }
+.page .heroCopy h1 { margin-top: 16px; max-width: 20ch; font-size: clamp(38px, 4.3vw, 62px); line-height: 1.06; font-weight: 650; letter-spacing: -.045em; text-wrap: balance; }
+.page .heroCopy > p { margin-top: 20px; max-width: 58ch; color: #536170; font-size: 16px; line-height: 1.65; }
+.visual { margin: 0; background: white; border: 1px solid #dce1e5; }
+.visualHead { display: flex; justify-content: space-between; gap: 12px; padding: 14px 20px; color: #536170; font-size: 9px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+.visual img { display: block; width: 100%; height: 230px; object-fit: cover; }
+.visual figcaption { padding: 14px 20px; font-size: 12px; color: #146143; background: #edf5f0; }
+.section { padding-block: 44px; }
+.heading { margin-bottom: 24px; }
+.page .heading h2, .page .closing h2 { margin-top: 10px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1; font-weight: 620; letter-spacing: -.045em; }
+.sectorGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.sectorCard { display: grid; grid-template-columns: 40px minmax(0, 1fr) 20px; gap: 14px; padding: 24px; border: 1px solid #dce1e5; background: white; transition: background .2s, border-color .2s; }
+.sectorCard:hover { background: #edf5f0; border-color: #a6c3b4; }
+.page .sectorCard h3 { font-size: 19px; font-weight: 600; line-height: 1.25; letter-spacing: -.025em; }
+.page .sectorCard p { margin-top: 10px; color: #536170; font-size: 13px; line-height: 1.6; }
+.icon { width: 40px; height: 40px; display: grid; place-items: center; background: #edf5f0; border: 1px solid #dce9e1; color: #146143; }
+.icon svg { width: 22px; height: 22px; }
+.sectorCard > svg, .serviceLinks svg, .allLink svg { width: 20px; height: 20px; flex: none; color: #146143; }
+.sectorCard > svg { align-self: end; }
+.tools { background: white; border-block: 1px solid #dce1e5; padding-block: 24px; }
+.tools > div { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.page .tools h2 { font-size: 16px; font-weight: 600; }
+.tools ul { display: flex; gap: 8px; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+.tools li { border: 1px solid #dce1e5; padding: 8px 12px; font-size: 12px; color: #146143; background: #f7f8f8; }
+.services { background: white; border-block: 1px solid #dce1e5; }
+.serviceLinks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.serviceLinks a { min-height: 64px; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; border: 1px solid #dce1e5; font-size: 15px; font-weight: 600; }
+.serviceLinks a:hover { background: #edf5f0; }
+.page .allLink { display: inline-flex; align-items: center; gap: 14px; margin-top: 24px; padding-bottom: 5px; border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 600; color: #146143; }
+.closing { padding-block: 44px; background: #edf2ef; }
+.closing > div { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+.page .closing p { margin-top: 14px; color: #536170; font-size: 14px; }
+.page a:focus-visible { outline: 2px solid #146143; outline-offset: 4px; }
+@media (max-width: 1100px) {
+  .sectorGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .heroGrid { grid-template-columns: 1fr; gap: 24px; padding-top: 28px; }
+  .visual img { height: 190px; }
+  .serviceLinks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .hero { padding-bottom: 28px; }
+  .page .heroCopy h1 { font-size: clamp(32px, 8.5vw, 40px); }
+  .page .heroCopy > p { font-size: 14px; margin-top: 16px; }
+  .section, .closing { padding-block: 32px; }
+  .sectorGrid, .serviceLinks { grid-template-columns: 1fr; }
+  .sectorCard { padding: 18px 16px; gap: 12px; grid-template-columns: 34px minmax(0, 1fr) 18px; }
+  .icon { width: 34px; height: 34px; }
+  .page .sectorCard h3 { font-size: 18px; }
+  .page .sectorCard p { font-size: 12px; }
+  .serviceLinks a { min-height: 58px; padding: 14px 16px; font-size: 14px; }
+  .closing > div { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) { .sectorCard { transition: none; } }

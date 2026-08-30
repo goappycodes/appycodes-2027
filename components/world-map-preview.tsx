@@ -135,7 +135,7 @@ export function WorldMapPreview() {
         <div className="sec__head reveal">
           <p className="eyebrow eyebrow--slab">our work around the world</p>
           <h2 className="h-l" style={{ color: "#fff" }}>
-            {TOTALS.projects} projects across {TOTALS.countries} countries
+            300 projects delivered across a large number of sectors
           </h2>
           <p className="lede" style={{ color: "var(--on-slab-2)" }}>
             Our work spans the UK, Europe, Asia and beyond. Explore the map and hover over any pin
@@ -252,12 +252,12 @@ export function WorldMapPreview() {
         <div className="atlas-preview__foot">
           <dl className="atlas-preview__stats">
             <div>
-              <dd className="tnum g-dark">{TOTALS.projects}</dd>
-              <dt>projects recorded</dt>
+              <dd className="tnum g-dark">300</dd>
+              <dt>projects delivered</dt>
             </div>
             <div>
-              <dd className="tnum g-dark">{TOTALS.clients}</dd>
-              <dt>distinct clients</dt>
+              <dd className="tnum g-dark">11 years</dd>
+              <dt>of experience</dt>
             </div>
             <div>
               <dd className="tnum g-dark">{TOTALS.countries}</dd>
