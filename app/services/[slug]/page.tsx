@@ -6,6 +6,7 @@ import { siteMeta } from "@/lib/seo";
 import { serviceMedia, subServiceMedia } from "@/lib/media";
 import { ServicePage } from "@/components/service-page";
 import { SubServicePage } from "@/components/sub-service-page";
+import { InstitutionalServicePage } from "@/components/institutional-service-page";
 
 export function generateStaticParams() {
   return [
@@ -50,6 +51,7 @@ export default async function ServiceDetail({
 
   // Pillar service
   const s = SERVICES_DATA.find((x) => x.slug === slug);
+  if (s?.slug === "product-platforms") return <InstitutionalServicePage />;
   if (s) return <ServicePage s={s} />;
 
   // Original ("legacy") service page, rebuilt at its own URL

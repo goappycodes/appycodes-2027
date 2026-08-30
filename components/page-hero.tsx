@@ -38,19 +38,20 @@ export function PageHero({
   return (
     <section className="phero">
       <div className="phero__glow" aria-hidden="true" />
+      {crumbs && crumbs.length > 0 ? (
+        <div className="phero__crumbbar">
+          <nav className="wrap crumbs" aria-label="Breadcrumb">
+            {crumbs.map((c, i) => (
+              <span key={`${c.label}-${i}`}>
+                {c.href ? <Link href={c.href}>{c.label}</Link> : <span aria-current="page">{c.label}</span>}
+                {i < crumbs.length - 1 ? <i aria-hidden="true">/</i> : null}
+              </span>
+            ))}
+          </nav>
+        </div>
+      ) : null}
       <div className={`wrap phero__in${hasSide ? " phero__in--split" : ""}`}>
         <div className="phero__copy">
-          {crumbs && crumbs.length > 0 ? (
-            <nav className="crumbs" aria-label="Breadcrumb">
-              {crumbs.map((c, i) => (
-                <span key={`${c.label}-${i}`}>
-                  {c.href ? <Link href={c.href}>{c.label}</Link> : <span aria-current="page">{c.label}</span>}
-                  {i < crumbs.length - 1 ? <i aria-hidden="true">/</i> : null}
-                </span>
-              ))}
-            </nav>
-          ) : null}
-
           {eyebrow ? <p className="phero__eyebrow">{eyebrow}</p> : null}
           <h1 className={`phero__t${titleSize === "md" ? " phero__t--md" : ""}`}>{title}</h1>
           {lede ? <p className="phero__lede">{lede}</p> : null}

@@ -18,7 +18,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL("https://appycodes.dev"),
   title: {
-    default: "Appycodes — we build the software businesses actually run on",
+    default: "Appycodes — custom software for growing businesses",
     template: "%s | Appycodes",
   },
   description:
@@ -30,14 +30,14 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Appycodes",
     url: "https://appycodes.dev",
-    title: "Appycodes — we build the software businesses actually run on",
+    title: "Appycodes — custom software for growing businesses",
     description:
       "Senior product engineering for companies that have outgrown off-the-shelf. Web platforms, mobile apps and AI systems, shipping in production since 2015.",
     images: [{ url: "/images/ritesh-prince.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Appycodes — we build the software businesses actually run on",
+    title: "Appycodes — custom software for growing businesses",
     description:
       "Senior product engineering for companies that have outgrown off-the-shelf. Web platforms, mobile apps and AI systems, shipping in production since 2015.",
     images: ["/images/ritesh-prince.jpg"],

@@ -32,7 +32,7 @@ export type ServiceData = {
 export const SERVICES_DATA: ServiceData[] = [
   {
     slug: "product-platforms",
-    title: "product platforms",
+    title: "product engineering",
     summary:
       "Multi-tenant SaaS, marketplaces, ticketing and booking engines — the systems your business actually runs on, built to survive their own success.",
     headline: "The multi-tenant systems your business runs on, built to survive their own success.",

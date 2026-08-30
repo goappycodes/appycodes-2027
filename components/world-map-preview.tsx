@@ -133,15 +133,13 @@ export function WorldMapPreview() {
     <section className="slab dotted atlas-sec" id="atlas">
       <div className="wrap">
         <div className="sec__head reveal">
-          <p className="eyebrow eyebrow--slab">the whole register, not a shortlist</p>
+          <p className="eyebrow eyebrow--slab">our work around the world</p>
           <h2 className="h-l" style={{ color: "#fff" }}>
-            {TOTALS.projects} projects. {TOTALS.countries} countries. twelve years.
+            {TOTALS.projects} projects across {TOTALS.countries} countries
           </h2>
           <p className="lede" style={{ color: "var(--on-slab-2)" }}>
-            Most agencies show you six logos. This is every engagement we can account for since{" "}
-            {TOTALS.firstYear}, plotted where it was delivered — {MARKERS[0].count} in the{" "}
-            <span className="caps">UK</span>, {MARKERS[1].count} in India, and the rest across{" "}
-            {TOTALS.countries - 2} more countries. Hover any pin for the detail.
+            Our work spans the UK, Europe, Asia and beyond. Explore the map and hover over any pin
+            to see what we delivered.
           </p>
         </div>
       </div>

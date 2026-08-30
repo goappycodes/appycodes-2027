@@ -1,12 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Rail } from "@/components/rail";
-import { AWARDS, CLIENT_LOGOS, REVIEWS, reviewIdentity } from "@/lib/site";
+import { AWARDS, CLIENT_LOGOS } from "@/lib/site";
 import { BLOG_POSTS } from "@/lib/blog";
 import { JsonLd } from "@/components/jsonld";
 import { faqSchema } from "@/lib/schema";
-import { Monogram } from "@/components/monogram";
-import { ArrowUpRight } from "@/components/icons";
+import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
+import { TestimonialSlider } from "@/components/testimonial-slider";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -301,6 +300,18 @@ export function FeaturedWork({
   more?: boolean;
 }) {
   const items = only ? CASE_STUDIES.filter((c) => only.includes(c.name)) : CASE_STUDIES;
+  const institutionalItems: InstitutionalWorkItem[] = items.map((item) => ({
+    href: item.href,
+    image: item.img,
+    client: item.name,
+    logo: item.logo?.startsWith("/images/logo-") ? item.logo : undefined,
+    brand: item.name.replace(/[^A-Za-z0-9]/g, ""),
+    sector: item.meta.split("·")[1]?.trim() ?? "Product engineering",
+    title: item.meta,
+    detail: item.body,
+    metric: item.fig,
+    metricLabel: item.figlabel,
+  }));
   if (items.length === 0) return null;
   return (
     <section className="wrap sec reveal">
@@ -309,11 +320,7 @@ export function FeaturedWork({
         <h2 className="h-l">{title}</h2>
         {lede ? <p className="lede">{lede}</p> : null}
       </div>
-      <Rail label="Case studies" className="work-rail">
-        {items.map((o) => (
-          <CaseCard key={o.href} o={o} />
-        ))}
-      </Rail>
+      <InstitutionalWorkRail items={institutionalItems} label="Case studies" />
       {more ? (
         <div className="sec__more">
           <Link className="btn btn--out notch" href="/case-studies/">
@@ -391,43 +398,15 @@ export function Testimonials({
   lede?: string;
   limit?: number;
 }) {
-  const items = limit ? REVIEWS.slice(0, limit) : REVIEWS;
   return (
-    <section className="wrap sec reveal">
-      <div className="sec__head">
-        <p className="eyebrow">reviews · verified on clutch</p>
-        <h2 className="h-l">{title}</h2>
-        {lede ? <p className="lede">{lede}</p> : null}
-      </div>
-      <div className="tmon">
-        {items.map((t) => {
-          const id = reviewIdentity(t);
-          return (
-            <a
-              key={t.url}
-              className="quote notch"
-              href={t.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Read ${id.primary}'s review on Clutch`}
-            >
-              <span className="quote__mark">&ldquo;</span>
-              <blockquote className="quote__t">{t.quote}</blockquote>
-              <span className="quote__by">
-                {t.avatar ? (
-                  <img src={t.avatar} alt="" loading="lazy" />
-                ) : (
-                  <Monogram seed={id.seed} className="quote__mono" />
-                )}
-                <span className="quote__who">
-                  <span className="quote__n">{id.primary}</span>
-                  <span className="quote__r">{id.secondary}</span>
-                </span>
-                <ArrowUpRight className="quote__src" />
-              </span>
-            </a>
-          );
-        })}
+    <section className="institutional-testimonial reveal">
+      <div className="wrap">
+        <div className="institutional-testimonial__head">
+          <p className="eyebrow">reviews · verified on clutch</p>
+          <h2 className="h-l">{title}</h2>
+          {lede ? <p className="lede">{lede}</p> : null}
+        </div>
+        <TestimonialSlider />
       </div>
     </section>
   );

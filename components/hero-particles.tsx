@@ -21,7 +21,7 @@ export function HeroParticles() {
       matchMedia("(prefers-reduced-motion: reduce)").matches;
     const color =
       getComputedStyle(document.documentElement).getPropertyValue("--solid-hi").trim() ||
-      "#5ECD04";
+      "#146143";
 
     let W = 0,
       H = 0,

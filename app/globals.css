@@ -25,59 +25,68 @@
 }
 
 /* ==================================================================
-   APPYCODES — homepage, direction 02 "Statement"
-   Palette: Alloy  (#0E100F → #5ECD04)
+   APPYCODES — "Institutional" direction
+   Palette: deep green #146143 on navy ink #111b27 + off-white paper #f7f8f8
 
-   GRADIENT LAW — five variants of one pair, each derived by pushing
-   every anchor until it clears ITS OWN ground. Nothing is eyeballed.
-     --grad             decorative fills. Never carries text.
-     --grad-fill        filled shapes that DO carry text (4.5:1 both ends)
-     --grad-display     gradient-as-text at 24px+ on light (3:1 floor)
-     --grad-text-light  gradient-as-text below 24px on light (4.5:1)
-     --grad-text-dark   gradient-as-text on the slab (4.5:1 vs slab)
+   Flat, precise, credential-led. The old Alloy system (lime + notch +
+   gradient-as-identity) has been retired: the palette funnels through the
+   :root tokens below, the "notch" chamfer is now a no-op (square corners),
+   and the --grad* variables are kept only so existing rules keep working —
+   their stops sit close together so every "gradient" reads as one accent.
+     --grad             decorative fills / hairline accents (near-solid green)
+     --grad-fill        filled shapes that carry text (deep green, white text)
+     --grad-display     gradient-as-text at 24px+ on light (deep green)
+     --grad-text-light  gradient-as-text below 24px on light (deep green)
+     --grad-text-dark   gradient-as-text on the navy slab (light mint-green)
 
-   GEOMETRY — one motif, used everywhere:
-     the NOTCH, a chamfer cut on the top-right corner of every bounded
-     object, angled to match the gradient axis. Plus the logo dot as a
-     marker, and a dot-grid on dark ground.
+   GEOMETRY — square corners, 1px hairline rules, uppercase kickers led by a
+   short rule, the logo dot as a marker. The page ground is flat off-white.
    Single-theme by intent — the page paints its own ground.
    ================================================================== */
 :root {
-  --a: #0E100F;
-  --b: #5ECD04;
+  --a: #111b27;   /* dark end — navy ink */
+  --b: #146143;   /* accent — deep institutional green */
   --angle: 110deg;
 
-  --grad:            linear-gradient(var(--angle), var(--a) 0%, var(--b) 100%);
-  --grad-fill:       linear-gradient(var(--angle), #0E100F 0%, #3B8103 100%);
-  --grad-display:    linear-gradient(var(--angle), #0E100F 0%, #459703 100%);
-  --grad-text-light: linear-gradient(var(--angle), #0E100F 0%, #387B02 100%);
-  --grad-text-dark:  linear-gradient(var(--angle), #ADAEAD 0%, #5ECD04 100%);
+  /* The institutional direction is flat, not gradient-led: every "gradient"
+     resolves to (near-)solid deep green so buttons, bars and ticks read as one
+     precise accent. The five variants are kept — as gradients, because several
+     are used as clipped gradient-text (a solid color there would render as
+     invisible transparent text) — but their stops sit close together. */
+  --grad:            linear-gradient(var(--angle), #146143 0%, #178a5f 100%);
+  --grad-fill:       linear-gradient(var(--angle), #12563b 0%, #146143 100%);
+  --grad-display:    linear-gradient(var(--angle), #12563b 0%, #167a51 100%);
+  --grad-text-light: linear-gradient(var(--angle), #12563b 0%, #167049 100%);
+  --grad-text-dark:  linear-gradient(var(--angle), #a7d8c1 0%, #79c2a0 100%);
 
   --on-grad: #FFFFFF;
   --on-grad-inv: #0B0B0B;
-  --solid: #0E100F;
-  --solid-hi: #5ECD04;   /* the loud, unclamped accent — fills only */
-  --tint:  #5ECD04;
-  --accent-text: #2E6A02; /* contrast-safe green for small accent text on white */
+  --solid: #146143;      /* brand accent — eyebrows, labels, focus, small marks */
+  --solid-hi: #146143;   /* the accent — fills */
+  --tint:  #8ecfad;      /* accent on the dark navy slab */
+  --accent-text: #146143; /* contrast-safe green for accent text on white */
 
-  --page:  #FFFFFF;
-  --wash:  #F3FBEC;         /* accent tinted into the page — bands */
-  --wash-2:#E6F7D8;        /* stronger tint — hover states */
-  --slab:  #0E100F;
-  --ink:   #0B0E0B;
-  --ink-2: #434A42;
-  --ink-3: #646B62;
-  --rule:  #E4E9E2;
-  --rule-2:#CDD5CB;
+  --page:  #FFFFFF;        /* surface white — cards, controls */
+  --paper: #f7f8f8;        /* the page ground */
+  --wash:  #eef2f1;        /* subtle cool band tint */
+  --wash-2:#e4ece8;        /* stronger tint — hover states */
+  --slab:  #111b27;        /* dark navy sections */
+  --ink:   #111b27;
+  --ink-2: #3d4957;
+  --ink-3: #536170;
+  --ink-4: #6b7784;
+  --rule:  #dce1e5;
+  --rule-2:#c9d0d6;
 
   --on-slab:   #FFFFFF;
-  --on-slab-2: rgba(255,255,255,.68);
-  --on-slab-3: rgba(255,255,255,.44);
-  --slab-rule: rgba(255,255,255,.15);
+  --on-slab-2: rgba(255,255,255,.70);
+  --on-slab-3: rgba(255,255,255,.46);
+  --slab-rule: rgba(255,255,255,.14);
 
-  /* brand texture: faint graph-paper grid — the light echo of the dark hero's
-     checkered grid (neutral ink, kept very light) + illustration ink */
-  --grid:      color-mix(in srgb, var(--ink) 3.2%, transparent);
+  /* Institutional ground is a clean, flat off-white — no page grid. Kept as a
+     token (transparent) so the .std / .logos / body grid layers become no-ops
+     without touching each rule. */
+  --grid:      transparent;
   --grid-slab: rgba(255,255,255,.05);
 
   --f: var(--font-archivo), system-ui, -apple-system, sans-serif;
@@ -91,13 +100,7 @@
 
 body {
   margin: 0;
-  background-color: var(--page);
-  /* faint blueprint grid — the brand's base texture, shows through every
-     light section; solid slabs and cards sit on top of it */
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 34px 34px;
+  background-color: var(--paper);
   color: var(--ink);
   font-family: var(--f);
   font-weight: 400;
@@ -116,18 +119,11 @@ body {
 a { color: inherit; text-decoration: none; }
 :focus-visible { outline: 2px solid var(--solid); outline-offset: 3px; }
 
-/* ---------- THE MOTIF: the notch ---------- */
-.notch {
-  clip-path: polygon(
-    0 0,
-    calc(100% - var(--notch)) 0,
-    100% var(--notch),
-    100% 100%,
-    0 100%
-  );
-}
-.notch-sm { --notch: 9px; }
-.notch-lg { --notch: 28px; }
+/* ---------- geometry: sharp, precise corners ----------
+   The old chamfered "notch" motif is retired for the institutional direction —
+   every bounded object now has square corners. The class is kept as a no-op so
+   the many components that still apply it need no markup changes. */
+.notch, .notch-sm, .notch-lg { clip-path: none; }
 
 /* dot-grid, the motif's texture, on dark ground only */
 .dotted { position: relative; isolation: isolate; }
@@ -145,9 +141,8 @@ a { color: inherit; text-decoration: none; }
   color: var(--solid); display: inline-flex; align-items: center; gap: .7rem; margin: 0;
 }
 .eyebrow::before {
-  content: ""; width: 40px; height: 4px; display: block; flex: none;
-  background-image: var(--grad);
-  clip-path: polygon(0 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+  content: ""; width: 24px; height: 1px; display: block; flex: none;
+  background: currentColor;
 }
 .eyebrow--slab { color: var(--tint); }
 
@@ -425,7 +420,7 @@ a { color: inherit; text-decoration: none; }
 .drawer__case {
   display: grid; gap: .1rem; padding-bottom: .55rem;
   background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
-  border-radius: 4px; overflow: hidden;
+  border-radius: 0; overflow: hidden;
   transition: background-color .18s var(--ease), border-color .18s var(--ease);
 }
 .drawer__case:active { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.2); }
@@ -500,8 +495,8 @@ a { color: inherit; text-decoration: none; }
   background-color: var(--slab);
   background-image:
     radial-gradient(80% 75% at 86% -8%, color-mix(in srgb, var(--solid-hi) 22%, transparent) 0%, transparent 56%),
-    linear-gradient(100deg, #040a07f7 0%, #050b08ed 2%, #060d0999 96%, #060d094d 100%),
-    linear-gradient(0deg, #060d09e6 0%, #060d0900 44%),
+    linear-gradient(100deg, #040a07f7 0%, #050b08ed 2%, #0b132099 96%, #0b13204d 100%),
+    linear-gradient(0deg, #0b1320e6 0%, #0b132000 44%),
     url("/images/team-discussion.jpg");
   background-size: 100%;
   background-position: right 32%;
@@ -513,7 +508,7 @@ a { color: inherit; text-decoration: none; }
   .home #how {
     background-image:
       radial-gradient(90% 55% at 88% 0%, color-mix(in srgb, var(--solid-hi) 18%, transparent) 0%, transparent 60%),
-      linear-gradient(180deg, #060d09d9 0%, #060d09f0 100%),
+      linear-gradient(180deg, #0b1320d9 0%, #0b1320f0 100%),
       url("/images/team-discussion.jpg");
     background-size: cover;
     background-position: center;
@@ -681,7 +676,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3);
   display: inline-flex; align-items: center; gap: .7rem;
 }
-.logos__lbl::before { content: ""; width: 26px; height: 4px; background-image: var(--grad); flex: none; clip-path: polygon(0 0,100% 0,calc(100% - 4px) 100%,0 100%); }
+.logos__lbl::before { content: ""; width: 24px; height: 1px; background: currentColor; flex: none; }
 .logos__row { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(1.75rem, 4vw, 3.25rem); }
 .logos__row img {
   height: clamp(24px, 3.4vw, 30px); width: auto; display: block;
@@ -788,7 +783,7 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
   background:
     radial-gradient(90% 85% at 88% -5%, color-mix(in srgb, var(--solid-hi) 20%, var(--slab)) 0%, transparent 58%),
-    linear-gradient(158deg, var(--slab) 0%, #060d09 100%);
+    linear-gradient(158deg, var(--slab) 0%, #0b1320 100%);
   /* full-bleed dark background: the section spans the full viewport width while
      its content stays aligned to the standard 1640px column (the .wrap cap only
      bit on very wide screens, leaving white gutters around the hero) */
@@ -808,8 +803,8 @@ a { color: inherit; text-decoration: none; }
   background-color: var(--slab);
   background-image:
     radial-gradient(80% 75% at 86% -8%, color-mix(in srgb, var(--solid-hi) 22%, transparent) 0%, transparent 56%),
-    linear-gradient(100deg, #040a07f7 0%, #050b08ed 2%, #060d0999 46%, #060d094d 100%),
-    linear-gradient(0deg, #060d09e6 0%, #060d0900 44%),
+    linear-gradient(100deg, #040a07f7 0%, #050b08ed 2%, #0b132099 46%, #0b13204d 100%),
+    linear-gradient(0deg, #0b1320e6 0%, #0b132000 44%),
     url("/images/ritesh-prince.jpg");
   background-size: 70%;
   background-position: right 32%;
@@ -839,7 +834,7 @@ a { color: inherit; text-decoration: none; }
   background-size: 34px 34px;
 }
 .hero--dark .h-xl, .hero--dark .h-l, .hero--dark h1 { color: #fff; }
-.hero--dark .g-disp { background-image: linear-gradient(var(--angle), var(--solid-hi) 0%, color-mix(in srgb, var(--solid-hi) 42%, #ffffff) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero--dark .g-disp { background-image: linear-gradient(var(--angle), var(--tint) 0%, color-mix(in srgb, var(--tint) 55%, #ffffff) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero--dark .lede { color: rgba(255,255,255,.74); }
 .hero--dark .btn--out { background: none; color: #fff; box-shadow: none; text-decoration-color: rgba(255,255,255,.4); }
 .hero--dark .btn--out:hover { background: none; color: #fff; box-shadow: none; text-decoration-color: #fff; }
@@ -859,7 +854,7 @@ a { color: inherit; text-decoration: none; }
 .cs-crumb a { color: inherit; }
 .cs-crumb a:hover { color: #fff; }
 .cs-sector { font-weight: 700; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--tint); display: inline-flex; align-items: center; gap: .6rem; margin: 0 0 1.35rem; }
-.cs-sector::before { content: ""; width: 26px; height: 3px; background-image: var(--grad); }
+.cs-sector::before { content: ""; width: 24px; height: 1px; background: currentColor; }
 .cs-hero h1 { font-weight: 700; text-transform: none; letter-spacing: -.04em; line-height: .98; font-size: clamp(2rem, 5vw, 3.5rem); margin: 0; color: #fff; text-wrap: balance; }
 .cs-hero .cs-lede { margin: 1.5rem 0 0; font-size: clamp(15.5px, 1.6vw, 18px); line-height: 1.6; color: rgba(255,255,255,.74); max-width: 52ch; }
 .cs-hero__btns { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.25rem; }
@@ -913,7 +908,7 @@ a { color: inherit; text-decoration: none; }
 .cs-grid2 { display: grid; gap: 2.5rem; align-items: start; }
 @media (min-width: 900px) { .cs-grid2 { grid-template-columns: 1fr 1fr; } }
 
-.cs-stack { border: 1px solid var(--rule); background: #FCFDFB; box-shadow: var(--lux-sh-sm, none); overflow: hidden; }
+.cs-stack { border: 1px solid var(--rule); background: #ffffff; box-shadow: var(--lux-sh-sm, none); overflow: hidden; }
 .cs-stack__row {
   display: grid; gap: .3rem; padding: .95rem 1.25rem; border-bottom: 1px solid var(--rule);
   border-left: 3px solid transparent;
@@ -946,7 +941,7 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1180px) { .cs-outcomes { grid-template-columns: repeat(2, 1fr); } }
 .cs-outcomes li {
   display: flex; gap: .8rem; font-size: 15px; line-height: 1.55; color: var(--ink-2);
-  padding: 1.05rem 1.25rem 1.1rem; background: #FCFDFB;
+  padding: 1.05rem 1.25rem 1.1rem; background: #ffffff;
   border: 1px solid var(--lux-line, var(--rule)); border-left: 3px solid var(--solid-hi);
   transition: background-color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease);
 }
@@ -969,7 +964,7 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1040px) { .svc-sub { grid-template-columns: repeat(3, 1fr); } }
 .svc-sub__i {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding: 1.05rem 1.25rem; background: var(--wash); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 1.05rem 1.25rem; background: var(--wash); border: 1px solid var(--rule); border-radius: 0;
   font-weight: 600; font-size: 14.5px; letter-spacing: -.01em; color: var(--ink);
   transition: background-color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
 }
@@ -1036,10 +1031,10 @@ a { color: inherit; text-decoration: none; }
 .article ol { list-style: decimal; }
 .article li { margin-top: .5rem; padding-left: .2rem; }
 .article li::marker { color: var(--solid-hi); }
-.article :not(pre) > code { font-family: var(--font-mono, ui-monospace, monospace); font-size: .85em; background: var(--wash); border: 1px solid var(--rule); border-radius: 4px; padding: .1em .4em; color: var(--ink); }
+.article :not(pre) > code { font-family: var(--font-mono, ui-monospace, monospace); font-size: .85em; background: var(--wash); border: 1px solid var(--rule); border-radius: 0; padding: .1em .4em; color: var(--ink); }
 .article hr { border: 0; border-top: 1px solid var(--rule); margin: 2.75rem 0; }
 .article blockquote { border-left: 3px solid var(--solid-hi); padding-left: 1.1rem; color: var(--ink); font-style: italic; }
-.article img { border-radius: 3px; border: 1px solid var(--rule); }
+.article img { border-radius: 0; border: 1px solid var(--rule); }
 .article table { width: 100%; border-collapse: collapse; font-size: .9rem; }
 .article th { text-align: left; font-weight: 700; font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); padding: .7rem .9rem; border-bottom: 1px solid var(--rule-2); background: var(--wash); white-space: nowrap; }
 .article td { padding: .7rem .9rem; border-bottom: 1px solid var(--rule); color: var(--ink-2); vertical-align: top; }
@@ -1052,17 +1047,15 @@ a { color: inherit; text-decoration: none; }
    ================================================================== */
 .lux {
   --ease-lux: cubic-bezier(.16,.84,.44,1);
-  --lux-line: rgba(16,20,15,.09);
-  --lux-sh-sm: 0 1px 2px rgba(16,20,15,.04), 0 10px 24px -14px rgba(16,20,15,.16);
-  --lux-sh-md: 0 2px 8px rgba(16,20,15,.06), 0 30px 60px -30px rgba(16,20,15,.30);
+  --lux-line: #e0e4e8;
+  --lux-sh-sm: 0 1px 2px rgba(17,27,39,.04), 0 10px 24px -16px rgba(17,27,39,.16);
+  --lux-sh-md: 0 2px 8px rgba(17,27,39,.06), 0 30px 60px -34px rgba(17,27,39,.28);
 }
 
-/* soften the chunky notch into a refined radius so shadows read cleanly */
-/* Enterprise-sharp corners — small radius reads more serious than the old
-   16px curves. Genuine circles (avatars, dots) and the device mock keep theirs. */
-.lux .notch, .lux .notch-lg { clip-path: none; border-radius: 4px; }
-.lux .notch-sm { border-radius: 3px; }
-.lux .btn, .lux .cta__btn { border-radius: 3px; }
+/* Institutional geometry: perfectly square corners everywhere. Genuine circles
+   (avatars, dots, icon coins) set their own border-radius and are unaffected. */
+.lux .notch, .lux .notch-lg, .lux .notch-sm { clip-path: none; border-radius: 0; }
+.lux .btn, .lux .cta__btn { border-radius: 0; }
 
 /* soft fade-in-on-scroll */
 .lux .reveal { opacity: 0; transform: translateY(8px); transition: opacity .9s var(--ease-lux), transform .9s var(--ease-lux); }
@@ -1088,6 +1081,7 @@ a { color: inherit; text-decoration: none; }
 .lux .slab__in { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
 .lux .sec__head { max-width: 66ch; }
 .lux .sec__head .lede { opacity: .92; }
+.home .sec__head .lede { font-size: clamp(15px, 1.35vw, 17px); line-height: 1.52; }
 
 /* hero — calmer network, restrained copy */
 .lux .hero-art { opacity: .28; }
@@ -1099,7 +1093,7 @@ a { color: inherit; text-decoration: none; }
 .lux .case,
 .lux .quote,
 .lux .founder-cta {
-  background: #FCFDFB;
+  background: #ffffff;
   border: 1px solid var(--lux-line);
   box-shadow: var(--lux-sh-sm);
   transition: transform .5s var(--ease-lux), box-shadow .5s var(--ease-lux), border-color .5s var(--ease-lux), background-color .5s var(--ease-lux);
@@ -1142,14 +1136,14 @@ a { color: inherit; text-decoration: none; }
 /* buttons — smoother, softer glow */
 .lux .btn { transition: transform .4s var(--ease-lux), box-shadow .4s var(--ease-lux), color .3s var(--ease-lux); }
 .lux .btn--grad { box-shadow: none; }
-.lux .btn--grad:hover { transform: none; box-shadow: 0 4px 14px -10px rgba(94,205,4,.5); }
+.lux .btn--grad:hover { transform: none; box-shadow: 0 4px 14px -10px rgba(20,97,67,.5); }
 
 /* logos — quieter, but still legible */
 .lux .logos__row img { opacity: .5; }
 .lux .logos__row a:hover img { opacity: .85; }
 
 /* card types that carry no .notch still take the refined radius */
-.lux :is(.wcard, .side-card) { border-radius: 4px; }
+.lux :is(.wcard, .side-card) { border-radius: 0; }
 
 /* ============================================================
    MOBILE REFINEMENTS (≤640px only — desktop is untouched)
@@ -1230,8 +1224,8 @@ a { color: inherit; text-decoration: none; }
   position: relative; overflow: clip; color: #fff; isolation: isolate;
   background:
     radial-gradient(88% 82% at 86% -8%, color-mix(in srgb, var(--solid-hi) 18%, var(--slab)) 0%, transparent 60%),
-    linear-gradient(158deg, var(--slab) 0%, #060d09 100%);
-  padding-block: clamp(2.25rem, 5vw, 4.25rem) clamp(2.25rem, 5vw, 4rem);
+    linear-gradient(158deg, var(--slab) 0%, #0b1320 100%);
+  padding-block: 0 clamp(2.25rem, 5vw, 4rem);
 }
 .phero::before {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
@@ -1249,7 +1243,7 @@ a { color: inherit; text-decoration: none; }
   background: radial-gradient(circle, color-mix(in srgb, var(--solid-hi) 20%, transparent) 0%, transparent 68%);
   opacity: .5;
 }
-.phero__in { position: relative; display: grid; gap: 2.5rem; }
+.phero__in { position: relative; padding-top: clamp(2.25rem, 5vw, 4.25rem); display: grid; gap: 2.5rem; }
 @media (min-width: 940px) {
   .phero__in--split { grid-template-columns: 1.15fr .85fr; gap: 3.5rem; align-items: center; }
 }
@@ -1265,13 +1259,15 @@ a { color: inherit; text-decoration: none; }
 .crumbs a { transition: color .16s var(--ease); }
 .crumbs a:hover { color: var(--solid-hi); }
 .crumbs [aria-current] { color: rgba(255,255,255,.85); }
+.phero__crumbbar { position: relative; z-index: 2; border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.055); }
+.phero__crumbbar .crumbs { min-height: 34px; margin-bottom: 0; }
 
 .phero__eyebrow {
   font-weight: 700; font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
   color: var(--tint); margin: 0 0 1.1rem; display: inline-flex; align-items: center; gap: .7rem;
 }
 .phero__eyebrow::before {
-  content: ""; width: 30px; height: 3px; flex: none; background-image: var(--grad-text-dark);
+  content: ""; width: 24px; height: 1px; flex: none; background: currentColor;
 }
 .phero__t {
   font-weight: 700; text-transform: none; letter-spacing: -.042em; line-height: .99;
@@ -1281,7 +1277,9 @@ a { color: inherit; text-decoration: none; }
 /* long specialism names would otherwise run to three heavy lines */
 .phero__t--md { font-size: clamp(1.85rem, 4vw, 2.85rem); max-width: 22ch; }
 .phero__t .g-disp {
-  background-image: linear-gradient(var(--angle), var(--solid-hi) 0%, color-mix(in srgb, var(--solid-hi) 42%, #fff) 100%);
+  /* Emphasis word on the navy hero — kept in the institutional light-mint range
+     (matching --tint / the kickers) so it stays legible against the dark ground. */
+  background-image: linear-gradient(var(--angle), var(--tint) 0%, color-mix(in srgb, var(--tint) 55%, #fff) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .phero__lede {
@@ -1428,7 +1426,7 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1000px) { .writing-grid { grid-template-columns: repeat(4, 1fr); } }
 .wcard {
   display: flex; flex-direction: column; overflow: hidden;
-  background: #FCFDFB; border: 1px solid var(--lux-line, var(--rule)); border-radius: 4px;
+  background: #ffffff; border: 1px solid var(--lux-line, var(--rule)); border-radius: 0;
   box-shadow: var(--lux-sh-sm, none);
   transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease), background-color .5s var(--ease);
 }
@@ -1466,7 +1464,7 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 1080px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
 .pillar {
   display: flex; flex-direction: column; overflow: hidden;
-  background: #FCFDFB; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
+  background: #ffffff; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
   transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease), background-color .5s var(--ease);
 }
 .pillar:hover {
@@ -1503,7 +1501,7 @@ a { color: inherit; text-decoration: none; }
   position: relative; isolation: isolate; color: #fff;
   background:
     radial-gradient(88% 82% at 86% -8%, color-mix(in srgb, var(--solid-hi) 18%, var(--slab)) 0%, transparent 60%),
-    linear-gradient(158deg, var(--slab) 0%, #060d09 100%);
+    linear-gradient(158deg, var(--slab) 0%, #0b1320 100%);
   /* the hero image overlaps the light section below, so the head keeps a
      shorter block and the figure bridges the two grounds */
   padding-block: clamp(2rem, 4vw, 3rem) 0;
@@ -1552,6 +1550,80 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
+   INSTITUTIONAL SYSTEM — shared site templates
+   The approved homepage direction is promoted here so every shared inner-page
+   family inherits the same light masthead, compact breadcrumb, square cards,
+   restrained green accent and denser vertical rhythm.
+   ============================================================ */
+.sec { padding-block: clamp(3.25rem, 6vw, 5rem); }
+.std__in { padding-block: clamp(3.25rem, 6vw, 5rem); }
+
+.phero {
+  color: var(--ink);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+.phero::before, .phero__glow { display: none; }
+.phero__crumbbar { border-color: var(--rule); background: #edf2ef; }
+.phero__crumbbar .crumbs { color: #69786f; }
+.phero__crumbbar .crumbs i { color: #9eaaa3; }
+.phero__crumbbar .crumbs [aria-current] { color: var(--ink-2); }
+.phero__in { padding-top: clamp(2.1rem, 4vw, 3.4rem); }
+.phero__eyebrow { color: var(--solid); }
+.phero__eyebrow::before { height: 1px; background: currentColor; }
+.phero__t { max-width: 16ch; color: var(--ink); font-size: clamp(2.6rem, 6vw, 5.35rem); line-height: .96; letter-spacing: -.06em; }
+.phero__t--md { max-width: 19ch; font-size: clamp(2.35rem, 5vw, 4.5rem); }
+.phero__t .g-disp { background-image: none; color: var(--ink); }
+.phero__lede { color: var(--ink-2); }
+.phero .btn--out, .phero .btn--out:hover { color: var(--ink); text-decoration-color: currentColor; }
+.phero__media img { border-color: var(--rule); box-shadow: 0 30px 70px -52px rgba(17,27,39,.45); }
+.phero__media figcaption { color: var(--ink-3); }
+.phero__stats { border-color: var(--rule); }
+.phero__stat dd { background-image: none; color: var(--ink); }
+.phero__stat dt { color: var(--ink-3); }
+
+.cta { color: var(--ink); background: var(--page); border-top: 1px solid var(--rule); }
+.cta-art { display: none; }
+.cta__in { padding-block: clamp(3.75rem, 7vw, 6.25rem); }
+.cta__t p { color: var(--ink-2); opacity: 1; }
+.cta__btn { min-height: 52px; padding: 0 1.45rem; display: inline-flex; align-items: center; color: #fff; background: var(--solid); text-decoration: none; }
+.cta__btn:hover { color: #fff; text-decoration: none; }
+
+.hero--dark {
+  color: var(--ink);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+}
+.hero--dark::before { display: none; }
+.hero--dark .h-xl, .hero--dark .h-l, .hero--dark h1 { color: var(--ink); }
+.hero--dark .g-disp { background-image: none; color: var(--ink); }
+.hero--dark .lede { color: var(--ink-2); }
+.hero--dark .btn--out, .hero--dark .btn--out:hover { color: var(--ink); text-decoration-color: currentColor; }
+.hero--dark .cs-crumb { margin: -1rem 0 2.25rem; padding: .65rem 0; color: #69786f; }
+.cs-facts { border: 1px solid var(--rule); background: var(--page); }
+.cs-facts__row { border-color: var(--rule); }
+.cs-facts__row dt { color: var(--solid); }
+.cs-facts__row dd { color: var(--ink-2); }
+
+.post-head { color: var(--ink); background: var(--paper); border-bottom: 1px solid var(--rule); padding-top: 0; }
+.post-head::before { display: none; }
+.post-head::after { background: var(--paper); }
+.post-head .crumbs { min-height: 34px; margin: 0 calc(-1 * var(--pad)) 2.2rem; padding-inline: var(--pad); color: #69786f; background: #edf2ef; border-bottom: 1px solid var(--rule); }
+.post-head .crumbs i { color: #9eaaa3; }
+.post-head .crumbs [aria-current] { color: var(--ink-2); }
+.post-head__t { color: var(--ink); font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: .98; letter-spacing: -.055em; }
+.post-head__lead { color: var(--ink-2); }
+.post-head__meta { color: var(--ink-3); border-color: var(--rule); }
+.post-head__author { color: var(--ink); }
+.post-head__figure img { border-color: var(--rule); box-shadow: 0 30px 70px -52px rgba(17,27,39,.45); }
+.institutional-case { --concept-ink:var(--ink); --concept-muted:var(--ink-3); --concept-card:var(--page); --concept-line:var(--rule); --concept-accent:var(--solid); --concept-accent-2:var(--wash-2); --concept-on-accent:#fff; }
+.institutional-testimonial { --concept-ink:var(--ink); --concept-muted:var(--ink-3); --concept-line:var(--rule); --concept-accent:var(--solid); --concept-accent-2:#dcece4; padding-block:clamp(4rem,7vw,6.25rem); border-block:1px solid var(--rule); background:#dcece4; }
+.institutional-testimonial__head { max-width:64ch; margin-bottom:clamp(2rem,4vw,3.5rem); }
+.institutional-testimonial__head .h-l { margin-top:1rem; }
+.institutional-testimonial__head .lede { margin-top:1rem; }
+.institutional-related > .rail, .sec > .rail { margin-top:clamp(2rem,4vw,3.25rem); }
+
+/* ============================================================
    SPLIT — copy beside a checklist / panel (service pages)
    ============================================================ */
 .split { display: grid; gap: 2.5rem; }
@@ -1561,7 +1633,7 @@ a { color: inherit; text-decoration: none; }
 .split__side { min-width: 0; }
 
 .checklist { padding: 1.75rem 1.7rem 1.85rem; background: var(--wash); border-left: 5px solid var(--solid-hi); }
-.checklist--alt { background: #FCFDFB; border: 1px solid var(--lux-line, var(--rule)); border-left: 5px solid var(--solid-hi); box-shadow: var(--lux-sh-sm, none); }
+.checklist--alt { background: #ffffff; border: 1px solid var(--lux-line, var(--rule)); border-left: 5px solid var(--solid-hi); box-shadow: var(--lux-sh-sm, none); }
 .checklist__lbl {
   font-family: ui-monospace, SFMono-Regular, monospace; font-size: 10.5px; letter-spacing: .16em;
   text-transform: uppercase; color: var(--solid); margin: 0 0 1.25rem;
@@ -1708,7 +1780,7 @@ a { color: inherit; text-decoration: none; }
 .review {
   display: flex; flex-direction: column; gap: 1.1rem; margin: 0;
   padding: 1.75rem 1.6rem 1.5rem;
-  background: #FCFDFB; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
+  background: #ffffff; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
   transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease), background-color .5s var(--ease);
 }
 .review:hover {
@@ -1764,7 +1836,7 @@ a { color: inherit; text-decoration: none; }
 @media (min-width: 940px) { .lead-grid { grid-template-columns: 1.35fr 1fr; gap: 2rem; } }
 .lead-card {
   display: flex; flex-direction: column; overflow: hidden;
-  background: #FCFDFB; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
+  background: #ffffff; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
   transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s var(--ease), background-color .5s var(--ease);
 }
 .lead-card:hover {
@@ -1782,7 +1854,7 @@ a { color: inherit; text-decoration: none; }
 .lead-side { display: grid; gap: 1rem; align-content: start; }
 .side-card {
   display: grid; grid-template-columns: 118px 1fr; gap: 0; overflow: hidden;
-  background: #FCFDFB; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
+  background: #ffffff; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
   transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease), background-color .4s var(--ease);
 }
 .side-card:hover {
@@ -1821,7 +1893,7 @@ a { color: inherit; text-decoration: none; }
 .cases { display: grid; gap: 2rem; margin-top: 3rem; }
 .crow {
   display: grid; gap: 0; overflow: hidden;
-  background: #FCFDFB; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
+  background: #ffffff; border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
   transition: box-shadow .5s var(--ease), border-color .5s var(--ease);
 }
 .crow:hover { box-shadow: var(--lux-sh-md, none); border-color: color-mix(in srgb, var(--solid-hi) 35%, var(--rule)); }
@@ -1838,7 +1910,7 @@ a { color: inherit; text-decoration: none; }
   .crow__shot { align-self: center; }
   .crow__in { align-self: center; }
 }
-.crow__shot { position: relative; overflow: hidden; background: #FCFDFB; display: block; aspect-ratio: 5 / 3; }
+.crow__shot { position: relative; overflow: hidden; background: #ffffff; display: block; aspect-ratio: 5 / 3; }
 .crow__shot img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transition: transform .8s var(--ease); }
 .crow:hover .crow__shot img { transform: scale(1.04); }
 .crow__n {
@@ -1908,7 +1980,7 @@ a { color: inherit; text-decoration: none; }
 .ways { display: grid; gap: .8rem; margin-top: 2.25rem; }
 .way {
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem;
-  padding: 1.15rem 1.3rem; background: #FCFDFB;
+  padding: 1.15rem 1.3rem; background: #ffffff;
   border: 1px solid var(--lux-line, var(--rule)); box-shadow: var(--lux-sh-sm, none);
   transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease), background-color .4s var(--ease);
 }

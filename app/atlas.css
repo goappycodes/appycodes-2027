@@ -51,7 +51,7 @@
   background: #fff; color: var(--ink); padding: .6rem .8rem .65rem;
   display: grid; gap: .18rem; min-width: 172px;
   box-shadow: 0 14px 34px -12px rgba(0, 0, 0, .7);
-  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%);
+  border: 1px solid var(--rule);
 }
 .atlas__tip b { font-size: 14px; font-weight: 700; letter-spacing: -.02em; }
 .atlas__tip span { font-size: 11.5px; color: var(--ink-2); line-height: 1.45; }
@@ -151,7 +151,7 @@
 .cbars { margin-top: 2.75rem; }
 .cbars__key { list-style: none; margin: 0 0 1.6rem; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem 1.35rem; }
 .cbars__key li { display: flex; align-items: center; gap: .5rem; font-size: 12px; color: var(--on-slab-2); }
-.cbars__key i, .cbars__bar i { background: rgb(94 205 4 / calc(.16 + var(--i) * .2)); }
+.cbars__key i, .cbars__bar i { background: rgb(20 97 67 / calc(.16 + var(--i) * .2)); }
 .cbars__key i { width: 16px; height: 10px; display: block; }
 .cbars__list { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
 .cbars__row { display: grid; grid-template-columns: 1fr 34px; align-items: center; gap: .35rem .9rem; }

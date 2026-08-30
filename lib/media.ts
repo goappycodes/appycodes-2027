@@ -2,28 +2,28 @@
 // it so the copy stays portable and the art direction lives in one place.
 export const SERVICE_MEDIA: Record<string, { img: string; alt: string }> = {
   "product-platforms": {
-    img: "/images/service-saas-web.jpg",
-    alt: "A multi-tenant SaaS platform running in a browser",
+    img: "/images/service-product-platforms-featured.png",
+    alt: "A modular multi-tenant platform connected to a resilient central core",
   },
   "native-mobile": {
-    img: "/images/service-mobile-app.jpg",
-    alt: "React Native apps running on phones",
+    img: "/images/service-native-mobile-featured.png",
+    alt: "Two native mobile apps maintaining a synchronized data path",
   },
   "ai-systems": {
-    img: "/images/service-ai.jpg",
-    alt: "An AI retrieval pipeline under development",
+    img: "/images/service-ai-systems-featured.png",
+    alt: "A grounded AI retrieval pipeline selecting and verifying source material",
   },
   "rescue-hardening": {
-    img: "/images/service-maintenance.jpg",
-    alt: "An engineer hardening an inherited codebase",
+    img: "/images/service-rescue-security-featured.png",
+    alt: "A damaged software system contained, rebuilt and reinforced",
   },
   "commerce-content": {
-    img: "/images/service-wordpress.jpg",
-    alt: "A commerce and content platform being built",
+    img: "/images/service-commerce-content-featured.png",
+    alt: "Content, catalogue, checkout and API modules joined into an owned storefront",
   },
   "performance-search": {
-    img: "/images/service-seo.jpg",
-    alt: "Core Web Vitals and search performance being measured",
+    img: "/images/service-performance-search-featured.png",
+    alt: "Fast page layers passing measurement gates into an ordered search index",
   },
   "security-incident-response": {
     img: "/images/service-maintenance.jpg",
@@ -92,15 +92,15 @@ export const PILLAR_PROOF: Record<string, PillarProof> = {
   },
   "ai-systems": {
     kind: "image",
-    img: "/images/service-ai.jpg",
-    alt: "An AI retrieval pipeline being built",
+    img: "/images/service-ai-systems-featured.png",
+    alt: "A grounded AI retrieval pipeline selecting and verifying source material",
     caption:
       "Retrieval pipelines, support deflection and internal copilots — costed per token before a line is written.",
   },
   "rescue-hardening": {
     kind: "image",
-    img: "/images/service-maintenance.jpg",
-    alt: "An engineer hardening an inherited codebase",
+    img: "/images/service-rescue-security-featured.png",
+    alt: "A damaged software system contained, rebuilt and reinforced",
     caption:
       "Audit first, stabilise second, then finish properly — the order that stops a rescue becoming a second rewrite.",
   },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { siteMeta } from "@/lib/seo";
 import { CaseStudy, type CaseStudyData } from "@/components/case-study";
+import { InstitutionalCreoateCaseStudy } from "@/components/institutional-creoate-case-study";
 
 export const metadata: Metadata = siteMeta({
   title: "Creoate — eight years building a B2B wholesale marketplace",
@@ -117,5 +118,5 @@ const data: CaseStudyData = {
 };
 
 export default function CreoateCaseStudy() {
-  return <CaseStudy data={data} />;
+  return <InstitutionalCreoateCaseStudy />;
 }

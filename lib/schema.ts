@@ -24,7 +24,7 @@ export function siteGraph(opts: { email: string; founded: number }) {
         url: `${BASE}/`,
         email: opts.email,
         foundingDate: String(opts.founded),
-        slogan: "We build the software businesses actually run on.",
+        slogan: "Custom software for growing businesses.",
         logo: { "@type": "ImageObject", url: `${BASE}/favicon.png` },
         description:
           "Senior product engineering studio for UK and European businesses that have outgrown off-the-shelf — enterprise-grade web platforms, mobile apps and AI systems, in production since 2015.",

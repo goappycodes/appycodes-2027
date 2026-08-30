@@ -64,13 +64,13 @@ export function Rail({
       <div className="rail__scroller" ref={ref} onScroll={measure} role="group" aria-label={label}>
         {children}
       </div>
-      <div className="rail__nav" aria-hidden="true">
-        <button type="button" className="rail__btn" onClick={() => nudge(-1)} disabled={atStart} tabIndex={-1}>
+      <div className="rail__nav" aria-label={`${label} controls`}>
+        <button type="button" className="rail__btn" onClick={() => nudge(-1)} disabled={atStart} aria-label="Previous case studies">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
-        <button type="button" className="rail__btn" onClick={() => nudge(1)} disabled={atEnd} tabIndex={-1}>
+        <button type="button" className="rail__btn" onClick={() => nudge(1)} disabled={atEnd} aria-label="Next case studies">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

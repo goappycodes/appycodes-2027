@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Rail } from "@/components/rail";
-import { CASE_STUDIES, LogoWall, Testimonials } from "@/components/sections";
+import { CASE_STUDIES, LogoWall } from "@/components/sections";
 import { TechStack } from "@/components/tech-logos";
 import { JsonLd } from "@/components/jsonld";
 import { breadcrumbSchema } from "@/lib/schema";
+import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
+import { TestimonialSlider } from "@/components/testimonial-slider";
 
 export type CaseBlock =
   | { t: "section"; title: string; lead?: string }
@@ -90,9 +91,21 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
   // Everything except the study you are reading, so the page always offers a
   // next one rather than dead-ending at the CTA.
   const others = CASE_STUDIES.filter((c) => !data.crumb.toLowerCase().includes(c.name.toLowerCase()));
+  const related: InstitutionalWorkItem[] = others.map((item) => ({
+    href: item.href,
+    image: item.img,
+    client: item.name,
+    logo: item.logo?.startsWith("/images/logo-") ? item.logo : undefined,
+    brand: item.name.replace(/[^A-Za-z0-9]/g, ""),
+    sector: item.meta.split("·")[1]?.trim() ?? "Product engineering",
+    title: item.meta,
+    detail: item.body,
+    metric: item.fig,
+    metricLabel: item.figlabel,
+  }));
 
   return (
-    <>
+    <main className="institutional-case">
       {data.path ? (
         <JsonLd
           data={breadcrumbSchema([
@@ -191,10 +204,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
 
       <LogoWall label="Teams that trusted us with the thing that matters" />
 
-      <Testimonials
-        title="the people who signed off work like this"
-        limit={4}
-      />
+      <section className="institutional-testimonial"><div className="wrap"><TestimonialSlider /></div></section>
 
       {/* MORE WORK — never dead-end on a case study */}
       {others.length > 0 ? (
@@ -203,29 +213,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             <p className="eyebrow">keep reading</p>
             <h2 className="h-l">the other engagements.</h2>
           </div>
-          <Rail label="More case studies" className="work-rail">
-            {others.map((o) => (
-              <Link key={o.href} href={o.href} className="case notch notch-lg">
-                <div className="case__shot">
-                  <img src={o.img} alt={o.meta} loading="lazy" />
-                </div>
-                <div className="case__bar" />
-                <div className="case__in">
-                  <h3 className="h-m">{o.head}</h3>
-                  <p className="body">{o.body}</p>
-                  <div className="case__metric">
-                    <div className="case__metric-txt">
-                      <span className="case__fig tnum g-disp">{o.fig}</span>
-                      <span className="case__figlabel">{o.figlabel}</span>
-                    </div>
-                    <svg className="case__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                      <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </Rail>
+          <InstitutionalWorkRail items={related} label="More case studies" />
           <div className="sec__more">
             <Link className="btn btn--out notch" href="/case-studies/">
               All case studies
@@ -250,6 +238,6 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
           <Link className="cta__btn notch" href="/contact/">Book a call</Link>
         </div>
       </section>
-    </>
+    </main>
   );
 }
