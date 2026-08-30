@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ServiceDeliverables } from "@/components/service-deliverables";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { ServiceStack } from "@/components/service-stack";
 import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
@@ -180,17 +181,7 @@ export function InstitutionalServicePage({ service }: { service: ServiceData }) 
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.inner}>
-          <header className={styles.sectionHead}>
-            <div><span className={styles.kicker}>What you receive</span><h2>{sentence(service.benefitsTitle)}.</h2></div>
-            <p>{service.benefitsQuote ?? "Technical foundations and operational clarity are delivered as part of the work."}</p>
-          </header>
-          <div className={styles.deliverables}>
-            {deliverables.map((item, index) => <article key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}
-          </div>
-        </div>
-      </section>
+      <ServiceDeliverables items={deliverables} title={service.benefitsTitle} />
 
       <section className={styles.specialisms}>
         <div className={`${styles.inner} ${styles.specialismGrid}`}>

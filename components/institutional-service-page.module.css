@@ -118,13 +118,6 @@
 .process li h3 { font-size: 21px; letter-spacing: -.025em; }
 .process li p { max-width: 58ch; margin-top: 9px; color: rgba(255,255,255,.55); font-size: 13px; line-height: 1.65; }
 
-.deliverables { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
-.deliverables article { min-height: 220px; padding: 26px 28px 26px 0; border-bottom: 1px solid var(--line); }
-.deliverables article:nth-child(3n+2), .deliverables article:nth-child(3n+3) { padding-left: 28px; border-left: 1px solid var(--line); }
-.deliverables article > span { color: var(--accent); font-size: 9px; font-weight: 750; letter-spacing: .1em; }
-.deliverables h3 { margin-top: 38px; font-size: 21px; letter-spacing: -.03em; }
-.deliverables p { max-width: 38ch; margin-top: 13px; color: var(--muted); font-size: 13px; line-height: 1.65; }
-
 .specialisms { padding: clamp(64px, 7vw, 100px) 0; border-block: 1px solid var(--line); background: var(--card); }
 .specialismGrid { display: grid; grid-template-columns: minmax(310px, .75fr) minmax(520px, 1.25fr); gap: clamp(60px, 9vw, 135px); }
 .specialismGrid > div > p { margin-top: 25px; }
@@ -203,9 +196,6 @@
   .process { padding-block: 56px; }
   .processGrid { gap: 45px; }
   .process li { grid-template-columns: 36px 1fr; gap: 9px; padding: 22px 0; }
-  .deliverables { grid-template-columns: 1fr; }
-  .deliverables article, .deliverables article:nth-child(3n+2), .deliverables article:nth-child(3n+3) { min-height: 0; padding: 22px 0; border-left: 0; }
-  .deliverables h3 { margin-top: 20px; font-size: 20px; }
   .specialisms { padding-block: 54px; }
   .specialismGrid { gap: 38px; }
   .specialismGrid nav { grid-template-columns: 1fr; }

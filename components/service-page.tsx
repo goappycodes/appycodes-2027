@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ServiceDeliverables } from "@/components/service-deliverables";
 import { subServicesFor, type ServiceData } from "@/lib/services-data";
 import { ServiceTitle } from "@/components/service-title";
 import { ChevronRight, Check } from "@/components/icons";
@@ -204,33 +205,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
         </div>
       </section>
 
-      {/* BENEFITS — dark slab */}
-      <section className="slab dotted">
-        <div className="wrap slab__in">
-          <div className="sec__head">
-            <p className="eyebrow eyebrow--slab">what you get</p>
-            <h2 className="h-l" style={{ color: "#fff" }}>
-              <ServiceTitle label={s.benefitsTitle} />.
-            </h2>
-            {s.benefitsQuote ? (
-              <p className="lede" style={{ color: "rgba(255,255,255,.72)" }}>
-                {s.benefitsQuote}
-              </p>
-            ) : null}
-          </div>
-          <div className="proc proc--6">
-            {s.benefits.map((b, i) => (
-              <div key={b.title} className="proc__i notch">
-                <span className="proc__n g-dark">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="h-s">
-                  <ServiceTitle label={b.title} />
-                </h3>
-                <p>{b.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServiceDeliverables items={s.benefits.map((item) => ({ title: item.title, body: item.description }))} title={s.benefitsTitle} />
 
       {related.length ? (
         <section className="wrap sec institutional-related">
