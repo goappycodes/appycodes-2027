@@ -80,11 +80,11 @@ const WORK = [
 ];
 
 const CAPABILITIES = [
-  { n: "01", title: "Product engineering", body: "Customer-facing software and internal systems designed around the way your business actually operates." },
-  { n: "02", title: "Web & commerce", body: "High-performance websites, marketplaces and conversion systems with complex integrations behind them." },
-  { n: "03", title: "Native mobile", body: "Reliable iOS and Android products, from store approval through ongoing releases and operations." },
-  { n: "04", title: "AI systems", body: "Production AI workflows, RAG pipelines and agentic features with cost, quality and governance designed in." },
-  { n: "05", title: "Performance & search", body: "Core Web Vitals, JavaScript SEO and indexing work for teams whose growth is gated on being found." },
+  { n: "01", title: "Product engineering", href: "/services/product-engineering/", body: "Customer-facing software and internal systems designed around the way your business actually operates." },
+  { n: "02", title: "Web & commerce", href: "/services/commerce-content/", body: "High-performance websites, marketplaces and conversion systems with complex integrations behind them." },
+  { n: "03", title: "Native mobile", href: "/services/native-mobile/", body: "Reliable iOS and Android products, from store approval through ongoing releases and operations." },
+  { n: "04", title: "AI systems", href: "/services/ai-systems/", body: "Production AI workflows, RAG pipelines and agentic features with cost, quality and governance designed in." },
+  { n: "05", title: "Performance & search", href: "/services/performance-search/", body: "Core Web Vitals, JavaScript SEO and indexing work for teams whose growth is gated on being found." },
 ];
 
 const METRICS = [
@@ -193,7 +193,7 @@ function Capabilities() {
         </div>
         <div className={styles.capabilityGrid}>
           {CAPABILITIES.map((item) => (
-            <Link href="/services/" className={styles.capability} key={item.n}>
+            <Link href={item.href} className={styles.capability} key={item.n}>
               <span>{item.n}</span>
               <CapabilityIcon index={Number(item.n) - 1} />
               <h3>{item.title}</h3>
