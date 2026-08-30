@@ -1,0 +1,15 @@
+.list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; font-family: var(--font-archivo), Arial, sans-serif; }
+.list li { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 14px; border: 1px solid #dce1e5; background: #fff; color: #26362d; font-size: 13px; line-height: 1.4; }
+.list img, .list svg { display: block; flex: none; width: 24px; height: 24px; object-fit: contain; }
+.list .wordmark { width: 36px; }
+.list span { min-width: 0; }
+.grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.grid li { min-height: 64px; padding: 14px; gap: 12px; }
+.grid img, .grid svg { width: 28px; height: 28px; }
+@media (max-width: 1000px) { .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 680px) {
+  .list li { min-height: 44px; padding: 9px 11px; gap: 8px; font-size: 12px; }
+  .list img, .list svg { width: 22px; height: 22px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .grid li { min-height: 54px; padding: 10px; }
+}

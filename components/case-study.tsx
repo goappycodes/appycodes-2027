@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ClientLogo } from "@/components/client-logo";
+import { TechnologyList } from "@/components/technology-list";
 import type { ReactNode } from "react";
 import { CASE_STUDIES } from "@/components/sections";
 import { JsonLd } from "@/components/jsonld";
@@ -112,7 +113,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
 
     <div id="story">{storyBlocks.map((block, index) => <CaseBlockView block={block} key={`${block.t}-${index}`} />)}</div>
 
-    <section className={styles.architecture}><div className={`${styles.inner} ${styles.architectureGrid}`}><div><span className={styles.kicker}>Architecture</span><h2>A production stack built for the work.</h2>{data.tech?.length ? <div className={styles.techTags}>{data.tech.map((item) => <span key={item}>{item}</span>)}</div> : null}</div><dl>{data.stack.map((row) => <div key={row.layer}><dt>{row.layer}</dt><dd>{row.value}</dd></div>)}</dl></div></section>
+    <section className={styles.architecture}><div className={`${styles.inner} ${styles.architectureGrid}`}><div><span className={styles.kicker}>Architecture</span><h2>A production stack built for the work.</h2>{data.tech?.length ? <div className={styles.techTags}><TechnologyList items={data.tech} /></div> : null}</div><dl>{data.stack.map((row) => <div key={row.layer}><dt>{row.layer}</dt><dd>{row.value}</dd></div>)}</dl></div></section>
 
     <section className={styles.testimonial}><div className={styles.inner}><TestimonialSlider /></div></section>
 

@@ -92,8 +92,7 @@
 .architecture dl div { min-height:60px; padding:13px 0; display:grid; grid-template-columns:135px 1fr; gap:20px; align-items:center; border-bottom:1px solid var(--line); }
 .architecture dt { color:var(--accent); font-size:8px; font-weight:750; letter-spacing:.1em; text-transform:uppercase; }
 .architecture dd { margin:0; color:var(--muted); font-size:12px; }
-.techTags { margin-top:24px; display:flex; flex-wrap:wrap; gap:7px; }
-.techTags span { padding:6px 9px; border:1px solid var(--line); color:var(--accent); background:#f1f6f3; font-size:8px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
+.techTags { margin-top:24px; }
 
 .outcomes { border-block:1px solid var(--line); background:#f0f3f2; }
 .outcomes ol { margin:0; padding:0; display:grid; grid-template-columns:repeat(2,1fr); list-style:none; border-top:1px solid var(--line); border-left:1px solid var(--line); }

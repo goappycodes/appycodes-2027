@@ -48,14 +48,15 @@
 .institutionalHero .heroCopy h1 { max-width: 23ch; margin-top: 0; font-size: clamp(38px, 4.2vw, 60px); line-height: 1.06; letter-spacing: -.045em; }
 .institutionalHero .heroCopy > p { margin-top: 20px; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.6; }
 .institutionalHero .actions { margin-top: 24px; }
-.institutionalHero .assuranceHead { padding: 12px 20px; }
-.institutionalHero .assuranceVisual { min-height: 180px; }
+.institutionalHero .assuranceVisual { min-height: clamp(260px, 22vw, 340px); }
+.institutionalHero .assuranceVisual img { object-position: center 32%; }
 .institutionalHero .assuranceVisual strong { padding: 20px; font-size: clamp(23px, 2vw, 29px); }
-.institutionalHero .assuranceCard ul { padding: 0 20px 10px; }
-.institutionalHero .assuranceCard li { padding-block: 10px; }
+.institutionalHero .assuranceCard ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; padding: 6px 20px; }
+.institutionalHero .assuranceCard li { grid-template-columns: 20px 1fr; align-items: start; padding-block: 10px; font-size: 12px; line-height: 1.45; }
+.institutionalHero .assuranceCard li:nth-child(-n+2) { border-top: 0; }
 .institutionalHero .assuranceFoot { padding-block: 12px; }
 .heroInlineVisual { display: none; margin: 0; }
-.heroInlineVisual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.heroInlineVisual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 32%; }
 .kicker { display: inline-flex; align-items: center; gap: 12px; color: var(--concept-accent); font-size: 11px; line-height: 1.2; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .kicker::before { content: ""; width: 24px; height: 1px; background: currentColor; }
 .hero h1 { max-width: 14ch; margin-top: 24px; font-size: clamp(48px, 5.6vw, 84px); line-height: .99; letter-spacing: -.058em; font-weight: 650; text-wrap: balance; }
@@ -69,7 +70,6 @@
 .secondaryButton { min-height: auto; padding: 8px 0 6px; border-bottom: 1px solid currentColor; }
 
 .assuranceCard { background: var(--concept-card); border: 1px solid var(--concept-line); box-shadow: 0 26px 80px -48px rgba(9, 27, 18, .38); }
-.assuranceHead { padding: 17px 20px; display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--concept-line); color: var(--concept-muted); font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .assuranceVisual { position: relative; min-height: 214px; overflow: hidden; background: #111517; }
 .assuranceVisual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,12,14,.02) 20%, rgba(8,12,14,.82) 100%); }
 .assuranceVisual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% center; }
@@ -350,7 +350,7 @@
   .institutionalHero { padding-top: 28px; }
   .institutionalHero .assuranceCard { display: none; }
   .institutionalHero .heroCopy h1 { font-size: clamp(30px, 8.2vw, 38px); line-height: 1.06; }
-  .heroInlineVisual { height: 156px; margin-top: 20px; }
+  .heroInlineVisual { height: 210px; margin-top: 20px; }
   .institutionalHero .heroCopy > p { margin-top: 18px; }
   .institutionalHero .actions { margin-top: 24px; }
   .heroGrid { gap: 36px; }

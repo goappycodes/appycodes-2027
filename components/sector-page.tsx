@@ -6,6 +6,7 @@ import { DELIVERY_SUMMARY } from "@/lib/site";
 import { getWorkCards } from "@/lib/work-cards";
 import { ServiceTitle } from "@/components/service-title";
 import { ServiceDeliverables } from "@/components/service-deliverables";
+import { TechnologyList } from "@/components/technology-list";
 import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
 import { JsonLd } from "@/components/jsonld";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
@@ -101,7 +102,7 @@ export function SectorPage({ s }: { s: SectorData }) {
     <SectorHero sector={s} />
     <ServiceDeliverables items={s.built} title="What we build" kicker="Our experience" description="" />
     <section className={styles.tools} aria-label="Technologies">
-      <div className={base.inner}><h2>Tools we work with</h2><ul>{s.stack.map((tool) => <li key={tool}>{tool}</li>)}</ul></div>
+      <div className={base.inner}><h2>Tools we work with</h2><TechnologyList items={s.stack} /></div>
     </section>
     {work.length > 0 && <section className={styles.section} aria-label="Selected work">
       <div className={base.inner}>

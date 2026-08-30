@@ -210,7 +210,7 @@ function InstitutionalHero() {
           <h1>Custom software, websites and mobile apps built to help your business grow.</h1>
           <figure className={styles.heroInlineVisual}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/appycodes-hero-delivery-system.png" alt="Connected software modules forming a production system" fetchPriority="high" />
+            <img src="/images/ritesh-prince.jpg" alt="The Appycodes team reviewing software together" fetchPriority="high" />
           </figure>
           <p>We design, build and support web platforms, mobile apps and AI systems for businesses across the UK, Europe and worldwide. Our senior team handles planning, development and ongoing support, with clear communication from the first call through to launch.</p>
           <div className={styles.actions}>
@@ -219,17 +219,16 @@ function InstitutionalHero() {
           </div>
         </div>
         <aside className={styles.assuranceCard}>
-          <div className={styles.assuranceHead}><span>Delivery assurance</span><span>AC / 2026</span></div>
           <div className={styles.assuranceVisual}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/appycodes-hero-delivery-system.png" alt="A sequence of connected system modules progressing toward a production node" />
+            <img src="/images/ritesh-prince.jpg" alt="The Appycodes team reviewing software together" fetchPriority="high" />
             <strong>Built for production.<br />Designed for ownership.</strong>
           </div>
           <ul>
-            <li><span>01</span> Senior team on every engagement</li>
-            <li><span>02</span> Architecture and risk agreed upfront</li>
-            <li><span>03</span> Source access and visible delivery</li>
-            <li><span>04</span> Launch, documentation and support</li>
+            <li><span>01</span> Senior team throughout</li>
+            <li><span>02</span> Architecture and risks agreed</li>
+            <li><span>03</span> Code access and progress updates</li>
+            <li><span>04</span> Launch, handover and support</li>
           </ul>
           <div className={styles.assuranceFoot}><span className={styles.pulse} /> Senior-led / transparent / accountable</div>
         </aside>

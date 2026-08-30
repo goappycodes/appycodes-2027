@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ClientLogo } from "@/components/client-logo";
+import { TechnologyList } from "@/components/technology-list";
 import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
 import { getWorkCards } from "@/lib/work-cards";
 import { TestimonialSlider } from "@/components/testimonial-slider";
@@ -106,7 +107,7 @@ export function InstitutionalCreoateCaseStudy() {
 
       <section className={styles.architecture}>
         <div className={`${styles.inner} ${styles.architectureGrid}`}>
-          <div><span className={styles.kicker}>Architecture</span><h2>A production stack built for continuous delivery.</h2></div>
+          <div><span className={styles.kicker}>Architecture</span><h2>A production stack built for continuous delivery.</h2><div className={styles.techTags}><TechnologyList items={["Next.js", "Python", "DynamoDB", "AWS"]} /></div></div>
           <dl>{STACK.map(([layer, value]) => <div key={layer}><dt>{layer}</dt><dd>{value}</dd></div>)}</dl>
         </div>
       </section>
