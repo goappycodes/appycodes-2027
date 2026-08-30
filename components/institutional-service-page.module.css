@@ -155,7 +155,7 @@
   .crumbs { overflow: hidden; white-space: nowrap; }
   .heroGrid { margin-top: 30px; gap: 34px; }
   .kicker { font-size: 8.5px; line-height: 1.55; }
-  .heroCopy h1 { margin-top: 17px; font-size: clamp(44px, 13vw, 59px); line-height: .98; }
+  .heroCopy h1 { margin-top: 17px; font-size: clamp(39px, 11.5vw, 50px); line-height: .99; overflow-wrap: break-word; }
   .heroCopy > p { margin-top: 22px; font-size: 15px; line-height: 1.58; }
   .actions { margin-top: 28px; align-items: flex-start; flex-direction: column; gap: 17px; }
   .primary { width: 100%; min-height: 52px; justify-content: space-between; }
@@ -166,9 +166,9 @@
   .recordGrid > div { min-height: 118px; padding: 20px 14px; }
   .recordGrid strong { font-size: 29px; }
   .recordGrid span { font-size: 8px; }
-  .section, .work, .faq { padding-block: 66px; }
+  .section, .work, .faq { padding-block: 54px; }
   .sectionHead { margin-bottom: 36px; }
-  .sectionHead h2, .processIntro h2, .specialismGrid h2, .faqGrid h2, .closing h2 { margin-top: 14px; font-size: 38px; }
+  .sectionHead h2, .processIntro h2, .specialismGrid h2, .faqGrid h2, .closing h2 { margin-top: 14px; font-size: 34px; }
   .sectionHead > p, .processIntro > p, .specialismGrid > div > p, .closing > .inner > p { font-size: 14px; }
   .scopeGrid { grid-template-columns: 1fr; }
   .scopeCard { min-height: 0; padding: 20px 18px; display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; }
@@ -181,13 +181,13 @@
   .workCard:last-child { grid-column: auto; max-width: none; }
   .workBody { min-height: 275px; padding: 21px 18px; }
   .workBody h3 { margin-top: 20px; font-size: 25px; }
-  .process { padding-block: 68px; }
+  .process { padding-block: 56px; }
   .processGrid { gap: 45px; }
   .process li { grid-template-columns: 36px 1fr; gap: 9px; padding: 22px 0; }
   .deliverables { grid-template-columns: 1fr; }
   .deliverables article, .deliverables article:nth-child(3n+2), .deliverables article:nth-child(3n+3) { min-height: 0; padding: 22px 0; border-left: 0; }
   .deliverables h3 { margin-top: 20px; font-size: 20px; }
-  .specialisms { padding-block: 66px; }
+  .specialisms { padding-block: 54px; }
   .specialismGrid { gap: 38px; }
   .specialismGrid nav { grid-template-columns: 1fr; }
   .specialismGrid nav a { min-height: 84px; padding: 14px; grid-template-columns: 40px 28px 1fr 20px; grid-template-rows: 1fr; }
@@ -196,12 +196,12 @@
   .specialismGrid nav a strong { grid-column: 3; align-self: center; }
   .specialismGrid nav a > svg { grid-column: 4; grid-row: 1; }
   .specialismGrid nav a strong { font-size: 12px; }
-  .testimonial { padding-block: 64px; }
+  .testimonial { padding-block: 54px; }
   .faqGrid { gap: 38px; }
   .faqList summary { min-height: 72px; grid-template-columns: 30px 1fr 20px; gap: 8px; }
   .faqList summary strong { font-size: 14px; line-height: 1.35; }
   .faqList details > p { padding: 0 20px 23px 38px; font-size: 12px; }
-  .closing { padding-block: 66px; }
+  .closing { padding-block: 56px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

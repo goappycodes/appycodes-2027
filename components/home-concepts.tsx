@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { AWARDS, CLIENT_LOGOS } from "@/lib/site";
+import { AWARDS } from "@/lib/site";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { InstitutionalMap } from "@/components/institutional-map";
 import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
+import { ClientMarquee } from "@/components/client-marquee";
 import styles from "./home-concepts.module.css";
 
 export type HomeConcept = "institutional" | "editorial" | "technical";
@@ -120,25 +121,7 @@ function CapabilityIcon({ index }: { index: number }) {
 }
 
 function ClientStrip() {
-  const logos = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
-  return (
-    <section className={styles.clientStrip} aria-label="Selected clients">
-      <div className={styles.clientStripHead}>
-        <p>Trusted to build and evolve critical digital products</p>
-        <span>UK · Europe · Worldwide</span>
-      </div>
-      <div className={styles.clientMarquee}>
-        <div className={styles.clientLogos}>
-          {logos.map((client, index) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <span className={styles.clientLogo} key={`${client.name}-${index}`} aria-hidden={index >= CLIENT_LOGOS.length || undefined}>
-              <img src={client.src} alt={index < CLIENT_LOGOS.length ? client.name : ""} loading="lazy" />
-            </span>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <ClientMarquee />;
 }
 
 function Metrics() {

@@ -4,9 +4,8 @@ import { SERVICES_DATA, LEGACY_SERVICE_REDIRECTS } from "@/lib/services-data";
 import { SUB_SERVICES_DATA, subServiceBySlug, pillarFor } from "@/lib/sub-services-data";
 import { siteMeta } from "@/lib/seo";
 import { serviceMedia, subServiceMedia } from "@/lib/media";
-import { ServicePage } from "@/components/service-page";
-import { SubServicePage } from "@/components/sub-service-page";
 import { InstitutionalServicePage } from "@/components/institutional-service-page";
+import { InstitutionalSubServicePage } from "@/components/institutional-sub-service-page";
 
 export function generateStaticParams() {
   return [
@@ -51,12 +50,11 @@ export default async function ServiceDetail({
 
   // Pillar service
   const s = SERVICES_DATA.find((x) => x.slug === slug);
-  if (s?.slug === "product-platforms") return <InstitutionalServicePage />;
-  if (s) return <ServicePage s={s} />;
+  if (s) return <InstitutionalServicePage service={s} />;
 
   // Original ("legacy") service page, rebuilt at its own URL
   const sub = subServiceBySlug(slug);
-  if (sub) return <SubServicePage s={sub} />;
+  if (sub) return <InstitutionalSubServicePage service={sub} />;
 
   // Not ported yet — redirect to the parent pillar so the URL still resolves
   const target = LEGACY_SERVICE_REDIRECTS[slug];

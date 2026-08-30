@@ -20,6 +20,7 @@ export function PageHero({
   actions,
   stats,
   media,
+  mediaContain,
   aside,
   titleSize,
 }: {
@@ -32,6 +33,9 @@ export function PageHero({
   actions?: HeroAction[];
   stats?: HeroStat[];
   media?: { src: string; alt: string; caption?: string };
+  /** Show the media whole on a dark ground instead of cropping it to fill —
+      for pre-composed 16:9 artwork (blog covers) rather than photography. */
+  mediaContain?: boolean;
   aside?: ReactNode;
 }) {
   const hasSide = Boolean(media || aside);
@@ -74,7 +78,7 @@ export function PageHero({
         {hasSide ? (
           <div className="phero__side">
             {media ? (
-              <figure className="phero__media notch notch-lg">
+              <figure className={`phero__media notch notch-lg${mediaContain ? " phero__media--contain" : ""}`}>
                 <img src={media.src} alt={media.alt} loading="eager" />
                 {media.caption ? <figcaption>{media.caption}</figcaption> : null}
               </figure>

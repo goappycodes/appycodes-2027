@@ -24,14 +24,14 @@ export function InstitutionalMap() {
           <div className={styles.lightMapCopy}>
             <div className={styles.lightMapHead}>
             <span className={styles.kicker}>Global delivery record</span>
-            <h2>Built in India. Delivered across {TOTALS.countries} countries.</h2>
+            <h2>Built in India. Delivered across 20 countries.</h2>
               <p>Each marker represents completed client work recorded across our delivery portfolio.</p>
             </div>
             <div className={styles.lightMapFoot}>
               <dl>
-                <div><dt>Projects recorded</dt><dd>{TOTALS.projects}</dd></div>
-                <div><dt>Distinct clients</dt><dd>{TOTALS.clients}</dd></div>
-                <div><dt>Countries delivered in</dt><dd>{TOTALS.countries}</dd></div>
+                <div><dt>Projects recorded</dt><dd>300+</dd></div>
+                <div><dt>Distinct clients</dt><dd>200+</dd></div>
+                <div><dt>Countries delivered in</dt><dd>20</dd></div>
               </dl>
               <Link href="/atlas/">Explore the full delivery atlas <span aria-hidden="true">→</span></Link>
             </div>

@@ -12,6 +12,7 @@
 .heroGrid { padding-top:clamp(34px,4vw,54px); display:grid; grid-template-columns:minmax(0,1.12fr) minmax(410px,.88fr); gap:clamp(52px,6vw,100px); align-items:center; }
 .heroCopy { max-width:880px; }
 .clientLogo { width:auto; max-width:180px; height:35px; display:block; object-fit:contain; object-position:left center; filter:invert(30%) sepia(24%) saturate(1150%) hue-rotate(107deg) brightness(77%); }
+.clientName { display:block; color:var(--accent); font-size:clamp(21px,2vw,30px); line-height:1; letter-spacing:-.04em; font-weight:700; }
 .heroCopy .kicker { margin-top:26px; display:block; }
 .heroCopy h1 { max-width:12ch; margin-top:18px; font-size:clamp(54px,6.2vw,94px); line-height:.96; letter-spacing:-.065em; font-weight:650; text-wrap:balance; }
 .heroCopy > p { max-width:66ch; margin-top:28px; color:var(--muted); font-size:clamp(16px,1.35vw,20px); line-height:1.6; }
@@ -52,6 +53,12 @@
 .galleryGrid figure { margin:0; min-height:0; overflow:hidden; border:1px solid var(--line); background:var(--card); }
 .galleryGrid .galleryLead { grid-row:1 / span 2; }
 .galleryGrid img { width:100%; height:100%; display:block; object-fit:cover; object-position:top center; }
+.galleryGrid figure:only-child { grid-column:1 / -1; grid-row:auto; aspect-ratio:16/9; }
+.singleFigure { margin:0; overflow:hidden; border:1px solid var(--line); background:var(--card); }
+.singleFigure img { width:100%; max-height:760px; display:block; object-fit:cover; object-position:top center; }
+.singleFigure figcaption { padding:14px 18px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; line-height:1.5; }
+.singleFigurePhone { width:min(100%,900px); margin-inline:auto; }
+.singleFigurePhone img { max-height:760px; object-fit:contain; background:#e7edeb; }
 
 .migration { padding:clamp(68px,7.5vw,112px) 0; color:#fff; background:var(--ink); }
 .migration .kicker { color:#8ed0ad; }
@@ -85,6 +92,8 @@
 .architecture dl div { min-height:60px; padding:13px 0; display:grid; grid-template-columns:135px 1fr; gap:20px; align-items:center; border-bottom:1px solid var(--line); }
 .architecture dt { color:var(--accent); font-size:8px; font-weight:750; letter-spacing:.1em; text-transform:uppercase; }
 .architecture dd { margin:0; color:var(--muted); font-size:12px; }
+.techTags { margin-top:24px; display:flex; flex-wrap:wrap; gap:7px; }
+.techTags span { padding:6px 9px; border:1px solid var(--line); color:var(--accent); background:#f1f6f3; font-size:8px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
 
 .outcomes { border-block:1px solid var(--line); background:#f0f3f2; }
 .outcomes ol { margin:0; padding:0; display:grid; grid-template-columns:repeat(2,1fr); list-style:none; border-top:1px solid var(--line); border-left:1px solid var(--line); }
@@ -118,8 +127,9 @@
   .hero { padding-bottom:52px; }
   .heroGrid { padding-top:29px; gap:33px; }
   .clientLogo { height:29px; }
+  .clientName { font-size:22px; }
   .heroCopy .kicker { margin-top:20px; font-size:8px; }
-  .heroCopy h1 { margin-top:14px; font-size:clamp(43px,12.5vw,57px); line-height:.98; }
+  .heroCopy h1 { margin-top:14px; font-size:clamp(39px,11.5vw,50px); line-height:.99; overflow-wrap:break-word; }
   .heroCopy > p { margin-top:21px; font-size:14px; }
   .actions { margin-top:27px; align-items:flex-start; flex-direction:column; gap:16px; }
   .primary { width:100%; justify-content:space-between; }
@@ -129,13 +139,14 @@
   .metricGrid > div { min-height:112px; padding:19px 14px; }
   .metricGrid strong { font-size:29px; }
   .metricGrid span { font-size:7.5px; }
-  .overview,.section,.gallery,.architecture,.outcomes,.related { padding-block:58px; }
-  .overview h2,.sectionHead h2,.migration h2,.mobileShowcase h2,.architecture h2,.closing h2 { margin-top:13px; font-size:37px; }
+  .overview,.section,.gallery,.architecture,.outcomes,.related { padding-block:52px; }
+  .overview h2,.sectionHead h2,.migration h2,.mobileShowcase h2,.architecture h2,.closing h2 { margin-top:13px; font-size:34px; }
   .overviewGrid,.sectionHead,.migrationGrid,.mobileGrid,.architectureGrid { gap:31px; }
   .sectionHead { margin-bottom:32px; }
   .sectionHead > p,.mobileGrid > div:first-child > p,.closing > .inner > p { font-size:13px; }
   .galleryGrid { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; }
   .galleryGrid figure,.galleryGrid .galleryLead,.galleryGrid figure:not(.galleryLead) { width:88%; flex:none; aspect-ratio:16/10; scroll-snap-align:start; }
+  .galleryGrid figure:only-child { width:100%; }
   .migration { padding-block:60px; }
   .migration li { grid-template-columns:33px 1fr; gap:8px; }
   .systemGrid { grid-template-columns:1fr; }

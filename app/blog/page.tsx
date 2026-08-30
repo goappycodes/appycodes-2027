@@ -54,6 +54,7 @@ export default function BlogIndex() {
             ? { src: lead.image, alt: "", caption: `Latest: ${lead.title}` }
             : undefined
         }
+        mediaContain
         stats={[
           { n: String(posts.length), label: "articles published" },
           { n: "real", label: "engagement data" },

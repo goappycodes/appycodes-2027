@@ -1,11 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { CASE_STUDIES, LogoWall } from "@/components/sections";
-import { TechStack } from "@/components/tech-logos";
+import { CASE_STUDIES } from "@/components/sections";
 import { JsonLd } from "@/components/jsonld";
-import { breadcrumbSchema } from "@/lib/schema";
 import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
 import { TestimonialSlider } from "@/components/testimonial-slider";
+import { breadcrumbSchema } from "@/lib/schema";
+import styles from "./institutional-creoate-case-study.module.css";
 
 export type CaseBlock =
   | { t: "section"; title: string; lead?: string }
@@ -14,9 +14,7 @@ export type CaseBlock =
   | { t: "gallery"; title: string; shots: { src: string; alt: string }[] };
 
 export type CaseStudyData = {
-  /** Client name, used for the breadcrumb label and to filter the "more work" rail. */
   crumb: string;
-  /** Path of this study, e.g. "/case-studies/bloc/" — used for breadcrumb schema. */
   path?: string;
   title: ReactNode;
   lede: string;
@@ -25,72 +23,61 @@ export type CaseStudyData = {
   stats: { n: string; label: string }[];
   blocks: CaseBlock[];
   stack: { layer: string; value: string }[];
-  /** Tech-stack logo keys (see components/tech-logos.tsx), shown as a "built with" strip. */
   tech?: string[];
   outcomes: string[];
   cta: string;
 };
 
-/* eslint-disable @next/next/no-img-element */
+function Arrow() {
+  return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" /></svg>;
+}
 
-function Block({ b }: { b: CaseBlock }) {
-  if (b.t === "figure") {
-    return (
-      <section className="wrap sec">
-        <figure className={`cs-fig${b.phone ? " cs-fig--phone" : ""}`}>
-          <img src={b.src} alt={b.alt} loading="lazy" className={b.phone ? "" : "notch notch-lg"} />
-          {b.caption ? <figcaption>{b.caption}</figcaption> : null}
-        </figure>
-      </section>
-    );
+function SystemIcon({ index }: { index: number }) {
+  const paths = [
+    <><path d="M4 7h20v16H4zM4 12h20" /><path d="M8 9h.1M11 9h.1" /></>,
+    <><path d="M6 7h7v6H6zM15 15h7v6h-7zM13 10h4v6" /></>,
+    <><ellipse cx="14" cy="7" rx="9" ry="3" /><path d="M5 7v7c0 1.7 4 3 9 3s9-1.3 9-3V7M5 14v7c0 1.7 4 3 9 3s9-1.3 9-3v-7" /></>,
+    <><path d="M7 20a5 5 0 0 1 1-9.9A7 7 0 0 1 21.5 12 4 4 0 0 1 21 20Z" /><path d="m11 16 3-3 3 3M14 13v10" /></>,
+    <><rect x="5" y="6" width="18" height="16" rx="2" /><path d="M5 11h18M9 17h5" /></>,
+    <><path d="M4 22V11l5-5 5 5 5-7 5 7v11" /><path d="M8 22v-5h4v5M18 14h2" /></>,
+  ];
+  return <span className={styles.systemIcon}><svg viewBox="0 0 28 28" aria-hidden="true">{paths[index % paths.length]}</svg></span>;
+}
+
+function CaseBlockView({ block }: { block: CaseBlock }) {
+  if (block.t === "cards") {
+    return <section className={styles.section}><div className={styles.inner}>
+      <header className={styles.sectionHead}><div><span className={styles.kicker}>The system</span><h2>{block.title}</h2></div>{block.lead ? <p>{block.lead}</p> : null}</header>
+      <div className={styles.systemGrid}>{block.items.map((item, index) => <article key={item.title}><SystemIcon index={index} /><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
+    </div></section>;
   }
-  if (b.t === "gallery") {
-    return (
-      <section className="wrap sec">
-        <div className="sec__head">
-          <h2 className="h-l">{b.title}</h2>
-        </div>
-        <div className="cs-gallery">
-          {b.shots.map((s) => (
-            <img key={s.src} src={s.src} alt={s.alt} loading="lazy" className="notch" />
-          ))}
-        </div>
-      </section>
-    );
+
+  if (block.t === "gallery") {
+    return <section className={styles.gallery}><div className={styles.inner}>
+      <header className={styles.sectionHead}><div><span className={styles.kicker}>Product experience</span><h2>{block.title}</h2></div><p>Production interfaces designed around the people who use the system every day.</p></header>
+      <div className={styles.galleryGrid}>{block.shots.map((shot, index) => <figure className={index === 0 ? styles.galleryLead : undefined} key={shot.src}><img src={shot.src} alt={shot.alt} loading="lazy" /></figure>)}</div>
+    </div></section>;
   }
-  if (b.t === "cards") {
-    return (
-      <section className="wrap sec">
-        <div className="sec__head">
-          <h2 className="h-l">{b.title}</h2>
-          {b.lead ? <p className="lede">{b.lead}</p> : null}
-        </div>
-        <div className="svc">
-          {b.items.map((c, i) => (
-            <div key={c.title} className="svc__i notch">
-              <span className="svc__n">{String(i + 1).padStart(2, "0")}</span>
-              <h3 className="h-m">{c.title}</h3>
-              <p className="body">{c.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-    );
+
+  if (block.t === "figure") {
+    return <section className={styles.gallery}><div className={styles.inner}>
+      <header className={styles.sectionHead}><div><span className={styles.kicker}>In production</span><h2>The live product.</h2></div><p>{block.caption ?? "A working surface from the delivered product estate."}</p></header>
+      <figure className={`${styles.singleFigure} ${block.phone ? styles.singleFigurePhone : ""}`}><img src={block.src} alt={block.alt} loading="lazy" />{block.caption ? <figcaption>{block.caption}</figcaption> : null}</figure>
+    </div></section>;
   }
-  return (
-    <section className="wrap sec">
-      <div className="sec__head">
-        <h2 className="h-l">{b.title}</h2>
-        {b.lead ? <p className="lede">{b.lead}</p> : null}
-      </div>
-    </section>
-  );
+
+  return <section className={styles.overview}><div className={`${styles.inner} ${styles.overviewGrid}`}>
+    <div><span className={styles.kicker}>The brief</span><h2>{block.title}</h2></div>
+    <div>{block.lead ? <p>{block.lead}</p> : null}</div>
+  </div></section>;
 }
 
 export function CaseStudy({ data }: { data: CaseStudyData }) {
-  // Everything except the study you are reading, so the page always offers a
-  // next one rather than dead-ending at the CTA.
-  const others = CASE_STUDIES.filter((c) => !data.crumb.toLowerCase().includes(c.name.toLowerCase()));
+  const entry = CASE_STUDIES.find((item) => item.href === data.path) ?? CASE_STUDIES.find((item) => data.crumb.toLowerCase().includes(item.name.toLowerCase()));
+  const firstFigure = data.blocks.find((block): block is Extract<CaseBlock, { t: "figure" }> => block.t === "figure");
+  const firstGallery = data.blocks.find((block): block is Extract<CaseBlock, { t: "gallery" }> => block.t === "gallery");
+  const heroImage = entry?.img ?? firstFigure?.src ?? firstGallery?.shots[0]?.src;
+  const others = CASE_STUDIES.filter((item) => item.href !== data.path).slice(0, 6);
   const related: InstitutionalWorkItem[] = others.map((item) => ({
     href: item.href,
     image: item.img,
@@ -103,141 +90,45 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
     metric: item.fig,
     metricLabel: item.figlabel,
   }));
+  const primaryLink = data.links?.[0];
+  const descriptor = entry?.meta.split("·")[1]?.trim() ?? data.facts.find((fact) => fact.label.toLowerCase() === "sector")?.value ?? "Product engineering";
 
-  return (
-    <main className="institutional-case">
-      {data.path ? (
-        <JsonLd
-          data={breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Case studies", path: "/case-studies/" },
-            { name: data.crumb, path: data.path },
-          ])}
-        />
-      ) : null}
+  return <main className={styles.page}>
+    {data.path ? <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Case studies", path: "/case-studies/" }, { name: data.crumb, path: data.path }])} /> : null}
 
-      {/* HERO — same classes as the homepage hero */}
-      <section className="wrap hero hero--dark">
-        <p className="cs-crumb">
-          <Link href="/">home</Link> &nbsp;/&nbsp; <Link href="/case-studies/">work</Link>{" "}
-          &nbsp;/&nbsp; {data.crumb}
-        </p>
-        <div className="cs-hero__in">
-          <div>
-            <h1 className="h-l">{data.title}</h1>
-            <p className="lede">{data.lede}</p>
-            <div className="hero__btns">
-              <Link className="btn btn--grad notch" href="/contact/">Start a project like this</Link>
-              <Link className="btn btn--out notch" href="/case-studies/">All work</Link>
-            </div>
-            {data.tech ? <TechStack tech={data.tech} /> : null}
-          </div>
-          <aside className="cs-facts notch notch-lg">
-            <dl>
-              {data.facts.map((f) => (
-                <div key={f.label} className="cs-facts__row">
-                  <dt>{f.label}</dt>
-                  <dd>{f.value}</dd>
-                </div>
-              ))}
-            </dl>
-            {data.links ? (
-              <div className="cs-facts__links">
-                {data.links.map((l) => (
-                  <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
-                    {l.label} ↗
-                  </a>
-                ))}
-              </div>
-            ) : null}
-          </aside>
+    <section className={styles.hero}>
+      <div className={styles.crumbBar}><nav className={`${styles.inner} ${styles.crumbs}`} aria-label="Breadcrumb"><Link href="/">Home</Link><span>/</span><Link href="/case-studies/">Case studies</Link><span>/</span><span>{data.crumb}</span></nav></div>
+      <div className={`${styles.inner} ${styles.heroGrid}`}>
+        <div className={styles.heroCopy}>
+          <strong className={styles.clientName}>{data.crumb}</strong>
+          <span className={styles.kicker}>{descriptor} / production case study</span>
+          <h1>{data.title}</h1>
+          <p>{data.lede}</p>
+          <div className={styles.actions}>{primaryLink ? <a href={primaryLink.href} target="_blank" rel="noreferrer" className={styles.primary}>Visit {data.crumb} <Arrow /></a> : <Link href="/contact/" className={styles.primary}>Discuss your project <Arrow /></Link>}<a href="#story" className={styles.secondary}>Explore the work</a></div>
         </div>
-      </section>
+        <aside className={styles.heroPanel}>
+          <div className={styles.panelHead}><span>Engagement record</span><span>AC / 2026</span></div>
+          {heroImage ? <figure><img src={heroImage} alt={`${data.crumb} product interface`} /></figure> : null}
+          <dl>{data.facts.slice(0, 3).map((fact) => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>
+          <div className={styles.panelFoot}><i /> One team / continuous delivery</div>
+        </aside>
+      </div>
+    </section>
 
-      {/* STATS — homepage proof slab */}
-      <section className="slab dotted">
-        <div className="wrap slab__in">
-          <dl className="stats">
-            {data.stats.map((s) => (
-              <div key={s.label} className="stat">
-                <dt>{s.label}</dt>
-                <dd className="tnum g-dark">{s.n}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
+    <section className={styles.metrics} aria-label={`${data.crumb} engagement results`}><div className={`${styles.inner} ${styles.metricGrid}`}>{data.stats.slice(0, 4).map((stat) => <div key={stat.label}><strong>{stat.n}</strong><span>{stat.label}</span></div>)}</div></section>
 
-      {/* BLOCKS */}
-      {data.blocks.map((b, i) => (
-        <Block key={i} b={b} />
-      ))}
+    <section className={styles.overview} id="story"><div className={`${styles.inner} ${styles.overviewGrid}`}><div><span className={styles.kicker}>The engagement</span><h2>Engineering the product behind the business.</h2></div><div><p>{data.lede}</p>{data.facts[3] ? <p>{data.facts[3].value}</p> : null}</div></div></section>
 
-      {/* STACK */}
-      <section className="wrap sec">
-        <div className="cs-grid2">
-          <div className="sec__head">
-            <h2 className="h-l">what it is built on.</h2>
-          </div>
-          <dl className="cs-stack notch">
-            {data.stack.map((row) => (
-              <div key={row.layer} className="cs-stack__row">
-                <dt>{row.layer}</dt>
-                <dd>{row.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
+    {data.blocks.map((block, index) => <CaseBlockView block={block} key={`${block.t}-${index}`} />)}
 
-      {/* OUTCOMES */}
-      <section className="wrap sec">
-        <div className="sec__head">
-          <h2 className="h-l">what happened next.</h2>
-        </div>
-        <ul className="cs-outcomes">
-          {data.outcomes.map((o) => (
-            <li key={o}>{o}</li>
-          ))}
-        </ul>
-      </section>
+    <section className={styles.architecture}><div className={`${styles.inner} ${styles.architectureGrid}`}><div><span className={styles.kicker}>Architecture</span><h2>A production stack built for the work.</h2>{data.tech?.length ? <div className={styles.techTags}>{data.tech.map((item) => <span key={item}>{item}</span>)}</div> : null}</div><dl>{data.stack.map((row) => <div key={row.layer}><dt>{row.layer}</dt><dd>{row.value}</dd></div>)}</dl></div></section>
 
-      <LogoWall label="Teams that trusted us with the thing that matters" />
+    <section className={styles.outcomes}><div className={styles.inner}><header className={styles.sectionHead}><div><span className={styles.kicker}>Delivery outcomes</span><h2>What changed in production.</h2></div><p>Commercial and operational outcomes attached to the engineering work.</p></header><ol>{data.outcomes.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol></div></section>
 
-      <section className="institutional-testimonial"><div className="wrap"><TestimonialSlider /></div></section>
+    <section className={styles.testimonial}><div className={styles.inner}><TestimonialSlider /></div></section>
 
-      {/* MORE WORK — never dead-end on a case study */}
-      {others.length > 0 ? (
-        <section className="wrap sec">
-          <div className="sec__head">
-            <p className="eyebrow">keep reading</p>
-            <h2 className="h-l">the other engagements.</h2>
-          </div>
-          <InstitutionalWorkRail items={related} label="More case studies" />
-          <div className="sec__more">
-            <Link className="btn btn--out notch" href="/case-studies/">
-              All case studies
-            </Link>
-          </div>
-        </section>
-      ) : null}
+    <section className={styles.related}><div className={styles.inner}><header className={styles.sectionHead}><div><span className={styles.kicker}>More client work</span><h2>Other systems in production.</h2></div><p>Long-term engineering partnerships across software, commerce, mobile and AI.</p></header><InstitutionalWorkRail items={related} label="Related case studies" /><Link href="/case-studies/" className={styles.textLink}>Explore all case studies <Arrow /></Link></div></section>
 
-      {/* CTA — same as homepage */}
-      <section className="cta">
-        <svg className="art cta-art" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-          <path d="M40 120 h220 l100 100 v220 h-320 z" stroke="currentColor" strokeWidth="2.5" />
-          <path d="M110 190 h150 l60 60 v150 h-210 z" stroke="currentColor" strokeWidth="2" opacity=".6" />
-          <circle cx="40" cy="120" r="6" fill="currentColor" />
-          <circle cx="360" cy="440" r="6" fill="currentColor" />
-        </svg>
-        <div className="wrap cta__in">
-          <div className="cta__t">
-            <h2 className="h-l">{data.cta}</h2>
-            <p>A thirty-minute call with the engineer who would run it.</p>
-          </div>
-          <Link className="cta__btn notch" href="/contact/">Book a call</Link>
-        </div>
-      </section>
-    </main>
-  );
+    <section className={styles.closing}><div className={styles.inner}><span className={styles.kicker}>Start a project</span><h2>{data.cta}</h2><p>Book a 30-minute call with the team that will scope and lead your project.</p><div className={styles.actions}><Link href="/contact/" className={styles.primary}>Discuss your project <Arrow /></Link><Link href="/software-project-estimator/" className={styles.secondary}>Get a 2-minute estimate</Link></div></div></section>
+  </main>;
 }

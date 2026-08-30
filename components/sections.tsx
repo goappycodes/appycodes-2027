@@ -1,11 +1,12 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { AWARDS, CLIENT_LOGOS } from "@/lib/site";
+import { AWARDS } from "@/lib/site";
 import { BLOG_POSTS } from "@/lib/blog";
 import { JsonLd } from "@/components/jsonld";
 import { faqSchema } from "@/lib/schema";
 import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
 import { TestimonialSlider } from "@/components/testimonial-slider";
+import { ClientMarquee } from "@/components/client-marquee";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -334,40 +335,17 @@ export function FeaturedWork({
 
 /* --------------------------------------------------------------- logos ---- */
 
-/** Client logo strip — static row on desktop, opposing marquees on mobile. */
+/**
+ * Client logo strip. Renders the one shared marquee (the same carousel the
+ * homepage uses) so the logo wall looks and moves identically on every page.
+ * The page-specific `label` becomes the strip's headline.
+ */
 export function LogoWall({
   label = "Teams that trusted us with the thing that matters",
 }: {
   label?: string;
 }) {
-  return (
-    <section className="logos">
-      <div className="wrap logos__in reveal">
-        <span className="logos__lbl">{label}</span>
-        <div className="logos__row">
-          {CLIENT_LOGOS.map((l) => (
-            <a key={l.name} href="/case-studies/" title={l.name}>
-              <img src={l.src} alt={l.name} loading="lazy" />
-            </a>
-          ))}
-        </div>
-        <div className="logos__marquee" aria-hidden="true">
-          {[
-            CLIENT_LOGOS.slice(0, Math.ceil(CLIENT_LOGOS.length / 2)),
-            CLIENT_LOGOS.slice(Math.ceil(CLIENT_LOGOS.length / 2)),
-          ].map((row, r) => (
-            <div key={r} className={`logos__track${r === 1 ? " logos__track--rev" : ""}`}>
-              {[...row, ...row].map((l, i) => (
-                <span key={i} className="logos__chip">
-                  <img src={l.src} alt="" loading="lazy" />
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return <ClientMarquee label={label} />;
 }
 
 /** Recognition badges — the same set the homepage hero carries. */
