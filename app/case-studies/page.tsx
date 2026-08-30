@@ -7,9 +7,9 @@ import { ChevronRight } from "@/components/icons";
 import { SHORT_CASES } from "@/lib/short-cases";
 
 export const metadata: Metadata = siteMeta({
-  title: "Case studies — companies we've helped ship",
+  title: "Case studies — our client projects",
   description:
-    "Selected engagements: Creoate's eight-year B2B marketplace, Easyship's global shipping site and CMS, Decofetch's custom furniture store, Léonia's clean-beauty Shopify build, PlusHeat's boiler-cover configurator, Shutters 365's made-to-measure shutter builder, the BA Engine Room AI ops platform, Bloc's self-serve ad manager, Ontick's ticketing, Bloc's four-year build, Zonely's real-time companionship app, Player Profile Hub's grassroots-football platform, DeepSpatial's geospatial-AI site, Yippee Malta and Professional Energy's ERP.",
+    "Websites, mobile apps and software built by Appycodes. Explore client projects, the work we delivered and the results.",
   path: "/case-studies/",
   image: "/images/ontick-6.png",
 });
@@ -96,24 +96,24 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
 
 const FAQS = [
   {
-    question: "Why are only fifteen written up in full?",
+    question: "Why are some clients unnamed?",
     answer:
-      "Because those are the ones we can show properly, with the client's agreement and real numbers attached. The twelve below them are described by sector rather than named — much of that work was delivered under a partner's name, so the engineering is ours to publish and the identity is not.",
+      "We name clients with their permission. Some projects were delivered through partners, so we describe the work without naming the client.",
   },
   {
-    question: "Is that everything you have done?",
+    question: "Does this page show all your work?",
     answer:
-      "No — the full register is 298 projects for 226 clients across 18 countries, and it is published on the atlas page with the counting method attached. These twenty-seven are the ones worth reading.",
+      "This page shows selected projects. Our atlas lists more work by country, client and project type.",
   },
   {
     question: "Can I talk to any of these clients?",
     answer:
-      "Yes. On a serious engagement we will put you in touch with a reference whose project looked like yours. That is a better signal than anything on this page.",
+      "Yes. When discussing your project, we can arrange a reference call with a client whose project is similar to yours.",
   },
   {
-    question: "Do you still run these platforms?",
+    question: "Do you provide support after launch?",
     answer:
-      "Several of them, years after launch. Handover to your own team is always an option, but we are optimised to still be running your platform in year four rather than to win the pitch.",
+      "Yes. We maintain and develop several of these platforms. We can also hand the software and documentation over to your team.",
   },
 ];
 
@@ -125,10 +125,10 @@ export default function CaseStudiesIndex() {
         eyebrow="selected work"
         title={
           <>
-            we measure the work by what happened <span className="g-disp">next</span>.
+            websites, apps and software <span className="g-disp">we have built</span>.
           </>
         }
-        lede="Companies, systems and measurable outcomes from live production work."
+        lede="See what we built for our clients, how it works and the results."
         actions={[
           { label: "Start a project", href: "/contact/" },
           { label: "See the services", href: "/services/", variant: "out" },
@@ -141,13 +141,13 @@ export default function CaseStudiesIndex() {
         ]}
       />
 
-      <LogoWall label="Teams that trusted us with the thing that matters" />
+      <LogoWall label="Some of our clients" />
 
-      {/* THE SIX — full-width alternating rows */}
+      {/* Client projects — full-width alternating rows */}
       <section className="wrap sec">
         <div className="sec__head">
-          <p className="eyebrow">the engagements</p>
-          <h2 className="h-l">fifteen companies, fifteen systems still in production.</h2>
+          <p className="eyebrow">case studies</p>
+          <h2 className="h-l">client projects.</h2>
         </div>
 
         <div className="cases">
@@ -201,14 +201,13 @@ export default function CaseStudiesIndex() {
       <section className="slab dotted">
         <div className="wrap slab__in">
           <div className="sec__head">
-            <p className="eyebrow eyebrow--slab">twelve more, in short</p>
+            <p className="eyebrow eyebrow--slab">project summaries</p>
             <h2 className="h-l" style={{ color: "#fff" }}>
-              twelve more delivery records.
+              more of our work.
             </h2>
             <p className="lede" style={{ color: "var(--on-slab-2)" }}>
-              Described by sector rather than named — a large share of this was delivered under a
-              partner&rsquo;s name. The engineering is ours to publish. On a live engagement we will
-              introduce you to a reference directly.
+              These projects include work delivered through partners. Client names are kept private;
+              references are available when we discuss your project.
             </p>
           </div>
           <div className="shorts">
@@ -237,13 +236,13 @@ export default function CaseStudiesIndex() {
       </section>
 
       <Testimonials
-        title="the people who signed off this work"
-        lede="Founders and operators who lived with the result long after launch."
+        title="what our clients say"
+        lede="Feedback from the people we work with."
       />
 
       <AwardsStrip />
 
-      <Faq items={FAQS} title="about this page" />
+      <Faq items={FAQS} title="common questions" />
 
       <section className="cta">
         <svg className="art cta-art" viewBox="0 0 400 400" fill="none" aria-hidden="true">
@@ -252,8 +251,8 @@ export default function CaseStudiesIndex() {
         </svg>
         <div className="wrap cta__in">
           <div className="cta__t">
-            <h2 className="h-l">what would your entry on this page say?</h2>
-            <p>A thirty-minute call with the engineer who would lead the work.</p>
+            <h2 className="h-l">tell us about your project.</h2>
+            <p>Book a 30-minute call to discuss what you need to build.</p>
           </div>
           <Link className="cta__btn notch" href="/contact/">
             Book a call
