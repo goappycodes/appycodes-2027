@@ -3,81 +3,13 @@ import { AWARDS } from "@/lib/site";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { InstitutionalMap } from "@/components/institutional-map";
 import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
+import { getWorkCards } from "@/lib/work-cards";
 import { ClientMarquee } from "@/components/client-marquee";
 import styles from "./home-concepts.module.css";
 
 export type HomeConcept = "institutional" | "editorial" | "technical";
 
-const WORK = [
-  {
-    href: "/case-studies/creoate/",
-    image: "/images/creoate-featured.png",
-    client: "Creoate",
-    logo: "/images/logo-creoate.png",
-    brand: "Creoate",
-    sector: "B2B commerce",
-    title: "The engineering partnership behind a cross-border wholesale marketplace.",
-    detail: "Next.js storefront, Python ingestion pipelines, DynamoDB data layer and AWS infrastructure.",
-    metric: "8+ years",
-    metricLabel: "one team, still shipping",
-  },
-  {
-    href: "/case-studies/ontick/",
-    image: "/images/ontick-6.png",
-    client: "Ontick",
-    brand: "Ontick",
-    sector: "Event technology",
-    title: "A commission-free ticketing platform built for ownership and scale.",
-    detail: "Multi-organiser commerce, Stripe instalments and two native apps in one connected platform.",
-    metric: "£2M+",
-    metricLabel: "processed since launch",
-  },
-  {
-    href: "/case-studies/easyship/",
-    image: "/images/easyship-featured.png",
-    client: "Easyship",
-    logo: "/images/logo-easyship.png",
-    brand: "Easyship",
-    sector: "Global logistics",
-    title: "Embedded product engineering for a global shipping platform.",
-    detail: "Rate, tax and duty calculators, server-rendered courier pages and a custom MongoDB CMS.",
-    metric: "550+",
-    metricLabel: "couriers on the calculator",
-  },
-  {
-    href: "/case-studies/decofetch/",
-    image: "/images/decofetch-featured.png",
-    client: "Decofetch",
-    brand: "Decofetch",
-    sector: "Luxury commerce",
-    title: "A custom furniture marketplace engineered from storefront to infrastructure.",
-    detail: "Server-rendered Next.js commerce over a Laravel API, bespoke operations tooling and re-architected AWS infrastructure.",
-    metric: "0→live",
-    metricLabel: "custom, front to back",
-  },
-  {
-    href: "/case-studies/ba-engine-room/",
-    image: "/images/engineroom-featured.png",
-    client: "BA Engine Room",
-    brand: "EngineRoom",
-    sector: "AI operations",
-    title: "An AI-native operating system that runs a consultancy lead to invoice.",
-    detail: "Discovery briefs, e-signed contracts, Stripe deposits, delivery milestones and time tracking in one operational system.",
-    metric: "0→1",
-    metricLabel: "built from the ground up",
-  },
-  {
-    href: "/case-studies/plusheat/",
-    image: "/images/plusheat-featured.png",
-    client: "PlusHeat",
-    brand: "PlusHeat",
-    sector: "Home services",
-    title: "A conversion platform for a growing UK boiler-cover provider.",
-    detail: "Custom plan configuration, postcode-qualified lead journeys, CRM synchronisation and campaign landing pages.",
-    metric: "5 yrs",
-    metricLabel: "web partner since 2021",
-  },
-];
+const WORK = getWorkCards(["Creoate", "Ontick", "Easyship", "Decofetch", "BA Engine Room", "PlusHeat"]);
 
 const CAPABILITIES = [
   { n: "01", title: "Product engineering", href: "/services/product-engineering/", body: "Customer-facing software and internal systems designed around the way your business actually operates." },

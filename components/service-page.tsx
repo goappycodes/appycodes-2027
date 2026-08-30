@@ -3,11 +3,12 @@ import { subServicesFor, type ServiceData } from "@/lib/services-data";
 import { ServiceTitle } from "@/components/service-title";
 import { ChevronRight, Check } from "@/components/icons";
 import { PageHero } from "@/components/page-hero";
-import { AwardsStrip, CASE_STUDIES, LogoWall, WritingCards, Faq } from "@/components/sections";
+import { AwardsStrip, LogoWall, WritingCards, Faq } from "@/components/sections";
 import { serviceMedia, PILLAR_PROOF, PILLAR_CASES, PILLAR_POSTS } from "@/lib/media";
 import { JsonLd } from "@/components/jsonld";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
-import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
+import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
+import { getWorkCards } from "@/lib/work-cards";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 
 /* eslint-disable @next/next/no-img-element */
@@ -16,20 +17,7 @@ export function ServicePage({ s }: { s: ServiceData }) {
   const subs = subServicesFor(s.slug);
   const media = serviceMedia(s.slug);
   const proof = PILLAR_PROOF[s.slug];
-  const related: InstitutionalWorkItem[] = CASE_STUDIES
-    .filter((item) => PILLAR_CASES[s.slug]?.includes(item.name))
-    .map((item) => ({
-      href: item.href,
-      image: item.img,
-      client: item.name,
-      logo: item.logo?.startsWith("/images/logo-") ? item.logo : undefined,
-      brand: item.name.replace(/[^A-Za-z0-9]/g, ""),
-      sector: item.meta.split("·")[1]?.trim() ?? s.title,
-      title: item.meta,
-      detail: item.body,
-      metric: item.fig,
-      metricLabel: item.figlabel,
-    }));
+  const related = getWorkCards(PILLAR_CASES[s.slug] ?? []);
 
   return (
     <>

@@ -4,7 +4,8 @@ import { AWARDS } from "@/lib/site";
 import { BLOG_POSTS } from "@/lib/blog";
 import { JsonLd } from "@/components/jsonld";
 import { faqSchema } from "@/lib/schema";
-import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
+import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
+import { WORK_CARDS, getWorkCards } from "@/lib/work-cards";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { ClientMarquee } from "@/components/client-marquee";
 
@@ -261,29 +262,6 @@ export const CASE_STUDIES = [
   },
 ];
 
-function CaseCard({ o }: { o: (typeof CASE_STUDIES)[number] }) {
-  return (
-    <Link href={o.href} className="case notch notch-lg">
-      <div className="case__shot">
-        <img src={o.img} alt={o.meta} loading="lazy" />
-      </div>
-      <div className="case__bar" />
-      <div className="case__in">
-        <h3 className="h-m">{o.head}</h3>
-        <p className="body">{o.body}</p>
-        <div className="case__metric">
-          <div className="case__metric-txt">
-            <span className="case__fig tnum g-disp">{o.fig}</span>
-            <span className="case__figlabel">{o.figlabel}</span>
-          </div>
-          <svg className="case__chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-      </div>
-    </Link>
-  );
-}
 
 /**
  * Case-study pull-through. Used on the homepage, every service page and the
@@ -300,19 +278,7 @@ export function FeaturedWork({
   only?: string[];
   more?: boolean;
 }) {
-  const items = only ? CASE_STUDIES.filter((c) => only.includes(c.name)) : CASE_STUDIES;
-  const institutionalItems: InstitutionalWorkItem[] = items.map((item) => ({
-    href: item.href,
-    image: item.img,
-    client: item.name,
-    logo: item.logo?.startsWith("/images/logo-") ? item.logo : undefined,
-    brand: item.name.replace(/[^A-Za-z0-9]/g, ""),
-    sector: item.meta.split("·")[1]?.trim() ?? "Product engineering",
-    title: item.meta,
-    detail: item.body,
-    metric: item.fig,
-    metricLabel: item.figlabel,
-  }));
+  const items = only ? getWorkCards(only) : WORK_CARDS;
   if (items.length === 0) return null;
   return (
     <section className="wrap sec reveal">
@@ -321,7 +287,7 @@ export function FeaturedWork({
         <h2 className="h-l">{title}</h2>
         {lede ? <p className="lede">{lede}</p> : null}
       </div>
-      <InstitutionalWorkRail items={institutionalItems} label="Case studies" />
+      <InstitutionalWorkRail items={items} label="Case studies" />
       {more ? (
         <div className="sec__more">
           <Link className="btn btn--out notch" href="/case-studies/">

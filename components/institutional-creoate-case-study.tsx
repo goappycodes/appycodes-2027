@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
+import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
+import { getWorkCards } from "@/lib/work-cards";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import styles from "./institutional-creoate-case-study.module.css";
 
@@ -22,20 +23,7 @@ const STACK = [
   ["Observability", "Atatus · Grafana · PostHog"],
 ];
 
-const RELATED: InstitutionalWorkItem[] = [
-  {
-    href: "/case-studies/ontick/", image: "/images/ontick-6.png", client: "Ontick", brand: "Ontick", sector: "Event technology",
-    title: "A commission-free ticketing platform built for ownership and scale.", detail: "Multi-organiser commerce, Stripe instalments and two native apps in one connected platform.", metric: "£2M+", metricLabel: "processed since launch",
-  },
-  {
-    href: "/case-studies/easyship/", image: "/images/easyship-featured.png", client: "Easyship", logo: "/images/logo-easyship.png", brand: "Easyship", sector: "Global logistics",
-    title: "Embedded product engineering for a global shipping platform.", detail: "Rate, tax and duty calculators, server-rendered courier pages and a custom MongoDB CMS.", metric: "550+", metricLabel: "couriers on the calculator",
-  },
-  {
-    href: "/case-studies/decofetch/", image: "/images/decofetch-featured.png", client: "Decofetch", brand: "Decofetch", sector: "Luxury commerce",
-    title: "A custom furniture marketplace engineered from storefront to infrastructure.", detail: "Server-rendered commerce, bespoke operations tooling and re-architected AWS infrastructure.", metric: "0→live", metricLabel: "custom, front to back",
-  },
-];
+const RELATED = getWorkCards(["Ontick", "Easyship", "Decofetch"]);
 
 function Arrow() {
   return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" /></svg>;

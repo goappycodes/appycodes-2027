@@ -1,19 +1,9 @@
 import Link from "next/link";
 import { Rail } from "@/components/rail";
 import styles from "./home-concepts.module.css";
+import type { InstitutionalWorkItem } from "@/lib/work-cards";
 
-export type InstitutionalWorkItem = {
-  href: string;
-  image: string;
-  client: string;
-  logo?: string;
-  brand: string;
-  sector: string;
-  title: string;
-  detail: string;
-  metric: string;
-  metricLabel: string;
-};
+export type { InstitutionalWorkItem } from "@/lib/work-cards";
 
 function Arrow() {
   return <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;

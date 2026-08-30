@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { ServiceStack } from "@/components/service-stack";
-import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
-import { CASE_STUDIES } from "@/components/sections";
+import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
+import { getWorkCards } from "@/lib/work-cards";
 import { subServicesFor, type ServiceData } from "@/lib/services-data";
 import { PILLAR_CASES, serviceMedia } from "@/lib/media";
 import styles from "./institutional-service-page.module.css";
@@ -90,20 +90,7 @@ export function InstitutionalServicePage({ service }: { service: ServiceData }) 
     ? PRODUCT_PROCESS
     : service.processSteps.map((item, index) => ({ n: String(index + 1).padStart(2, "0"), title: item.title, body: item.description }));
   const deliverables = isProduct ? PRODUCT_DELIVERABLES : service.benefits.map((item) => ({ title: item.title, body: item.description }));
-  const work: InstitutionalWorkItem[] = CASE_STUDIES
-    .filter((item) => PILLAR_CASES[service.slug]?.includes(item.name))
-    .map((item) => ({
-      href: item.href,
-      image: item.img,
-      client: item.name,
-      logo: item.logo?.startsWith("/images/logo-") ? item.logo : undefined,
-      brand: item.name.replace(/[^A-Za-z0-9]/g, ""),
-      sector: item.meta.split("·")[1]?.trim() ?? service.title,
-      title: item.meta,
-      detail: item.body,
-      metric: item.fig,
-      metricLabel: item.figlabel,
-    }));
+  const work = getWorkCards(PILLAR_CASES[service.slug] ?? []);
 
   return (
     <main className={styles.page}>

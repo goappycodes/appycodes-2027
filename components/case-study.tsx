@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CASE_STUDIES } from "@/components/sections";
 import { JsonLd } from "@/components/jsonld";
-import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
+import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
+import { WORK_CARDS } from "@/lib/work-cards";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { breadcrumbSchema } from "@/lib/schema";
 import styles from "./institutional-creoate-case-study.module.css";
@@ -77,19 +78,7 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
   const firstFigure = data.blocks.find((block): block is Extract<CaseBlock, { t: "figure" }> => block.t === "figure");
   const firstGallery = data.blocks.find((block): block is Extract<CaseBlock, { t: "gallery" }> => block.t === "gallery");
   const heroImage = entry?.img ?? firstFigure?.src ?? firstGallery?.shots[0]?.src;
-  const others = CASE_STUDIES.filter((item) => item.href !== data.path).slice(0, 6);
-  const related: InstitutionalWorkItem[] = others.map((item) => ({
-    href: item.href,
-    image: item.img,
-    client: item.name,
-    logo: item.logo?.startsWith("/images/logo-") ? item.logo : undefined,
-    brand: item.name.replace(/[^A-Za-z0-9]/g, ""),
-    sector: item.meta.split("·")[1]?.trim() ?? "Product engineering",
-    title: item.meta,
-    detail: item.body,
-    metric: item.fig,
-    metricLabel: item.figlabel,
-  }));
+  const related = WORK_CARDS.filter((item) => item.href !== entry?.href && item.href !== data.path).slice(0, 6);
   const primaryLink = data.links?.[0];
   // A concise feature summary plus product imagery replaces repeated narrative sections.
   const systemSummary = data.blocks.find((block) => block.t === "cards");

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { TestimonialSlider } from "@/components/testimonial-slider";
-import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
-import { CASE_STUDIES } from "@/components/sections";
+import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
+import { getWorkCards } from "@/lib/work-cards";
 import { JsonLd } from "@/components/jsonld";
 import { pillarFor, siblingsFor, type SubServiceData } from "@/lib/sub-services-data";
 import { PILLAR_CASES, subServiceMedia } from "@/lib/media";
@@ -39,20 +39,7 @@ export function InstitutionalSubServicePage({ service }: { service: SubServiceDa
   const pillar = pillarFor(service.slug);
   const siblings = siblingsFor(service.slug);
   const image = subServiceMedia(service.slug, pillar?.slug);
-  const work: InstitutionalWorkItem[] = CASE_STUDIES
-    .filter((item) => pillar && PILLAR_CASES[pillar.slug]?.includes(item.name))
-    .map((item) => ({
-      href: item.href,
-      image: item.img,
-      client: item.name,
-      logo: item.logo?.startsWith("/images/logo-") ? item.logo : undefined,
-      brand: item.name.replace(/[^A-Za-z0-9]/g, ""),
-      sector: item.meta.split("·")[1]?.trim() ?? pillar?.title ?? service.title,
-      title: item.meta,
-      detail: item.body,
-      metric: item.fig,
-      metricLabel: item.figlabel,
-    }));
+  const work = getWorkCards(PILLAR_CASES[pillar?.slug ?? ""] ?? []);
 
   return (
     <main className={styles.page}>
