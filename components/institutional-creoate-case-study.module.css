@@ -32,7 +32,7 @@
 .panelFoot { min-height:50px; padding:0 20px; display:flex; align-items:center; gap:11px; color:#086044; background:var(--soft); font-size:8px; font-weight:750; letter-spacing:.1em; text-transform:uppercase; }
 .panelFoot i { width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 5px rgba(20,97,67,.1); }
 
-.metrics { color:#fff; background:var(--ink); }
+.metrics { color:#fff; background:var(--slab); }
 .metricGrid { display:grid; grid-template-columns:repeat(4,1fr); }
 .metricGrid > div { min-height:140px; padding:26px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid rgba(255,255,255,.13); }
 .metricGrid > div:last-child { border:0; }
@@ -60,7 +60,7 @@
 .singleFigurePhone { width:min(100%,900px); margin-inline:auto; }
 .singleFigurePhone img { max-height:760px; object-fit:contain; background:#e7edeb; }
 
-.migration { padding:clamp(68px,7.5vw,112px) 0; color:#fff; background:var(--ink); }
+.migration { padding:clamp(68px,7.5vw,112px) 0; color:#fff; background:var(--slab); }
 .migration .kicker { color:#8ed0ad; }
 .migrationGrid { display:grid; grid-template-columns:minmax(0,.88fr) minmax(440px,1.12fr); gap:clamp(70px,10vw,150px); }
 .migrationGrid > div > p { max-width:54ch; margin-top:24px; color:rgba(255,255,255,.58); font-size:14px; line-height:1.72; }

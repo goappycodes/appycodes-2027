@@ -82,7 +82,7 @@
 .clientStrip:hover .clientLogos { animation-play-state: paused; }
 @keyframes clientMarquee { to { transform: translateX(-50%); } }
 
-.metrics { background: var(--concept-ink); color: #fff; }
+.metrics { background: var(--slab); color: #fff; }
 .metricGrid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .metric { min-height: 178px; padding: 36px 28px; display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid rgba(255,255,255,.13); }
 .metric:last-child { border-right: 1px solid rgba(255,255,255,.13); }
@@ -189,7 +189,7 @@
 .lightMapFoot dd { margin: 0; font-size: 26px; line-height: 1; font-weight: 650; letter-spacing: -.05em; }
 .lightMapFoot > a { width: fit-content; margin-top: 22px; padding-bottom: 5px; display: inline-flex; gap: 12px; border-bottom: 1px solid currentColor; color: var(--concept-accent); font-size: 12px; font-weight: 700; }
 
-.approach { background: var(--concept-ink); color: #fff; }
+.approach { background: var(--slab); color: #fff; }
 .approach .inner { display: grid; grid-template-columns: minmax(0, .8fr) minmax(420px, 1.2fr); gap: clamp(70px, 10vw, 160px); }
 .approach .kicker { color: #8ed0ad; }
 .approachIntro { position: sticky; top: 130px; height: fit-content; }

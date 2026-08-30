@@ -34,7 +34,7 @@
 
 /* ==================================================================
    APPYCODES — "Institutional" direction
-   Palette: deep green #146143 on navy ink #111b27 + off-white paper #f7f8f8
+   Palette: deep green #146143 on neutral charcoal #141414 + off-white paper #f7f8f8
 
    Flat, precise, credential-led. The old Alloy system (lime + notch +
    gradient-as-identity) has been retired: the palette funnels through the
@@ -45,14 +45,14 @@
      --grad-fill        filled shapes that carry text (deep green, white text)
      --grad-display     gradient-as-text at 24px+ on light (deep green)
      --grad-text-light  gradient-as-text below 24px on light (deep green)
-     --grad-text-dark   gradient-as-text on the navy slab (light mint-green)
+     --grad-text-dark   gradient-as-text on the charcoal slab (light mint-green)
 
    GEOMETRY — square corners, 1px hairline rules, uppercase kickers led by a
    short rule, the logo dot as a marker. The page ground is flat off-white.
    Single-theme by intent — the page paints its own ground.
    ================================================================== */
 :root {
-  --a: #111b27;   /* dark end — navy ink */
+  --a: #141414;   /* dark end — neutral charcoal */
   --b: #146143;   /* accent — deep institutional green */
   --angle: 110deg;
 
@@ -71,14 +71,14 @@
   --on-grad-inv: #0B0B0B;
   --solid: #146143;      /* brand accent — eyebrows, labels, focus, small marks */
   --solid-hi: #146143;   /* the accent — fills */
-  --tint:  #8ecfad;      /* accent on the dark navy slab */
+  --tint:  #8ecfad;      /* accent on the dark charcoal slab */
   --accent-text: #146143; /* contrast-safe green for accent text on white */
 
   --page:  #FFFFFF;        /* surface white — cards, controls */
   --paper: #f7f8f8;        /* the page ground */
   --wash:  #eef2f1;        /* subtle cool band tint */
   --wash-2:#e4ece8;        /* stronger tint — hover states */
-  --slab:  #111b27;        /* dark navy sections */
+  --slab:  #141414;        /* shared neutral charcoal for dark surfaces */
   --ink:   #111b27;
   --ink-2: #3d4957;
   --ink-3: #536170;
@@ -183,7 +183,7 @@ a { color: inherit; text-decoration: none; }
 /* Primary — one compact, sober button, not a big shouty CTA. */
 .btn--grad { background-image: var(--grad-fill); color: var(--on-grad); }
 .btn--grad:hover { box-shadow: 0 4px 14px -8px var(--solid-hi); }
-.btn--ink { background: var(--ink); color: var(--page); }
+.btn--ink { background: var(--slab); color: var(--page); }
 .btn--ink:hover { background-image: var(--grad-fill); color: var(--on-grad); }
 /* Secondary — a sleek text link with a subtle underline, not a boxed button. */
 .btn--out {
@@ -503,8 +503,8 @@ a { color: inherit; text-decoration: none; }
   background-color: var(--slab);
   background-image:
     radial-gradient(80% 75% at 86% -8%, color-mix(in srgb, var(--solid-hi) 22%, transparent) 0%, transparent 56%),
-    linear-gradient(100deg, #040a07f7 0%, #050b08ed 2%, #0b132099 96%, #0b13204d 100%),
-    linear-gradient(0deg, #0b1320e6 0%, #0b132000 44%),
+    linear-gradient(100deg, #0b0b0bf7 0%, #0b0b0bed 2%, #0b0b0b99 96%, #0b0b0b4d 100%),
+    linear-gradient(0deg, #0b0b0be6 0%, #0b0b0b00 44%),
     url("/images/team-discussion.jpg");
   background-size: 100%;
   background-position: right 32%;
@@ -516,7 +516,7 @@ a { color: inherit; text-decoration: none; }
   .home #how {
     background-image:
       radial-gradient(90% 55% at 88% 0%, color-mix(in srgb, var(--solid-hi) 18%, transparent) 0%, transparent 60%),
-      linear-gradient(180deg, #0b1320d9 0%, #0b1320f0 100%),
+      linear-gradient(180deg, #0b0b0bd9 0%, #0b0b0bf0 100%),
       url("/images/team-discussion.jpg");
     background-size: cover;
     background-position: center;
@@ -791,7 +791,7 @@ a { color: inherit; text-decoration: none; }
   color: #fff;
   background:
     radial-gradient(90% 85% at 88% -5%, color-mix(in srgb, var(--solid-hi) 20%, var(--slab)) 0%, transparent 58%),
-    linear-gradient(158deg, var(--slab) 0%, #0b1320 100%);
+    linear-gradient(158deg, var(--slab) 0%, #0b0b0b 100%);
   /* full-bleed dark background: the section spans the full viewport width while
      its content stays aligned to the standard 1640px column (the .wrap cap only
      bit on very wide screens, leaving white gutters around the hero) */
@@ -811,8 +811,8 @@ a { color: inherit; text-decoration: none; }
   background-color: var(--slab);
   background-image:
     radial-gradient(80% 75% at 86% -8%, color-mix(in srgb, var(--solid-hi) 22%, transparent) 0%, transparent 56%),
-    linear-gradient(100deg, #040a07f7 0%, #050b08ed 2%, #0b132099 46%, #0b13204d 100%),
-    linear-gradient(0deg, #0b1320e6 0%, #0b132000 44%),
+    linear-gradient(100deg, #0b0b0bf7 0%, #0b0b0bed 2%, #0b0b0b99 46%, #0b0b0b4d 100%),
+    linear-gradient(0deg, #0b0b0be6 0%, #0b0b0b00 44%),
     url("/images/ritesh-prince.jpg");
   background-size: 70%;
   background-position: right 32%;
@@ -1232,7 +1232,7 @@ a { color: inherit; text-decoration: none; }
   position: relative; overflow: clip; color: #fff; isolation: isolate;
   background:
     radial-gradient(88% 82% at 86% -8%, color-mix(in srgb, var(--solid-hi) 18%, var(--slab)) 0%, transparent 60%),
-    linear-gradient(158deg, var(--slab) 0%, #0b1320 100%);
+    linear-gradient(158deg, var(--slab) 0%, #0b0b0b 100%);
   padding-block: 0 clamp(2.25rem, 5vw, 4rem);
 }
 .phero::before {
@@ -1285,7 +1285,7 @@ a { color: inherit; text-decoration: none; }
 /* long specialism names would otherwise run to three heavy lines */
 .phero__t--md { font-size: clamp(1.85rem, 4vw, 2.85rem); max-width: 22ch; }
 .phero__t .g-disp {
-  /* Emphasis word on the navy hero — kept in the institutional light-mint range
+  /* Emphasis word on the charcoal hero — kept in the institutional light-mint range
      (matching --tint / the kickers) so it stays legible against the dark ground. */
   background-image: linear-gradient(var(--angle), var(--tint) 0%, color-mix(in srgb, var(--tint) 55%, #fff) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -1514,7 +1514,7 @@ a { color: inherit; text-decoration: none; }
   position: relative; isolation: isolate; color: #fff;
   background:
     radial-gradient(88% 82% at 86% -8%, color-mix(in srgb, var(--solid-hi) 18%, var(--slab)) 0%, transparent 60%),
-    linear-gradient(158deg, var(--slab) 0%, #0b1320 100%);
+    linear-gradient(158deg, var(--slab) 0%, #0b0b0b 100%);
   /* the hero image overlaps the light section below, so the head keeps a
      shorter block and the figure bridges the two grounds */
   padding-block: clamp(2rem, 4vw, 3rem) 0;

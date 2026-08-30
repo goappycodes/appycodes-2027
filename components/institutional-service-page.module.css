@@ -51,7 +51,7 @@
 .panelFoot { min-height: 54px; padding: 0 22px; display: flex; align-items: center; gap: 12px; color: #086044; background: var(--accent-soft); font-size: 9px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
 .panelFoot i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(20,97,67,.1); }
 
-.record { color: #fff; background: var(--ink); }
+.record { color: #fff; background: var(--slab); }
 .recordGrid { display: grid; grid-template-columns: repeat(4, 1fr); }
 .recordGrid > div { min-height: 155px; padding: 30px 28px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,.13); }
 .recordGrid > div:last-child { border-right: 0; }
@@ -108,7 +108,7 @@
 .workMetric i { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); }
 .textLink { width: fit-content; margin-top: 38px; padding-bottom: 5px; display: inline-flex; align-items: center; gap: 13px; border-bottom: 1px solid currentColor; color: var(--accent) !important; font-size: 13px; font-weight: 700; }
 
-.process { padding: clamp(82px, 10vw, 145px) 0; color: #fff; background: var(--ink); }
+.process { padding: clamp(82px, 10vw, 145px) 0; color: #fff; background: var(--slab); }
 .process .kicker { color: #8ed0ad; }
 .processGrid { display: grid; grid-template-columns: minmax(0, .82fr) minmax(420px, 1.18fr); gap: clamp(70px, 10vw, 150px); }
 .processIntro > p { margin-top: 27px; color: rgba(255,255,255,.58); }
