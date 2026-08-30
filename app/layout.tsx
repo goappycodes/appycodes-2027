@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { LuxReveal } from "@/components/lux-reveal";
+import { NavigationProgress } from "@/components/navigation-progress";
 import { JsonLd } from "@/components/jsonld";
 import { siteGraph } from "@/lib/schema";
 import { SITE } from "@/lib/site";
@@ -50,10 +51,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="lux">
         {/* content stays visible if JS never runs */}
         <noscript>
-          <style dangerouslySetInnerHTML={{ __html: ".lux .reveal{opacity:1;transform:none}" }} />
+          <style dangerouslySetInnerHTML={{ __html: ".lux .reveal{opacity:1;transform:none}.route-progress{display:none}" }} />
         </noscript>
         <JsonLd data={siteGraph({ email: SITE.email, founded: SITE.founded })} />
         <SiteHeader />
+        <NavigationProgress />
         <main>{children}</main>
         <SiteFooter />
         <LuxReveal />

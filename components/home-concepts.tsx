@@ -89,8 +89,8 @@ const CAPABILITIES = [
 
 const METRICS = [
   { value: "2015", label: "Building production software since" },
-  { value: "8+ yrs", label: "Longest active client partnership" },
-  { value: "£2M+", label: "Processed by one client platform" },
+  { value: "11 years", label: "of experience" },
+  { value: "300+", label: "products delivered" },
   { value: "5.0", label: "Average across 18 Clutch reviews" },
 ];
 
@@ -272,12 +272,15 @@ function Closing() {
 
 function InstitutionalHero() {
   return (
-    <section className={styles.hero}>
+    <section className={`${styles.hero} ${styles.institutionalHero}`}>
       <div className={`${styles.inner} ${styles.heroGrid}`}>
         <div className={styles.heroCopy}>
-          <span className={styles.kicker}>Made in India / delivered across the UK, Europe &amp; worldwide</span>
           <h1>Custom software for growing businesses.</h1>
-          <p>World-class, enterprise-grade web platforms, mobile apps and AI systems, backed by more than a decade of delivery.</p>
+          <figure className={styles.heroInlineVisual}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/appycodes-hero-delivery-system.png" alt="Connected software modules forming a production system" fetchPriority="high" />
+          </figure>
+          <p>We build web platforms, mobile apps and AI systems for businesses across the UK, Europe and worldwide.</p>
           <div className={styles.actions}>
             <Link href="/contact/" className={styles.primaryButton}>Discuss your project <Arrow /></Link>
             <a href="#selected-work" className={styles.secondaryButton}>Review our work</a>

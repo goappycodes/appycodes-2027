@@ -58,6 +58,24 @@
 .recordGrid strong { font-size: clamp(30px, 3vw, 46px); line-height: 1; letter-spacing: -.055em; }
 .recordGrid span { max-width: 23ch; margin-top: 12px; color: rgba(255,255,255,.52); font-size: 10px; line-height: 1.45; letter-spacing: .07em; text-transform: uppercase; }
 
+.stackSection { padding-block: 40px; background: var(--card); border-bottom: 1px solid var(--line); }
+.stackHeading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.stackHeading h2 { margin-top: 10px; font-size: 28px; line-height: 1.15; letter-spacing: -.035em; }
+.stackHeading p { max-width: 40ch; color: var(--muted); font-size: 13px; }
+.stackLogos { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; list-style: none; margin: 0; padding: 0; }
+.stackLogos li { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 14px; border: 1px solid var(--line); color: var(--ink); font-size: 13px; font-weight: 600; }
+.stackLogos img, .stackLogos svg { flex: none; width: 28px; height: 28px; object-fit: contain; }
+@media (max-width: 1000px) { .stackLogos { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 680px) {
+  .stackSection { padding-block: 28px; }
+  .stackHeading { display: block; margin-bottom: 18px; }
+  .stackHeading h2 { font-size: 24px; }
+  .stackHeading p { margin-top: 10px; font-size: 12px; }
+  .stackLogos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .stackLogos li { min-height: 54px; padding: 10px; gap: 10px; font-size: 12px; }
+  .stackLogos img, .stackLogos svg { width: 23px; height: 23px; }
+}
+
 .section, .work, .faq { padding: clamp(66px, 7vw, 106px) 0; }
 .sectionHead { margin-bottom: clamp(45px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: 80px; align-items: end; }
 .sectionHead h2, .processIntro h2, .specialismGrid h2, .faqGrid h2, .closing h2 { max-width: 15ch; margin-top: 16px; font-size: clamp(36px, 4vw, 58px); line-height: 1.02; letter-spacing: -.05em; font-weight: 620; text-wrap: balance; }
@@ -191,12 +209,11 @@
   .specialisms { padding-block: 54px; }
   .specialismGrid { gap: 38px; }
   .specialismGrid nav { grid-template-columns: 1fr; }
-  .specialismGrid nav a { min-height: 84px; padding: 14px; grid-template-columns: 40px 28px 1fr 20px; grid-template-rows: 1fr; }
-  .specialismIcon { width: 40px; height: 40px; grid-row: 1; }
-  .specialismGrid nav a > span { grid-column: 2; }
-  .specialismGrid nav a strong { grid-column: 3; align-self: center; }
-  .specialismGrid nav a > svg { grid-column: 4; grid-row: 1; }
-  .specialismGrid nav a strong { font-size: 12px; }
+  .specialismGrid nav a { min-height: 64px; padding: 12px; grid-template-columns: 34px minmax(0, 1fr) 18px; grid-template-rows: 1fr; gap: 12px; }
+  .specialismGrid nav a > .specialismIcon, .specialismGrid nav a > .scopeIcon { width: 34px; height: 34px; grid-column: 1; grid-row: 1; }
+  .specialismGrid nav a > span:not(.specialismIcon):not(.scopeIcon) { display: none; }
+  .specialismGrid nav a strong { grid-column: 2; grid-row: 1; align-self: center; font-size: 13px; line-height: 1.35; }
+  .specialismGrid nav a > svg { grid-column: 3; grid-row: 1; width: 18px; height: 18px; }
   .testimonial { padding-block: 54px; }
   .faqGrid { gap: 38px; }
   .faqList summary { min-height: 72px; grid-template-columns: 30px 1fr 20px; gap: 8px; }

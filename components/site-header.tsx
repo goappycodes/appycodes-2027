@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
-import { NAV, SITE } from "@/lib/site";
+import { NAV } from "@/lib/site";
 import { SERVICES_DATA } from "@/lib/services-data";
 import { ServiceTitle } from "@/components/service-title";
-import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Gauge, Mail, FlagUK, FlagEU, FlagIndia } from "@/components/icons";
+import { ArrowUpRight, Menu, Close, Chevron, ChevronRight, Gauge, FlagUK, FlagEU, FlagIndia } from "@/components/icons";
 
 const SERVICES_HREF = "/services/";
 const ESTIMATOR_HREF = "/software-project-estimator/";
@@ -300,7 +300,9 @@ export function SiteHeader() {
             </button>
           </div>
 
-          <div className="drawer__body">
+          <div className="drawer__body" onClick={(event) => {
+            if ((event.target as Element).closest("a[href]")) setDrawerOpen(false);
+          }}>
             <p className="drawer__lbl">services</p>
             <div className="drawer__services">
               {SERVICES_DATA.map((s, i) => (
@@ -342,7 +344,7 @@ export function SiteHeader() {
             </div>
 
             <p className="drawer__lbl">selected work</p>
-            <div className="drawer__work">
+            <div className="drawer__work" role="region" aria-label="Selected work — swipe for more">
               {DRAWER_WORK.map((w) => (
                 <Link key={w.href} href={w.href} className="drawer__case">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -374,12 +376,9 @@ export function SiteHeader() {
               <span className="flag flag--eu"><FlagEU /></span>
               Working with UK &amp; EU businesses
             </span>
-            <Link className="btn btn--grad notch drawer__cta" href="/contact/">
+            <Link className="btn btn--grad notch drawer__cta" href="/contact/" onClick={() => setDrawerOpen(false)}>
               Start a project
             </Link>
-            <a className="drawer__mail" href={`mailto:${SITE.email}`}>
-              <Mail aria-hidden /> {SITE.email}
-            </a>
           </div>
         </div>
       </div>

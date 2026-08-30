@@ -115,7 +115,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "We already have a CRM. Do we throw it away?", answer: "Usually not. We extend what works and rebuild the parts holding you back — decided during architecture, not assumed at the pitch." },
       { question: "How long does a brokerage ERP take?", answer: "A focused first phase in 12 to 16 weeks. The extraction pipelines then extend supplier by supplier as you need them." },
     ],
-    services: ["product-platforms", "ai-systems", "rescue-hardening"],
+    services: ["product-engineering", "ai-systems", "rescue-hardening"],
     cta: "got invoices nobody can face reading?",
   },
 
@@ -194,7 +194,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Can you get our course app into the stores?", answer: "Yes, including the rejections. We have resolved toolchain incompatibilities, provisioning and an over-declared background-audio capability that Apple rejects on sight for a learning app." },
       { question: "Do you do the AI content tooling too?", answer: "Yes, and we will tell you if your content is not structured enough for it to be worth doing yet." },
     ],
-    services: ["product-platforms", "commerce-content", "ai-systems", "native-mobile"],
+    services: ["product-engineering", "commerce-content", "ai-systems", "native-mobile"],
     cta: "content trapped in a template?",
   },
 
@@ -273,7 +273,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Do you handle KYC?", answer: "Yes, including the unglamorous part — testing verification against deliberately mismatched documents, which is how we found a flow that accepted the wrong country's ID." },
       { question: "Who owns the code?", answer: "You do, from day one. On financial systems that matters more than anywhere else." },
     ],
-    services: ["product-platforms", "commerce-content", "rescue-hardening"],
+    services: ["product-engineering", "commerce-content", "rescue-hardening"],
     cta: "money moving through code you did not write?",
   },
 
@@ -352,7 +352,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Is pricing GST-inclusive?", answer: "It can be, throughout — app display and final bill both — sourced from your accounting system rather than recalculated." },
       { question: "What about the salespeople who take orders by phone?", answer: "They get salesperson records and an ordering path too. A B2B ordering app that ignores the field team gets ignored by the field team." },
     ],
-    services: ["product-platforms", "native-mobile", "rescue-hardening"],
+    services: ["product-engineering", "native-mobile", "rescue-hardening"],
     cta: "still taking orders on whatsapp?",
   },
 
@@ -430,7 +430,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "What about free tickets?", answer: "Zero-value orders need the payment path overridden entirely rather than charged for zero. Sounds obvious; is a common source of broken checkouts." },
       { question: "Can multiple organisers use one platform?", answer: "Yes, that is the default architecture — new organisers onboard without engineering work." },
     ],
-    services: ["product-platforms", "native-mobile", "commerce-content"],
+    services: ["product-engineering", "native-mobile", "commerce-content"],
     cta: "paying commission on every ticket you sell?",
   },
 
@@ -508,7 +508,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Can you work with our existing clinical systems?", answer: "Yes. Integration into existing records and scheduling is normal; we will be honest about which integrations are hard before you budget for them." },
       { question: "Is our data safe with an offshore team?", answer: "You own the repository, the cloud accounts and the keys from day one, and we scope access per engagement. Ask us for the security page — that is a practice here, not a checkbox." },
     ],
-    services: ["native-mobile", "product-platforms", "rescue-hardening"],
+    services: ["native-mobile", "product-engineering", "rescue-hardening"],
     cta: "building something with patients on the other end?",
   },
 
@@ -586,7 +586,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Do you build from our designers' Figma?", answer: "Yes, and we will flag what is missing from it — including the legal pages that exist on your old site and not in the new design." },
       { question: "How do you handle changes outside the agreed design?", answer: "With a change-request quote and a conversation, not silent absorption and not a fight. We have done exactly that and kept the relationship." },
     ],
-    services: ["product-platforms", "ai-systems", "commerce-content"],
+    services: ["product-engineering", "ai-systems", "commerce-content"],
     cta: "selling expertise through a brochure site?",
   },
 
@@ -665,7 +665,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Can you work inside our own GitHub org?", answer: "Yes, and we frequently do — including requesting the access needed to configure CI variables and secrets properly rather than working around them." },
       { question: "Do you handle player verification?", answer: "Yes, including KYC-style document checks by country and document type, tested against deliberately mismatched documents." },
     ],
-    services: ["product-platforms", "native-mobile", "ai-systems"],
+    services: ["product-engineering", "native-mobile", "ai-systems"],
     cta: "building something for a club, league or grassroots?",
   },
 
@@ -743,7 +743,7 @@ export const SECTORS_DATA: SectorData[] = [
       { question: "Our Zoho sync keeps breaking. Can you fix it?", answer: "Usually it is token lifetime and secrets stored in two places. That is a design fix, not a patch, and we have written the recovery procedure for it before." },
       { question: "Do we have to leave Tally?", answer: "No. The entire proposition here is that you should not have to." },
     ],
-    services: ["product-platforms", "rescue-hardening", "ai-systems"],
+    services: ["product-engineering", "rescue-hardening", "ai-systems"],
     cta: "re-keying invoices by hand?",
   },
 ];

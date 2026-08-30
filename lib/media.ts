@@ -1,7 +1,7 @@
 // Imagery for the six pillar services. Kept beside the data rather than inside
 // it so the copy stays portable and the art direction lives in one place.
 export const SERVICE_MEDIA: Record<string, { img: string; alt: string }> = {
-  "product-platforms": {
+  "product-engineering": {
     img: "/images/service-product-platforms-featured.png",
     alt: "A modular multi-tenant platform connected to a resilient central core",
   },
@@ -60,7 +60,7 @@ export type PillarProof =
   | { kind: "image"; img: string; alt: string; caption: string };
 
 export const PILLAR_PROOF: Record<string, PillarProof> = {
-  "product-platforms": {
+  "product-engineering": {
     kind: "frame",
     frame: "/images/cs-ontick-platform.jpg",
     frameAlt: "The Ontick organiser platform",
@@ -143,7 +143,7 @@ export const PILLAR_PROOF: Record<string, PillarProof> = {
 
 /** Case studies worth showing on each pillar page. */
 export const PILLAR_CASES: Record<string, string[]> = {
-  "product-platforms": ["Ontick", "Professional Energy", "Bloc"],
+  "product-engineering": ["Ontick", "Professional Energy", "Bloc"],
   "native-mobile": ["Player Profile Hub", "Bloc", "Ontick"],
   "ai-systems": ["Bloc", "Professional Energy", "Ontick"],
   "rescue-hardening": ["Bloc", "Yippee Malta", "Professional Energy"],
@@ -154,7 +154,7 @@ export const PILLAR_CASES: Record<string, string[]> = {
 
 /** Articles that back up each pillar with real numbers. */
 export const PILLAR_POSTS: Record<string, string[]> = {
-  "product-platforms": [
+  "product-engineering": [
     "mvp-cost-funded-startups-2026",
     "multi-tenant-architecture-cost-study-2026",
     "b2b-marketplace-mvp-cost-2026",

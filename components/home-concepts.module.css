@@ -43,6 +43,9 @@
 .hero { position: relative; padding: clamp(48px, 5.5vw, 82px) 0 clamp(60px, 6.5vw, 94px); border-bottom: 1px solid var(--concept-line); }
 .heroGrid { display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(340px, .72fr); gap: clamp(60px, 8vw, 140px); align-items: center; }
 .heroCopy { max-width: 850px; }
+.institutionalHero .heroCopy h1 { margin-top: 0; }
+.heroInlineVisual { display: none; margin: 0; }
+.heroInlineVisual img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .kicker { display: inline-flex; align-items: center; gap: 12px; color: var(--concept-accent); font-size: 11px; line-height: 1.2; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .kicker::before { content: ""; width: 24px; height: 1px; background: currentColor; }
 .hero h1 { max-width: 14ch; margin-top: 24px; font-size: clamp(48px, 5.6vw, 84px); line-height: .99; letter-spacing: -.058em; font-weight: 650; text-wrap: balance; }
@@ -73,6 +76,7 @@
 .clientStripHead > span { color: var(--concept-muted); font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .clientMarquee { position: relative; overflow: hidden; padding: 29px 0 31px; -webkit-mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .clientLogos { width: max-content; display: flex; align-items: center; animation: clientMarquee 58s linear infinite; will-change: transform; }
+.clientLogosReverse { display: none; animation-direction: reverse; }
 .clientLogo { width: clamp(112px, 10vw, 155px); margin-right: clamp(38px, 5vw, 78px); display: grid; place-items: center; flex: none; }
 .clientLogos img { width: 100%; height: 31px; object-fit: contain; filter: grayscale(1) brightness(0); opacity: .52; }
 .clientStrip:hover .clientLogos { animation-play-state: paused; }
@@ -304,6 +308,8 @@
   .conceptNav a { min-width: 0; flex: 1; }
   .heroGrid { grid-template-columns: 1fr; gap: 56px; }
   .assuranceCard, .deliveryPanel { max-width: 660px; }
+  .heroInlineVisual { display: block; height: 220px; margin-top: 24px; overflow: hidden; border: 1px solid var(--concept-line); background: #111517; }
+  .institutionalHero .assuranceVisual { display: none; }
   .recognition .inner { grid-template-columns: 1fr; gap: 24px; }
   .metricGrid { grid-template-columns: repeat(2, 1fr); }
   .metric:nth-child(2) { border-right: 1px solid rgba(255,255,255,.13); }
@@ -329,6 +335,11 @@
   .conceptNav a span { font-size: 9px; }
   .conceptNav a small { display: none; }
   .hero { padding-block: 48px 58px; }
+  .institutionalHero { padding-top: 28px; }
+  .institutionalHero .heroCopy h1 { font-size: clamp(36px, 10.7vw, 44px); line-height: 1.02; }
+  .heroInlineVisual { height: 156px; margin-top: 20px; }
+  .institutionalHero .heroCopy > p { margin-top: 18px; }
+  .institutionalHero .actions { margin-top: 24px; }
   .heroGrid { gap: 36px; }
   .kicker { font-size: 9px; line-height: 1.5; }
   .hero h1, .editorial .hero h1 { margin-top: 18px; font-size: clamp(42px, 13vw, 58px); line-height: .99; }
@@ -342,9 +353,11 @@
   .assuranceFoot { padding-inline: 16px; font-size: 8px; }
   .clientStripHead { width: min(100% - 28px, 1440px); padding: 18px 0 13px; }
   .clientStripHead > span { display: none; }
-  .clientMarquee { padding-block: 23px; }
-  .clientLogo { width: 108px; margin-right: 42px; }
-  .clientLogos img { height: 25px; }
+  .clientMarquee { padding-block: 20px; display: grid; gap: 22px; }
+  .clientLogos { animation-duration: 72s; }
+  .clientLogosReverse { display: flex; }
+  .clientLogo { width: 94px; margin-right: 24px; }
+  .clientLogos img { height: 25px; opacity: .6; }
   .metric { min-height: 130px; padding: 22px 15px; }
   .metric strong { font-size: 31px; }
   .metric span { font-size: 9px; }
@@ -365,12 +378,12 @@
   .circleArrow { width: 38px; height: 38px; }
   .capabilityGrid { grid-template-columns: 1fr; }
   .capability { position: relative; min-height: 0; padding: 20px 18px; display: grid; grid-template-columns: 44px minmax(0, 1fr) 20px; grid-template-rows: auto auto; column-gap: 14px; align-items: start; }
-  .capability > span:first-child { position: absolute; top: 17px; right: 18px; }
+  .capability > span:first-child { position: absolute; top: 20px; right: 18px; width: 20px; line-height: 1; text-align: center; }
   .capabilityIcon { width: 44px; height: 44px; margin: 0; grid-column: 1; grid-row: 1 / span 2; }
   .capabilityIcon svg { width: 23px; height: 23px; }
   .capability h3 { margin: 1px 26px 0 0; grid-column: 2; grid-row: 1; font-size: 22px; }
-  .capability p { margin-top: 9px; grid-column: 2 / 4; grid-row: 2; font-size: 12px; line-height: 1.55; }
-  .capability > svg { margin: 0; padding-top: 0; grid-column: 3; grid-row: 1; align-self: center; }
+  .capability p { margin-top: 9px; grid-column: 2; grid-row: 2; font-size: 12px; line-height: 1.55; }
+  .capability > svg { position: absolute; top: 44px; right: 18px; margin: 0; padding: 0; width: 20px; height: 20px; }
   .lightMapSection { padding-block: 56px; }
   .lightMapHead h2 { font-size: 38px; }
   .lightMapHead > p { font-size: 13px; }

@@ -9,6 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function ProductPlatformsInstitutionalPage() {
-  const service = SERVICES_DATA.find((item) => item.slug === "product-platforms")!;
+  const service = SERVICES_DATA.find((item) => item.slug === "product-engineering")!;
   return <InstitutionalServicePage service={service} />;
 }

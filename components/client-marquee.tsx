@@ -21,6 +21,8 @@ export function ClientMarquee({
   sublabel?: string | null;
 }) {
   const logos = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
+  const midpoint = Math.ceil(CLIENT_LOGOS.length / 2);
+  const offsetLogos = [...CLIENT_LOGOS.slice(midpoint), ...CLIENT_LOGOS.slice(0, midpoint)];
   return (
     <section
       className={styles.clientStrip}
@@ -50,6 +52,13 @@ export function ClientMarquee({
                 alt={index < CLIENT_LOGOS.length ? client.name : ""}
                 loading="lazy"
               />
+            </span>
+          ))}
+        </div>
+        <div className={`${styles.clientLogos} ${styles.clientLogosReverse}`} aria-hidden="true">
+          {[...offsetLogos, ...offsetLogos].map((client, index) => (
+            <span className={styles.clientLogo} key={`${client.name}-${index}`}>
+              <img src={client.src} alt="" loading="lazy" />
             </span>
           ))}
         </div>

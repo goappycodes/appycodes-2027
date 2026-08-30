@@ -31,7 +31,7 @@ export type ServiceData = {
 
 export const SERVICES_DATA: ServiceData[] = [
   {
-    slug: "product-platforms",
+    slug: "product-engineering",
     title: "product engineering",
     summary:
       "Multi-tenant SaaS, marketplaces, ticketing and booking engines — the systems your business actually runs on, built to survive their own success.",
@@ -406,18 +406,18 @@ export const SERVICES_DATA: ServiceData[] = [
  */
 export const LEGACY_SERVICE_REDIRECTS: Record<string, string> = {
   // → product platforms
-  "saas-web-app-development": "product-platforms",
-  "api-and-integration": "product-platforms",
-  "supabase-development": "product-platforms",
-  "laravel-development": "product-platforms",
-  "internal-tools-admin-dashboards": "product-platforms",
-  "startup-launch-support": "product-platforms",
-  "white-label-development": "product-platforms",
-  "lms-development": "product-platforms",
-  "b2b-marketplace-development": "product-platforms",
-  "vue-nuxt-development": "product-platforms",
-  "event-ticketing-platform-development": "product-platforms",
-  "python-django-api-development": "product-platforms",
+  "saas-web-app-development": "product-engineering",
+  "api-and-integration": "product-engineering",
+  "supabase-development": "product-engineering",
+  "laravel-development": "product-engineering",
+  "internal-tools-admin-dashboards": "product-engineering",
+  "startup-launch-support": "product-engineering",
+  "white-label-development": "product-engineering",
+  "lms-development": "product-engineering",
+  "b2b-marketplace-development": "product-engineering",
+  "vue-nuxt-development": "product-engineering",
+  "event-ticketing-platform-development": "product-engineering",
+  "python-django-api-development": "product-engineering",
   // → native mobile
   "react-native-app-development": "native-mobile",
   "app-store-launch": "native-mobile",

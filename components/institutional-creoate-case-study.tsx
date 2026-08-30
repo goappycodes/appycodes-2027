@@ -22,15 +22,6 @@ const STACK = [
   ["Observability", "Atatus · Grafana · PostHog"],
 ];
 
-const OUTCOMES = [
-  "Eight years of continuous product delivery with the same accountable engineering partner.",
-  "A progressive route-by-route move from WooCommerce to a modern Next.js platform.",
-  "More than 200,000 products and 5,000 independent brands kept in sync.",
-  "Fast catalogue and account paths backed by DynamoDB at marketplace scale.",
-  "An automated media pipeline serving optimised product imagery worldwide.",
-  "Wholesale payments supporting multiple currencies, terms and reconciliation flows.",
-];
-
 const RELATED: InstitutionalWorkItem[] = [
   {
     href: "/case-studies/ontick/", image: "/images/ontick-6.png", client: "Ontick", brand: "Ontick", sector: "Event technology",
@@ -92,16 +83,9 @@ export function InstitutionalCreoateCaseStudy() {
 
       <section className={styles.metrics} aria-label="Creoate engagement results"><div className={`${styles.inner} ${styles.metricGrid}`}><div><strong>8+ yrs</strong><span>One team, still shipping</span></div><div><strong>200K+</strong><span>Products in the live catalogue</span></div><div><strong>5,000+</strong><span>Independent brands onboarded</span></div><div><strong>10</strong><span>Countries on one platform</span></div></div></section>
 
-      <section className={styles.overview}>
-        <div className={`${styles.inner} ${styles.overviewGrid}`}>
-          <div><span className={styles.kicker}>The engagement</span><h2>A long-term engineering partnership across the whole platform.</h2></div>
-          <div><p>Creoate connects independent brands with retailers across borders. The platform coordinates a large, changing catalogue, wholesale ordering, credit terms, currencies, accounts and logistics.</p><p>Appycodes works across the customer experience and the operational systems beneath it, delivering new product capability while continually improving scale, reliability and maintainability.</p></div>
-        </div>
-      </section>
-
       <section className={styles.gallery} id="platform">
         <div className={styles.inner}>
-          <header className={styles.sectionHead}><div><span className={styles.kicker}>The buyer experience</span><h2>A storefront built for wholesale discovery.</h2></div><p>Fast catalogue navigation, curated collections and trade pricing across a product estate that changes every day.</p></header>
+          <header className={styles.sectionHead}><div><span className={styles.kicker}>The buyer experience</span><h2>A storefront built for wholesale discovery.</h2></div></header>
           <div className={styles.galleryGrid}>
             <figure className={styles.galleryLead}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/creoate-marketplace.jpg" alt="Creoate wholesale product grid" /></figure>
             <figure>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/creoate-catalog.jpg" alt="Creoate catalogue navigation" /></figure>
@@ -112,14 +96,14 @@ export function InstitutionalCreoateCaseStudy() {
 
       <section className={styles.migration}>
         <div className={`${styles.inner} ${styles.migrationGrid}`}>
-          <div><span className={styles.kicker}>Platform evolution</span><h2>A progressive move from monolith to Next.js.</h2><p>We placed a modern platform in front of the original WooCommerce system and moved the marketplace route by route. Catalogue, collections, accounts and checkout transitioned in controlled stages while the product roadmap continued.</p></div>
-          <ol><li><span>01</span><div><strong>New platform foundation</strong><p>Next.js established as the customer-facing layer.</p></div></li><li><span>02</span><div><strong>Route-by-route transition</strong><p>High-value journeys moved in measured releases.</p></div></li><li><span>03</span><div><strong>Shared operational continuity</strong><p>Commerce and catalogue operations continued throughout.</p></div></li><li><span>04</span><div><strong>Modern platform ownership</strong><p>The new application now fronts the live marketplace.</p></div></li></ol>
+          <div><span className={styles.kicker}>Platform evolution</span><h2>From WooCommerce to Next.js.</h2></div>
+          <div><p>We migrated catalogue, accounts and checkout route by route, keeping the marketplace trading throughout the transition.</p></div>
         </div>
       </section>
 
       <section className={styles.section}>
         <div className={styles.inner}>
-          <header className={styles.sectionHead}><div><span className={styles.kicker}>Systems we operate</span><h2>The engineering behind the marketplace.</h2></div><p>Customer experience, product data, payments and infrastructure designed as one connected operating system.</p></header>
+          <header className={styles.sectionHead}><div><span className={styles.kicker}>Systems we operate</span><h2>The engineering behind the marketplace.</h2></div></header>
           <div className={styles.systemGrid}>{SYSTEMS.map((item, index) => <article key={item.title}><SystemIcon index={index} /><span>{String(index + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
         </div>
       </section>
@@ -136,10 +120,6 @@ export function InstitutionalCreoateCaseStudy() {
           <div><span className={styles.kicker}>Architecture</span><h2>A production stack built for continuous delivery.</h2></div>
           <dl>{STACK.map(([layer, value]) => <div key={layer}><dt>{layer}</dt><dd>{value}</dd></div>)}</dl>
         </div>
-      </section>
-
-      <section className={styles.outcomes}>
-        <div className={styles.inner}><header className={styles.sectionHead}><div><span className={styles.kicker}>Delivery outcomes</span><h2>What eight years of product ownership produces.</h2></div><p>Scale, continuity and an engineering foundation that keeps evolving with the marketplace.</p></header><ol>{OUTCOMES.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}</ol></div>
       </section>
 
       <section className={styles.testimonial}><div className={styles.inner}><TestimonialSlider /></div></section>

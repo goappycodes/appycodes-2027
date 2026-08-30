@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { HQ, LAND, LAND_WORKED, MAP, MARKERS, TOTALS, type Marker } from "@/lib/portfolio-data";
 import styles from "./home-concepts.module.css";
@@ -10,6 +10,46 @@ const radius = (count: number) => Math.min(3.2 + Math.sqrt(count) * .85, 8.5);
 export function InstitutionalMap() {
   const [tip, setTip] = useState<{ x: number; y: number; marker: Marker } | null>(null);
   const frame = useRef<HTMLDivElement>(null);
+  const viewport = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const element = viewport.current;
+    if (!element) return;
+    const mobile = window.matchMedia("(max-width: 680px)");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let pendingFrame = 0;
+    let interacting = false;
+    const update = () => {
+      pendingFrame = 0;
+      if (!mobile.matches || reducedMotion.matches || interacting || element.contains(document.activeElement)) return;
+      const box = element.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, (window.innerHeight - box.top) / (window.innerHeight + box.height)));
+      element.scrollLeft = progress * (element.scrollWidth - element.clientWidth);
+    };
+    const schedule = () => {
+      if (!pendingFrame) pendingFrame = window.requestAnimationFrame(update);
+    };
+    const startInteraction = () => { interacting = true; };
+    const endInteraction = () => { interacting = false; };
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    element.addEventListener("pointerdown", startInteraction, { passive: true });
+    window.addEventListener("pointerup", endInteraction, { passive: true });
+    window.addEventListener("pointercancel", endInteraction, { passive: true });
+    mobile.addEventListener("change", schedule);
+    reducedMotion.addEventListener("change", schedule);
+    schedule();
+    return () => {
+      window.cancelAnimationFrame(pendingFrame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      element.removeEventListener("pointerdown", startInteraction);
+      window.removeEventListener("pointerup", endInteraction);
+      window.removeEventListener("pointercancel", endInteraction);
+      mobile.removeEventListener("change", schedule);
+      reducedMotion.removeEventListener("change", schedule);
+    };
+  }, []);
 
   const place = useCallback((marker: Marker, point: { clientX: number; clientY: number }) => {
     const box = frame.current?.getBoundingClientRect();
@@ -38,7 +78,7 @@ export function InstitutionalMap() {
           </div>
 
           <div className={styles.lightMapFrame} ref={frame}>
-            <div className={styles.lightMapViewport}>
+            <div className={styles.lightMapViewport} ref={viewport} onScroll={() => setTip(null)}>
               <svg viewBox={`0 0 ${MAP.w} ${MAP.h}`} role="img" aria-label={`World map showing ${TOTALS.located} projects delivered across ${TOTALS.countries} countries.`}>
                 <path className={styles.lightMapLand} d={LAND} vectorEffect="non-scaling-stroke" />
                 <path className={styles.lightMapWorked} d={LAND_WORKED} vectorEffect="non-scaling-stroke" />

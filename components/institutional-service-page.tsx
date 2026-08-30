@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TestimonialSlider } from "@/components/testimonial-slider";
+import { ServiceStack } from "@/components/service-stack";
 import { InstitutionalWorkRail, type InstitutionalWorkItem } from "@/components/institutional-work-rail";
 import { CASE_STUDIES } from "@/components/sections";
 import { subServicesFor, type ServiceData } from "@/lib/services-data";
@@ -70,7 +71,7 @@ function sentence(value: string) {
 }
 
 const SERVICE_HEADLINES: Record<string, string> = {
-  "product-platforms": "Software for the systems your business runs on.",
+  "product-engineering": "Software for the systems your business runs on.",
   "native-mobile": "Native apps built for reliable growth.",
   "ai-systems": "AI systems designed for production.",
   "rescue-hardening": "We recover and finish troubled software.",
@@ -79,7 +80,7 @@ const SERVICE_HEADLINES: Record<string, string> = {
 };
 
 export function InstitutionalServicePage({ service }: { service: ServiceData }) {
-  const isProduct = service.slug === "product-platforms";
+  const isProduct = service.slug === "product-engineering";
   const specialisms = subServicesFor(service.slug);
   const media = serviceMedia(service.slug);
   const scope = isProduct
@@ -146,6 +147,8 @@ export function InstitutionalServicePage({ service }: { service: ServiceData }) 
           <div><strong>5.0</strong><span>Across 18 verified Clutch reviews</span></div>
         </div>
       </section>
+
+      <ServiceStack slug={service.slug} />
 
       <section className={styles.section}>
         <div className={styles.inner}>
