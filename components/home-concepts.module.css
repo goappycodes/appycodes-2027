@@ -43,20 +43,6 @@
 .hero { position: relative; padding: clamp(48px, 5.5vw, 82px) 0 clamp(60px, 6.5vw, 94px); border-bottom: 1px solid var(--concept-line); }
 .heroGrid { display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(340px, .72fr); gap: clamp(60px, 8vw, 140px); align-items: center; }
 .heroCopy { max-width: 850px; }
-.institutionalHero { padding-block: clamp(28px, 3vw, 44px); }
-.institutionalHero .heroGrid { gap: clamp(32px, 4vw, 64px); }
-.institutionalHero .heroCopy h1 { max-width: 23ch; margin-top: 0; font-size: clamp(38px, 4.2vw, 60px); line-height: 1.06; letter-spacing: -.045em; }
-.institutionalHero .heroCopy > p { margin-top: 20px; font-size: clamp(15px, 1.25vw, 18px); line-height: 1.6; }
-.institutionalHero .actions { margin-top: 24px; }
-.institutionalHero .assuranceVisual { min-height: clamp(260px, 22vw, 340px); }
-.institutionalHero .assuranceVisual img { object-position: center 32%; }
-.institutionalHero .assuranceVisual strong { padding: 20px; font-size: clamp(23px, 2vw, 29px); }
-.institutionalHero .assuranceCard ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 16px; padding: 6px 20px; }
-.institutionalHero .assuranceCard li { grid-template-columns: 20px 1fr; align-items: start; padding-block: 10px; font-size: 12px; line-height: 1.45; }
-.institutionalHero .assuranceCard li:nth-child(-n+2) { border-top: 0; }
-.institutionalHero .assuranceFoot { padding-block: 12px; }
-.heroInlineVisual { display: none; margin: 0; }
-.heroInlineVisual img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 32%; }
 .kicker { display: inline-flex; align-items: center; gap: 12px; color: var(--concept-accent); font-size: 11px; line-height: 1.2; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .kicker::before { content: ""; width: 24px; height: 1px; background: currentColor; }
 .hero h1 { max-width: 14ch; margin-top: 24px; font-size: clamp(48px, 5.6vw, 84px); line-height: .99; letter-spacing: -.058em; font-weight: 650; text-wrap: balance; }
@@ -68,17 +54,6 @@
 .primaryButton svg { transition: transform .2s ease; }
 .primaryButton:hover svg { transform: translateX(3px); }
 .secondaryButton { min-height: auto; padding: 8px 0 6px; border-bottom: 1px solid currentColor; }
-
-.assuranceCard { background: var(--concept-card); border: 1px solid var(--concept-line); box-shadow: 0 26px 80px -48px rgba(9, 27, 18, .38); }
-.assuranceVisual { position: relative; min-height: 214px; overflow: hidden; background: #111517; }
-.assuranceVisual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,12,14,.02) 20%, rgba(8,12,14,.82) 100%); }
-.assuranceVisual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 58% center; }
-.assuranceVisual strong { position: absolute; z-index: 1; left: 0; right: 0; bottom: 0; display: block; padding: 28px; color: #fff; font-size: clamp(25px, 2.25vw, 34px); line-height: 1.04; letter-spacing: -.04em; text-shadow: 0 2px 16px rgba(0,0,0,.35); }
-.assuranceCard ul { margin: 0; padding: 0 28px 28px; list-style: none; }
-.assuranceCard li { display: grid; grid-template-columns: 35px 1fr; gap: 8px; padding: 14px 0; border-top: 1px solid var(--concept-line); font-size: 13px; color: var(--concept-muted); }
-.assuranceCard li span { color: var(--concept-accent); font-size: 10px; font-weight: 700; }
-.assuranceFoot { padding: 16px 20px; display: flex; align-items: center; gap: 9px; background: var(--concept-accent-2); color: var(--concept-accent); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--concept-accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--concept-accent) 16%, transparent); }
 
 .clientStrip { background: var(--concept-card); border-bottom: 1px solid var(--concept-line); }
 .clientStripHead { width: min(100% - 40px, 1440px); margin-inline: auto; padding: 24px 0 17px; display: flex; align-items: center; justify-content: space-between; gap: 28px; border-bottom: 1px solid var(--concept-line); }
@@ -319,9 +294,7 @@
   .conceptNav nav { width: 100%; }
   .conceptNav a { min-width: 0; flex: 1; }
   .heroGrid { grid-template-columns: 1fr; gap: 56px; }
-  .assuranceCard, .deliveryPanel { max-width: 660px; }
-  .heroInlineVisual { display: block; height: 220px; margin-top: 24px; overflow: hidden; border: 1px solid var(--concept-line); background: #111517; }
-  .institutionalHero .assuranceVisual { display: none; }
+  .deliveryPanel { max-width: 660px; }
   .recognition .inner { grid-template-columns: 1fr; gap: 24px; }
   .metricGrid { grid-template-columns: repeat(2, 1fr); }
   .metric:nth-child(2) { border-right: 1px solid rgba(255,255,255,.13); }
@@ -347,23 +320,12 @@
   .conceptNav a span { font-size: 9px; }
   .conceptNav a small { display: none; }
   .hero { padding-block: 48px 58px; }
-  .institutionalHero { padding-top: 28px; }
-  .institutionalHero .assuranceCard { display: none; }
-  .institutionalHero .heroCopy h1 { font-size: clamp(30px, 8.2vw, 38px); line-height: 1.06; }
-  .heroInlineVisual { height: 210px; margin-top: 20px; }
-  .institutionalHero .heroCopy > p { margin-top: 18px; }
-  .institutionalHero .actions { margin-top: 24px; }
   .heroGrid { gap: 36px; }
   .kicker { font-size: 9px; line-height: 1.5; }
   .hero h1, .editorial .hero h1 { margin-top: 18px; font-size: clamp(42px, 13vw, 58px); line-height: .99; }
   .heroCopy > p { margin-top: 22px; font-size: 15px; line-height: 1.58; }
   .actions { align-items: flex-start; flex-direction: column; gap: 16px; }
   .primaryButton { width: 100%; }
-  .assuranceVisual { min-height: 188px; }
-  .assuranceVisual strong { padding: 22px 20px; font-size: 27px; }
-  .assuranceCard ul { padding: 0 20px 20px; }
-  .assuranceCard li { grid-template-columns: 30px 1fr; padding: 12px 0; font-size: 12px; }
-  .assuranceFoot { padding-inline: 16px; font-size: 8px; }
   .clientStripHead { width: min(100% - 28px, 1440px); padding: 18px 0 13px; }
   .clientStripHead > span { display: none; }
   .clientMarquee { padding-block: 20px; display: grid; gap: 22px; }

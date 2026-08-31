@@ -1,10 +1,12 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { AWARDS } from "@/lib/site";
 import { TestimonialSlider } from "@/components/testimonial-slider";
 import { InstitutionalMap } from "@/components/institutional-map";
 import { InstitutionalWorkRail } from "@/components/institutional-work-rail";
 import { getWorkCards } from "@/lib/work-cards";
 import { ClientMarquee } from "@/components/client-marquee";
+import { HomeHero } from "@/components/home-hero";
 import styles from "./home-concepts.module.css";
 
 export type HomeConcept = "institutional" | "editorial" | "technical";
@@ -202,41 +204,6 @@ function Closing() {
   );
 }
 
-function InstitutionalHero() {
-  return (
-    <section className={`${styles.hero} ${styles.institutionalHero}`}>
-      <div className={`${styles.inner} ${styles.heroGrid}`}>
-        <div className={styles.heroCopy}>
-          <h1>Custom software, websites and mobile apps built to help your business grow.</h1>
-          <figure className={styles.heroInlineVisual}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/ritesh-prince.jpg" alt="The Appycodes team reviewing software together" fetchPriority="high" />
-          </figure>
-          <p>We design, build and support web platforms, mobile apps and AI systems for businesses across the UK, Europe and worldwide. Our senior team handles planning, development and ongoing support, with clear communication from the first call through to launch.</p>
-          <div className={styles.actions}>
-            <Link href="/contact/" className={styles.primaryButton}>Discuss your project <Arrow /></Link>
-            <a href="#selected-work" className={styles.secondaryButton}>Review our work</a>
-          </div>
-        </div>
-        <aside className={styles.assuranceCard}>
-          <div className={styles.assuranceVisual}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/ritesh-prince.jpg" alt="The Appycodes team reviewing software together" fetchPriority="high" />
-            <strong>Built for production.<br />Designed for ownership.</strong>
-          </div>
-          <ul>
-            <li><span>01</span> Senior team throughout</li>
-            <li><span>02</span> Architecture and risks agreed</li>
-            <li><span>03</span> Code access and progress updates</li>
-            <li><span>04</span> Launch, handover and support</li>
-          </ul>
-          <div className={styles.assuranceFoot}><span className={styles.pulse} /> Senior-led / transparent / accountable</div>
-        </aside>
-      </div>
-    </section>
-  );
-}
-
 function EditorialHero() {
   return (
     <section className={styles.hero}>
@@ -284,8 +251,8 @@ function TechnicalHero() {
   );
 }
 
-export function HomeConceptPage({ concept }: { concept: HomeConcept }) {
-  const hero = concept === "institutional" ? <InstitutionalHero /> : concept === "editorial" ? <EditorialHero /> : <TechnicalHero />;
+export function HomeConceptPage({ concept, heroOverride }: { concept: HomeConcept; heroOverride?: ReactNode }) {
+  const hero = heroOverride ?? (concept === "institutional" ? <HomeHero /> : concept === "editorial" ? <EditorialHero /> : <TechnicalHero />);
   return (
     <div className={`${styles.page} ${styles[concept]}`}>
       {hero}
