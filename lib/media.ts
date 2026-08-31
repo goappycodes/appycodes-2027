@@ -143,11 +143,11 @@ export const PILLAR_PROOF: Record<string, PillarProof> = {
 
 /** Case studies worth showing on each pillar page. */
 export const PILLAR_CASES: Record<string, string[]> = {
-  "product-engineering": ["Ontick", "Professional Energy", "Bloc"],
-  "native-mobile": ["Player Profile Hub", "Bloc", "Ontick"],
+  "product-engineering": ["Ontick", "Professional Energy", "All White Laser", "TEFL.ie", "Bloc"],
+  "native-mobile": ["Player Profile Hub", "All White Laser", "Bloc", "Ontick"],
   "ai-systems": ["Bloc", "Professional Energy", "Ontick"],
   "rescue-hardening": ["Bloc", "Yippee Malta", "Professional Energy"],
-  "commerce-content": ["Léonia", "Shutters 365", "PlusHeat", "Yippee Malta", "Ontick"],
+  "commerce-content": ["TEFL.ie", "All White Laser", "Léonia", "Shutters 365", "PlusHeat", "Yippee Malta", "Ontick"],
   "performance-search": ["Easyship", "Yippee Malta", "Bloc"],
   "security-incident-response": ["Bloc", "Yippee Malta", "Ontick"],
 };

@@ -49,6 +49,38 @@ export const CASE_STUDIES = [
     tags: ["Nuxt/Vue", "Node", "MongoDB", "GCP"],
   },
   {
+    href: "/case-studies/tefl/",
+    img: "/images/tefl-featured.png",
+    logo: "/images/tefl-featured.png",
+    meta: "TEFL.ie · accredited TEFL courses",
+    name: "TEFL.ie",
+    head: (
+      <>
+        the commerce-and-learning platform behind <span className="name">TEFL.ie</span>.
+      </>
+    ),
+    body: "An accredited Irish TEFL course business run across five systems — a WordPress and WooCommerce storefront, a Moodle LMS, Stripe deposits and instalments, Zoho CRM and Zapier automation — engineered and kept in step since 2017.",
+    fig: "8 yrs",
+    figlabel: "engineer & run, since 2017",
+    tags: ["WordPress", "Moodle", "Stripe", "Zoho"],
+  },
+  {
+    href: "/case-studies/all-white-laser/",
+    img: "/images/allwhitelaser-featured.png",
+    logo: "/images/allwhitelaser-featured.png",
+    meta: "All White Laser · aesthetic-laser machines & finance",
+    name: "All White Laser",
+    head: (
+      <>
+        the <span className="caps">AW3</span> business platform behind <span className="name">All White Laser</span>.
+      </>
+    ),
+    body: "A bespoke platform for an aesthetic-laser business that finances its machines on recurring GoCardless Direct Debit — purchase, rental and maintenance in one billing system, a provider certification network, and a React Native app for the clinics that own the machines.",
+    fig: "9 yrs",
+    figlabel: "build & run, since 2017",
+    tags: ["Next.js", "GoCardless", "WordPress", "React Native"],
+  },
+  {
     href: "/case-studies/decofetch/",
     img: "/images/decofetch-featured.png",
     logo: "/images/decofetch-featured.png",

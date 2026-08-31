@@ -18,6 +18,8 @@ const CASES: { slug: string; name: string; blurb: string }[] = [
   { slug: "ba-engine-room", name: "BA Engine Room", blurb: "An AI-native sales-to-delivery operating system for a consultancy — Next.js, Supabase, the Claude API and Stripe." },
   { slug: "bloc-ads-manager", name: "Bloc Ads Manager", blurb: "A self-serve ad platform with PostGIS audience estimation and closed-loop, real-world check-in attribution." },
   { slug: "ontick", name: "Ontick", blurb: "A custom event-ticketing platform with instalments and two native apps — £2M+ processed since launch." },
+  { slug: "tefl", name: "TEFL.ie", blurb: "The platform behind an accredited Irish TEFL course business — a WordPress/WooCommerce storefront, a Moodle LMS, Stripe deposits and instalments, and Zoho CRM tied together with Zapier, engineered and run since 2017." },
+  { slug: "all-white-laser", name: "All White Laser (AW3)", blurb: "A bespoke equipment-finance platform for an aesthetic-laser business — GoCardless Direct Debit billing for machine purchase, rental and maintenance, a provider certification network, and a React Native app, build-and-run since 2017." },
   { slug: "bloc", name: "Bloc", blurb: "A four-year partnership across a UK social-events app and its estate — React Native, Node, Algorand." },
   { slug: "zonely", name: "Zonely", blurb: "A two-sided React Native companionship marketplace with real-time per-minute billing and full trust & safety." },
   { slug: "deepspatial", name: "DeepSpatial", blurb: "The web presence for a publicly-listed geospatial-AI company — React on AWS Amplify." },

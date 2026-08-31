@@ -28,6 +28,16 @@ const DETAIL: Record<string, { sector: string; span: string; scope: string[] }> 
     span: "Embedded team, since 2025",
     scope: ["Nuxt/Vue SSR site", "Shipping & tax/duty calculators", "MongoDB CMS + CSV pipeline", "Technical SEO at scale", "Reliability & security on GCP"],
   },
+  "TEFL.ie": {
+    sector: "Education & training · course commerce + LMS",
+    span: "Engineer & run, since 2017",
+    scope: ["WordPress + WooCommerce storefront", "Moodle LMS, integrated & extended", "WooCommerce → Moodle enrolment", "Stripe deposits & instalments", "Zoho CRM + Zapier automation"],
+  },
+  "All White Laser": {
+    sector: "Medical aesthetics · B2B equipment & finance",
+    span: "Build & run, since 2017",
+    scope: ["AW3 business platform", "GoCardless Direct Debit billing", "Purchase, rental & maintenance", "Provider certification & map", "React Native app (iOS & Android)"],
+  },
   Decofetch: {
     sector: "Luxury furniture e-commerce",
     span: "Ground-up build",

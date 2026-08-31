@@ -71,7 +71,9 @@ export const SECTORS_DATA: SectorData[] = [
       "Sanity",
       "React Native"
     ],
-    "cases": [],
+    "cases": [
+      "TEFL.ie"
+    ],
     "built": [
       {
         "title": "Course websites",
@@ -107,7 +109,9 @@ export const SECTORS_DATA: SectorData[] = [
       "Razorpay",
       "WooCommerce"
     ],
-    "cases": [],
+    "cases": [
+      "All White Laser"
+    ],
     "built": [
       {
         "title": "Exchange systems",
@@ -213,7 +217,9 @@ export const SECTORS_DATA: SectorData[] = [
       "Node.js",
       "REST APIs"
     ],
-    "cases": [],
+    "cases": [
+      "All White Laser"
+    ],
     "built": [
       {
         "title": "Patient & clinic apps",
