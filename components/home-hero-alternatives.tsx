@@ -96,7 +96,7 @@ export function ShowcaseHomeHero() {
         <div className={styles.showcaseIntro}>
           <DeliveryEyebrow />
           <h1 id="showcase-title" className={styles.showcaseTitle}>Ambition. <span>Engineered.</span></h1>
-          <p className={styles.showcaseDescription}>Web platforms. Mobile apps. AI systems.<br />For UK and EU businesses, built by senior engineers who stay with you beyond launch.</p>
+          <p className={styles.showcaseDescription}>Web platforms. Mobile apps. AI systems. For UK and EU businesses.<br />Built by senior engineers who stay with you beyond launch.</p>
           <Actions />
         </div>
         <div className={styles.stage} aria-label="Selected Appycodes projects">
