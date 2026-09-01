@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
 import { JsonLd } from "@/components/jsonld";
@@ -19,13 +18,13 @@ import styles from "./page.module.css";
 
 const PUBLISHED_ISO = "2026-09-01";
 const MODIFIED_ISO = "2026-09-01";
-const READ_TIME = "17 min read";
+const READ_TIME = "11 min read";
 
 const PAGE_TITLE = "Companies House API for UK Onboarding and KYC";
 const PAGE_DESCRIPTION =
-  "A practical guide to company matching, KYC boundaries, identity checks, rate limits, monitoring and safe sync architecture using Companies House data.";
+  "A practical UK guide to company matching, KYC boundaries, identity checks and safe Companies House synchronisation.";
 const PAGE_PATH = "/blog/companies-house-api-uk-onboarding-kyc/";
-const PAGE_IMAGE = "/images/blog-companies-house-uk-kyc-hero.png";
+const PAGE_IMAGE = "/images/blog-companies-house-onboarding-system.png";
 const PAGE_KEYWORDS =
   "Companies House API integration, Companies House API KYC, UK company lookup API, company verification API UK, Companies House customer onboarding";
 
@@ -44,23 +43,23 @@ export const metadata: Metadata = pageMeta({
 const FAQS: FaqPair[] = [
   {
     q: "Is the Companies House API free?",
-    a: "The public data API can be accessed with a registered application and API key. Companies House applies usage limits, including the standard limit of 600 requests within five minutes. Confirm current terms and limits before designing a high-volume service.",
+    a: "The public data API is available to registered applications with an API key. The standard limit is 600 requests within five minutes, so high-volume products still need caching and queueing.",
   },
   {
     q: "Can Companies House be used as a KYC provider?",
-    a: "It can support company identification, status checks, officer checks and beneficial ownership research. A complete KYC or customer due diligence process may also require applicant identity, authority, sanctions, PEP, risk and ongoing monitoring checks.",
+    a: "It supports company identification, status, officer and beneficial-ownership checks. It does not replace applicant identity, authority, sanctions, PEP, risk and ongoing-monitoring checks where those are required.",
   },
   {
-    q: "Can I automatically select the first company search result?",
-    a: "This is safe only when your product can tolerate incorrect matches, which most onboarding and CRM systems cannot. Ask the user to confirm the company or use a scoring and review workflow.",
+    q: "Can I automatically select the first search result?",
+    a: "Usually, no. Trading names, abbreviations and similar legal names make the first result unreliable. Ask the user to confirm the company or use a scoring and review workflow.",
   },
   {
-    q: "Should I store the whole Companies House response?",
-    a: "Store only what your purpose, audit requirements and retention policy justify. A timestamped source snapshot can be useful, while duplicating every piece of personal data creates privacy and maintenance costs.",
+    q: "Should I store the complete API response?",
+    a: "Store only what your purpose, audit and retention policy justify. Keep a timestamped source snapshot when it is useful, but avoid copying unnecessary officer and PSC data into your customer record.",
   },
   {
-    q: "How often should company information be refreshed?",
-    a: "Refresh frequency should follow the risk and operational need. A basic supplier directory may refresh periodically. A regulated financial relationship may require event-based monitoring and additional risk checks. The Companies House Streaming API supports real-time registry change feeds for larger monitoring systems.",
+    q: "How often should company data be refreshed?",
+    a: "Match the frequency to risk. A directory can refresh periodically; a regulated relationship may need event-based monitoring. The Streaming API supports real-time change feeds at larger scale.",
   },
 ];
 
@@ -79,41 +78,16 @@ const schemas = buildPostSchemas({
 
 const CHECKLIST = [
   "Store the company number as a string.",
-  "Return candidate records; never silently accept the first name match.",
-  "Show legal name, number, status and registered office before confirmation.",
-  "Use address and other corroborating data for automated matching.",
-  "Send ambiguous matches to a review queue.",
-  "Keep the API key on the server.",
-  "Handle rate limits, timeouts and retries.",
-  "Separate registry data from customer-confirmed data.",
-  "Prevent null source values from erasing confirmed values.",
-  "Make scheduled jobs idempotent, observable and pausable.",
-  "Collect officer and PSC data only where required.",
-  "Use current sources for sanctions and identity checks.",
-  "Record the evidence and time behind every verification decision.",
-  "Monitor important changes after onboarding.",
+  "Show candidate companies; never silently accept the first result.",
+  "Ask the customer to confirm the legal name, number and address.",
+  "Use postcode and other evidence when matching automatically.",
+  "Keep the API key and all searches on the server.",
+  "Separate registry snapshots from customer-confirmed data.",
+  "Prevent null API fields from deleting confirmed information.",
+  "Make scheduled jobs observable, idempotent and pausable.",
+  "Collect officer and PSC data only when needed.",
+  "Record evidence, decisions and review times.",
 ];
-
-function RichFigure({
-  src,
-  alt,
-  caption,
-  width,
-  height,
-}: {
-  src: string;
-  alt: string;
-  caption: string;
-  width: number;
-  height: number;
-}) {
-  return (
-    <figure className={styles.figureFrame}>
-      <Image src={src} alt={alt} width={width} height={height} sizes="(max-width: 760px) 100vw, 92vw" />
-      <figcaption>{caption}</figcaption>
-    </figure>
-  );
-}
 
 export default function Page() {
   return (
@@ -123,534 +97,303 @@ export default function Page() {
       <PostHeader
         eyebrow="UK business systems guide"
         title="Using the Companies House API for UK customer onboarding and KYC"
-        lead="A practical architecture for finding the right legal entity, separating company lookup from identity checks, and monitoring Companies House data without putting customer records at risk."
+        lead="How to find the right legal entity, understand what Companies House does not verify, and keep registry updates from damaging customer records."
         breadcrumbLabel="Companies House API for KYC"
         dateISO={MODIFIED_ISO}
         readTime={READ_TIME}
         image={PAGE_IMAGE}
-        imageAlt="Companies House data connected to company onboarding, identity checks and monitoring"
+        imageAlt="Companies House registry data moving through company matching, identity checks and monitored customer onboarding"
       />
 
       <PostBody>
-        <section className={styles.executiveSummary} aria-labelledby="executive-summary">
-          <div className={styles.summaryTop}>
-            <p className={styles.kicker} id="executive-summary">Executive summary</p>
+        <section className={styles.summary} aria-labelledby="summary-title">
+          <div className={styles.summaryCopy}>
+            <p className={styles.kicker} id="summary-title">The short version</p>
             <p>
-              Companies House can confirm that a company appears on the UK register. It cannot, by itself,
-              prove that the person completing your form controls that company or is authorised to act for it.
-              A reliable onboarding system treats those as separate decisions.
+              Companies House can confirm that a company appears on the UK register. It cannot prove that the
+              person completing your form controls that company or may act for it. Reliable onboarding treats
+              company discovery, identity, authority and ongoing monitoring as separate decisions.
             </p>
           </div>
-          <div className={styles.stages} aria-label="Four-stage onboarding model">
+          <div className={styles.fourSteps} aria-label="Four-stage onboarding model">
             {[
-              ["01", "Discover", "Find possible companies"],
-              ["02", "Resolve", "Select the legal entity"],
-              ["03", "Verify", "Check organisation and person"],
-              ["04", "Monitor", "Watch material changes"],
+              ["01", "Discover", "Find candidate companies"],
+              ["02", "Resolve", "Confirm the legal entity"],
+              ["03", "Verify", "Check person and authority"],
+              ["04", "Monitor", "Review material changes"],
             ].map(([number, title, copy]) => (
-              <div className={styles.stage} key={number}>
-                <span className={styles.stageNo}>{number}</span>
-                <strong>{title}</strong>
-                <span>{copy}</span>
+              <div className={styles.step} key={number}>
+                <span>{number}</span><strong>{title}</strong><small>{copy}</small>
               </div>
             ))}
           </div>
         </section>
 
         <p>
-          Companies House can tell your application that a company exists, its registration number, status,
-          registered office, officers, people with significant control, filing history and other public
-          information. It cannot, by itself, prove that the person completing your form controls that company
-          or has authority to act for it.
-        </p>
-
-        <p>
-          That distinction determines whether a Companies House integration becomes a useful onboarding tool
-          or a source of incorrect customer records.
-        </p>
-
-        <div className={styles.distinction}>
-          <div className={styles.distinctionPanel}>
-            <strong>Company lookup</strong>
-            <p>Does this legal entity appear on the UK register, and what does the public record say?</p>
-          </div>
-          <div className={styles.distinctionDivider} aria-hidden="true">≠</div>
-          <div className={styles.distinctionPanel}>
-            <strong>Identity and authority</strong>
-            <p>Is this person who they claim to be, and may they act for this company?</p>
-          </div>
-        </div>
-
-        <p>
-          After working with Companies House data in UK accounting, company data and CRM projects, our
-          preferred model has four stages: discover possible companies, resolve the correct legal entity,
-          verify the organisation and the person acting for it, then monitor important changes after onboarding.
-          The API call is the easy part. Entity matching, verification policy and safe synchronisation require
-          most of the design work.
+          The Companies House API is simple to call. The harder work sits around it: resolving ambiguous
+          business names, deciding what evidence is sufficient, and preventing an external data feed from
+          becoming the unquestioned source of truth for your customer record.
         </p>
 
         <nav className={styles.contents} aria-labelledby="contents-title">
           <p className={styles.kicker} id="contents-title">In this guide</p>
           <ol>
-            <li><a href="#what-the-api-provides">What the API provides</a></li>
-            <li><a href="#lookup-versus-kyc">Company lookup vs KYC</a></li>
-            <li><a href="#company-matching">Company matching lessons</a></li>
+            <li><a href="#what-it-provides">What Companies House provides</a></li>
+            <li><a href="#kyc-boundary">The KYC boundary</a></li>
+            <li><a href="#matching">Matching the right company</a></li>
             <li><a href="#safe-sync">Safe synchronisation</a></li>
-            <li><a href="#onboarding-architecture">Four-stage architecture</a></li>
-            <li><a href="#identity-verification">Identity verification in 2026</a></li>
-            <li><a href="#implementation">Server-side implementation</a></li>
-            <li><a href="#privacy">Privacy, retention and checklist</a></li>
+            <li><a href="#architecture">The onboarding architecture</a></li>
+            <li><a href="#implementation">Implementation essentials</a></li>
           </ol>
         </nav>
 
-        <h2 id="what-the-api-provides">What the Companies House API provides</h2>
+        <h2 id="what-it-provides">What the Companies House API provides</h2>
 
         <p>
-          The Companies House Public Data API returns live register data for companies covered by the
-          Companies Act 2006. The core company profile can include the legal name, company number, status,
-          incorporation date, company type, registered office, previous names, SIC codes and links to related
-          resources. Those resources include officers, people with significant control, filing history, charges
-          and insolvency information. <a href="https://developer.company-information.service.gov.uk/">Companies House API</a>{" "}
-          <a href="https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/resources/companyprofile?v=latest">Company profile resource</a>
+          The Public Data API exposes live register information: legal name, company number, status,
+          incorporation date, company type, registered office, previous names and SIC codes. Linked resources
+          cover officers, people with significant control (PSCs), filings, charges and insolvency.{" "}
+          <a href="https://developer.company-information.service.gov.uk/">Companies House API</a>{" "}
+          <a href="https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/resources/companyprofile?v=latest">Company profile reference</a>
         </p>
-
-        <p>A typical onboarding integration uses these endpoints:</p>
 
         <TableScroll>
           <table>
-            <thead><tr><th>Purpose</th><th>Endpoint</th></tr></thead>
+            <thead><tr><th>Task</th><th>Typical API call</th></tr></thead>
             <tbody>
-              <tr><td>Search for candidates</td><td><code>GET /search/companies?q={"{query}"}</code></td></tr>
-              <tr><td>Fetch the selected company</td><td><code>GET /company/{"{company_number}"}</code></td></tr>
-              <tr><td>Fetch current officers</td><td><code>GET /company/{"{company_number}"}/officers</code></td></tr>
-              <tr><td>Fetch people with significant control</td><td><code>GET /company/{"{company_number}"}/persons-with-significant-control</code></td></tr>
-              <tr><td>Review filing events</td><td><code>GET /company/{"{company_number}"}/filing-history</code></td></tr>
-              <tr><td>Review insolvency information</td><td><code>GET /company/{"{company_number}"}/insolvency</code></td></tr>
-              <tr><td>Review registered charges</td><td><code>GET /company/{"{company_number}"}/charges</code></td></tr>
+              <tr><td>Find candidate companies</td><td><code>GET /search/companies</code></td></tr>
+              <tr><td>Retrieve the chosen company</td><td><code>GET /company/{"{company_number}"}</code></td></tr>
+              <tr><td>Review officers</td><td><code>GET /company/{"{company_number}"}/officers</code></td></tr>
+              <tr><td>Review beneficial ownership</td><td><code>GET /company/{"{company_number}"}/persons-with-significant-control</code></td></tr>
             </tbody>
           </table>
         </TableScroll>
 
         <p>
-          The public API uses an API key sent through HTTP Basic Authentication. Companies House currently
-          allows 600 requests within a five-minute period for the standard API. Requests above the limit
-          receive a <code>429 Too Many Requests</code> response for the remainder of the window.{" "}
+          Authentication uses an API key over HTTP Basic Authentication. The standard limit is 600 requests
+          within five minutes; excess traffic receives <code>429 Too Many Requests</code>.{ " " }
           <a href="https://developer-specs.company-information.service.gov.uk/guides/authorisation">Authentication guidance</a>{" "}
-          <a href="https://developer.company-information.service.gov.uk/developer-guidelines">Rate-limit guidance</a>
+          <a href="https://developer.company-information.service.gov.uk/developer-guidelines">Developer guidelines</a>
         </p>
 
-        <Callout variant="tldr" label="The commercial takeaway">
+        <h2 id="kyc-boundary">Company lookup and KYC are not the same check</h2>
+
+        <div className={styles.boundary}>
+          <div className={styles.boundaryPanel}>
+            <strong>Companies House can tell you</strong>
+            <p>The entity exists, its number and status, its registered office, officers, PSCs and filing history.</p>
+          </div>
+          <div className={styles.boundaryMark} aria-hidden="true">≠</div>
+          <div className={styles.boundaryPanel}>
+            <strong>Your onboarding must decide</strong>
+            <p>Who the applicant is, whether they have authority, whether screening passes and whether the risk is acceptable.</p>
+          </div>
+        </div>
+
+        <TableScroll>
+          <table>
+            <thead><tr><th>Question</th><th>Companies House</th><th>Additional control</th></tr></thead>
+            <tbody>
+              <tr><td>Does the legal entity exist?</td><td>Yes</td><td>Customer confirms the correct record</td></tr>
+              <tr><td>Is the applicant an officer or PSC?</td><td>Partly</td><td>Identity and role matching</td></tr>
+              <tr><td>May the applicant act for the company?</td><td>No</td><td>Authority check or mandate</td></tr>
+              <tr><td>Is the person or entity sanctioned?</td><td>No</td><td>Current sanctions screening</td></tr>
+              <tr><td>Is the relationship acceptable?</td><td>No</td><td>Your risk and due-diligence policy</td></tr>
+            </tbody>
+          </table>
+        </TableScroll>
+
+        <Callout variant="warning" label="Do not turn a registry hit into a KYC pass">
           <p>
-            Use Companies House to accelerate company discovery and supply trusted registry evidence. Do not
-            let a successful API response become shorthand for “the customer has passed KYC”.
+            Companies House warns that register information should not automatically be treated as verified.
+            For regulated businesses, it supports customer due diligence; it does not complete it.{" "}
+            <a href="https://www.gov.uk/guidance/searching-the-companies-house-register">Register guidance</a>{" "}
+            <a href="https://www.gov.uk/hmrc-internal-manuals/anti-money-laundering-guidance-for-supervised-businesses/amlg11300">HMRC due-diligence guidance</a>
           </p>
         </Callout>
 
-        <h2 id="lookup-versus-kyc">Company lookup and KYC answer different questions</h2>
-
-        <p>The term KYC is often used loosely in product requirements. A useful technical specification separates the checks.</p>
-
-        <TableScroll>
-          <table>
-            <thead><tr><th>Onboarding question</th><th>Can Companies House help?</th><th>What else may be required?</th></tr></thead>
-            <tbody>
-              <tr><td>Does this legal entity appear on the UK register?</td><td>Yes</td><td>Confirm that the customer selected the correct record</td></tr>
-              <tr><td>Is the company active?</td><td>Yes</td><td>Apply your acceptance policy for other statuses</td></tr>
-              <tr><td>What is its registered office?</td><td>Yes</td><td>Confirm that the address is relevant to your use case</td></tr>
-              <tr><td>Who are its recorded officers and PSCs?</td><td>Yes</td><td>Consider filing dates, ceased appointments and PSC statements</td></tr>
-              <tr><td>Is the applicant one of those people?</td><td>Partly</td><td>Verify the applicant&apos;s identity and match it to the relevant role</td></tr>
-              <tr><td>Is the applicant authorised to act for the company?</td><td>No</td><td>Use an authority check, business email, mandate or direct confirmation</td></tr>
-              <tr><td>Has the individual passed your required identity checks?</td><td>Partly</td><td>Use a suitable identity verification process where required</td></tr>
-              <tr><td>Is the customer or beneficial owner sanctioned?</td><td>No</td><td>Screen against the current UK Sanctions List and other required lists</td></tr>
-              <tr><td>Is the relationship acceptable under your risk policy?</td><td>No</td><td>Complete risk assessment, enhanced checks and ongoing monitoring</td></tr>
-            </tbody>
-          </table>
-        </TableScroll>
-
-        <RichFigure
-          src="/images/blog-companies-house-monitoring.png"
-          alt="Company discovery, confirmation, identity protection and ongoing monitoring workflow"
-          width={1672}
-          height={941}
-          caption="The register is one input to a wider onboarding and monitoring system—not the final decision engine."
-        />
+        <h2 id="matching">The first real problem: matching the right company</h2>
 
         <p>
-          Companies House continues to warn users that information on the register should not automatically
-          be treated as verified or validated. Its powers and checking processes have expanded, and identity
-          verification is being introduced, but register data still reflects information filed with Companies
-          House. <a href="https://find-and-update.company-information.service.gov.uk/">Companies House register</a>{" "}
-          <a href="https://www.gov.uk/guidance/searching-the-companies-house-register">Searching the register guidance</a>
+          In one UK data-mapping project, we enriched a spreadsheet of business names with company numbers and
+          SIC codes. The API responses were consistent; the matches were not. Trading names, abbreviations,
+          previous names and near-identical businesses made “take the first result” unsafe.
         </p>
 
         <p>
-          For businesses covered by the UK Money Laundering Regulations, customer due diligence involves
-          identifying and verifying customers, beneficial owners and people acting on their behalf. Companies
-          House data can support that process. It does not complete the process.{" "}
-          <a href="https://www.gov.uk/hmrc-internal-manuals/anti-money-laundering-guidance-for-supervised-businesses/amlg11300">HMRC customer due diligence guidance</a>
+          The durable workflow is <strong>name and address → candidate companies → scored matches → customer or
+          reviewer confirmation → company number</strong>. The company number—not the search ranking—anchors the relationship.
         </p>
 
-        <h2 id="company-matching">Lesson one from a real data-matching project</h2>
-
-        <p>
-          In one UK data-mapping exercise, we built a small application that accepted a spreadsheet of business
-          names, searched Companies House, collected the company number and SIC codes, mapped each SIC code to
-          its description, retained the client&apos;s internal account reference and produced an Excel file for review.
-        </p>
-
-        <p className={styles.pullQuote}>The API responses were consistent. The matches were not.</p>
-
-        <p>
-          Some source names did not exactly match the registered legal names. Trading names, abbreviations,
-          punctuation, former names and businesses with similar names created ambiguity. In one reviewed example,
-          the Companies House search result selected by the script was wrong, while a broader web search surfaced
-          the intended business.
-        </p>
-
-        <p>The initial assumption was:</p>
-        <div className={styles.formulaFlow}>
-          <span>Business name</span><i>→</i><span>First search result</span><i>→</i><span>Correct company</span>
-        </div>
-
-        <p>The safer model became:</p>
-        <div className={styles.formulaFlow}>
-          <span>Name + address</span><i>→</i><span>Candidates</span><i>→</i><span>Scored matches</span><i>→</i><span>Confirmation</span><i>→</i><span>Company number</span>
+        <div className={styles.matchModel} aria-label="Company matching decision model">
+          <div className={styles.modelHead}>A practical matching score</div>
+          <div className={styles.signals}>
+            <div className={styles.signal}><b>40</b><span>Exact normalised legal name</span></div>
+            <div className={styles.signal}><b>25</b><span>Exact registered-office postcode</span></div>
+            <div className={styles.signal}><b>10</b><span>Town or locality</span></div>
+            <div className={styles.signal}><b>25</b><span>Status, SIC, date and previous-name evidence</span></div>
+          </div>
+          <div className={styles.routes}>
+            <div className={styles.route}><strong>90–100</strong><span>Preselect, then ask the customer to confirm</span></div>
+            <div className={styles.route}><strong>70–89</strong><span>Show the strongest candidates and differences</span></div>
+            <div className={styles.route}><strong>Below 70</strong><span>Send to review; also review close top-two scores</span></div>
+          </div>
         </div>
 
         <p>
-          This is the most important design decision in a Companies House onboarding flow. Search results are
-          candidates. The company number is the durable identifier.
+          Treat these weights as a starting point and calibrate them against reviewed matches from your own
+          customer base. Normalise punctuation, spacing and legal suffixes carefully, but avoid aggressive fuzzy
+          matching that can merge two different businesses.
         </p>
 
-        <RichFigure
-          src="/images/blog-companies-house-company-matching.png"
-          alt="Multiple company candidates being evaluated into one confirmed company record"
-          width={1536}
-          height={1024}
-          caption="Treat every name search as candidate discovery. Use corroborating data and human confirmation to resolve the legal entity."
-        />
-
-        <h2>A practical company-matching score</h2>
+        <h2 id="safe-sync">The second problem: safe synchronisation</h2>
 
         <p>
-          When the customer already knows the company number, request it and use it directly. Preserve it as a
-          string because leading zeroes and letter prefixes matter. When a user enters a company name, show
-          candidate records and ask them to select one. For spreadsheet imports or CRM enrichment, introduce a
-          confidence score and a review queue.
+          On another UK accounting platform, a scheduled Companies House job caused company names to disappear.
+          The platform recovered when the job was disabled. The fault was architectural: registry data had become
+          authoritative over information customers had already confirmed.
         </p>
 
-        <p>This is the starting score we use when designing such systems:</p>
-        <TableScroll>
-          <table>
-            <thead><tr><th>Signal</th><th>Suggested score</th></tr></thead>
-            <tbody>
-              <tr><td>Exact normalised legal name</td><td>40</td></tr>
-              <tr><td>Exact registered office postcode</td><td>25</td></tr>
-              <tr><td>Exact town or locality</td><td>10</td></tr>
-              <tr><td>Active company status</td><td>10</td></tr>
-              <tr><td>Expected SIC code</td><td>5</td></tr>
-              <tr><td>Incorporation date matches known information</td><td>5</td></tr>
-              <tr><td>Source name matches a previous company name</td><td>5</td></tr>
-            </tbody>
-          </table>
-        </TableScroll>
-
-        <p>Recommended routing:</p>
-        <TableScroll>
-          <table>
-            <thead><tr><th>Result</th><th>Action</th></tr></thead>
-            <tbody>
-              <tr><td>90 to 100</td><td>Preselect the candidate and require customer confirmation</td></tr>
-              <tr><td>70 to 89</td><td>Show the leading candidates with their differentiating details</td></tr>
-              <tr><td>Below 70</td><td>Send the record to manual review</td></tr>
-              <tr><td>Less than 15 points between the top two</td><td>Require manual review regardless of the total</td></tr>
-            </tbody>
-          </table>
-        </TableScroll>
-
-        <p>
-          These weights are a starting model. A production system should calibrate them against reviewed matches
-          from its own customer base. Name normalisation should remove superficial differences while preserving
-          meaningful words. Useful transformations include case folding, repeated-space removal, punctuation
-          normalisation and careful treatment of common legal suffixes such as Limited and Ltd. Aggressive fuzzy
-          matching can join two different businesses, so postcode and other corroborating details should carry
-          substantial weight.
-        </p>
-
-        <h2 id="safe-sync">Lesson two from a scheduled Companies House sync</h2>
-
-        <p>
-          Another UK accounting platform we supported used a scheduled Companies House synchronisation job. During
-          a production incident, company names disappeared and customer records were affected. The wider application
-          recovered after the Companies House job was disabled.
-        </p>
-
-        <p>
-          This exposed a common integration risk: an external registry feed had become authoritative over the
-          platform&apos;s operational customer record. A missing value, changed response, incorrect match or partial job
-          should never erase information that the customer has already confirmed.
-        </p>
-
-        <p>We now recommend separating the data into four records:</p>
-        <CodeBlock language="text" caption="Registry data model">{`customer_company
-    Operational record confirmed by the customer
-
-registry_link
-    Selected company number, match method and verification state
-
-registry_snapshot
-    Raw or mapped Companies House data with retrieval time and ETag
-
-registry_change_event
-    Detected change, review status and audit history`}</CodeBlock>
-
-        <p>
-          The scheduled job updates <code>registry_snapshot</code>. Business rules decide whether a detected
-          difference updates the operational record, creates a review task or sends an alert.
-        </p>
-
-        <ol>
-          <li>A null API value cannot overwrite a confirmed customer value.</li>
-          <li>A changed company name becomes an event with previous and current values.</li>
-          <li>A failed batch can resume without repeating completed updates.</li>
-          <li>Every automated decision has an audit trail.</li>
-          <li>The Companies House integration can be paused without stopping the customer platform.</li>
-        </ol>
-
-        <RichFigure
-          src="/images/blog-companies-house-safe-sync.png"
-          alt="Companies House data flowing through snapshot storage and validation into a protected customer database"
-          width={1536}
-          height={1024}
-          caption="Registry snapshots and explicit update rules create a safety boundary around the customer record."
-        />
-
-        <h2 id="onboarding-architecture">The four-stage onboarding architecture</h2>
-
-        <div className={styles.architecture} aria-label="Onboarding architecture summary">
-          {[
-            ["01", "Discover", "Name or number to candidates"],
-            ["02", "Resolve", "Confirmation and match evidence"],
-            ["03", "Verify", "Company, person and authority"],
-            ["04", "Monitor", "Changes, events and review"],
-          ].map(([number, title, copy]) => (
-            <div className={styles.architectureItem} key={number}>
-              <span>{number}</span><strong>{title}</strong><p>{copy}</p>
+        <div className={styles.syncDiagram} aria-label="Safe Companies House synchronisation design">
+          <div className={styles.syncHead}>Keep a safety boundary around the customer record</div>
+          <div className={styles.syncFlow}>
+            <div className={styles.syncNode}>
+              <strong>Registry snapshot</strong>
+              <p>Source response, retrieval time, ETag and mapped fields</p>
             </div>
-          ))}
+            <div className={styles.syncArrow} aria-hidden="true">→</div>
+            <div className={styles.syncNode}>
+              <strong>Update policy</strong>
+              <p>Compare, validate, create review event or alert</p>
+            </div>
+            <div className={styles.syncArrow} aria-hidden="true">→</div>
+            <div className={`${styles.syncNode} ${styles.syncNodeSafe}`}>
+              <strong>Customer record</strong>
+              <p>Confirmed operational data changes only under explicit rules</p>
+            </div>
+          </div>
         </div>
 
-        <RichFigure
-          src="/images/blog-companies-house-onboarding-architecture.png"
-          alt="Four-stage company onboarding architecture from registry discovery through identity and risk verification"
-          width={1536}
-          height={1024}
-          caption="A production onboarding flow combines registry evidence, identity and authority checks, risk policy and an auditable decision."
-        />
-
-        <h3>1. Discover</h3>
-        <p>
-          Accept a company name or company number. A number should lead directly to the company profile endpoint.
-          A name should call the company search endpoint and return a short candidate list.
-        </p>
-        <p>Display enough information to distinguish similar companies:</p>
-        <ul>
-          <li>Legal name</li><li>Company number</li><li>Status</li>
-          <li>Registered office locality and postcode</li><li>Incorporation date</li><li>Company type</li>
-        </ul>
-        <p>Search should be debounced and performed by your server. Keep the API key away from browser code.</p>
-
-        <h3>2. Resolve</h3>
-        <p>
-          Ask the customer to confirm the correct company. Save the company number, search term, selected candidate
-          and confirmation time. Automated imports should store all serious candidates and the reasons behind the
-          score. A reviewer should see why candidate A scored above candidate B.
-        </p>
-        <p>An explainable match such as “legal name and postcode matched” is more useful than an unexplained confidence of 96 per cent.</p>
-
-        <h3>3. Verify</h3>
-        <p>Fetch the company profile, officers and PSCs after selection. Apply rules appropriate to the product and its regulatory exposure.</p>
-        <p>For a basic business account, this may involve:</p>
-        <ul>
-          <li>Active company status</li><li>Customer confirmation of company number</li>
-          <li>Business email verification</li><li>Confirmation that the applicant has authority to act</li>
-        </ul>
-        <p>For a regulated or higher-risk relationship, the workflow may also need:</p>
-        <ul>
-          <li>Identity verification for the applicant</li><li>Beneficial-owner identification and verification</li>
-          <li>Sanctions and PEP screening</li><li>Nature and purpose of the relationship</li>
-          <li>Source-of-funds or wealth checks where required</li><li>Enhanced due diligence based on risk</li>
-        </ul>
-        <p>
-          The current UK Sanctions List is the UK Government&apos;s source for designated people, entities and ships.
-          The former OFSI Consolidated List closed on 28 January 2026, so integrations should use the current source.{" "}
-          <a href="https://www.gov.uk/government/publications/the-uk-sanctions-list">UK Sanctions List</a>
-        </p>
-
-        <h3>4. Monitor</h3>
-        <p>Company status, officers, PSCs, filing events and insolvency information can change after onboarding.</p>
-        <p>
-          Low-volume products can refresh selected records on a schedule. Larger datasets can start from a Companies
-          House snapshot and consume the Streaming API to keep a local dataset current. The API pushes real-time
-          changes through a long-running connection and supports company, filing, officer, PSC, charge and insolvency
-          streams. <a href="https://developer-specs.company-information.service.gov.uk/streaming-api/guides/overview">Streaming API overview</a>{" "}
-          <a href="https://developer-specs.company-information.service.gov.uk/streaming-api/reference">Streaming API reference</a>
-        </p>
-        <p>
-          Streaming consumers need durable timepoint storage, idempotent event processing and reconnection backoff.
-          Companies House permits a maximum of two concurrent streaming connections per account and advises clients
-          to resume from the last processed timepoint after a disconnect.{" "}
-          <a href="https://developer-specs.company-information.service.gov.uk/streaming-api/guides/overview">Streaming connection guidance</a>
-        </p>
-
-        <h2 id="identity-verification">Identity verification changes in 2026</h2>
+        <p>Separate four concepts in the data model:</p>
+        <CodeBlock language="text" caption="Registry data model">{`customer_company      customer-confirmed operational record
+registry_link         company number, match method, verification state
+registry_snapshot     Companies House data plus retrieval time and ETag
+registry_change_event detected difference, review status and audit history`}</CodeBlock>
 
         <p>
-          Companies House identity verification became a legal requirement on 18 November 2025, with a twelve-month
-          transition period for existing directors and PSCs. New directors and PSCs entered the requirement from that
-          date, while existing people must verify according to their applicable due dates.{" "}
-          <a href="https://www.gov.uk/guidance/verify-your-identity-for-companies-house">Identity verification guidance</a>{" "}
-          <a href="https://www.gov.uk/guidance/when-you-need-to-verify-your-identity-for-companies-house">When verification is required</a>
+          This prevents null API values from erasing confirmed fields, makes name and status changes reviewable,
+          lets failed batches resume safely, and allows the integration to be paused without stopping the product.
         </p>
+
+        <h2 id="architecture">The four-stage onboarding architecture</h2>
+
+        <div className={styles.architecture}>
+          <div className={styles.architectureStep}>
+            <span>01</span><strong>Discover</strong>
+            <p>Search by name or go directly to a known company number. Return a short candidate list.</p>
+          </div>
+          <div className={styles.architectureStep}>
+            <span>02</span><strong>Resolve</strong>
+            <p>Show legal name, number, status, postcode and date. Save the customer&apos;s confirmation.</p>
+          </div>
+          <div className={styles.architectureStep}>
+            <span>03</span><strong>Verify</strong>
+            <p>Apply the identity, authority, sanctions and risk checks appropriate to the product.</p>
+          </div>
+          <div className={styles.architectureStep}>
+            <span>04</span><strong>Monitor</strong>
+            <p>Refresh important fields and route material changes into an auditable review process.</p>
+          </div>
+        </div>
 
         <p>
-          Officer and PSC API resources can now contain optional <code>identity_verification_details</code>.
-          Depending on the record, these details can include the verification date, the name of an Authorised
-          Corporate Service Provider and appointment verification dates.{" "}
-          <a href="https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/resources/officerlist?v=latest">Officer resource</a>{" "}
-          <a href="https://developer-specs.company-information.service.gov.uk/companies-house-public-data-api/resources/list">PSC resource</a>
+          Search belongs on the server, with debouncing and the API key kept out of browser code. Low-volume
+          products can refresh records on a schedule. Larger datasets can consume the Companies House Streaming
+          API, using durable timepoints, idempotent processing and reconnect backoff.{" "}
+          <a href="https://developer-specs.company-information.service.gov.uk/streaming-api/guides/overview">Streaming API guidance</a>
         </p>
 
-        <Callout variant="warning" label="Handle missing verification data carefully">
+        <h3>Identity verification in 2026</h3>
+
+        <p>
+          Companies House identity verification became a legal requirement on 18 November 2025, with a
+          twelve-month transition for existing directors and PSCs. Officer and PSC resources may now contain
+          optional <code>identity_verification_details</code>.{ " " }
+          <a href="https://www.gov.uk/guidance/verify-your-identity-for-companies-house">Verification guidance</a>{" "}
+          <a href="https://www.gov.uk/guidance/when-you-need-to-verify-your-identity-for-companies-house">When it is required</a>
+        </p>
+
+        <Callout variant="note" label="An extra signal, not a universal answer">
           <p>
-            The field is optional; the transition was still in progress when this guide was reviewed in September
-            2026; and Companies House verification concerns the person&apos;s Companies House role. Your product may
-            still need to verify the applicant and their authority for your own relationship.
-          </p>
-          <p>
-            An absent field should produce “verification information unavailable” or a review state—not an accusation
-            or automatic rejection.
+            The field is optional, the transition was still underway when this guide was reviewed, and the check
+            concerns the person&apos;s Companies House role. Missing data should produce “unavailable” or a review
+            state—not an automatic rejection.
           </p>
         </Callout>
 
-        <h2 id="implementation">A safe server-side implementation</h2>
+        <h2 id="implementation">Implementation essentials</h2>
 
-        <p>The following TypeScript example shows a minimal server-side client:</p>
-
-        <CodeBlock language="typescript" caption="companies-house.ts">{`const baseUrl = "https://api.company-information.service.gov.uk";
-
-function companiesHouseAuth() {
-  const apiKey = process.env.COMPANIES_HOUSE_API_KEY;
-
-  if (!apiKey) {
-    throw new Error("Companies House API key is missing");
-  }
-
-  return \`Basic \${Buffer.from(\`\${apiKey}:\`).toString("base64")}\`;
-}
+        <CodeBlock language="typescript" caption="Minimal server-side client">{`const baseUrl = "https://api.company-information.service.gov.uk";
 
 async function companiesHouseGet<T>(path: string): Promise<T> {
+  const apiKey = process.env.COMPANIES_HOUSE_API_KEY;
+  if (!apiKey) throw new Error("Companies House API key is missing");
+
   const response = await fetch(\`\${baseUrl}\${path}\`, {
     headers: {
-      Authorization: companiesHouseAuth(),
+      Authorization: \`Basic \${Buffer.from(\`\${apiKey}:\`).toString("base64")}\`,
       Accept: "application/json",
     },
     signal: AbortSignal.timeout(8000),
   });
 
-  if (response.status === 429) {
-    throw new Error("Companies House rate limit reached");
-  }
-
-  if (!response.ok) {
-    throw new Error(\`Companies House returned \${response.status}\`);
-  }
-
+  if (response.status === 429) throw new Error("Rate limit reached");
+  if (!response.ok) throw new Error(\`Companies House returned \${response.status}\`);
   return response.json() as Promise<T>;
-}
-
-export function searchCompanies(query: string) {
-  const params = new URLSearchParams({ q: query, items_per_page: "10" });
-  return companiesHouseGet(\`/search/companies?\${params}\`);
-}
-
-export function getCompany(companyNumber: string) {
-  return companiesHouseGet(\`/company/\${encodeURIComponent(companyNumber)}\`);
 }`}</CodeBlock>
 
-        <p>A production version should add:</p>
-        <ul>
-          <li>Input-length and character validation</li><li>Request correlation IDs</li>
-          <li>Caching for repeated searches and profiles</li><li>A queue for bulk enrichment</li>
-          <li>Controlled retry with jitter</li><li>A circuit breaker when error rates rise</li>
-          <li>Structured logs without unnecessary personal data</li>
-          <li>Metrics for <code>429</code>, timeout, mismatch and manual-review rates</li>
-        </ul>
+        <div className={styles.codeNote}>
+          <div><strong>Interactive traffic</strong><span>Reserve capacity for customer searches</span></div>
+          <div><strong>Bulk enrichment</strong><span>Queue, cache and retry below the limit</span></div>
+          <div><strong>Operations</strong><span>Track timeouts, 429s, mismatches and reviews</span></div>
+        </div>
 
         <p>
-          At the published limit, the theoretical average is two standard API requests per second. A bulk worker
-          should operate below that rate so interactive searches retain capacity. Caching candidate searches for a
-          short period and company profiles for longer reduces repeated traffic.
-        </p>
-
-        <p>
-          Companies House provides a sandbox running the same API versions as the live environment. Use it for
-          response handling, failure paths and test data before connecting production workflows. Some services have
-          sandbox limitations, so test critical reads against controlled live records as well.{" "}
+          Add input validation, short-lived search caching, longer profile caching, correlation IDs, controlled
+          retry with jitter, a circuit breaker and structured logs. Test failure paths against the Companies House
+          sandbox before connecting a production workflow.{" "}
           <a href="https://developer.company-information.service.gov.uk/api-testing">API testing guidance</a>
         </p>
 
-        <h2>Update rules that protect customer data</h2>
-
-        <p>Each mapped field should have an explicit update policy.</p>
+        <h3>Update rules worth defining before launch</h3>
 
         <TableScroll>
           <table>
             <thead><tr><th>Incoming change</th><th>Recommended behaviour</th></tr></thead>
             <tbody>
-              <tr><td>Company status changes</td><td>Save snapshot, create risk event and evaluate policy</td></tr>
-              <tr><td>Registered name changes</td><td>Save as registry name, retain customer display name and request review</td></tr>
-              <tr><td>API field becomes null</td><td>Retain confirmed value and log the missing source value</td></tr>
-              <tr><td>Registered office changes</td><td>Save change and request confirmation when operationally relevant</td></tr>
-              <tr><td>Officer or PSC changes</td><td>Create a review event for regulated or higher-risk products</td></tr>
-              <tr><td>Company is dissolved or enters insolvency</td><td>Restrict relevant actions according to product policy and review</td></tr>
-              <tr><td>API is temporarily unavailable</td><td>Preserve the last successful snapshot and mark it stale</td></tr>
-              <tr><td>Search produces a different top result</td><td>Keep the confirmed company number and ignore ranking changes</td></tr>
+              <tr><td>Status, insolvency or material risk change</td><td>Save snapshot, create event and apply policy</td></tr>
+              <tr><td>Registered name or office changes</td><td>Retain customer display data and request review where relevant</td></tr>
+              <tr><td>Source field becomes null</td><td>Keep the confirmed value and log the missing source data</td></tr>
+              <tr><td>Officer or PSC changes</td><td>Create a review event when risk requires it</td></tr>
+              <tr><td>API unavailable or search ranking changes</td><td>Keep the last snapshot and confirmed company number</td></tr>
             </tbody>
           </table>
         </TableScroll>
 
-        <p>The confirmed company number anchors the relationship. Future name searches should never silently relink the customer to another company.</p>
-
-        <h2 id="privacy">Privacy and retention</h2>
+        <h2>Privacy and release checklist</h2>
 
         <p>
-          Public availability does not remove UK GDPR responsibilities when officer or PSC information is stored
-          and used in your own system. The ICO&apos;s data-minimisation principle requires organisations to identify the
-          minimum personal data needed for a defined purpose. Storage limitation requires a retention period connected
-          to that purpose. <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/data-minimisation/">ICO data-minimisation guidance</a>{" "}
+          Public register data remains personal data when you store and use officer or PSC information. Apply UK
+          GDPR data minimisation and storage limitation: collect only what the decision requires, define retention,
+          restrict access and explain the registry check in your privacy notice.{" "}
+          <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/data-minimisation/">ICO data-minimisation guidance</a>{" "}
           <a href="https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-protection-principles/a-guide-to-the-data-protection-principles/storage-limitation/">ICO storage-limitation guidance</a>
         </p>
-
-        <p>Practical controls include:</p>
-        <ul>
-          <li>Store the company number and decision evidence required for the relationship.</li>
-          <li>Avoid copying every officer and PSC field into the customer database.</li>
-          <li>Record the source URL or endpoint, retrieval time and decision outcome.</li>
-          <li>Set retention rules for rejected applicants and expired checks.</li>
-          <li>Restrict access to identity and due-diligence records.</li>
-          <li>Explain registry checks in the privacy notice.</li>
-          <li>Keep an audit trail showing automated and human decisions.</li>
-        </ul>
-
-        <h2>Implementation checklist</h2>
-        <p>Before releasing a Companies House onboarding flow, confirm that:</p>
 
         <div className={styles.checklist}>
           {CHECKLIST.map((item) => (
             <div className={styles.checkItem} key={item}>
-              <span className={styles.checkMark} aria-hidden="true">✓</span>
-              <p>{item}</p>
+              <span className={styles.check} aria-hidden="true">✓</span><p>{item}</p>
             </div>
           ))}
         </div>
@@ -659,19 +402,15 @@ export function getCompany(companyNumber: string) {
 
         <section className={styles.recommendation}>
           <h2>Final recommendation</h2>
-          <p>Use Companies House as the official registry source within a wider onboarding system.</p>
-          <div className={styles.formulaFlow}>
-            <span>Search</span><i>→</i><span>Resolve</span><i>→</i><span>Confirm company number</span><i>→</i><span>Verify person + authority</span><i>→</i><span>Assess risk</span><i>→</i><span>Monitor</span>
+          <p>Use Companies House as the official registry source inside a wider onboarding system.</p>
+          <div className={styles.finalFlow}>
+            <span>Search</span><i>→</i><span>Resolve</span><i>→</i><span>Confirm number</span><i>→</i>
+            <span>Verify person + authority</span><i>→</i><span>Assess risk</span><i>→</i><span>Monitor</span>
           </div>
           <p>
-            Our project experience shows that the largest risks sit around the API. Business names are ambiguous.
-            Search ranking can select the wrong legal entity. Scheduled syncs can damage operational records when
-            external data is allowed to overwrite customer-confirmed information.
-          </p>
-          <p>
-            A strong implementation therefore treats company search as discovery, the company number as the registry
-            key, identity and authority as separate checks, and every external update as an auditable event. That
-            architecture creates a faster onboarding experience while protecting the accuracy of the customer record.
+            Treat search results as candidates, the company number as the registry key, identity and authority as
+            separate checks, and every external update as an auditable event. That is what makes onboarding faster
+            without sacrificing the accuracy of the customer record.
           </p>
         </section>
 
@@ -681,15 +420,14 @@ export function getCompany(companyNumber: string) {
         </p>
 
         <RelatedGrid>
-          <RelatedCard tag="Service" title="API & Integration" body="Design and build a safe Companies House integration around your real onboarding process." href="/services/api-and-integration/" />
-          <RelatedCard tag="Service" title="SaaS Web App Development" body="Build a customer-facing product with onboarding, verification and operations designed together." href="/services/saas-web-app-development/" />
-          <RelatedCard tag="Service" title="Maintenance & Support" body="Own the scheduled jobs, monitoring and review paths after the integration goes live." href="/services/maintenance-support/" />
+          <RelatedCard tag="Service" title="API & Integration" body="Design a Companies House integration around your real onboarding process." href="/services/api-and-integration/" />
+          <RelatedCard tag="Service" title="SaaS Web App Development" body="Build customer onboarding, verification and operations as one product." href="/services/saas-web-app-development/" />
+          <RelatedCard tag="Service" title="Maintenance & Support" body="Own the scheduled jobs and monitoring after launch." href="/services/maintenance-support/" />
         </RelatedGrid>
 
         <AuthorByline lastReviewedISO={MODIFIED_ISO}>
           Ritesh leads engineering at Appycodes. This guide draws on UK accounting, company-data and CRM work where
-          the difficult part was not calling the Companies House API, but resolving ambiguous businesses and keeping
-          external registry data from damaging customer-confirmed records.
+          resolving ambiguous businesses and protecting customer-confirmed records mattered more than the API call itself.
         </AuthorByline>
       </PostBody>
 

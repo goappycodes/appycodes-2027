@@ -13,10 +13,10 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "companies-house-api-uk-onboarding-kyc",
     title: "Using the Companies House API for UK Customer Onboarding and KYC",
     description:
-      "A practical UK guide to company matching, KYC boundaries, identity checks, rate limits, monitoring and safe synchronisation architecture using Companies House data.",
-    image: "/images/blog-companies-house-uk-kyc-hero.png",
+      "A practical UK guide to matching the right company, understanding the KYC boundary and safely synchronising Companies House data.",
+    image: "/images/blog-companies-house-onboarding-system.png",
     date: "2026-09-01",
-    readTime: "17 min read",
+    readTime: "11 min read",
     tags: ["UK Business", "Companies House", "KYC", "API Integration"],
   },
   {
