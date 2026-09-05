@@ -10,6 +10,16 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "postcodes-io-vs-ideal-postcodes-uk-address-lookup",
+    title: "Postcodes.io vs Ideal Postcodes: Which UK Address Lookup Should You Use?",
+    description:
+      "Choose postcode geography or complete delivery-point addresses with a practical scoring model, a real UK cover-funnel boundary and a resilient Next.js integration pattern.",
+    image: "/images/blog-postcodes-io-vs-ideal-postcodes-uk-address-lookup.png",
+    date: "2026-09-05",
+    readTime: "15 min read",
+    tags: ["UK Business", "Address Data", "Postcodes", "API Integration"],
+  },
+  {
     slug: "companies-house-api-uk-onboarding-kyc",
     title: "Using the Companies House API for UK Customer Onboarding and KYC",
     description:

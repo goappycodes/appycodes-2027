@@ -69,6 +69,7 @@ export function buildPostSchemas(opts: {
   breadcrumbLabel: string;
   keywords?: string;
   author?: Author;
+  reviewerName?: string;
   faqs?: FaqPair[];
 }) {
   const author = opts.author ?? RITESH;
@@ -97,6 +98,13 @@ export function buildPostSchemas(opts: {
   };
   if (articleSection) blogPosting.articleSection = articleSection;
   if (opts.keywords) blogPosting.keywords = opts.keywords;
+  if (opts.reviewerName) {
+    blogPosting.reviewedBy = {
+      "@type": "Organization",
+      name: opts.reviewerName,
+      parentOrganization: { "@id": ORG_ID },
+    };
+  }
 
   const breadcrumb = {
     "@context": "https://schema.org",
