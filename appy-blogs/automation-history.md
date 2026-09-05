@@ -2,7 +2,7 @@
 
 ## 2026-09-05 — Postcodes.io vs Ideal Postcodes
 
-- **Run status:** Quality gate passed; ready for production publication.
+- **Run status:** Published and verified live.
 - **Title:** Postcodes.io vs Ideal Postcodes: Which UK Address Lookup Should You Use?
 - **Slug:** `postcodes-io-vs-ideal-postcodes-uk-address-lookup`
 - **Primary cluster:** UK company data and identity — `/uk/insights/company-data-identity/`
@@ -74,8 +74,8 @@
 - **Phone visual check:** Passed at 390×844; cards collapse to one column, tables and code remain scroll-contained, hero loads and no horizontal overflow appears.
 - **Hub / cluster check:** Central hub exposes all three cluster links; company-data cluster visibly links to the new article; both passed phone-width rendering with no console errors.
 - **Generated hero:** Built-in image generation; wide Appycodes editorial workflow comparing postcode geography with delivery-point address selection; saved as `public/images/blog-postcodes-io-vs-ideal-postcodes-uk-address-lookup.png`.
-- **Publication commit:** Pending.
-- **Live URL:** https://appycodes.dev/blog/postcodes-io-vs-ideal-postcodes-uk-address-lookup/ — pending deployment verification.
-- **Live cluster URL:** https://appycodes.dev/uk/insights/company-data-identity/ — pending deployment verification.
-- **Deployment verification:** Pending.
-- **Email status:** Pending; send only after the live article and cluster link are confirmed.
+- **Publication commit:** `74a57d7` (`Publish UK postcode address lookup guide`).
+- **Live URL:** https://appycodes.dev/blog/postcodes-io-vs-ideal-postcodes-uk-address-lookup/
+- **Live cluster URL:** https://appycodes.dev/uk/insights/company-data-identity/
+- **Deployment verification:** Passed on 2026-09-05. The production article returned HTTP 200 with the expected title; the production cluster returned HTTP 200 with the article backlink. A live browser check confirmed the H1, hero, author/reviewer details and full article content.
+- **Email status:** Sent to the authenticated Gmail account after production verification. Gmail message ID: `1a070e5f12ec560c`.
